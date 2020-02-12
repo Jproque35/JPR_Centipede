@@ -37,12 +37,6 @@
     <Filter Include="Header Files\Entities\MovingObject">
       <UniqueIdentifier>{00708e2f-a0de-41e2-9ff8-baf609ae0ed0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Entities\MovingObject\States">
-      <UniqueIdentifier>{723837e9-30c3-4f9b-ac9b-19bff1769a75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Entities\MovingObject\States">
-      <UniqueIdentifier>{231a8aa7-3198-4edd-a60c-5809cf1d94c2}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bob.cpp">
@@ -84,12 +78,6 @@
     <ClCompile Include="MovingObject.cpp">
       <Filter>Source Files\Entities\MovingObject</Filter>
     </ClCompile>
-    <ClCompile Include="MovingObjectState.cpp">
-      <Filter>Source Files\Entities\MovingObject\States</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveHorizontalState.cpp">
-      <Filter>Source Files\Entities\MovingObject\States</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bob.h">
@@ -115,12 +103,6 @@
     </ClInclude>
     <ClInclude Include="MovingObject.h">
       <Filter>Header Files\Entities\MovingObject</Filter>
-    </ClInclude>
-    <ClInclude Include="MovingObjectState.h">
-      <Filter>Header Files\Entities\MovingObject\States</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveHorizontalState.h">
-      <Filter>Header Files\Entities\MovingObject\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

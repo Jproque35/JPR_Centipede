@@ -7,18 +7,6 @@ MovingHorizontalState::MovingHorizontalState(MovingObject* obj) :MovingObjectSta
 
 }
 
-void MovingHorizontalState::collideWithTopOrBottom() {
-
-
-
-}
-
-void MovingHorizontalState::collideWithLeftOrRight() {
-
-	this->obj->setXVelocity(-this->obj->getXVelocity());
-
-}
-
 void MovingHorizontalState::checkCollision(GameObject* objs[]) {
 
 
