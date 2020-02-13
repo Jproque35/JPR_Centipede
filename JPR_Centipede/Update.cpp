@@ -7,17 +7,20 @@ void Engine::update(float dtAsSeconds) {
 
 		GameObject* currObject = this->enemies->get(i);
 
-		currObject->checkCollision(&window);
-		currObject->checkCollision(this->bullet);
+		if (currObject->isActive()) {
+			currObject->checkCollision(this->bullet);
 
-		for (int i = 0; i < obstacles->size(); i++) {
+			for (int i = 0; i < obstacles->size(); i++) {
 
-			currObject->checkCollision(this->obstacles->get(i));
+				currObject->checkCollision(this->obstacles->get(i));
 
+			}
+
+			currObject->checkCollision(&window);
+
+			currObject->update(dtAsSeconds);
 		}
 
-		currObject->update(dtAsSeconds);
-		
 	}
 
 	if (this->bullet->isActive()) {

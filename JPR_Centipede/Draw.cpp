@@ -6,7 +6,11 @@ void Engine::draw() {
 	
 	for (int i = 0; i < this->enemies->size(); i++) {
 
-		this->window.draw(this->enemies->get(i)->getShape());
+		if (this->enemies->get(i)->isActive()) {
+
+			this->window.draw(this->enemies->get(i)->getShape());
+
+		}
 
 	}
 	

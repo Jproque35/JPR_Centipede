@@ -13,6 +13,7 @@ void Engine::init() {
 	for (int i = 0; i < this->enemies->size(); i++) {
 
 		this->enemies->add(i, new MovingObject(0.0f, 0.0f));
+		this->enemies->get(i)->activate();
 
 	}
 
