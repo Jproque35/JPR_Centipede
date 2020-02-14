@@ -1,3 +1,5 @@
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
 #pragma once
 #include <SFML/Graphics.hpp>
 
@@ -34,3 +36,5 @@ public:
 	virtual void update(float elapsedTime) = 0;
 
 };
+
+#endif

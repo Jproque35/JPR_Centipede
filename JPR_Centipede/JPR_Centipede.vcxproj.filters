@@ -39,9 +39,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bob.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
@@ -84,11 +81,14 @@
     <ClCompile Include="MovingObjectCollision.cpp">
       <Filter>Source Files\Entities\MovingObject</Filter>
     </ClCompile>
+    <ClCompile Include="MovingSegment.cpp">
+      <Filter>Source Files\Entities\MovingObject</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyMoveDownState.cpp">
+      <Filter>Source Files\Entities\MovingObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bob.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
@@ -108,6 +108,15 @@
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="MovingObject.h">
+      <Filter>Header Files\Entities\MovingObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MovingSegment.h">
+      <Filter>Header Files\Entities\MovingObject</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyState.h">
+      <Filter>Header Files\Entities\MovingObject</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMoveDownState.h">
       <Filter>Header Files\Entities\MovingObject</Filter>
     </ClInclude>
   </ItemGroup>

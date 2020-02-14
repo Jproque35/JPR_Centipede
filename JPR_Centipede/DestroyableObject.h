@@ -1,3 +1,5 @@
+#ifndef DESTROYABLEOBJECT_H
+#define DESTROYABLEOBJECT_H
 #pragma once
 #include "GameObject.h"
 
@@ -20,4 +22,6 @@ public:
 	void update(float elapsedTime);
 
 };
+
+#endif
 
