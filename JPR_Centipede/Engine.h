@@ -1,3 +1,5 @@
+#ifndef ENGINE_H
+#define ENGINE_H
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -6,6 +8,7 @@
 #include "PlayerBullet.h"
 #include "MovingObject.h"
 #include "DestroyableObject.h"
+#include "EnemySegment.h"
 
 using namespace sf;
 
@@ -17,6 +20,8 @@ private:
 	GameObjectManager* obstacles;
 	Player* player;
 	PlayerBullet* bullet;
+	Enemy* testEnemy;
+	EnemySegment* testSegment;
 
 	void input();
 	void init();
@@ -28,3 +33,5 @@ public:
 	void start();
 
 };
+
+#endif

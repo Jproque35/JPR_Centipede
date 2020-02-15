@@ -1,5 +1,8 @@
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "ObjectState.h"
 
 using namespace sf;
 
@@ -20,6 +23,7 @@ public:
 	void activate();
 	void deactivate();
 	bool isActive();
+	void setState(ObjectState* state);
 	ObjectType getType();
 	Vector2f getPosition();
 	FloatRect getCollisionBox();
@@ -28,9 +32,10 @@ public:
 	void setYVelocity(float ySpeed);
 	float getXVelocity();
 	float getYVelocity();
-	virtual void checkCollision(GameObject* objs[]) = 0;
 	virtual void checkCollision(GameObject* obj) = 0;
 	virtual void checkCollision(Window* w) = 0;
 	virtual void update(float elapsedTime) = 0;
 
 };
+
+#endif

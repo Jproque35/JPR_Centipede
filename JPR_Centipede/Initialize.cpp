@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "EnemyMoveLeftState.h"
 
 void Engine::init() {
 
@@ -12,8 +13,9 @@ void Engine::init() {
 
 	for (int i = 0; i < this->enemies->size(); i++) {
 
-		this->enemies->add(i, new MovingObject(0.0f, 0.0f));
+		this->enemies->add(i, new Enemy(0.0f, 0.0f));
 		this->enemies->get(i)->activate();
+		this->enemies->get(i)->setState(new EnemyMoveLeftState(this->enemies->get(i)));
 
 	}
 

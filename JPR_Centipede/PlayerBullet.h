@@ -1,3 +1,5 @@
+#ifndef PLAYERBULLET_H
+#define PLAYERBULLET_H
 #pragma once
 #include "GameObject.h"
 
@@ -17,4 +19,6 @@ public:
 	void update(float elapsedTime);
 
 };
+
+#endif
 

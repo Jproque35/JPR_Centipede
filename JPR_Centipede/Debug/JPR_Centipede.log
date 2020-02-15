@@ -1,11 +1,87 @@
-﻿  Initialize.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(8,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(8,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(9,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(9,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(20,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(24,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(24,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  DestroyableObject.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+  Draw.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+  EnemyMoveLeftState.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObject.h(24,27): error C2061: syntax error: identifier 'ObjectState'
+  EnemySegment.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+  EnemyState.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObject.h(24,27): error C2061: syntax error: identifier 'ObjectState'
+  Engine.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(6,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(7,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(9,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(9,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  GameObject.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+  GameObjectManager.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(8,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(18,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(28,8): warning C4018: '<': signed/unsigned mismatch
+  Initialize.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(9,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(9,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(10,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(10,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(18): error C2259: 'EnemyMoveLeftState': cannot instantiate abstract class
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EnemyMoveLeftState.h(7): message : see declaration of 'EnemyMoveLeftState'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(18): message : due to following members:
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(18): message : 'void ObjectState::checkCollision(void)': is abstract
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12): message : see declaration of 'ObjectState::checkCollision'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(18,57): error C2259: 'EnemyMoveLeftState': cannot instantiate abstract class
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EnemyMoveLeftState.h(7): message : see declaration of 'EnemyMoveLeftState'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(18,57): message : due to following members:
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(18,57): message : 'void ObjectState::checkCollision(void)': is abstract
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12): message : see declaration of 'ObjectState::checkCollision'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(18,80): error C2664: 'EnemyMoveLeftState::EnemyMoveLeftState(EnemyMoveLeftState &&)': cannot convert argument 1 from 'GameObject *' to 'Enemy *'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(18,76): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EnemyMoveLeftState.h(15,2): message : see declaration of 'EnemyMoveLeftState::EnemyMoveLeftState'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(22,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(26,97): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(26,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Input.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Input.cpp(57,12): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Input.cpp(60,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Main.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+  MovingObject.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+  MovingObjectUpdate.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+  Player.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+  PlayerBullet.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
   MovingObjectCollision.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MovingObjectCollision.cpp(21,39): error C2664: 'void ObjectState::checkCollision(sf::Window *)': cannot convert argument 1 from 'GameObject *' to 'sf::Window *'
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MovingObjectCollision.cpp(21,36): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(13,15): message : see declaration of 'ObjectState::checkCollision'
+  Update.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\ObjectState.h(12,40): error C2061: syntax error: identifier 'GameObject'
   Generating Code...
-  JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

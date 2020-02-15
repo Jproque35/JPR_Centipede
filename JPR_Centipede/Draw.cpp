@@ -3,7 +3,7 @@
 void Engine::draw() {
 
 	window.clear(Color(0, 0, 0, 0));
-	
+
 	for (int i = 0; i < this->enemies->size(); i++) {
 
 		if (this->enemies->get(i)->isActive()) {

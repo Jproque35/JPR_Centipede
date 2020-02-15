@@ -12,7 +12,7 @@ void Engine::update(float dtAsSeconds) {
 
 			for (int i = 0; i < obstacles->size(); i++) {
 
-				currObject->checkCollision(this->obstacles->get(i));
+				//currObject->checkCollision(this->obstacles->get(i));
 
 			}
 

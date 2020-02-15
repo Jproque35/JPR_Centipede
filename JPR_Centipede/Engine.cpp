@@ -6,7 +6,7 @@ Engine::Engine() {
 	resolution.x = VideoMode::getDesktopMode().width;
 	resolution.y = VideoMode::getDesktopMode().height;
 
-	this->window.create(VideoMode(resolution.x, resolution.y), "Simple Game Engine", Style::Fullscreen);
+	this->window.create(VideoMode(resolution.x, resolution.y), "Simple Game Engine", Style::Default);
 
 }
 

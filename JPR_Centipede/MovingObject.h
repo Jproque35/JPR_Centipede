@@ -1,33 +1,34 @@
+#ifndef ENEMY_H
+#define ENEMY_H
 #pragma once
 #include "GameObject.h"
 #include "PlayerBullet.h"
+#include "EnemySegment.h"
+#include "ObjectState.h"
 #include <iostream>
 
-enum class MovingObjectState {MoveLeft, MoveRight, MoveUp, MoveDown};
-
-class MovingObject: public GameObject {
+class Enemy: public GameObject {
 
 protected:
-	MovingObjectState currState;
-	MovingObjectState lastSideState;
+	ObjectState* currState;
 
 public:
 
-	MovingObject(float initX, float initY);
-	void checkCollision(GameObject* objs[]);
+	Enemy(float initX, float initY);
+	void setNext(EnemySegment* segment);
+	void setState(ObjectState* state);
 	void checkCollision(GameObject* obj);
 	void checkCollision(Window* w);
 	void update(float elapsedTime);
 
 private:
-	float dist = 0.0f;
+	float verticalDist = 0.0f;
+	float totalDist = 0.0f;
 	bool inReverse = false;
+	EnemySegment* next = NULL;
 	bool isPlayerProjectile(GameObject* obj);
-	bool collideTopSide(Window* w);
-	bool collideBottomSide(Window* w);
-	bool collideLeftSide(Window* w);
-	bool collideRightSide(Window* w);
-	void collideWithObstacle(GameObject* obj);
 
 };
+
+#endif
 
