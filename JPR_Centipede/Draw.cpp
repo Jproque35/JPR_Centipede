@@ -8,7 +8,10 @@ void Engine::draw() {
 
 		if (this->enemies->get(i)->isActive()) {
 
-			this->window.draw(this->enemies->get(i)->getShape());
+
+			RectangleShape enemyDrawable = this->enemies->get(i)->getShape();
+			enemyDrawable.scale(cellWidth, cellWidth);
+			this->window.draw(enemyDrawable);
 
 		}
 
@@ -19,11 +22,16 @@ void Engine::draw() {
 		this->window.draw(this->obstacles->get(i)->getShape());
 
 	}
+	RectangleShape drawable = this->player->getShape();
+	drawable.scale(cellWidth, cellWidth);
 
-	this->window.draw(this->player->getShape());
+	this->window.draw(drawable);
+
+
 	if (this->bullet->isActive()) {
 
 		this->window.draw(this->bullet->getShape());
+
 
 	}
 	

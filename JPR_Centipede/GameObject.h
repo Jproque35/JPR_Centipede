@@ -21,6 +21,7 @@ public:
 	void deactivate();
 	bool isActive();
 	ObjectType getType();
+	void setPosition(Vector2f pos);
 	Vector2f getPosition();
 	FloatRect getCollisionBox();
 	RectangleShape getShape();

@@ -10,6 +10,7 @@ class MovingObject: public GameObject {
 protected:
 	MovingObjectState currState;
 	MovingObjectState lastSideState;
+	MovingObject* next = NULL;
 
 public:
 
@@ -21,7 +22,6 @@ public:
 
 private:
 	float dist = 0.0f;
-	bool inReverse = false;
 	bool isPlayerProjectile(GameObject* obj);
 	bool collideTopSide(Window* w);
 	bool collideBottomSide(Window* w);

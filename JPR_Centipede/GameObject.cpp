@@ -34,6 +34,12 @@ ObjectType GameObject::getType() {
 
 }
 
+void GameObject::setPosition(Vector2f pos) {
+
+	this->position = pos;
+
+}
+
 Vector2f GameObject::getPosition() {
 
 	return this->position;
