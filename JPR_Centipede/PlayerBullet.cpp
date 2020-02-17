@@ -1,6 +1,6 @@
 #include "PlayerBullet.h"
 
-PlayerBullet::PlayerBullet(float initX, float initY) : GameObject(initX, initY) {
+PlayerBullet::PlayerBullet(float initX, float initY) : ObjectData(initX, initY) {
 
 	this->ySpeed = 750.0f;
 	this->shape.setSize(Vector2f(5.0f, 30.0f));
@@ -22,13 +22,13 @@ float PlayerBullet::getDistanceTravelled() {
 
 }
 
-void PlayerBullet::checkCollision(GameObject* objs[]) {
+void PlayerBullet::checkCollision(ObjectData* objs[]) {
 
 
 
 }
 
-void PlayerBullet::checkCollision(GameObject* obj) {
+void PlayerBullet::checkCollision(ObjectData* obj) {
 
 
 

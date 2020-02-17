@@ -3,7 +3,7 @@
 
 using namespace std;
 
-EnemySegment::EnemySegment(float initX, float initY):GameObject(initX, initY) {
+EnemySegment::EnemySegment(float initX, float initY):ObjectData(initX, initY) {
 
 
 	this->shape.setSize(Vector2f(50.0f, 50.0f));
@@ -30,9 +30,9 @@ void EnemySegment::queuePosition(Vector2f pos) {
 	this->posQueue->push(pos);
 
 }
-void EnemySegment::checkCollision(GameObject* objs[]) {}
+void EnemySegment::checkCollision(ObjectData* objs[]) {}
 
-void EnemySegment::checkCollision(GameObject* obj) {}
+void EnemySegment::checkCollision(ObjectData* obj) {}
 
 void EnemySegment::checkCollision(Window* w) {}
 

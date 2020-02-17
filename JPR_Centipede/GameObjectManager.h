@@ -1,19 +1,19 @@
 #ifndef GAMEOBJECTMANAGER_H
 #define GAMEOBJECTMANAGER_H
 #pragma once
-#include "GameObject.h"
+#include "ObjectData.h"
 #include <SFML/Graphics.hpp>
 
 class GameObjectManager {
 
 private:
-	std::vector<GameObject*> objs;
+	std::vector<ObjectData*> objs;
 
 public:
 	GameObjectManager(int size);
 	~GameObjectManager();
-	void add(int i, GameObject* obj);
-	GameObject* get(int i);
+	void add(int i, ObjectData* obj);
+	ObjectData* get(int i);
 	int size();
 
 };

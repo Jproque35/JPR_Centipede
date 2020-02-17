@@ -1,9 +1,9 @@
 #ifndef PLAYERBULLET_H
 #define PLAYERBULLET_H
 #pragma once
-#include "GameObject.h"
+#include "ObjectData.h"
 
-class PlayerBullet : public GameObject
+class PlayerBullet : public ObjectData
 {
 
 private:

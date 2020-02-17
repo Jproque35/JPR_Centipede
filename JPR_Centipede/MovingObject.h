@@ -1,13 +1,13 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 #pragma once
-#include "GameObject.h"
+#include "ObjectData.h"
 #include "PlayerBullet.h"
 #include "EnemySegment.h"
 #include "ObjectState.h"
 #include <iostream>
 
-class Enemy: public GameObject {
+class Enemy: public ObjectData {
 
 protected:
 	ObjectState* currState;
@@ -17,7 +17,7 @@ public:
 	Enemy(float initX, float initY);
 	void setNext(EnemySegment* segment);
 	void setState(ObjectState* state);
-	void checkCollision(GameObject* obj);
+	void checkCollision(ObjectData* obj);
 	void checkCollision(Window* w);
 	void update(float elapsedTime);
 

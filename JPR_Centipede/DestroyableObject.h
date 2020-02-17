@@ -1,10 +1,12 @@
+#ifndef MUSHROOM_H
+#define MUSHROOM_H
 #pragma once
-#include "GameObject.h"
+#include "ObjectData.h"
 
 using namespace sf;
 
 class DestroyableObject :
-	public GameObject
+	public ObjectData
 {
 
 private:
@@ -20,4 +22,6 @@ public:
 	void update(float elapsedTime);
 
 };
+
+#endif
 

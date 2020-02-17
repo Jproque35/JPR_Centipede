@@ -34,25 +34,31 @@
     <Filter Include="Source Files\Entities\MovingObject">
       <UniqueIdentifier>{9d0bf6a6-6a6c-40cb-b128-6e138e7c6db4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Entities\MovingObject">
+    <Filter Include="Header Files\Entities\GameObject">
+      <UniqueIdentifier>{cc089060-d12e-4a35-a3c0-6dc6c8acaf98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Player">
+      <UniqueIdentifier>{9eaaba0f-190c-4d18-8841-fc728237000e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Mushroom">
+      <UniqueIdentifier>{e536f421-f557-445e-b77b-2caccc3ebd69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Player">
+      <UniqueIdentifier>{eed286b3-0007-4c87-bb82-53d020e32eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Mushroom">
+      <UniqueIdentifier>{b1647d71-9127-45ed-a917-57a65eef9308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\GameObject">
+      <UniqueIdentifier>{2dce0315-6d95-499e-9609-760cc79df5ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Enemy">
       <UniqueIdentifier>{00708e2f-a0de-41e2-9ff8-baf609ae0ed0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bob.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Engine</Filter>
@@ -68,9 +74,6 @@
     </ClCompile>
     <ClCompile Include="Update.cpp">
       <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="DestroyableObject.cpp">
-      <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Initialize.cpp">
       <Filter>Source Files\Engine</Filter>
@@ -90,43 +93,70 @@
     <ClCompile Include="EnemyState.cpp">
       <Filter>Source Files\Entities\MovingObject</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerBullet.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="DestroyableObject.cpp">
+      <Filter>Source Files\Entities\Mushroom</Filter>
+    </ClCompile>
     <ClCompile Include="EnemyMoveLeftState.cpp">
+      <Filter>Source Files\Entities\MovingObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectData.cpp">
+      <Filter>Source Files\Entities\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Entities\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerData.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerNeutralState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bob.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjectManager.h">
       <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerBullet.h">
-      <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="DestroyableObject.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="MovingObject.h">
-      <Filter>Header Files\Entities\MovingObject</Filter>
+      <Filter>Header Files\Entities\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="EnemySegment.h">
-      <Filter>Header Files\Entities\MovingObject</Filter>
+      <Filter>Header Files\Entities\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="EnemyMoveLeftState.h">
-      <Filter>Header Files\Entities\MovingObject</Filter>
+      <Filter>Header Files\Entities\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBullet.h">
+      <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectData.h">
+      <Filter>Header Files\Entities\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DestroyableObject.h">
+      <Filter>Header Files\Entities\Mushroom</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Entities\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="ObjectState.h">
-      <Filter>Header Files\Entities\MovingObject</Filter>
+      <Filter>Header Files\Entities\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerData.h">
+      <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerNeutralState.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

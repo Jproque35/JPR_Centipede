@@ -13,7 +13,7 @@ private:
 
 public:
 	EnemyMoveLeftState(Enemy* context);
-	void checkCollision(GameObject* obj);
+	void checkCollision(ObjectData* obj);
 	void checkCollision(Window* w);
 	void update(float elapsedTime);
 

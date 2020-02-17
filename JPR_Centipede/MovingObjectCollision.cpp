@@ -1,6 +1,6 @@
 #include "MovingObject.h"
 
-void Enemy::checkCollision(GameObject* obj) {
+void Enemy::checkCollision(ObjectData* obj) {
 
 	if (this->isPlayerProjectile(obj) && this->getCollisionBox().intersects(obj->getCollisionBox())) {
 
@@ -26,7 +26,7 @@ void Enemy::checkCollision(GameObject* obj) {
 
 }
 
-bool Enemy::isPlayerProjectile(GameObject* obj) {
+bool Enemy::isPlayerProjectile(ObjectData* obj) {
 
 	return obj->getType() == ObjectType::PlayerProjectile && obj->isActive();
 

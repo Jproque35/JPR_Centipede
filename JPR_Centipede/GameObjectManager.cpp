@@ -23,7 +23,7 @@ GameObjectManager::~GameObjectManager() {
 
 }
 
-void GameObjectManager::add(int i, GameObject* obj) {
+void GameObjectManager::add(int i, ObjectData* obj) {
 
 	if (i < this->objs.size() && i >= 0) {
 
@@ -33,7 +33,7 @@ void GameObjectManager::add(int i, GameObject* obj) {
 
 }
 
-GameObject* GameObjectManager::get(int i) {
+ObjectData* GameObjectManager::get(int i) {
 
 	return this->objs[i];
 

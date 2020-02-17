@@ -8,6 +8,8 @@ void Engine::init() {
 
 	this->player = new Player(xRes/ 2, yRes / 2);
 	this->bullet = new PlayerBullet(xRes / 2, yRes / 2);
+
+	/*
 	this->enemies = new GameObjectManager(20);
 	this->obstacles = new GameObjectManager(30);
 
@@ -17,14 +19,15 @@ void Engine::init() {
 		this->enemies->get(i)->activate();
 		this->enemies->get(i)->setState(new EnemyMoveLeftState(this->enemies->get(i)));
 
-	}
+	}*/
 
 	srand(time(NULL));
 
+	/*
 	for (int i = 0; i < this->obstacles->size(); i++) {
 
 		this->obstacles->add(i, new DestroyableObject(rand() % (xRes - 50) + 50, rand() % (yRes - 50) + 50));
 
-	}
+	}*/
 
 }

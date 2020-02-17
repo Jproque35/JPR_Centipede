@@ -6,9 +6,6 @@
 #include "GameObjectManager.h"
 #include "Player.h"
 #include "PlayerBullet.h"
-#include "MovingObject.h"
-#include "DestroyableObject.h"
-#include "EnemySegment.h"
 
 using namespace sf;
 

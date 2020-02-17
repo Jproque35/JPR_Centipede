@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class EnemySegment : public GameObject
+class EnemySegment : public ObjectData
 {
 
 private:

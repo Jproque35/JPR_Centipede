@@ -1,7 +1,7 @@
 #include "MovingObject.h"
 
 
-Enemy::Enemy(float initX, float initY) :GameObject(initX, initY) {
+Enemy::Enemy(float initX, float initY) :ObjectData(initX, initY) {
 
 	this->xSpeed = 400.0f;
 	this->ySpeed = 400.0f;

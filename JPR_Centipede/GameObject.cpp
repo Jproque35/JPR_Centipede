@@ -1,77 +1,35 @@
 #include "GameObject.h"
 
-GameObject::GameObject(float initX, float initY) {
+GameObject::~GameObject() {
 
-	this->position.x = initX;
-	this->position.y = initY;
-	this->xSpeed = 0.0f;
-	this->ySpeed = 0.0f;
-	this->shape.setPosition(this->position);
+	if (this->data != NULL) {
 
-}
+		delete(this->data);
 
-void GameObject::activate() {
+	}
 
-	this->active = true;
+	if (this->state != NULL) {
 
-}
+		delete(this->state);
 
-void GameObject::deactivate() {
-
-	this->active = false;
+	}
 
 }
 
-bool GameObject::isActive() {
+ObjectData* GameObject::getData() {
 
-	return this->active;
-
-}
-
-ObjectType GameObject::getType() {
-
-	return this->type;
+	return this->data;
 
 }
 
-Vector2f GameObject::getPosition() {
+void GameObject::setState(ObjectState* state) {
 
-	return this->position;
-
-}
-
-FloatRect GameObject::getCollisionBox() {
-
-	return this->shape.getGlobalBounds();
+	this->state = state;
 
 }
 
-RectangleShape GameObject::getShape() {
+void GameObject::update(float elapsedTime) {
 
-	return this->shape;
-
-}
-
-void GameObject::setXVelocity(float xSpeed) {
-
-	this->xSpeed = xSpeed;
-
-}
-
-void GameObject::setYVelocity(float ySpeed) {
-
-	this->ySpeed = ySpeed;
-
-}
-
-float GameObject::getXVelocity() {
-
-	return this->xSpeed;
-
-}
-
-float GameObject::getYVelocity() {
-
-	return this->ySpeed;
+	this->state->update(elapsedTime);
 
 }

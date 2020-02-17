@@ -7,7 +7,7 @@ EnemyMoveLeftState::EnemyMoveLeftState(Enemy* context) {
 
 }
 
-void EnemyMoveLeftState::checkCollision(GameObject* obj) {
+void EnemyMoveLeftState::checkCollision(ObjectData* obj) {
 
 }
 

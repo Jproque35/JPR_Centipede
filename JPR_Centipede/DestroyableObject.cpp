@@ -1,6 +1,6 @@
 #include "DestroyableObject.h"
 
-DestroyableObject::DestroyableObject(float initX, float initY) :GameObject(initX, initY) {
+DestroyableObject::DestroyableObject(float initX, float initY) :ObjectData(initX, initY) {
 
 	this->shape.setSize(Vector2f(50.0f, 50.0f));
 	this->shape.setFillColor(Color::Magenta);
@@ -8,13 +8,13 @@ DestroyableObject::DestroyableObject(float initX, float initY) :GameObject(initX
 
 }
 
-void DestroyableObject::checkCollision(GameObject* objs[]) {
+void DestroyableObject::checkCollision(ObjectData* objs[]) {
 
 
 
 }
 
-void DestroyableObject::checkCollision(GameObject* obj) {
+void DestroyableObject::checkCollision(ObjectData* obj) {
 
 	if (obj->getType() == ObjectType::PlayerProjectile && this->inHitStun == false) {
 
