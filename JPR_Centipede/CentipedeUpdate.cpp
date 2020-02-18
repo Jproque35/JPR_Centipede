@@ -2,42 +2,19 @@
 
 void Centipede::update(float elapsedTime) {
 
-	/*
-	if (this->currState == MovingObjectState::MoveLeft) {
+	if (this->commands.size() > 0) {
 
-		this->position.x -= this->xSpeed * elapsedTime;
+		ObjectCommand* currCommand = this->commands.front();
 
-	}
-	else if (this->currState == MovingObjectState::MoveRight) {
+		currCommand->execute(elapsedTime);
 
-		this->position.x += this->xSpeed * elapsedTime;
+		if (currCommand->isFinished()) {
 
-	}
-	else if (this->currState == MovingObjectState::MoveDown) {
-
-		this->position.y += this->ySpeed * elapsedTime;
-		this->dist += this->ySpeed * elapsedTime;
-
-		if (this->dist >= 50.0f) {
-
-			this->dist = 0;
-			if (this->lastSideState == MovingObjectState::MoveLeft) {
-
-				this->currState = MovingObjectState::MoveRight;
-
-			}
-			else if(this->lastSideState == MovingObjectState::MoveRight) {
-
-				this->currState = MovingObjectState::MoveLeft;
-
-			}
+			this->commands.pop();
+			delete(currCommand);
 
 		}
-
-	}*/
-
-	this->position.x += this->xSpeed * elapsedTime;
-	this->position.y += this->ySpeed * elapsedTime;
+	}
 
 	this->shape.setPosition(this->position);
 

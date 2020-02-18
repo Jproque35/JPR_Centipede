@@ -7,7 +7,7 @@ Player::Player(float initX, float initY) : GameObject(initX, initY) {
 
 	this->xSpeed = 8.0f;
 	this->ySpeed = 8.0f;
-	this->shape.setSize(Vector2f(1.0f, 1.0f));
+	this->shape.setRadius(0.5);
 	this->shape.setFillColor(Color::Green);
 	this->type = ObjectType::Player;
 

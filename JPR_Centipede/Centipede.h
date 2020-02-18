@@ -5,14 +5,7 @@
 #include "PlayerBullet.h"
 #include <iostream>
 
-enum class MovingObjectState {MoveLeft, MoveRight, MoveUp, MoveDown};
-
 class Centipede: public GameObject {
-
-protected:
-	MovingObjectState currState;
-	MovingObjectState lastSideState;
-	Centipede* next = NULL;
 
 public:
 

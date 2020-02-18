@@ -3,7 +3,7 @@
 PlayerBullet::PlayerBullet(float initX, float initY) : GameObject(initX, initY) {
 
 	this->ySpeed = 20.0f;
-	this->shape.setSize(Vector2f(0.1f, 1.0f));
+	this->shape.setRadius(0.1);
 	this->shape.setFillColor(Color::Yellow);
 	this->type = ObjectType::PlayerProjectile;
 

@@ -9,6 +9,9 @@
 #include "PlayerBullet.h"
 #include "Centipede.h"
 #include "Mushroom.h"
+#include "ObjectCommand.h"
+#include "CentipedeMoveLeftCommand.h"
+#include "CentipedeController.h"
 
 using namespace sf;
 using namespace std;
@@ -24,6 +27,8 @@ private:
 	float cellWidth = 0.0f;
 	float gridHeight = 0.0f;
 	float gridWidth = 0.0f;
+	CentipedeController* testController;
+
 
 	void input();
 	void init();

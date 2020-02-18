@@ -35,7 +35,7 @@ void Engine::draw() {
 
 void Engine::drawShape(GameObject* obj) {
 
-	RectangleShape drawable = obj->getShape();
+	CircleShape drawable = obj->getShape();
 	Vector2f drawablePosition = obj->getPosition();
 	drawable.scale(cellWidth, cellWidth);
 	drawablePosition.x *= this->cellWidth;

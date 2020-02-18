@@ -2,12 +2,19 @@
 
 void Engine::update(float dtAsSeconds) {
 
-	
+	this->testController->checkCollision(this->gridWidth, this->gridHeight);
+	this->testController->update(dtAsSeconds);
+
+	/*
 	for (int i = 0; i < enemies->size(); i++) {
 
 		GameObject* currObject = this->enemies->get(i);
 
 		if (currObject->isActive()) {
+
+			if(currObject->getCommandQueueSize() == 0) {
+			}
+
 			currObject->checkCollision(this->bullet);
 			currObject->checkCollision(this->gridWidth, this->gridHeight);
 
@@ -20,7 +27,7 @@ void Engine::update(float dtAsSeconds) {
 			currObject->update(dtAsSeconds);
 		}
 
-	}
+	}*/
 
 	if (this->bullet->isActive()) {
 

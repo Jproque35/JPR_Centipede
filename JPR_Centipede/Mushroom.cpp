@@ -2,7 +2,7 @@
 
 Mushroom::Mushroom(float initX, float initY) :GameObject(initX, initY) {
 
-	this->shape.setSize(Vector2f(1.0f, 1.0f));
+	this->shape.setRadius(0.5);
 	this->shape.setFillColor(Color::Magenta);
 	this->type = ObjectType::Mushroom;
 

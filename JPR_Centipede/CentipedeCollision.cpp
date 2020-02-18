@@ -14,6 +14,7 @@ void Centipede::checkCollision(GameObject* obj) {
 	}
 	if (obj->getType() == ObjectType::Mushroom) {
 
+		/*
 		if (this->getCollisionBox().intersects(obj->getCollisionBox())) {
 
 			if (this->getCollisionBox().top <= obj->getCollisionBox().top + obj->getShape().getSize().y) {
@@ -28,7 +29,7 @@ void Centipede::checkCollision(GameObject* obj) {
 
 			}
 
-		}
+		}*/
 
 	}
 	else {
@@ -47,16 +48,17 @@ bool Centipede::isPlayerProjectile(GameObject* obj) {
 
 void Centipede::checkCollision(float xBoundary, float yBoundary) {
 
-	if (this->position.x <= 0 || this->position.x + this->shape.getSize().x >= xBoundary) {
+	/*
+	if (this->position.x <= 0 || this->position.x + this->shape.getRadius() * 2 >= xBoundary) {
 
 		this->xSpeed = -this->xSpeed;
 
 	}
 
-	if (this->position.y <= 0 || this->position.y + this->shape.getSize().y >= yBoundary) {
+	if (this->position.y <= 0 || this->position.y + this->shape.getRadius() * 2 >= yBoundary) {
 
 		this->ySpeed = -this->ySpeed;
 
-	}
+	}*/
 
 }

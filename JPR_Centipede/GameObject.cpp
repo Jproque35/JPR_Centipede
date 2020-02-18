@@ -7,6 +7,7 @@ GameObject::GameObject(float initX, float initY) {
 	this->xSpeed = 0.0f;
 	this->ySpeed = 0.0f;
 	this->shape.setPosition(this->position);
+	this->shape.setPointCount(15);
 
 }
 
@@ -25,6 +26,18 @@ void GameObject::deactivate() {
 bool GameObject::isActive() {
 
 	return this->active;
+
+}
+
+void GameObject::queueCommand(ObjectCommand* command) {
+
+	this->commands.push(command);
+
+}
+
+int GameObject::getCommandQueueSize() {
+
+	return this->commands.size();
 
 }
 
@@ -52,7 +65,7 @@ FloatRect GameObject::getCollisionBox() {
 
 }
 
-RectangleShape GameObject::getShape() {
+CircleShape GameObject::getShape() {
 
 	return this->shape;
 

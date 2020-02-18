@@ -14,8 +14,9 @@ void Engine::init() {
 
 	for (int i = 0; i < this->enemies->size(); i++) {
 
-		this->enemies->add(i, new Centipede(0.0f, 0.0f));
+		this->enemies->add(i, new Centipede(this->gridWidth/2, 0.0f));
 		this->enemies->get(i)->activate();
+		this->testController = new CentipedeController((Centipede*)this->enemies->get(i));
 
 	}
 
@@ -23,7 +24,7 @@ void Engine::init() {
 
 	for (int i = 0; i < this->obstacles->size(); i++) {
 
-		this->obstacles->add(i, new Mushroom(rand() % (int)(floor(this->gridWidth)), rand() % (int)(floor(this->gridHeight))));
+		this->obstacles->add(i, new Mushroom(rand() % (int)(floor(this->gridWidth)) + 1, rand() % (int)(floor(this->gridHeight)) + 1));
 
 	}
 
