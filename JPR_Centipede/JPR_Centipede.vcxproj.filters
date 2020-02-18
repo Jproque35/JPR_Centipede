@@ -37,6 +37,9 @@
     <Filter Include="Header Files\Entities\MovingObject">
       <UniqueIdentifier>{00708e2f-a0de-41e2-9ff8-baf609ae0ed0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entities\Player">
+      <UniqueIdentifier>{3ff3a7db-a841-46a8-a40e-9c044fc968cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bob.cpp">
@@ -95,12 +98,6 @@
     <ClInclude Include="GameObjectManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerBullet.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
@@ -109,6 +106,12 @@
     </ClInclude>
     <ClInclude Include="MovingObject.h">
       <Filter>Header Files\Entities\MovingObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBullet.h">
+      <Filter>Header Files\Entities\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

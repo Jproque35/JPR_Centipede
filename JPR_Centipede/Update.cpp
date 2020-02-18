@@ -3,6 +3,7 @@
 
 void Engine::update(float dtAsSeconds) {
 
+	/*
 	for (int i = 0; i < enemies->size(); i++) {
 
 		GameObject* currObject = this->enemies->get(i);
@@ -21,7 +22,7 @@ void Engine::update(float dtAsSeconds) {
 			currObject->update(dtAsSeconds);
 		}
 
-	}
+	}*/
 
 	if (this->bullet->isActive()) {
 

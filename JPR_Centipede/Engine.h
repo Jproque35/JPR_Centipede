@@ -27,7 +27,7 @@ private:
 	void init();
 	void update(float dtAsSeconds);
 	void draw();
-	void drawShape(RectangleShape shape);
+	void drawShape(GameObject* obj);
 
 public:
 	Engine();

@@ -2,8 +2,8 @@
 
 PlayerBullet::PlayerBullet(float initX, float initY) : GameObject(initX, initY) {
 
-	this->ySpeed = 750.0f;
-	this->shape.setSize(Vector2f(5.0f, 30.0f));
+	this->ySpeed = 10.0f;
+	this->shape.setSize(Vector2f(0.1f, 1.0f));
 	this->shape.setFillColor(Color::Yellow);
 	this->type = ObjectType::PlayerProjectile;
 
@@ -48,7 +48,7 @@ void PlayerBullet::update(float elapsedTime) {
 		this->distanceTravelled += this->ySpeed * elapsedTime;
 		this->shape.setPosition(position);
 
-		if (this->distanceTravelled > 400.0f) {
+		if (this->distanceTravelled > 5.0f) {
 
 			this->active = false;
 			this->distanceTravelled = 0.0f;
