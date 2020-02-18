@@ -1,5 +1,4 @@
 #include "GameObjectManager.h"
-#include "MovingObject.h"
 
 GameObjectManager::GameObjectManager(int size) {
 

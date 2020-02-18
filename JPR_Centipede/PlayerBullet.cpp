@@ -2,7 +2,7 @@
 
 PlayerBullet::PlayerBullet(float initX, float initY) : GameObject(initX, initY) {
 
-	this->ySpeed = 10.0f;
+	this->ySpeed = 20.0f;
 	this->shape.setSize(Vector2f(0.1f, 1.0f));
 	this->shape.setFillColor(Color::Yellow);
 	this->type = ObjectType::PlayerProjectile;
@@ -22,19 +22,13 @@ float PlayerBullet::getDistanceTravelled() {
 
 }
 
-void PlayerBullet::checkCollision(GameObject* objs[]) {
-
-
-
-}
-
 void PlayerBullet::checkCollision(GameObject* obj) {
 
 
 
 }
 
-void PlayerBullet::checkCollision(Window* w) {
+void PlayerBullet::checkCollision(float xBoundary, float yBoundary) {
 
 
 
@@ -48,7 +42,7 @@ void PlayerBullet::update(float elapsedTime) {
 		this->distanceTravelled += this->ySpeed * elapsedTime;
 		this->shape.setPosition(position);
 
-		if (this->distanceTravelled > 5.0f) {
+		if (this->position.y < 0.0f) {
 
 			this->active = false;
 			this->distanceTravelled = 0.0f;

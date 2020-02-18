@@ -1,28 +1,26 @@
 #include "Engine.h"
-#include "MovingObject.h"
 
 void Engine::update(float dtAsSeconds) {
 
-	/*
+	
 	for (int i = 0; i < enemies->size(); i++) {
 
 		GameObject* currObject = this->enemies->get(i);
 
 		if (currObject->isActive()) {
 			currObject->checkCollision(this->bullet);
+			currObject->checkCollision(this->gridWidth, this->gridHeight);
 
-			for (int i = 0; i < obstacles->size(); i++) {
+			for (int i = 0; i < this->obstacles->size(); i++) {
 
 				currObject->checkCollision(this->obstacles->get(i));
 
 			}
 
-			currObject->checkCollision(&window);
-
 			currObject->update(dtAsSeconds);
 		}
 
-	}*/
+	}
 
 	if (this->bullet->isActive()) {
 

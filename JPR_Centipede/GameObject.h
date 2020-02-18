@@ -1,9 +1,13 @@
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 using namespace sf;
+using namespace std;
 
-enum class ObjectType { Generic, Player, PlayerProjectile, MovingObject, DestroyableObject };
+enum class ObjectType { Generic, Player, PlayerProjectile, Centipede, Mushroom };
 
 class GameObject {
 
@@ -29,9 +33,10 @@ public:
 	void setYVelocity(float ySpeed);
 	float getXVelocity();
 	float getYVelocity();
-	virtual void checkCollision(GameObject* objs[]) = 0;
 	virtual void checkCollision(GameObject* obj) = 0;
-	virtual void checkCollision(Window* w) = 0;
+	virtual void checkCollision(float xBoundary, float yBoundary) = 0;
 	virtual void update(float elapsedTime) = 0;
 
 };
+
+#endif

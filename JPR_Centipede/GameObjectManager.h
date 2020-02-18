@@ -1,3 +1,5 @@
+#ifndef GAMEOBJECTMANAGER_H
+#define GAMEOBJECTMANAGER_H
 #pragma once
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
@@ -15,4 +17,6 @@ public:
 	int size();
 
 };
+
+#endif
 

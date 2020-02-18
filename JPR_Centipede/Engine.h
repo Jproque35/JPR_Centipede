@@ -1,3 +1,5 @@
+#ifndef ENGINE_H
+#define ENGINE_H
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>;
@@ -5,8 +7,8 @@
 #include "GameObjectManager.h"
 #include "Player.h"
 #include "PlayerBullet.h"
-#include "MovingObject.h"
-#include "DestroyableObject.h"
+#include "Centipede.h"
+#include "Mushroom.h"
 
 using namespace sf;
 using namespace std;
@@ -34,3 +36,5 @@ public:
 	void start();
 
 };
+
+#endif

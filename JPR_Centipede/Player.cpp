@@ -61,19 +61,13 @@ void Player::stopRight() {
 
 }
 
-void Player::checkCollision(GameObject* objs[]) {
-
-
-
-}
-
 void Player::checkCollision(GameObject* obj) {
 
 
 
 }
 
-void Player::checkCollision(Window* w) {
+void Player::checkCollision(float xBoundary, float yBoundary) {
 
 
 

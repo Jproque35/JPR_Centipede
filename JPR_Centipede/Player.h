@@ -1,3 +1,5 @@
+#ifndef PLAYER_H
+#define PLAYER_H
 #pragma once
 #include "GameObject.h"
 
@@ -21,10 +23,11 @@ public:
 	void stopDown();
 	void stopLeft();
 	void stopRight();
-	void checkCollision(GameObject* objs[]);
 	void checkCollision(GameObject* obj);
-	void checkCollision(Window* w);
+	void checkCollision(float xBoundary, float yBoundary);
 	void update(float elapsedTime);
 
 };
+
+#endif
 

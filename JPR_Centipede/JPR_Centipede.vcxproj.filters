@@ -31,31 +31,28 @@
     <Filter Include="Header Files\Engine">
       <UniqueIdentifier>{f5099e32-aea5-4e79-b577-7395a4edd74f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Entities\MovingObject">
-      <UniqueIdentifier>{9d0bf6a6-6a6c-40cb-b128-6e138e7c6db4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Entities\MovingObject">
-      <UniqueIdentifier>{00708e2f-a0de-41e2-9ff8-baf609ae0ed0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Entities\Player">
       <UniqueIdentifier>{3ff3a7db-a841-46a8-a40e-9c044fc968cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entities\Mushroom">
+      <UniqueIdentifier>{192515da-5005-4cd3-bbb6-f8f3817c3326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Player">
+      <UniqueIdentifier>{47e1e43c-f1b4-4194-bfa5-bd05078eb984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Centipede">
+      <UniqueIdentifier>{00708e2f-a0de-41e2-9ff8-baf609ae0ed0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Centipede">
+      <UniqueIdentifier>{9d0bf6a6-6a6c-40cb-b128-6e138e7c6db4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bob.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Engine</Filter>
@@ -72,26 +69,29 @@
     <ClCompile Include="Update.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="DestroyableObject.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="Initialize.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="MovingObject.cpp">
-      <Filter>Source Files\Entities\MovingObject</Filter>
+    <ClCompile Include="Mushroom.cpp">
+      <Filter>Source Files\Entities\Mushroom</Filter>
     </ClCompile>
-    <ClCompile Include="MovingObjectUpdate.cpp">
-      <Filter>Source Files\Entities\MovingObject</Filter>
+    <ClCompile Include="PlayerBullet.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
     </ClCompile>
-    <ClCompile Include="MovingObjectCollision.cpp">
-      <Filter>Source Files\Entities\MovingObject</Filter>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Centipede.cpp">
+      <Filter>Source Files\Entities\Centipede</Filter>
+    </ClCompile>
+    <ClCompile Include="CentipedeCollision.cpp">
+      <Filter>Source Files\Entities\Centipede</Filter>
+    </ClCompile>
+    <ClCompile Include="CentipedeUpdate.cpp">
+      <Filter>Source Files\Entities\Centipede</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bob.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
@@ -101,17 +101,17 @@
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="DestroyableObject.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="MovingObject.h">
-      <Filter>Header Files\Entities\MovingObject</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Entities\Player</Filter>
     </ClInclude>
     <ClInclude Include="PlayerBullet.h">
       <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Mushroom.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Centipede.h">
+      <Filter>Header Files\Entities\Centipede</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
