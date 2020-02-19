@@ -1,2 +1,9 @@
-﻿  GameObject.cpp
+﻿  CentipedeMoveDownCommand.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveDownCommand.cpp(16,31): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  CentipedeUpdate.cpp
+  Generating Code...
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

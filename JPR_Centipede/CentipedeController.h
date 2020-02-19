@@ -15,6 +15,7 @@ class CentipedeController : public ObjectController
 private:
 	Centipede* context;
 	CentipedeDirection dir = CentipedeDirection::Left;
+	bool changingLevels = false;
 
 public:
 	CentipedeController(Centipede* context);
