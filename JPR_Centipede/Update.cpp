@@ -2,7 +2,14 @@
 
 void Engine::update(float dtAsSeconds) {
 
-	this->testController->checkCollision(this->gridWidth, this->gridHeight);
+	this->testController->checkCollision(this->gridWidth, this->gridHeight, dtAsSeconds);
+	
+	for (int i = 0; i < this->obstacles->size(); i++) {
+
+		this->testController->checkCollision(this->obstacles->get(i), dtAsSeconds);
+
+	}
+	
 	this->testController->update(dtAsSeconds);
 
 	/*
@@ -35,5 +42,5 @@ void Engine::update(float dtAsSeconds) {
 
 	}
 
-	this->player->update(dtAsSeconds);
+	this->playerController->update(dtAsSeconds);
 }

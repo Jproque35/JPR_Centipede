@@ -7,6 +7,12 @@
 
 class Centipede: public GameObject {
 
+	friend class CentipedeController;
+	friend class CentipedeMoveRightCommand;
+	friend class CentipedeMoveLeftCommand;
+	friend class CentipedeMoveDownCommand;
+	friend class CentipedeMoveUpCommand;
+
 public:
 
 	Centipede(float initX, float initY);

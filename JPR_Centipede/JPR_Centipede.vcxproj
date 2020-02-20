@@ -153,9 +153,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CentipedeController.cpp" />
-    <ClCompile Include="CentipedeMoveDownCommand.cpp" />
-    <ClCompile Include="CentipedeMoveLeftCommand.cpp" />
-    <ClCompile Include="CentipedeMoveRightCommand.cpp" />
     <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -168,16 +165,18 @@
     <ClCompile Include="CentipedeUpdate.cpp" />
     <ClCompile Include="ObjectCommand.cpp" />
     <ClCompile Include="ObjectController.cpp" />
+    <ClCompile Include="ObjectMoveDownCommand.cpp" />
+    <ClCompile Include="ObjectMoveLeftCommand.cpp" />
+    <ClCompile Include="ObjectMoveRightCommand.cpp" />
+    <ClCompile Include="ObjectMoveUpCommand.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="CentipedeCollision.cpp" />
+    <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CentipedeController.h" />
-    <ClInclude Include="CentipedeMoveDownCommand.h" />
-    <ClInclude Include="CentipedeMoveLeftCommand.h" />
-    <ClInclude Include="CentipedeMoveRightCommand.h" />
     <ClInclude Include="Mushroom.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameObject.h" />
@@ -185,8 +184,13 @@
     <ClInclude Include="Centipede.h" />
     <ClInclude Include="ObjectCommand.h" />
     <ClInclude Include="ObjectController.h" />
+    <ClInclude Include="ObjectMoveDownCommand.h" />
+    <ClInclude Include="ObjectMoveLeftCommand.h" />
+    <ClInclude Include="ObjectMoveRightCommand.h" />
+    <ClInclude Include="ObjectMoveUpCommand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
+    <ClInclude Include="PlayerController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

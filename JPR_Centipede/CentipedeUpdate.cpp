@@ -18,5 +18,4 @@ void Centipede::update(float elapsedTime) {
 
 	this->shape.setPosition(this->position);
 
-	cout << this->shape.getRadius() << endl;
 }

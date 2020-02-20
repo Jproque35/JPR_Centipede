@@ -3,8 +3,10 @@
 Engine::Engine() {
 
 	Vector2f resolution;
-	resolution.x = VideoMode::getDesktopMode().width;
-	resolution.y = VideoMode::getDesktopMode().height;
+	//resolution.x = VideoMode::getDesktopMode().width;
+	//resolution.y = VideoMode::getDesktopMode().height;
+	resolution.x = 800;
+	resolution.y = 600;
 	this->cellWidth = resolution.y / 40.0f;
 	this->gridHeight = resolution.y / cellWidth;
 	this->gridWidth = resolution.x / cellWidth;
@@ -15,7 +17,7 @@ Engine::Engine() {
 	cout << "Grid dimensions are " << this->gridWidth << " by " << this->gridHeight << endl;
 
 
-	this->window.create(VideoMode(resolution.x, resolution.y), "Simple Game Engine", Style::Fullscreen);
+	this->window.create(VideoMode(resolution.x, resolution.y), "Simple Game Engine", Style::Default);
 
 }
 

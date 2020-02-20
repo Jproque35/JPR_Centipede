@@ -3,9 +3,6 @@
 #pragma once
 #include "ObjectController.h"
 #include "Centipede.h"
-#include "CentipedeMoveLeftCommand.h"
-#include "CentipedeMoveRightCommand.h"
-#include "CentipedeMoveDownCommand.h"
 
 enum class CentipedeDirection {Left, Right, Up, Down};
 
@@ -15,11 +12,16 @@ class CentipedeController : public ObjectController
 private:
 	Centipede* context;
 	CentipedeDirection dir = CentipedeDirection::Left;
+	bool inReverse = false;
 	bool changingLevels = false;
+	void queueLevelChangeCommand();
+	void changeLevelRight();
+	void changeLevelLeft();
 
 public:
 	CentipedeController(Centipede* context);
-	void checkCollision(float initX, float initY);
+	void checkCollision(GameObject* obj, float elapsedTime);
+	void checkCollision(float initX, float initY, float elapsedTime);
 	void update(float elapsedTime);
 
 };

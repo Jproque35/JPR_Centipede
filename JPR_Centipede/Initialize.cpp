@@ -5,9 +5,9 @@ void Engine::init() {
 	int xRes = this->window.getSize().x;
 	int yRes = this->window.getSize().y;
 
-	this->player = new Player(this->gridWidth / 2, this->gridHeight/2);
+	this->player = new Player(floor(this->gridWidth / 2), this->gridHeight/2);
 	this->bullet = new PlayerBullet(xRes / 2, yRes / 2);
-
+	this->playerController = new PlayerController(this->player);
 	
 	this->enemies = new GameObjectManager(1);
 	this->obstacles = new GameObjectManager(30);

@@ -75,32 +75,18 @@ void Player::checkCollision(float xBoundary, float yBoundary) {
 
 void Player::update(float elapsedTime) {
 
-	if (this->upPressed) {
+	if (this->commands.size() > 0) {
 
-		this->position.y -= this->ySpeed * elapsedTime;
-		cout << "Position is " << this->position.x << ", " << this->position.y << endl;
+		ObjectCommand* currCommand = this->commands.front();
 
-	}
+		currCommand->execute(elapsedTime);
 
-	if (this->downPressed) {
+		if (currCommand->isFinished()) {
 
-		this->position.y += this->ySpeed * elapsedTime;
-		cout << "Position is " << this->position.x << ", " << this->position.y << endl;
+			this->commands.pop();
+			delete(currCommand);
 
-	}
-
-	if (this->leftPressed) {
-
-		this->position.x -= this->xSpeed * elapsedTime;
-		cout << "Position is " << this->position.x << ", " << this->position.y << endl;
-
-	}
-
-	if (this->rightPressed) {
-
-		this->position.x += this->xSpeed * elapsedTime;
-		cout << "Position is " << this->position.x << ", " << this->position.y << endl;
-
+		}
 	}
 
 	this->shape.setPosition(this->position);

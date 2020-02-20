@@ -13,6 +13,12 @@ enum class ObjectType { Generic, Player, PlayerProjectile, Centipede, Mushroom }
 
 class GameObject {
 
+	friend class ObjectCommand;
+	friend class ObjectMoveUpCommand;
+	friend class ObjectMoveDownCommand;
+	friend class ObjectMoveLeftCommand;
+	friend class ObjectMoveRightCommand;
+
 protected:
 	ObjectType type = ObjectType::Generic;
 	queue<ObjectCommand*> commands;

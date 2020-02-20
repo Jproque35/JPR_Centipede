@@ -52,11 +52,32 @@
     <Filter Include="Source Files\Entities\GameObject">
       <UniqueIdentifier>{3a33c386-8935-4d2e-8cd0-7a70839e5aed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Entities\Centipede\States">
+    <Filter Include="Header Files\Entities\Centipede\Commands">
       <UniqueIdentifier>{e7542c21-1ee5-4a0c-b3f1-7b72d0c4cad7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Entities\Centipede\States">
+    <Filter Include="Source Files\Entities\Centipede\Commands">
       <UniqueIdentifier>{c48d6d75-a2db-4af2-bcf1-29d83b06f402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Centipede\Controller">
+      <UniqueIdentifier>{58fbc9ce-be21-4c23-8ce0-933684ee20ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Centipede\Controller">
+      <UniqueIdentifier>{1ab01f00-b17b-4539-9dbd-959a1d235321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Centipede\Controller\States">
+      <UniqueIdentifier>{49090cc6-0569-400f-a02d-7d1fca97bad3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Player\Commands">
+      <UniqueIdentifier>{df98ff09-5926-4209-b813-fcfc01679561}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\GameObject\Commands">
+      <UniqueIdentifier>{152678d1-1151-4924-a7ef-7e755fe54aaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\GameObject\Commands">
+      <UniqueIdentifier>{3c3461e8-0bee-426a-8117-36373c931dfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Player\Controller">
+      <UniqueIdentifier>{f9bd3a15-5ab2-4109-a4b0-50f537cc9c3e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -102,23 +123,29 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\Entities\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectCommand.cpp">
-      <Filter>Source Files\Entities\GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="ObjectController.cpp">
       <Filter>Source Files\Entities\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="CentipedeController.cpp">
-      <Filter>Source Files\Entities\Centipede</Filter>
+      <Filter>Source Files\Entities\Centipede\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="CentipedeMoveRightCommand.cpp">
-      <Filter>Source Files\Entities\Centipede\States</Filter>
+    <ClCompile Include="ObjectCommand.cpp">
+      <Filter>Source Files\Entities\GameObject\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="CentipedeMoveDownCommand.cpp">
-      <Filter>Source Files\Entities\Centipede\States</Filter>
+    <ClCompile Include="ObjectMoveUpCommand.cpp">
+      <Filter>Source Files\Entities\GameObject\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="CentipedeMoveLeftCommand.cpp">
-      <Filter>Source Files\Entities\Centipede\States</Filter>
+    <ClCompile Include="ObjectMoveDownCommand.cpp">
+      <Filter>Source Files\Entities\GameObject\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectMoveLeftCommand.cpp">
+      <Filter>Source Files\Entities\GameObject\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectMoveRightCommand.cpp">
+      <Filter>Source Files\Entities\GameObject\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,23 +170,29 @@
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Entities\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectCommand.h">
-      <Filter>Header Files\Entities\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="ObjectController.h">
       <Filter>Header Files\Entities\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="CentipedeController.h">
-      <Filter>Header Files\Entities\Centipede</Filter>
+      <Filter>Header Files\Entities\Centipede\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="CentipedeMoveDownCommand.h">
-      <Filter>Header Files\Entities\Centipede\States</Filter>
+    <ClInclude Include="ObjectCommand.h">
+      <Filter>Header Files\Entities\GameObject\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="CentipedeMoveLeftCommand.h">
-      <Filter>Header Files\Entities\Centipede\States</Filter>
+    <ClInclude Include="ObjectMoveUpCommand.h">
+      <Filter>Header Files\Entities\GameObject\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="CentipedeMoveRightCommand.h">
-      <Filter>Header Files\Entities\Centipede\States</Filter>
+    <ClInclude Include="ObjectMoveDownCommand.h">
+      <Filter>Header Files\Entities\GameObject\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectMoveLeftCommand.h">
+      <Filter>Header Files\Entities\GameObject\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectMoveRightCommand.h">
+      <Filter>Header Files\Entities\GameObject\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerController.h">
+      <Filter>Header Files\Entities\Player\Controller</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

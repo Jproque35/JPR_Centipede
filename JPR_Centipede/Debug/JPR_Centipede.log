@@ -1,9 +1,13 @@
-﻿  CentipedeMoveDownCommand.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveDownCommand.cpp(16,31): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+﻿  Engine.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(20,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
-  CentipedeUpdate.cpp
-  Generating Code...
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(20,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

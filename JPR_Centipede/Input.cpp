@@ -10,45 +10,22 @@ void Engine::input() {
 
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
 
-		this->player->moveUp();
+		this->playerController->setKey(Keyboard::W);
 
 	}
-	else {
+	else if (Keyboard::isKeyPressed(Keyboard::S)) {
 
-		this->player->stopUp();
-
-	}
-
-	if (Keyboard::isKeyPressed(Keyboard::S)) {
-
-		this->player->moveDown();
+		this->playerController->setKey(Keyboard::S);
 
 	}
-	else {
+	else if (Keyboard::isKeyPressed(Keyboard::A)) {
 
-		this->player->stopDown();
-
-	}
-
-	if (Keyboard::isKeyPressed(Keyboard::A)) {
-
-		this->player->moveLeft();
+		this->playerController->setKey(Keyboard::A);
 
 	}
-	else {
+	else if (Keyboard::isKeyPressed(Keyboard::D)) {
 
-		this->player->stopLeft();
-
-	}
-
-	if (Keyboard::isKeyPressed(Keyboard::D)) {
-
-		this->player->moveRight();
-
-	}
-	else {
-
-		this->player->stopRight();
+		this->playerController->setKey(Keyboard::D);
 
 	}
 
