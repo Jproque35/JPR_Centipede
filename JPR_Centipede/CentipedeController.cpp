@@ -51,7 +51,7 @@ void CentipedeController::changeLevelLeft() {
 
 	this->dir = CentipedeDirection::Left;
 	this->queueLevelChangeCommand();
-	this->context->queueCommand(new ObjectMoveLeftCommand(this->context));
+	this->commands.push(new ObjectMoveLeftCommand(this->context));
 	this->changingLevels = true;
 
 }
@@ -60,7 +60,7 @@ void CentipedeController::changeLevelRight() {
 
 	this->dir = CentipedeDirection::Right;
 	this->queueLevelChangeCommand();
-	this->context->queueCommand(new ObjectMoveRightCommand(this->context));
+	this->commands.push(new ObjectMoveRightCommand(this->context));
 	this->changingLevels = true;
 
 }
@@ -68,29 +68,27 @@ void CentipedeController::changeLevelRight() {
 void CentipedeController::queueLevelChangeCommand() {
 
 	if (!this->inReverse) {
-		this->context->queueCommand(new ObjectMoveDownCommand(this->context));
+		this->commands.push(new ObjectMoveDownCommand(this->context));
 	}
 	else {
-		this->context->queueCommand(new ObjectMoveUpCommand(this->context));
+		this->commands.push(new ObjectMoveUpCommand(this->context));
 	}
 
 }
 
-void CentipedeController::update(float elapsedTime) {
+void CentipedeController::updateSub(float elapsedTime) {
 
-	if (this->context->getCommandQueueSize() < 1) {
+	if (this->commands.size() < 1) {
 
 		if (this->dir == CentipedeDirection::Left) {
-			this->context->queueCommand(new ObjectMoveLeftCommand(this->context));
+			this->commands.push(new ObjectMoveLeftCommand(this->context));
 		}
 		else if (this->dir == CentipedeDirection::Right) {
-			this->context->queueCommand(new ObjectMoveRightCommand(this->context));
+			this->commands.push(new ObjectMoveRightCommand(this->context));
 		}
 
 		this->changingLevels = false;
 
 	}
-
-	this->context->update(elapsedTime);
 
 }

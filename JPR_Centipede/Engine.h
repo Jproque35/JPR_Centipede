@@ -12,6 +12,7 @@
 #include "ObjectCommand.h"
 #include "CentipedeController.h"
 #include "PlayerController.h"
+#include "PlayerBulletController.h"
 
 using namespace sf;
 using namespace std;
@@ -29,6 +30,7 @@ private:
 	float gridWidth = 0.0f;
 	CentipedeController* testController;
 	PlayerController* playerController;
+	PlayerBulletController* bulletController;
 
 
 	void input();

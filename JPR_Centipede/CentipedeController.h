@@ -17,12 +17,12 @@ private:
 	void queueLevelChangeCommand();
 	void changeLevelRight();
 	void changeLevelLeft();
+	void updateSub(float elapsedTime);
 
 public:
 	CentipedeController(Centipede* context);
 	void checkCollision(GameObject* obj, float elapsedTime);
 	void checkCollision(float initX, float initY, float elapsedTime);
-	void update(float elapsedTime);
 
 };
 

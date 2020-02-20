@@ -79,6 +79,18 @@
     <Filter Include="Header Files\Entities\Player\Controller">
       <UniqueIdentifier>{f9bd3a15-5ab2-4109-a4b0-50f537cc9c3e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entities\Player\Commands">
+      <UniqueIdentifier>{17d215b3-e14f-4a1f-b6f5-2d0b3befe024}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Player\Controller">
+      <UniqueIdentifier>{f375c1fc-9e28-45fb-b3d9-4df009145a9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\GameObject\Controller">
+      <UniqueIdentifier>{4f426f54-7f36-4025-b569-af491e9d300e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\GameObject\Controller">
+      <UniqueIdentifier>{7ffd26c2-ebd4-45a9-b0dc-7eab949e93eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
@@ -114,16 +126,7 @@
     <ClCompile Include="Centipede.cpp">
       <Filter>Source Files\Entities\Centipede</Filter>
     </ClCompile>
-    <ClCompile Include="CentipedeCollision.cpp">
-      <Filter>Source Files\Entities\Centipede</Filter>
-    </ClCompile>
-    <ClCompile Include="CentipedeUpdate.cpp">
-      <Filter>Source Files\Entities\Centipede</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Entities\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectController.cpp">
       <Filter>Source Files\Entities\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="CentipedeController.cpp">
@@ -144,8 +147,20 @@
     <ClCompile Include="ObjectMoveRightCommand.cpp">
       <Filter>Source Files\Entities\GameObject\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerBulletFireCommand.cpp">
+      <Filter>Source Files\Entities\Player\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBulletController.cpp">
+      <Filter>Source Files\Entities\Player\Controller</Filter>
+    </ClCompile>
     <ClCompile Include="PlayerController.cpp">
-      <Filter>Source Files\Entities\Player</Filter>
+      <Filter>Source Files\Entities\Player\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectController.cpp">
+      <Filter>Source Files\Entities\GameObject\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="GridManager.cpp">
+      <Filter>Source Files\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,9 +185,6 @@
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Entities\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectController.h">
-      <Filter>Header Files\Entities\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="CentipedeController.h">
       <Filter>Header Files\Entities\Centipede\Controller</Filter>
     </ClInclude>
@@ -193,6 +205,18 @@
     </ClInclude>
     <ClInclude Include="PlayerController.h">
       <Filter>Header Files\Entities\Player\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBulletController.h">
+      <Filter>Header Files\Entities\Player\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBulletFireCommand.h">
+      <Filter>Header Files\Entities\Player\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectController.h">
+      <Filter>Header Files\Entities\GameObject\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="GridManager.h">
+      <Filter>Header Files\Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

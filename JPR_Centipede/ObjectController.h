@@ -9,8 +9,14 @@
 class ObjectController
 {
 
+protected:
+	queue<ObjectCommand*> commands;
+	void executeCommand(float elapsedTime);
+	virtual void updateSub(float elapsedTime) = 0;
+
 public:
-	virtual void update(float elapsedTime) = 0;
+	~ObjectController();
+	void update(float elapsedTime);
 
 };
 

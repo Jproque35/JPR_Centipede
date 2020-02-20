@@ -6,16 +6,10 @@
 class PlayerBullet : public GameObject
 {
 
-private:
-	float distanceTravelled = 0;
+	friend class PlayerBulletFireCommand;
 
 public:
 	PlayerBullet(float initX, float initY);
-	void setPosition(float x, float Y);
-	float getDistanceTravelled();
-	void checkCollision(GameObject* obj);
-	void checkCollision(float xBoundary, float yBoundary);
-	void update(float elapsedTime);
 
 };
 

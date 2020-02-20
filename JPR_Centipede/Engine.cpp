@@ -5,8 +5,8 @@ Engine::Engine() {
 	Vector2f resolution;
 	//resolution.x = VideoMode::getDesktopMode().width;
 	//resolution.y = VideoMode::getDesktopMode().height;
-	resolution.x = 800;
-	resolution.y = 600;
+	resolution.x = 1024;
+	resolution.y = 768;
 	this->cellWidth = resolution.y / 40.0f;
 	this->gridHeight = resolution.y / cellWidth;
 	this->gridWidth = resolution.x / cellWidth;

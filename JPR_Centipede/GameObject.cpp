@@ -29,18 +29,6 @@ bool GameObject::isActive() {
 
 }
 
-void GameObject::queueCommand(ObjectCommand* command) {
-
-	this->commands.push(command);
-
-}
-
-int GameObject::getCommandQueueSize() {
-
-	return this->commands.size();
-
-}
-
 ObjectType GameObject::getType() {
 
 	return this->type;

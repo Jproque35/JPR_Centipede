@@ -21,7 +21,6 @@ class GameObject {
 
 protected:
 	ObjectType type = ObjectType::Generic;
-	queue<ObjectCommand*> commands;
 	Vector2f position;
 	CircleShape shape;
 	float xSpeed = 0.0f;
@@ -33,8 +32,6 @@ public:
 	void activate();
 	void deactivate();
 	bool isActive();
-	void queueCommand(ObjectCommand* command);
-	int getCommandQueueSize();
 	ObjectType getType();
 	void setPosition(Vector2f pos);
 	Vector2f getPosition();
@@ -44,9 +41,6 @@ public:
 	void setYVelocity(float ySpeed);
 	float getXVelocity();
 	float getYVelocity();
-	virtual void checkCollision(GameObject* obj) = 0;
-	virtual void checkCollision(float xBoundary, float yBoundary) = 0;
-	virtual void update(float elapsedTime) = 0;
 
 };
 

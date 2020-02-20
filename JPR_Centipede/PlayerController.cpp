@@ -12,34 +12,32 @@ void PlayerController::setKey(Keyboard::Key key) {
 
 }
 
-void PlayerController::update(float elapsedTime) {
+void PlayerController::updateSub(float elapsedTime) {
 
-	if (this->context->getCommandQueueSize() < 1) {
+	if (this->commands.size() < 1) {
 		if (key == Keyboard::W) {
 
-			this->context->queueCommand(new ObjectMoveUpCommand(this->context));
+			this->commands.push(new ObjectMoveUpCommand(this->context));
 
 		}
 		else if (key == Keyboard::A) {
 
-			this->context->queueCommand(new ObjectMoveLeftCommand(this->context));
+			this->commands.push(new ObjectMoveLeftCommand(this->context));
 
 		}
 		else if (key == Keyboard::D) {
 
-			this->context->queueCommand(new ObjectMoveRightCommand(this->context));
+			this->commands.push(new ObjectMoveRightCommand(this->context));
 
 		}
 		else if (key == Keyboard::S) {
 
-			this->context->queueCommand(new ObjectMoveDownCommand(this->context));
+			this->commands.push(new ObjectMoveDownCommand(this->context));
 
 		}
 
 		key = Keyboard::Unknown;
 
 	}
-
-	this->context->update(elapsedTime);
 
 }

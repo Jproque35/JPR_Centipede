@@ -36,11 +36,6 @@ void Engine::update(float dtAsSeconds) {
 
 	}*/
 
-	if (this->bullet->isActive()) {
-
-		this->bullet->update(dtAsSeconds);
-
-	}
-
+	this->bulletController->update(dtAsSeconds);
 	this->playerController->update(dtAsSeconds);
 }

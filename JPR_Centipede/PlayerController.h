@@ -9,11 +9,11 @@ class PlayerController :
 private:
 	Keyboard::Key key = Keyboard::Unknown;
 	Player* context;
+	void updateSub(float elapsedTime);
 
 public:
 	PlayerController(Player* context);
 	void setKey(Keyboard::Key key);
-	void update(float elapsedTime);
 
 };
 

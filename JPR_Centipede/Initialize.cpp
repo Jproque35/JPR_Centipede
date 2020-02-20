@@ -8,6 +8,7 @@ void Engine::init() {
 	this->player = new Player(floor(this->gridWidth / 2), this->gridHeight/2);
 	this->bullet = new PlayerBullet(xRes / 2, yRes / 2);
 	this->playerController = new PlayerController(this->player);
+	this->bulletController = new PlayerBulletController(this->bullet);
 	
 	this->enemies = new GameObjectManager(1);
 	this->obstacles = new GameObjectManager(30);
