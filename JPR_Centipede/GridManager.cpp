@@ -4,29 +4,20 @@ GridManager::GridManager(int width, int height) {
 
 	this->width = width;
 	this->height = height;
-	//this->objs.resize(this->width * this->height);
-	this->objs = new string[width * height];
+	this->objs.resize(this->width * this->height);
 
-	for (int i = 0; i < this->objs->size(); i++) {
+	for (int i = 0; i < width * height; i++) {
 
-		this->objs[i] = "";
-		cout << "Position " << i << " set to empty string" << endl;
+		cout << "Position " << i << " has size " << this->objs[i].size() << endl;
 
 	}
 
 }
 
-/*
+
 GridManager::~GridManager() {
 
-	if (this->objs != NULL) {
-
-		delete(this->objs);
-		this->objs = NULL;
-
-	}
-
-}*/
+}
 
 int GridManager::getKey(int x, int y) {
 
@@ -46,30 +37,20 @@ int GridManager::getHeight() {
 
 }
 
-void GridManager::swap(int x0, int y0, int x1, int y1) {
+void GridManager::clear() {
 
-	int key0 = this->getKey(x0, y0);
-	int key1 = this->getKey(x1, y1);
-
-	string temp = this->objs[key1];
-	this->objs[key1] = this->objs[key0];
-	this->objs[key0] = temp;
+	this->objs.clear();
+	this->objs.resize(this->width * this->height);
 
 }
 
 void GridManager::add(string s, int x, int y) {
 
-	this->objs[this->getKey(x, y)] = s;
+	this->objs[this->getKey(x, y)].push_back(s);
 
 }
 
-void GridManager::erase(int x, int y) {
-
-	this->objs[this->getKey(x, y)] = "";
-
-}
-
-string GridManager::get(int x, int y) {
+vector<string> GridManager::get(int x, int y) {
 
 	return this->objs[this->getKey(x, y)];
 

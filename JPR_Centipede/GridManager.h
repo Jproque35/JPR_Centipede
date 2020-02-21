@@ -13,18 +13,17 @@ class GridManager
 private:
 	int width = 0;
 	int height = 0;
-	string* objs;
+	vector<vector<string>> objs;
 	int getKey(int x, int y);
 
 public:
 	GridManager(int width, int height);
-	//~GridManager();
+	~GridManager();
 	int getWidth();
 	int getHeight();
-	void swap(int x0, int y0, int x1, int y1);
+	void clear();
 	void add(string s, int x, int y);
-	void erase(int x, int y);
-	string get(int x, int y);
+	vector<string> get(int x, int y);
 
 
 };

@@ -10,10 +10,11 @@ using namespace sf;
 
 int main()
 {
-	//Engine engine;
+	Engine engine;
 
-	//engine.start();
+	engine.start();
 
+	/*
 	GridManager gm(5, 5);
 
 	for (int i = 0; i < gm.getHeight(); i++) {
@@ -22,12 +23,16 @@ int main()
 
 			if (i % 2 == 0) {
 
-				gm.add("a", i, j);
+				gm.add("a", j, i);
+				gm.add("b", j, i);
+				gm.add("c", j, i);
 
 			}
 			else {
 
-				gm.add("b", i, j);
+				gm.add("b", j, i);
+				gm.add("c", j, i);
+				gm.add("d", j, i);
 
 			}
 
@@ -35,19 +40,54 @@ int main()
 
 	}
 
-	gm.swap(0, 0, 1, 0);
+	//gm.swap(0, 0, 0, 1);
 
 	for (int i = 0; i < gm.getHeight(); i++) {
 
 		for (int j = 0; j < gm.getWidth(); j++) {
 
-			cout << "(" << i << ", " << j << ")" << gm.get(i, j) << " ";
+			cout << "(" << j << ", " << i << ") : ";
+
+			vector<string> currList = gm.get(j, i);
+			cout << currList.size();
+			for (int k = 0; k < currList.size(); k++) {
+
+				cout << currList[k];
+
+			}
+
+			cout << endl;
 
 		}
 
 		cout << endl;
 
 	}
+
+	gm.clear();
+
+	for (int i = 0; i < gm.getHeight(); i++) {
+
+		for (int j = 0; j < gm.getWidth(); j++) {
+
+			cout << "(" << j << ", " << i << ") : ";
+
+			vector<string> currList = gm.get(j, i);
+
+			cout << currList.size();
+			for (int k = 0; k < currList.size(); k++) {
+
+				cout << currList[k];
+
+			}
+
+			cout << endl;
+
+		}
+
+		cout << endl;
+
+	}*/
 
 	return 0;
 
