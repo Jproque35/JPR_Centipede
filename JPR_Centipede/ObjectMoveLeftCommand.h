@@ -11,6 +11,7 @@ class ObjectMoveLeftCommand :
 private:
 	GameObject* context = NULL;
 	float distTravelled = 0.0f;
+	float xDest = 0.0f;
 
 public:
 	ObjectMoveLeftCommand(GameObject* context);

@@ -17,6 +17,7 @@ GameObjectManager::~GameObjectManager() {
 	for (int i = 0; i < this->objs.size(); i++) {
 
 		delete(this->objs[i]);
+		this->objs[i] = NULL;
 
 	}
 

@@ -13,6 +13,7 @@
 #include "CentipedeController.h"
 #include "PlayerController.h"
 #include "PlayerBulletController.h"
+#include "GridManager.h"
 
 using namespace sf;
 using namespace std;
@@ -21,20 +22,20 @@ class Engine {
 
 private: 
 	RenderWindow window;
-	GameObjectManager* enemies;
-	GameObjectManager* obstacles;
-	Player* player;
-	PlayerBullet* bullet;
+	GameObjectManager* objs;
+	GridManager* grid;
 	float cellWidth = 0.0f;
 	float gridHeight = 0.0f;
 	float gridWidth = 0.0f;
 	CentipedeController* testController;
 	PlayerController* playerController;
 	PlayerBulletController* bulletController;
+	vector<vector<GameObject*>> getCollisionObjects(GameObject* obj);
 
 
 	void input();
 	void init();
+	void buildGridState();
 	void update(float dtAsSeconds);
 	void draw();
 	void drawShape(GameObject* obj);

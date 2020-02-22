@@ -15,7 +15,7 @@ class Centipede: public GameObject {
 
 public:
 
-	Centipede(float initX, float initY);
+	Centipede(int id, float initX, float initY);
 
 };
 

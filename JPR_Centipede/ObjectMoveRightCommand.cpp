@@ -3,6 +3,7 @@
 ObjectMoveRightCommand::ObjectMoveRightCommand(GameObject* context) {
 
 	this->context = context;
+	this->xDest = this->context->position.x + 1.0f;
 
 }
 
@@ -10,10 +11,9 @@ void ObjectMoveRightCommand::execute(float elapsedTime) {
 
 	float moveDist = this->context->xSpeed * elapsedTime;
 
-	if (this->distTravelled + moveDist > 1.0f) {
+	if (this->context->position.x + moveDist >= this->xDest) {
 
-		float diff = 1.0f - abs(this->distTravelled);
-		this->context->position.x += diff;
+		this->context->position.x = this->xDest;
 		this->finished = true;
 
 	}

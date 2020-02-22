@@ -10,6 +10,7 @@ class ObjectMoveRightCommand :
 private:
 	GameObject* context = NULL;
 	float distTravelled = 0.0f;
+	float xDest = 0.0f;
 
 public:
 	ObjectMoveRightCommand(GameObject* context);

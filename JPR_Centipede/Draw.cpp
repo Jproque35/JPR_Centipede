@@ -4,28 +4,13 @@ void Engine::draw() {
 
 	window.clear(Color(0, 0, 0, 0));
 	
-	for (int i = 0; i < this->enemies->size(); i++) {
+	for (int i = 0; i < this->objs->size(); i++) {
 
-		if (this->enemies->get(i)->isActive()) {
+		if(this->objs->get(i)->isActive()) {
 
-			this->drawShape(this->enemies->get(i));
+			this->drawShape( this->objs->get(i) );
 
 		}
-
-	}
-	
-	for (int i = 0; i < this->obstacles->size(); i++) {
-
-		this->drawShape(this->obstacles->get(i));
-
-	}
-
-	this->drawShape(this->player);
-
-	if (this->bullet->isActive()) {
-
-		this->drawShape(this->bullet);
-
 
 	}
 	

@@ -29,12 +29,12 @@ void Engine::input() {
 
 	}
 
-	if (Keyboard::isKeyPressed(Keyboard::Space) && !this->bullet->isActive()) {
+	if (Keyboard::isKeyPressed(Keyboard::Space) && !this->objs->get(1)->isActive()) {
 
-		float gunX = this->player->getPosition().x + this->player->getShape().getRadius()
-			- this->bullet->getShape().getRadius();
+		float gunX = this->objs->get(0)->getPosition().x + this->objs->get(0)->getShape().getRadius()
+			- this->objs->get(1)->getShape().getRadius();
 
-		float gunY = this->player->getPosition().y;
+		float gunY = this->objs->get(0)->getPosition().y;
 
 		this->bulletController->setKey(Keyboard::Space, gunX, gunY);
 

@@ -23,8 +23,9 @@ void PlayerBulletFireCommand::execute(float elapsedTime) {
 		this->distTravelled += this->context->ySpeed * elapsedTime;
 		this->context->shape.setPosition(context->position);
 
-		if (this->context->position.y < 0.0f) {
-			
+		//if (this->context->position.y < 0.0f) {
+		if(this->distTravelled >= 10.0f) {
+
 			this->context->active = false;
 			this->finished = true;
 

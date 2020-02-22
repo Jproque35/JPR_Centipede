@@ -6,10 +6,9 @@ CentipedeController::CentipedeController(Centipede* context) {
 
 }
 
-void CentipedeController::checkCollision(GameObject* obj, float elapsedTime) {
+GameObject* CentipedeController::getData() {
 
-	FloatRect colBox1 = this->context->getCollisionBox();
-	FloatRect colBox2 = obj->getCollisionBox();
+	return this->context;
 
 }
 
@@ -26,7 +25,7 @@ void CentipedeController::checkCollision(float xBoundary, float yBoundary, float
 			this->changeLevelRight();
 
 		}
-		else if (currPos.x + this->context->getShape().getRadius() * 2 + xDist >= floor(xBoundary) - 1.0f && !this->changingLevels) {
+		else if (currPos.x + this->context->getShape().getRadius() * 2 + xDist >= xBoundary - 1.0f && !this->changingLevels) {
 
 			this->changeLevelLeft();
 
@@ -39,7 +38,7 @@ void CentipedeController::checkCollision(float xBoundary, float yBoundary, float
 		this->inReverse = false;
 
 	}
-	else if (this->context->position.y + yDist >= floor(yBoundary) - 1.0f) {
+	else if (this->context->position.y + yDist >= yBoundary - 1.0f) {
 
 		this->inReverse = true;
 
@@ -88,6 +87,34 @@ void CentipedeController::updateSub(float elapsedTime) {
 		}
 
 		this->changingLevels = false;
+
+	}
+
+}
+
+void CentipedeController::collisionSub(GameObject* obj) {
+
+	if (this->context != obj) {
+
+		float diameter0 = this->context->getShape().getRadius() * 2;
+		float diameter1 = obj->getShape().getRadius() * 2;
+
+		if (this->context->getPosition().y + diameter0 >= obj->getPosition().y ||
+			this->context->getPosition().y <= obj->getPosition().y + diameter1) {
+
+			if (this->context->getPosition().x + diameter0 >= obj->getPosition().x ||
+				this->context->getPosition().x <= obj->getPosition().x + diameter1) {
+
+				cout << "Intersection detected with object " << obj << endl;
+				if (obj->getType() == ObjectType::PlayerProjectile && obj->isActive()) {
+
+					cout << "Hit detected" << endl;
+
+				}
+
+			}
+
+		}
 
 	}
 

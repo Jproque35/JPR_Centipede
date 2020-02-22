@@ -17,9 +17,11 @@ private:
 
 protected:
 	void updateSub(float elapsedTime);
+	void collisionSub(GameObject* obj);
 
 public:
 	PlayerBulletController(PlayerBullet* context);
+	GameObject* getData();
 	void setKey(Keyboard::Key key, float x, float y);
 
 };

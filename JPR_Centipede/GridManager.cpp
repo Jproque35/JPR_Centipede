@@ -6,20 +6,25 @@ GridManager::GridManager(int width, int height) {
 	this->height = height;
 	this->objs.resize(this->width * this->height);
 
-	for (int i = 0; i < width * height; i++) {
-
-		cout << "Position " << i << " has size " << this->objs[i].size() << endl;
-
-	}
-
 }
-
 
 GridManager::~GridManager() {
 
 }
 
-int GridManager::getKey(int x, int y) {
+inline bool GridManager::inBounds(int x, int y) {
+
+	if (0 <= x && x < this->width) {
+
+		return 0 <= y && y < this->height;
+
+	}
+
+	return false;
+
+}
+
+inline int GridManager::getKey(int x, int y) {
 
 	return y * this->width + x;
 
@@ -44,14 +49,26 @@ void GridManager::clear() {
 
 }
 
-void GridManager::add(string s, int x, int y) {
+void GridManager::add(GameObject* obj, int x, int y) {
 
-	this->objs[this->getKey(x, y)].push_back(s);
+	if (this->inBounds(x, y)) {
+
+		this->objs[this->getKey(x, y)].push_back(obj);
+
+	}
 
 }
 
-vector<string> GridManager::get(int x, int y) {
+vector<GameObject*> GridManager::get(int x, int y) {
 
-	return this->objs[this->getKey(x, y)];
+	//cout << "Retrieving objects at location " << x << ", " << y << endl;
+
+	if (this->inBounds(x, y)) {
+
+		return this->objs[this->getKey(x, y)];
+
+	}
+
+	return {};
 
 }

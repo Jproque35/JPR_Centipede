@@ -2,6 +2,7 @@
 #define GAMEOBJECTMANAGER_H
 #pragma once
 #include "GameObject.h"
+#include "GridManager.h"
 #include <SFML/Graphics.hpp>
 
 class GameObjectManager {

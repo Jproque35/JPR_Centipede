@@ -6,6 +6,12 @@ PlayerBulletController::PlayerBulletController(PlayerBullet* context) {
 
 }
 
+GameObject* PlayerBulletController::getData() {
+
+	return this->context;
+
+}
+
 void PlayerBulletController::setKey(Keyboard::Key key, float x, float y) {
 
 	this->xPos = x;
@@ -26,5 +32,11 @@ void PlayerBulletController::updateSub(float elapsedTime) {
 		this->key = Keyboard::Unknown;
 
 	}
+
+}
+
+void PlayerBulletController::collisionSub(GameObject* obj) {
+
+
 
 }

@@ -15,10 +15,7 @@ private:
 	bool isPlayerProjectile(GameObject* obj);
 
 public:
-	Mushroom(float initX, float initY);
-	void checkCollision(GameObject* obj);
-	void checkCollision(float xBoundary, float yBoundary);
-	void update(float elapsedTime);
+	Mushroom(int id, float initX, float initY);
 
 };
 

@@ -11,6 +11,7 @@ class ObjectMoveDownCommand :
 private:
 	GameObject* context = NULL;
 	float distTravelled = 0.0f;
+	float yDest = 0.0f;
 
 public:
 	ObjectMoveDownCommand(GameObject* context);

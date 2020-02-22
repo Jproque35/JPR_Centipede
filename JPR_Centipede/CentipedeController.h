@@ -18,10 +18,11 @@ private:
 	void changeLevelRight();
 	void changeLevelLeft();
 	void updateSub(float elapsedTime);
+	void collisionSub(GameObject* obj);
 
 public:
 	CentipedeController(Centipede* context);
-	void checkCollision(GameObject* obj, float elapsedTime);
+	GameObject* getData();
 	void checkCollision(float initX, float initY, float elapsedTime);
 
 };

@@ -5,27 +5,22 @@ Engine::Engine() {
 	Vector2f resolution;
 	//resolution.x = VideoMode::getDesktopMode().width;
 	//resolution.y = VideoMode::getDesktopMode().height;
-	resolution.x = 1024;
-	resolution.y = 768;
+	resolution.x = 1600;
+	resolution.y = 900;
+
 	this->cellWidth = resolution.y / 40.0f;
-	this->gridHeight = resolution.y / cellWidth;
-	this->gridWidth = resolution.x / cellWidth;
+	this->gridHeight = 40.0f;
+	this->gridWidth = 20.0f;
 
+	this->window.create(VideoMode(this->gridWidth * cellWidth, this->gridHeight * cellWidth), "Simple Game Engine", Style::Default);
 
-
-
-	cout << "Grid dimensions are " << this->gridWidth << " by " << this->gridHeight << endl;
-
-
-	this->window.create(VideoMode(resolution.x, resolution.y), "Simple Game Engine", Style::Default);
+	this->init();
 
 }
 
 void Engine::start() {
 
 	Clock clock;
-
-	this->init();
 
 	while (this->window.isOpen()) {
 
@@ -39,8 +34,6 @@ void Engine::start() {
 
 	}
 
-	delete(this->bullet);
-	delete(this->player);
-	delete(this->enemies);
+	delete(this->objs);
 
 }

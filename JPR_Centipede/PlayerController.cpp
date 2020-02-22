@@ -6,6 +6,12 @@ PlayerController::PlayerController(Player* context) {
 
 }
 
+GameObject* PlayerController::getData() {
+
+	return this->context;
+
+}
+
 void PlayerController::setKey(Keyboard::Key key) {
 
 	this->key = key;
@@ -39,5 +45,11 @@ void PlayerController::updateSub(float elapsedTime) {
 		key = Keyboard::Unknown;
 
 	}
+
+}
+
+void PlayerController::collisionSub(GameObject* obj) {
+
+
 
 }

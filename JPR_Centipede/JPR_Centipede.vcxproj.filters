@@ -91,6 +91,9 @@
     <Filter Include="Header Files\Entities\GameObject\Controller">
       <UniqueIdentifier>{7ffd26c2-ebd4-45a9-b0dc-7eab949e93eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entities\Mushroom">
+      <UniqueIdentifier>{00d2e18a-10e2-4a12-bf06-445b45355125}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
@@ -176,9 +179,6 @@
     <ClInclude Include="PlayerBullet.h">
       <Filter>Header Files\Entities\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Mushroom.h">
-      <Filter>Header Files\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="Centipede.h">
       <Filter>Header Files\Entities\Centipede</Filter>
     </ClInclude>
@@ -217,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="GridManager.h">
       <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Mushroom.h">
+      <Filter>Header Files\Entities\Mushroom</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
