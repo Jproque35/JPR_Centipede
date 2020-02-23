@@ -1,66 +1,21 @@
 #include "CentipedeController.h"
 
-CentipedeController::CentipedeController(Centipede* context) {
+CentipedeController::CentipedeController(Centipede* context, GridManager* grid) {
 
 	this->context = context;
+	this->grid = grid;
+
+}
+
+void CentipedeController::setNext(CentipedeController* next) {
+
+	this->next = next;
 
 }
 
 GameObject* CentipedeController::getData() {
 
 	return this->context;
-
-}
-
-void CentipedeController::checkCollision(float xBoundary, float yBoundary, float elapsedTime) {
-
-	Vector2f currPos = this->context->position;
-	float xDist = this->context->xSpeed * elapsedTime;
-	float yDist = this->context->ySpeed * elapsedTime;
-
-	if (this->dir == CentipedeDirection::Left || this->dir == CentipedeDirection::Right) {
-
-		if (currPos.x - xDist <= 0 && !this->changingLevels) {
-
-			this->changeLevelRight();
-
-		}
-		else if (currPos.x + this->context->getShape().getRadius() * 2 + xDist >= xBoundary - 1.0f && !this->changingLevels) {
-
-			this->changeLevelLeft();
-
-		}
-
-	}
-
-	if (this->context->position.y - yDist <= 0.0f) {
-
-		this->inReverse = false;
-
-	}
-	else if (this->context->position.y + yDist >= yBoundary - 1.0f) {
-
-		this->inReverse = true;
-
-	}
-
-}
-
-void CentipedeController::changeLevelLeft() {
-
-	this->dir = CentipedeDirection::Left;
-	this->queueLevelChangeCommand();
-	this->commands.push(new ObjectMoveLeftCommand(this->context));
-	this->changingLevels = true;
-
-}
-
-void CentipedeController::changeLevelRight() {
-
-	this->dir = CentipedeDirection::Right;
-	this->queueLevelChangeCommand();
-	this->commands.push(new ObjectMoveRightCommand(this->context));
-	this->changingLevels = true;
 
 }
 
@@ -71,23 +26,6 @@ void CentipedeController::queueLevelChangeCommand() {
 	}
 	else {
 		this->commands.push(new ObjectMoveUpCommand(this->context));
-	}
-
-}
-
-void CentipedeController::updateSub(float elapsedTime) {
-
-	if (this->commands.size() < 1) {
-
-		if (this->dir == CentipedeDirection::Left) {
-			this->commands.push(new ObjectMoveLeftCommand(this->context));
-		}
-		else if (this->dir == CentipedeDirection::Right) {
-			this->commands.push(new ObjectMoveRightCommand(this->context));
-		}
-
-		this->changingLevels = false;
-
 	}
 
 }
@@ -119,3 +57,20 @@ void CentipedeController::collisionSub(GameObject* obj) {
 	}
 
 }
+
+/*
+void CentipedeController::handleFinishedCommand(ObjectCommand* command) {
+
+	if (this->next == NULL) {
+
+		delete(command);
+		command = NULL;
+
+	}
+	else {
+
+		this->next->queueCommand(command);
+
+	}
+
+}*/

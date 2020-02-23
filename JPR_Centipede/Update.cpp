@@ -4,8 +4,6 @@ void Engine::update(float dtAsSeconds) {
 
 	this->buildGridState();
 
-	//this->testController->checkCollisionsWithObjects();
-	this->testController->checkCollision(this->gridWidth, this->gridHeight, dtAsSeconds);
 	this->testController->checkCollisionWithObjects(this->getCollisionObjects(this->testController->getData()));
 	this->testController->update(dtAsSeconds);
 

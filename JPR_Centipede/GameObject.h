@@ -9,7 +9,7 @@
 using namespace sf;
 using namespace std;
 
-enum class ObjectType { Generic, Player, PlayerProjectile, Centipede, Mushroom };
+enum class ObjectType { Generic, Player, PlayerProjectile, Centipede, Mushroom, Unknown };
 
 class GameObject {
 
@@ -29,7 +29,7 @@ protected:
 	int id = -1;
 
 public:
-	GameObject(int id, float initX, float initY);
+	GameObject(float initX, float initY);
 	void activate();
 	void deactivate();
 	bool isActive();

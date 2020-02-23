@@ -165,6 +165,9 @@
     <ClCompile Include="GridManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="CentipedeControllerUpdate.cpp">
+      <Filter>Source Files\Entities\Centipede\Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">

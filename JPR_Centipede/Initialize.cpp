@@ -7,17 +7,17 @@ void Engine::init() {
 	this->objs = new GameObjectManager(23);
 	this->grid = new GridManager(this->gridWidth, this->gridHeight);
 
-	this->objs->add(0, new Player(0, floor(this->gridWidth / 2), this->gridHeight / 2));
+	this->objs->add(0, new Player(floor(this->gridWidth / 2), this->gridHeight / 2));
 	this->objs->get(0)->activate();
-	this->objs->add(1, new PlayerBullet(0, 0, 0));
+	this->objs->add(1, new PlayerBullet(0, 0));
 	this->playerController = new PlayerController((Player*)this->objs->get(0));
 	this->bulletController = new PlayerBulletController((PlayerBullet*)this->objs->get(1));
 
 	for (int i = 2; i < 3; i++) {
 
-		this->objs->add(i, new Centipede(i, this->gridWidth/2, 0.0f));
+		this->objs->add(i, new Centipede(this->gridWidth/2, 0.0f));
 		this->objs->get(i)->activate();
-		this->testController = new CentipedeController((Centipede*)this->objs->get(i));
+		this->testController = new CentipedeController((Centipede*)this->objs->get(i), this->grid);
 
 	}
 
@@ -25,7 +25,7 @@ void Engine::init() {
 
 	for (int i = 3; i < 23; i++) {
 
-		this->objs->add(i, new Mushroom(i, rand() % (int)(this->gridWidth - 1.0f), rand() % (int)(this->gridHeight - 1.0f) + 1));
+		this->objs->add(i, new Mushroom(rand() % (int)(this->gridWidth - 1.0f), rand() % (int)(this->gridHeight - 1.0f) + 1));
 		this->objs->get(i)->activate();
 
 	}

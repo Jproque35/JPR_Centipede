@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject(int id, float initX, float initY) {
+GameObject::GameObject(float initX, float initY) {
 
 	this->position.x = initX;
 	this->position.y = initY;
@@ -8,7 +8,6 @@ GameObject::GameObject(int id, float initX, float initY) {
 	this->ySpeed = 0.0f;
 	this->shape.setPosition(this->position);
 	this->shape.setPointCount(15);
-	this->id = id;
 
 }
 

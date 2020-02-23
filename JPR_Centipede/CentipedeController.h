@@ -12,18 +12,24 @@ class CentipedeController : public ObjectController
 private:
 	Centipede* context;
 	CentipedeDirection dir = CentipedeDirection::Left;
+	GridManager* grid;
+	CentipedeController* next = NULL;
 	bool inReverse = false;
-	bool changingLevels = false;
-	void queueLevelChangeCommand();
-	void changeLevelRight();
-	void changeLevelLeft();
 	void updateSub(float elapsedTime);
 	void collisionSub(GameObject* obj);
+	void queueLevelChangeCommand();
+	void changeLevelAndDirection(CentipedeDirection dir);
+	bool nextLevelBlocked();
+	void moveLeftRoutine();
+	void moveRightRoutine();
+
+protected:
+	//void handleFinishedCommand(ObjectCommand* command);
 
 public:
-	CentipedeController(Centipede* context);
+	CentipedeController(Centipede* context, GridManager* grid);
 	GameObject* getData();
-	void checkCollision(float initX, float initY, float elapsedTime);
+	void setNext(CentipedeController* next);
 
 };
 

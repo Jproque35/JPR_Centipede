@@ -40,3 +40,15 @@ void PlayerBulletController::collisionSub(GameObject* obj) {
 
 
 }
+
+/*
+void PlayerBulletController::handleFinishedCommand(ObjectCommand* command) {
+
+	if (command != NULL) {
+
+		delete(command);
+		command = NULL;
+
+	}
+
+}*/

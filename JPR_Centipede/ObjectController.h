@@ -15,6 +15,7 @@ protected:
 	void executeCommand(float elapsedTime);
 	virtual void updateSub(float elapsedTime) = 0;
 	virtual void collisionSub(GameObject* obj) = 0;
+	//virtual void handleFinishedCommand(ObjectCommand* command) = 0;
 
 public:
 	~ObjectController();

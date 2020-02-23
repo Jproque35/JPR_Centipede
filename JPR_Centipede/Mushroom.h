@@ -12,10 +12,9 @@ class Mushroom :
 private:
 	float health = 3.0f;
 	bool inHitStun = false;
-	bool isPlayerProjectile(GameObject* obj);
 
 public:
-	Mushroom(int id, float initX, float initY);
+	Mushroom(float initX, float initY);
 
 };
 

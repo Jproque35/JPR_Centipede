@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Player::Player(int id, float initX, float initY) : GameObject(id, initX, initY) {
+Player::Player(float initX, float initY) : GameObject(initX, initY) {
 
 	this->xSpeed = 8.0f;
 	this->ySpeed = 8.0f;

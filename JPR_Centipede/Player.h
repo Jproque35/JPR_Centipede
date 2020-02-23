@@ -8,7 +8,7 @@ class Player :
 {
 
 public:
-	Player(int id, float initX, float initY);
+	Player(float initX, float initY);
 
 };
 

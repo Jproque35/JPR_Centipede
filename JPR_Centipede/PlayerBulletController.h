@@ -18,6 +18,7 @@ private:
 protected:
 	void updateSub(float elapsedTime);
 	void collisionSub(GameObject* obj);
+	//void handleFinishedCommand(ObjectCommand* object);
 
 public:
 	PlayerBulletController(PlayerBullet* context);

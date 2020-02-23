@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CentipedeController.cpp" />
+    <ClCompile Include="CentipedeControllerUpdate.cpp" />
     <ClCompile Include="GridManager.cpp" />
     <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="Draw.cpp" />

@@ -24,6 +24,7 @@ public:
 	int getWidth();
 	int getHeight();
 	void clear();
+	bool hasType(ObjectType type, int x, int y);
 	void add(GameObject* obj, int x, int y);
 	vector<GameObject*> get(int x, int y);
 

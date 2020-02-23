@@ -41,9 +41,14 @@ void ObjectController::executeCommand(float elapsedTime) {
 
 		if (currCommand->isFinished()) {
 
-			this->commands.pop();
-			delete(currCommand);
-			currCommand = NULL;
+			//this->handleFinishedCommand(currCommand);
+			if (currCommand != NULL) {
+
+				this->commands.pop();
+				delete(currCommand);
+				currCommand = NULL;
+
+			}
 
 		}
 

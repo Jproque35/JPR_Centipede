@@ -17,7 +17,7 @@ inline bool GridManager::inBounds(int x, int y) {
 	if (0 <= x && x < this->width) {
 
 		return 0 <= y && y < this->height;
-
+		
 	}
 
 	return false;
@@ -46,6 +46,30 @@ void GridManager::clear() {
 
 	this->objs.clear();
 	this->objs.resize(this->width * this->height);
+
+}
+
+bool GridManager::hasType(ObjectType type, int x, int y) {
+
+	if (!this->inBounds(x, y)) {
+
+		return false;
+
+	}
+
+	vector<GameObject*> currList = this->objs[this->getKey(x, y)];
+
+	for (int i = 0; i < currList.size(); i++) {
+
+		if (currList[i]->getType() == type) {
+
+			return true;
+
+		}
+
+	}
+
+	return false;
 
 }
 

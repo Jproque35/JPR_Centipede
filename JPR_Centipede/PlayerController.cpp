@@ -53,3 +53,15 @@ void PlayerController::collisionSub(GameObject* obj) {
 
 
 }
+
+/*
+void PlayerController::handleFinishedCommand(ObjectCommand* command) {
+
+	if (command != NULL) {
+
+		delete(command);
+		command = NULL;
+
+	}
+
+}*/

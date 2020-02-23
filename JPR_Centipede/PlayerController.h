@@ -12,6 +12,9 @@ private:
 	void updateSub(float elapsedTime);
 	void collisionSub(GameObject* obj);
 
+protected:
+	//void handleFinishedCommand(ObjectCommand* object);
+
 public:
 	PlayerController(Player* context);
 	GameObject* getData();
