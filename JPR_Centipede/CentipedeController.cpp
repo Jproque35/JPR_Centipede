@@ -19,17 +19,6 @@ GameObject* CentipedeController::getData() {
 
 }
 
-void CentipedeController::queueLevelChangeCommand() {
-
-	if (!this->inReverse) {
-		this->commands.push(new ObjectMoveDownCommand(this->context));
-	}
-	else {
-		this->commands.push(new ObjectMoveUpCommand(this->context));
-	}
-
-}
-
 void CentipedeController::collisionSub(GameObject* obj) {
 
 	if (this->context != obj) {
@@ -43,12 +32,6 @@ void CentipedeController::collisionSub(GameObject* obj) {
 			if (this->context->getPosition().x + diameter0 >= obj->getPosition().x ||
 				this->context->getPosition().x <= obj->getPosition().x + diameter1) {
 
-				cout << "Intersection detected with object " << obj << endl;
-				if (obj->getType() == ObjectType::PlayerProjectile && obj->isActive()) {
-
-					cout << "Hit detected" << endl;
-
-				}
 
 			}
 

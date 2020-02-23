@@ -28,7 +28,7 @@ void Engine::start() {
 
 		float dtAsSeconds = dt.asSeconds();
 
-		input();
+		input(dtAsSeconds);
 		update(dtAsSeconds);
 		draw();
 

@@ -43,7 +43,6 @@ void CentipedeController::moveLeftRoutine() {
 	}
 	else if (this->commands.size() < 1) {
 
-		cout << "Pushed move left command" << endl;
 		this->commands.push(new ObjectMoveLeftCommand(this->context));
 
 	}
@@ -67,7 +66,6 @@ void CentipedeController::moveRightRoutine() {
 	}
 	else if (this->commands.size() < 1) {
 
-		cout << "Pushed move right command" << endl;
 		this->commands.push(new ObjectMoveRightCommand(this->context));
 
 	}
@@ -79,6 +77,17 @@ void CentipedeController::changeLevelAndDirection(CentipedeDirection dir) {
 	this->dir = dir;
 	if (!this->nextLevelBlocked()) {
 		this->queueLevelChangeCommand();
+	}
+
+}
+
+void CentipedeController::queueLevelChangeCommand() {
+
+	if (!this->inReverse) {
+		this->commands.push(new ObjectMoveDownCommand(this->context));
+	}
+	else {
+		this->commands.push(new ObjectMoveUpCommand(this->context));
 	}
 
 }

@@ -42,6 +42,7 @@ void ObjectController::executeCommand(float elapsedTime) {
 		if (currCommand->isFinished()) {
 
 			//this->handleFinishedCommand(currCommand);
+
 			if (currCommand != NULL) {
 
 				this->commands.pop();

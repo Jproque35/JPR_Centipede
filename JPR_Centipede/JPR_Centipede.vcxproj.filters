@@ -19,12 +19,6 @@
     <Filter Include="Source Files\Entities">
       <UniqueIdentifier>{273f24e0-c656-4876-afd3-2e5058eac3ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Managers">
-      <UniqueIdentifier>{5c9a8f40-ae42-4385-8442-d7e72cd9727a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Managers">
-      <UniqueIdentifier>{bb313d12-716d-40d3-a86a-a3d94622343e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Engine">
       <UniqueIdentifier>{56032c9e-465c-404a-a8e9-2169b5346ea1}</UniqueIdentifier>
     </Filter>
@@ -94,10 +88,19 @@
     <Filter Include="Header Files\Entities\Mushroom">
       <UniqueIdentifier>{00d2e18a-10e2-4a12-bf06-445b45355125}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entities\Mushroom\Controller">
+      <UniqueIdentifier>{71d1ea77-9b6b-41f8-b7b2-6346091e5434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Managers">
+      <UniqueIdentifier>{5c9a8f40-ae42-4385-8442-d7e72cd9727a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Managers">
+      <UniqueIdentifier>{bb313d12-716d-40d3-a86a-a3d94622343e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
-      <Filter>Source Files\Managers</Filter>
+      <Filter>Source Files\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Engine</Filter>
@@ -163,15 +166,33 @@
       <Filter>Source Files\Entities\GameObject\Controller</Filter>
     </ClCompile>
     <ClCompile Include="GridManager.cpp">
-      <Filter>Source Files\Managers</Filter>
+      <Filter>Source Files\Engine\Managers</Filter>
     </ClCompile>
     <ClCompile Include="CentipedeControllerUpdate.cpp">
       <Filter>Source Files\Entities\Centipede\Controller</Filter>
     </ClCompile>
+    <ClCompile Include="MushroomController.cpp">
+      <Filter>Source Files\Entities\Mushroom</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectActivateCommand.cpp">
+      <Filter>Source Files\Entities\GameObject\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectDeactivateCommand.cpp">
+      <Filter>Source Files\Entities\GameObject\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectSetPositionCommand.cpp">
+      <Filter>Source Files\Entities\GameObject\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
-      <Filter>Header Files\Managers</Filter>
+      <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Engine</Filter>
@@ -219,10 +240,28 @@
       <Filter>Header Files\Entities\GameObject\Controller</Filter>
     </ClInclude>
     <ClInclude Include="GridManager.h">
-      <Filter>Header Files\Managers</Filter>
+      <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="Mushroom.h">
       <Filter>Header Files\Entities\Mushroom</Filter>
+    </ClInclude>
+    <ClInclude Include="MushroomController.h">
+      <Filter>Header Files\Entities\Mushroom\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Header Files\Engine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Header Files\Engine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectSetPositionCommand.h">
+      <Filter>Header Files\Entities\GameObject\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectActivateCommand.h">
+      <Filter>Header Files\Entities\GameObject\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectDeactivateCommand.h">
+      <Filter>Header Files\Entities\GameObject\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

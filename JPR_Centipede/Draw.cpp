@@ -4,12 +4,14 @@ void Engine::draw() {
 
 	window.clear(Color(0, 0, 0, 0));
 	
-	for (int i = 0; i < this->objs->size(); i++) {
+	for (int i = 0; i < this->objectControllers.size(); i++) {
 
-		if(this->objs->get(i)->isActive()) {
+		if(this->objectControllers[i] != NULL) {
+			if(this->objectControllers[i]->getData()->isActive()) {
 
-			this->drawShape( this->objs->get(i) );
+				this->drawShape( this->objectControllers[i]->getData() );
 
+			}
 		}
 
 	}

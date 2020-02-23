@@ -1,34 +1,67 @@
 #include "Engine.h"
 
+inline int Engine::getNumObjects() {
+
+	return 1 + this->numBullets + this->numCentipedes + this->numMushrooms;
+
+}
+
 void Engine::init() {
 
 	int xRes = this->window.getSize().x;
 	int yRes = this->window.getSize().y;
-	this->objs = new GameObjectManager(23);
+	int currPos = 0;
+	this->objs = new GameObjectManager(this->getNumObjects());
+	this->objectControllers.resize(this->getNumObjects());
 	this->grid = new GridManager(this->gridWidth, this->gridHeight);
 
-	this->objs->add(0, new Player(floor(this->gridWidth / 2), this->gridHeight / 2));
+	this->objs->add(0, new Player(floor(this->gridWidth / 2), floor(this->gridHeight / 2)));
 	this->objs->get(0)->activate();
-	this->objs->add(1, new PlayerBullet(0, 0));
-	this->playerController = new PlayerController((Player*)this->objs->get(0));
-	this->bulletController = new PlayerBulletController((PlayerBullet*)this->objs->get(1));
+	this->objectControllers[0] = new PlayerController((Player*)this->objs->get(0));
+	bulletsStart = ++currPos;
 
-	for (int i = 2; i < 3; i++) {
+	int endPos = currPos + this->numBullets;
+	cout << "Loading bullet objects..." << endl;
 
-		this->objs->add(i, new Centipede(this->gridWidth/2, 0.0f));
-		this->objs->get(i)->activate();
-		this->testController = new CentipedeController((Centipede*)this->objs->get(i), this->grid);
+	while(currPos < endPos) {
+
+		this->objs->add(currPos, new PlayerBullet(-1, -1));
+		this->objectControllers[currPos] = new PlayerBulletController((PlayerBullet*)this->objs->get(currPos));
+		this->loadedBullets.push((PlayerBulletController*)(this->objectControllers[currPos]));
+		cout << "Loaded bullet object into slot " << currPos << endl;
+		currPos++;
+
+	}
+
+	endPos = currPos + this->numCentipedes;
+	cout << "Loading centipede objects..." << endl;
+
+	while (currPos < endPos) {
+
+		this->objs->add(currPos, new Centipede(this->gridWidth / 2, 0.0f));
+		this->objectControllers[currPos] = new CentipedeController((Centipede*)this->objs->get(currPos), this->grid);
+		this->objs->get(currPos)->activate();
+		cout << "Loaded centipede object into slot " << currPos << endl;
+		currPos++;
 
 	}
 
 	srand(time(NULL));
 
-	for (int i = 3; i < 23; i++) {
+	endPos = currPos + this->numMushrooms;
+	cout << "Loading mushroom objects..." << endl;
 
-		this->objs->add(i, new Mushroom(rand() % (int)(this->gridWidth - 1.0f), rand() % (int)(this->gridHeight - 1.0f) + 1));
-		this->objs->get(i)->activate();
+	while (currPos < endPos) {
+
+		this->objs->add(currPos, new Mushroom(rand() % (int)(this->gridWidth - 1.0f), rand() % (int)(this->gridHeight - 1.0f) + 1));
+		this->objectControllers[currPos] = new MushroomController((Mushroom*)this->objs->get(currPos));
+		this->objs->get(currPos)->activate();
+		cout << "Loaded mushroom object into slot " << currPos << endl;
+		currPos++;
 
 	}
+
+	cout << "Successfully loaded all objects." << endl;
 
 	this->buildGridState();
 

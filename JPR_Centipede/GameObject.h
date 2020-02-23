@@ -18,6 +18,9 @@ class GameObject {
 	friend class ObjectMoveDownCommand;
 	friend class ObjectMoveLeftCommand;
 	friend class ObjectMoveRightCommand;
+	friend class ObjectActivateCommand;
+	friend class ObjectDeactivateCommand;
+	friend class ObjectSetPositionCommand;
 
 protected:
 	ObjectType type = ObjectType::Generic;

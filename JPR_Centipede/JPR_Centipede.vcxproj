@@ -154,6 +154,8 @@
   <ItemGroup>
     <ClCompile Include="CentipedeController.cpp" />
     <ClCompile Include="CentipedeControllerUpdate.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="GridManager.cpp" />
     <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="Draw.cpp" />
@@ -164,12 +166,16 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Centipede.cpp" />
+    <ClCompile Include="MushroomController.cpp" />
+    <ClCompile Include="ObjectActivateCommand.cpp" />
     <ClCompile Include="ObjectCommand.cpp" />
     <ClCompile Include="ObjectController.cpp" />
+    <ClCompile Include="ObjectDeactivateCommand.cpp" />
     <ClCompile Include="ObjectMoveDownCommand.cpp" />
     <ClCompile Include="ObjectMoveLeftCommand.cpp" />
     <ClCompile Include="ObjectMoveRightCommand.cpp" />
     <ClCompile Include="ObjectMoveUpCommand.cpp" />
+    <ClCompile Include="ObjectSetPositionCommand.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="PlayerBulletController.cpp" />
@@ -179,18 +185,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CentipedeController.h" />
+    <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="EventManager.h" />
     <ClInclude Include="GridManager.h" />
     <ClInclude Include="Mushroom.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="Centipede.h" />
+    <ClInclude Include="MushroomController.h" />
+    <ClInclude Include="ObjectActivateCommand.h" />
     <ClInclude Include="ObjectCommand.h" />
     <ClInclude Include="ObjectController.h" />
+    <ClInclude Include="ObjectDeactivateCommand.h" />
     <ClInclude Include="ObjectMoveDownCommand.h" />
     <ClInclude Include="ObjectMoveLeftCommand.h" />
     <ClInclude Include="ObjectMoveRightCommand.h" />
     <ClInclude Include="ObjectMoveUpCommand.h" />
+    <ClInclude Include="ObjectSetPositionCommand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="PlayerBulletController.h" />

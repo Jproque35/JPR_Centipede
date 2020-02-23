@@ -8,9 +8,10 @@ using namespace sf;
 class Mushroom :
 	public GameObject
 {
+	friend class MushroomController;
 
 private:
-	float health = 3.0f;
+	int health = 4.0f;
 	bool inHitStun = false;
 
 public:
