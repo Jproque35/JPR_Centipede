@@ -1,14 +1,16 @@
 #include "CentipedeController.h"
 
-CentipedeController::CentipedeController(Centipede* context, GridManager* grid) {
+CentipedeController::CentipedeController(Centipede* context) {
 
 	this->context = context;
-	this->grid = grid;
+	//this->grid = grid;
+	this->head = true;
 
 }
 
 void CentipedeController::setNext(CentipedeController* next) {
 
+	cout << "Next for object " << this << " set to " << next << endl;
 	this->next = next;
 
 }
@@ -19,6 +21,7 @@ GameObject* CentipedeController::getData() {
 
 }
 
+/*
 void CentipedeController::collisionSub(GameObject* obj) {
 
 	if (this->context != obj) {
@@ -41,7 +44,6 @@ void CentipedeController::collisionSub(GameObject* obj) {
 
 }
 
-/*
 void CentipedeController::handleFinishedCommand(ObjectCommand* command) {
 
 	if (this->next == NULL) {

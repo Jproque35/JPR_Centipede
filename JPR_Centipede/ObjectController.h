@@ -5,7 +5,6 @@
 #include "ObjectMoveUpCommand.h"
 #include "ObjectMoveDownCommand.h"
 #include "ObjectMoveRightCommand.h"
-#include "GridManager.h"
 
 class ObjectController
 {
@@ -14,11 +13,12 @@ protected:
 	queue<ObjectCommand*> commands;
 	void executeCommand(float elapsedTime);
 	virtual void updateSub(float elapsedTime) = 0;
-	virtual void collisionSub(GameObject* obj) = 0;
+	//virtual void collisionSub(GameObject* obj) = 0;
 	//virtual void handleFinishedCommand(ObjectCommand* command) = 0;
 
 public:
 	~ObjectController();
+	void queueCommand(ObjectCommand* command);
 	void checkCollisionWithObjects(vector<vector<GameObject*>> objs);
 	virtual GameObject* getData() = 0;
 	void update(float elapsedTime);

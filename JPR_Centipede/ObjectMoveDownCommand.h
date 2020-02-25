@@ -10,11 +10,13 @@ class ObjectMoveDownCommand :
 
 private:
 	GameObject* context = NULL;
-	float distTravelled = 0.0f;
 	float yDest = 0.0f;
+	void init(GameObject* context);
 
 public:
+
 	ObjectMoveDownCommand(GameObject* context);
+	void reset(GameObject* context);
 	void execute(float elapsedTime);
 };
 

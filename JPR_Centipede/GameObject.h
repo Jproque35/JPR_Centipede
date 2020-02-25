@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <queue>
 #include <iostream>
-#include "ObjectCommand.h"
 
 using namespace sf;
 using namespace std;

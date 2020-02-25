@@ -14,35 +14,39 @@
 #include "CentipedeController.h"
 #include "PlayerController.h"
 #include "PlayerBulletController.h"
-#include "GridManager.h"
 #include "MushroomController.h"
+#include "CollisionManager.h"
+#include "EventManager.h"
 
 using namespace sf;
 using namespace std;
 
 class Engine {
 
+	friend class EventManager;
+
 private: 
 	RenderWindow window;
 	GameObjectManager* objs;
-	GridManager* grid;
+	EventManager* em;
+	queue<PlayerBulletController*> loadedBullets;
+
+
 	float cellWidth = 0.0f;
 	float gridHeight = 0.0f;
 	float gridWidth = 0.0f;
 	int bulletsStart = -1;
 	int numBullets = 1;
-	int numCentipedes = 10;
+	int numCentipedes = 1;
 	int numMushrooms = 20;
-	vector<ObjectController*> objectControllers;
-	vector<vector<GameObject*>> getCollisionObjects(GameObject* obj);
-	queue<PlayerBulletController*> loadedBullets;
 	int getNumObjects();
 	float lastFiredTime = 0.0f;
 
 
 	void input(float dtAsSeconds);
 	void init();
-	void buildGridState();
+	void initObjects();
+	void initEvents();
 	void update(float dtAsSeconds);
 	void draw();
 	void drawShape(GameObject* obj);

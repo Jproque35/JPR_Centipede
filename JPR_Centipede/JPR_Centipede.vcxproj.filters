@@ -189,6 +189,21 @@
     <ClCompile Include="ObjectSetPositionCommand.cpp">
       <Filter>Source Files\Entities\GameObject\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="CentipedeState.cpp">
+      <Filter>Source Files\Entities\Centipede</Filter>
+    </ClCompile>
+    <ClCompile Include="SegmentController.cpp">
+      <Filter>Source Files\Entities\Centipede\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEvent.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="MushroomHitEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CentipedeMoveEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -262,6 +277,21 @@
     </ClInclude>
     <ClInclude Include="ObjectDeactivateCommand.h">
       <Filter>Header Files\Entities\GameObject\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CentipedeState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SegmentController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MushroomHitEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CentipedeMoveEvent.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,6 +13,12 @@ ObjectController::~ObjectController() {
 
 }
 
+void ObjectController::queueCommand(ObjectCommand* command) {
+
+	this->commands.push(command);
+
+}
+
 void ObjectController::checkCollisionWithObjects(vector<vector<GameObject*>> objs) {
 
 	for (int i = 0; i < objs.size(); i++) {
@@ -23,7 +29,7 @@ void ObjectController::checkCollisionWithObjects(vector<vector<GameObject*>> obj
 
 			GameObject* currObject = currList[j];
 
-			this->collisionSub(currObject);
+			//this->collisionSub(currObject);
 
 		}
 

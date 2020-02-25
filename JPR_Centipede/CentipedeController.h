@@ -9,25 +9,20 @@ enum class CentipedeDirection {Left, Right, Up, Down};
 class CentipedeController : public ObjectController
 {
 
+	friend class CentipedeMoveEvent;
+
 private:
+	bool head = false;
 	Centipede* context;
 	CentipedeDirection dir = CentipedeDirection::Left;
-	GridManager* grid;
 	CentipedeController* next = NULL;
 	bool inReverse = false;
 	void updateSub(float elapsedTime);
-	void collisionSub(GameObject* obj);
-	void queueLevelChangeCommand();
-	void changeLevelAndDirection(CentipedeDirection dir);
-	bool nextLevelBlocked();
-	void moveLeftRoutine();
-	void moveRightRoutine();
+	void collisionSub(float elapsedTime);
 
-protected:
-	//void handleFinishedCommand(ObjectCommand* command);
 
 public:
-	CentipedeController(Centipede* context, GridManager* grid);
+	CentipedeController(Centipede* context);
 	GameObject* getData();
 	void setNext(CentipedeController* next);
 

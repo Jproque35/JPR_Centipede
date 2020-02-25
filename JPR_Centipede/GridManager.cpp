@@ -57,11 +57,11 @@ bool GridManager::hasType(ObjectType type, int x, int y) {
 
 	}
 
-	vector<GameObject*> currList = this->objs[this->getKey(x, y)];
+	vector<ObjectController*> currList = this->objs[this->getKey(x, y)];
 
 	for (int i = 0; i < currList.size(); i++) {
 
-		if (currList[i]->getType() == type) {
+		if (currList[i]->getData()->getType() == type) {
 
 			return true;
 
@@ -73,7 +73,10 @@ bool GridManager::hasType(ObjectType type, int x, int y) {
 
 }
 
-void GridManager::add(GameObject* obj, int x, int y) {
+void GridManager::add(ObjectController* obj) {
+
+	int x = obj->getData()->getPosition().x;
+	int y = obj->getData()->getPosition().y;
 
 	if (this->inBounds(x, y)) {
 
@@ -83,7 +86,7 @@ void GridManager::add(GameObject* obj, int x, int y) {
 
 }
 
-vector<GameObject*> GridManager::get(int x, int y) {
+vector<ObjectController*> GridManager::get(int x, int y) {
 
 	//cout << "Retrieving objects at location " << x << ", " << y << endl;
 

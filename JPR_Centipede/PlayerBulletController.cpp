@@ -37,7 +37,25 @@ void PlayerBulletController::updateSub(float elapsedTime) {
 
 void PlayerBulletController::collisionSub(GameObject* obj) {
 
+	if (this->context != obj) {
 
+		float diameter0 = this->context->getShape().getRadius() * 2;
+		float diameter1 = obj->getShape().getRadius() * 2;
+
+		if (this->context->getPosition().y + diameter0 >= obj->getPosition().y ||
+			this->context->getPosition().y <= obj->getPosition().y + diameter1) {
+
+			if (this->context->getPosition().x + diameter0 >= obj->getPosition().x ||
+				this->context->getPosition().x <= obj->getPosition().x + diameter1) {
+
+				cout << "Projectile hit something" << endl;
+
+
+			}
+
+		}
+
+	}
 
 }
 

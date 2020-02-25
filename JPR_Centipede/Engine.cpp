@@ -24,6 +24,17 @@ void Engine::start() {
 
 	while (this->window.isOpen()) {
 
+		Event event;
+		while (window.pollEvent(event)) {
+
+			if (event.type == Event::Closed) {
+
+				window.close();
+
+			}
+
+		}
+
 		Time dt = clock.restart();
 
 		float dtAsSeconds = dt.asSeconds();

@@ -10,7 +10,7 @@ void Engine::input(float dtAsSeconds) {
 
 	}
 
-	PlayerController* playerController = (PlayerController*)(this->objectControllers[0]);
+	PlayerController* playerController = (PlayerController*)(this->objs->get(0));
 
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
 
@@ -35,10 +35,10 @@ void Engine::input(float dtAsSeconds) {
 
 	if (Keyboard::isKeyPressed(Keyboard::Space)) {
 
-		float gunX = this->objs->get(0)->getPosition().x + this->objs->get(0)->getShape().getRadius()
-			- this->objs->get(1)->getShape().getRadius();
+		float gunX = this->objs->get(0)->getData()->getPosition().x + this->objs->get(0)->getData()->getShape().getRadius()
+			- this->objs->get(1)->getData()->getShape().getRadius();
 
-		float gunY = this->objs->get(0)->getPosition().y;
+		float gunY = this->objs->get(0)->getData()->getPosition().y;
 
 		if (this->loadedBullets.size() > 0) {
 

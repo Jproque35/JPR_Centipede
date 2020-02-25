@@ -2,8 +2,20 @@
 
 ObjectMoveRightCommand::ObjectMoveRightCommand(GameObject* context) {
 
+	this->init(context);
+
+}
+
+void ObjectMoveRightCommand::init(GameObject* context) {
+
 	this->context = context;
 	this->xDest = this->context->position.x + 1.0f;
+
+}
+
+void ObjectMoveRightCommand::reset(GameObject* context) {
+
+	this->init(context);
 
 }
 
@@ -20,7 +32,6 @@ void ObjectMoveRightCommand::execute(float elapsedTime) {
 	else {
 
 		this->context->position.x += moveDist;
-		this->distTravelled += abs(moveDist);
 
 	}
 

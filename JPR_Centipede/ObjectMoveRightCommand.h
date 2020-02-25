@@ -9,11 +9,12 @@ class ObjectMoveRightCommand :
 
 private:
 	GameObject* context = NULL;
-	float distTravelled = 0.0f;
 	float xDest = 0.0f;
+	void init(GameObject* context);
 
 public:
 	ObjectMoveRightCommand(GameObject* context);
+	void reset(GameObject* context);
 	void execute(float elapsedTime);
 };
 

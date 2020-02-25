@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "CentipedeMoveEvent.h"
 
 inline int Engine::getNumObjects() {
 
@@ -7,17 +8,23 @@ inline int Engine::getNumObjects() {
 }
 
 void Engine::init() {
-
 	int xRes = this->window.getSize().x;
 	int yRes = this->window.getSize().y;
-	int currPos = 0;
-	this->objs = new GameObjectManager(this->getNumObjects());
-	this->objectControllers.resize(this->getNumObjects());
-	this->grid = new GridManager(this->gridWidth, this->gridHeight);
+	this->objs = new GameObjectManager(this->getNumObjects(), this->gridWidth, this->gridHeight);
+	this->em = new EventManager(this->objs);
 
-	this->objs->add(0, new Player(floor(this->gridWidth / 2), floor(this->gridHeight / 2)));
-	this->objs->get(0)->activate();
-	this->objectControllers[0] = new PlayerController((Player*)this->objs->get(0));
+	this->initObjects();
+	this->initEvents();
+
+}
+
+void Engine::initObjects() {
+
+	int currPos = 0;
+	GameObject* newObj = new Player(floor(this->gridWidth / 2), floor(this->gridHeight / 2));
+
+	this->objs->add(0,  new PlayerController((Player*)newObj));
+	this->objs->get(0)->getData()->activate();
 	bulletsStart = ++currPos;
 
 	int endPos = currPos + this->numBullets;
@@ -25,9 +32,9 @@ void Engine::init() {
 
 	while(currPos < endPos) {
 
-		this->objs->add(currPos, new PlayerBullet(-1, -1));
-		this->objectControllers[currPos] = new PlayerBulletController((PlayerBullet*)this->objs->get(currPos));
-		this->loadedBullets.push((PlayerBulletController*)(this->objectControllers[currPos]));
+		newObj = new PlayerBullet(-1, -1);
+		this->objs->add(currPos, new PlayerBulletController((PlayerBullet*)newObj));
+		this->loadedBullets.push((PlayerBulletController*)(this->objs->get(currPos)));
 		cout << "Loaded bullet object into slot " << currPos << endl;
 		currPos++;
 
@@ -38,13 +45,29 @@ void Engine::init() {
 
 	while (currPos < endPos) {
 
-		this->objs->add(currPos, new Centipede(this->gridWidth / 2, 0.0f));
-		this->objectControllers[currPos] = new CentipedeController((Centipede*)this->objs->get(currPos), this->grid);
-		this->objs->get(currPos)->activate();
+		newObj = new Centipede(this->gridWidth / 2, 0.0f);
+		this->objs->add(currPos, new CentipedeController((Centipede*)newObj));
+		this->objs->get(currPos)->getData()->activate();
+		this->em->addObjectEvent(currPos, new CentipedeMoveEvent((CentipedeController*)(this->objs->get(currPos)), this->objs));
 		cout << "Loaded centipede object into slot " << currPos << endl;
 		currPos++;
 
 	}
+
+	currPos -= endPos;
+
+	while (currPos < endPos - 1) {
+
+		CentipedeController* currObj = (CentipedeController*)(this->objs->get(currPos));
+		CentipedeController* nextObj = (CentipedeController*)(this->objs->get(currPos + 1));
+
+		currObj->setNext(nextObj);
+
+		currPos++;
+
+	}
+
+	currPos++;
 
 	srand(time(NULL));
 
@@ -53,9 +76,9 @@ void Engine::init() {
 
 	while (currPos < endPos) {
 
-		this->objs->add(currPos, new Mushroom(rand() % (int)(this->gridWidth - 1.0f), rand() % (int)(this->gridHeight - 1.0f) + 1));
-		this->objectControllers[currPos] = new MushroomController((Mushroom*)this->objs->get(currPos));
-		this->objs->get(currPos)->activate();
+		newObj = new Mushroom(rand() % (int)(this->gridWidth - 1.0f), rand() % (int)(this->gridHeight - 1.0f) + 1);
+		this->objs->add(currPos, new MushroomController((Mushroom*)newObj));
+		this->objs->get(currPos)->getData()->activate();
 		cout << "Loaded mushroom object into slot " << currPos << endl;
 		currPos++;
 
@@ -63,23 +86,12 @@ void Engine::init() {
 
 	cout << "Successfully loaded all objects." << endl;
 
-	this->buildGridState();
-
 }
 
-void Engine::buildGridState() {
+void Engine::initEvents() {
 
-	this->grid->clear();
-	for (int i = 0; i < this->objs->size(); i++) {
+	cout << "Loading game events.." << endl;
 
-		GameObject* currObj = this->objs->get(i);
-		this->grid->add(currObj, floor(currObj->getPosition().x), floor(currObj->getPosition().y));
-		
-		/*
-		cout << "(" << i << ") " << "Added object with address " << currObj 
-			<< " to grid at position " << currObj->getPosition().x << ", " 
-			<< currObj->getPosition().y << endl;
-		*/
-	}
+	cout << "Successfully loaded all game events." << endl;
 
 }

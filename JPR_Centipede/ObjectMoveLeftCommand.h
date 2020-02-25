@@ -10,11 +10,12 @@ class ObjectMoveLeftCommand :
 
 private:
 	GameObject* context = NULL;
-	float distTravelled = 0.0f;
 	float xDest = 0.0f;
+	void init(GameObject* context);
 
 public:
 	ObjectMoveLeftCommand(GameObject* context);
+	void reset(GameObject* context);
 	void execute(float elapsedTime);
 };
 
