@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "CentipedeMoveEvent.h"
 #include "PlayerInputEvent.h"
+#include "BulletFiredEvent.h"
 
 inline int Engine::getNumObjects() {
 
@@ -36,6 +37,7 @@ void Engine::initObjects() {
 
 		newObj = new PlayerBullet(-1, -1);
 		this->objs->add(currPos, new PlayerBulletController((PlayerBullet*)newObj));
+		this->em->addEvent(new BulletFiredEvent(this->objs, currPos));
 		this->loadedBullets.push((PlayerBulletController*)(this->objs->get(currPos)));
 		cout << "Loaded bullet object into slot " << currPos << endl;
 		currPos++;

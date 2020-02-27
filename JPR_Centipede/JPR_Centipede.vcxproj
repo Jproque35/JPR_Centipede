@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BulletFiredEvent.cpp" />
     <ClCompile Include="CentipedeController.cpp" />
     <ClCompile Include="CentipedeControllerUpdate.cpp" />
     <ClCompile Include="CentipedeMoveEvent.cpp" />
@@ -191,6 +192,7 @@
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BulletFiredEvent.h" />
     <ClInclude Include="CentipedeController.h" />
     <ClInclude Include="CentipedeMoveEvent.h" />
     <ClInclude Include="CentipedeState.h" />

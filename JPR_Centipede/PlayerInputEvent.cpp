@@ -12,6 +12,8 @@ void PlayerInputEvent::update(float elapsedTime) {
 	Vector2f currPos = this->context->getData()->getPosition();
 	float diameter = this->context->getData()->getShape().getRadius() * 2;
 
+	cout << "Current position is: " << currPos.x << " " << currPos.y << endl;
+
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
 
 		if (currPos.y - 1.0f >= 0

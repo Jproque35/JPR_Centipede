@@ -11,7 +11,7 @@ void Engine::input(float dtAsSeconds) {
 	}
 
 	PlayerController* playerController = (PlayerController*)(this->objs->get(0));
-
+	/*
 	if (Keyboard::isKeyPressed(Keyboard::Space)) {
 
 		float gunX = this->objs->get(0)->getData()->getPosition().x + this->objs->get(0)->getData()->getShape().getRadius()
@@ -33,6 +33,6 @@ void Engine::input(float dtAsSeconds) {
 
 		}
 
-	}
+	}*/
 
 }
