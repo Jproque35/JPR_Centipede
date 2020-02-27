@@ -13,13 +13,12 @@ class EventManager
 
 private:
 	GameObjectManager* gm;
-	vector<GameEvent*> objectEvents;
-	//void updateSub(ObjectController* obj, float elapsedTime);
-	//void handleCollision(ObjectController* obj1, ObjectController* obj2);
+	vector<GameEvent*> events;
 
 public:
 	EventManager(GameObjectManager* gm);
-	void addObjectEvent(int i, GameEvent* event);
+	~EventManager();
+	void addEvent(GameEvent* event);
 	void update(float elapsedTime);
 
 };

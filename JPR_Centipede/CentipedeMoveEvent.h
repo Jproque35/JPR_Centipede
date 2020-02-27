@@ -17,7 +17,7 @@ private:
 	void moveRightRoutine();
 
 public:
-	CentipedeMoveEvent(CentipedeController* context, GameObjectManager* gm);
+	CentipedeMoveEvent(GameObjectManager* gm, int i);
 	void update(float elapsedTime);
 
 };

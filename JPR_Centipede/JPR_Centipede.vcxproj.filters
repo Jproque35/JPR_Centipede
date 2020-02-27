@@ -97,6 +97,9 @@
     <Filter Include="Header Files\Engine\Managers">
       <UniqueIdentifier>{bb313d12-716d-40d3-a86a-a3d94622343e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entities\Player\Events">
+      <UniqueIdentifier>{2ce38310-e7f7-442b-bd6d-438918357dab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
@@ -204,6 +207,12 @@
     <ClCompile Include="CentipedeMoveEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInputEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -291,6 +300,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CentipedeMoveEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInputEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

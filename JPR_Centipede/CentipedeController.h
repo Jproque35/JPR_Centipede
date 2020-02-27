@@ -18,7 +18,6 @@ private:
 	CentipedeController* next = NULL;
 	bool inReverse = false;
 	void updateSub(float elapsedTime);
-	void collisionSub(float elapsedTime);
 
 
 public:

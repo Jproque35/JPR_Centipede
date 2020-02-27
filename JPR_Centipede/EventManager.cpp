@@ -5,39 +5,39 @@ EventManager::EventManager(GameObjectManager* gm) {
 	this->gm = gm;
 
 	cout << "Resizing object events to size " << this->gm->size() << endl;
-	this->objectEvents.resize(this->gm->size());
+	this->events.resize(0);
 	cout << "Successfully resized" << endl;
 
-	for (int i = 0; i < this->objectEvents.size(); i++) {
+}
 
-		//this->objectEvents[i] = NULL;
-		cout << "Position " << i << " set to null" << endl;
+EventManager::~EventManager() {
+
+	for (int i = 0; i < this->events.size(); i++) {
+
+		if (this->events[i] != NULL) {
+
+			delete(this->events[i]);
+			this->events[i] = NULL;
+
+		}
 
 	}
 
 }
 
-void EventManager::addObjectEvent(int i, GameEvent* event) {
+void EventManager::addEvent(GameEvent* event) {
 
-	this->objectEvents[i] = event;
+	this->events.push_back(event);
 
 }
 
 void EventManager::update(float elapsedTime) {
 
-	/*
-	for (int i = 0; i < gm->size(); i++) {
+	for (int i = 0; i < this->events.size(); i++) {
 
-		this->updateSub(this->gm->get(i), elapsedTime);
+		if (this->events[i] != NULL) {
 
-
-	}*/
-
-	for (int i = 0; i < this->objectEvents.size(); i++) {
-
-		if (this->objectEvents[i] != NULL) {
-
-			this->objectEvents[i]->update(elapsedTime);
+			this->events[i]->update(elapsedTime);
 
 		}
 	}

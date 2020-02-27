@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "CentipedeMoveEvent.h"
+#include "PlayerInputEvent.h"
 
 inline int Engine::getNumObjects() {
 
@@ -24,6 +25,7 @@ void Engine::initObjects() {
 	GameObject* newObj = new Player(floor(this->gridWidth / 2), floor(this->gridHeight / 2));
 
 	this->objs->add(0,  new PlayerController((Player*)newObj));
+	this->em->addEvent(new PlayerInputEvent(this->objs, 0));
 	this->objs->get(0)->getData()->activate();
 	bulletsStart = ++currPos;
 
@@ -48,26 +50,11 @@ void Engine::initObjects() {
 		newObj = new Centipede(this->gridWidth / 2, 0.0f);
 		this->objs->add(currPos, new CentipedeController((Centipede*)newObj));
 		this->objs->get(currPos)->getData()->activate();
-		this->em->addObjectEvent(currPos, new CentipedeMoveEvent((CentipedeController*)(this->objs->get(currPos)), this->objs));
+		this->em->addEvent(new CentipedeMoveEvent(this->objs, currPos));
 		cout << "Loaded centipede object into slot " << currPos << endl;
 		currPos++;
 
 	}
-
-	currPos -= endPos;
-
-	while (currPos < endPos - 1) {
-
-		CentipedeController* currObj = (CentipedeController*)(this->objs->get(currPos));
-		CentipedeController* nextObj = (CentipedeController*)(this->objs->get(currPos + 1));
-
-		currObj->setNext(nextObj);
-
-		currPos++;
-
-	}
-
-	currPos++;
 
 	srand(time(NULL));
 

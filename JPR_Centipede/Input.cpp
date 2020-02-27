@@ -12,27 +12,6 @@ void Engine::input(float dtAsSeconds) {
 
 	PlayerController* playerController = (PlayerController*)(this->objs->get(0));
 
-	if (Keyboard::isKeyPressed(Keyboard::W)) {
-
-		playerController->setKey(Keyboard::W);
-
-	}
-	else if (Keyboard::isKeyPressed(Keyboard::S)) {
-
-		playerController->setKey(Keyboard::S);
-
-	}
-	else if (Keyboard::isKeyPressed(Keyboard::A)) {
-
-		playerController->setKey(Keyboard::A);
-
-	}
-	else if (Keyboard::isKeyPressed(Keyboard::D)) {
-
-		playerController->setKey(Keyboard::D);
-
-	}
-
 	if (Keyboard::isKeyPressed(Keyboard::Space)) {
 
 		float gunX = this->objs->get(0)->getData()->getPosition().x + this->objs->get(0)->getData()->getShape().getRadius()

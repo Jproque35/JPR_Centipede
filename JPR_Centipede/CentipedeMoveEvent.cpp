@@ -1,9 +1,9 @@
 #include "CentipedeMoveEvent.h"
 
-CentipedeMoveEvent::CentipedeMoveEvent(CentipedeController* context, GameObjectManager* gm) {
+CentipedeMoveEvent::CentipedeMoveEvent(GameObjectManager* gm, int i) {
 
-	this->context = context;
 	this->gm = gm;
+	this->context = (CentipedeController*)(gm->get(i));
 
 }
 
