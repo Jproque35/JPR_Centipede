@@ -17,6 +17,7 @@ private:
 
 public:
 	MushroomController(Mushroom* context);
+	~MushroomController();
 	GameObject* getData();
 
 };

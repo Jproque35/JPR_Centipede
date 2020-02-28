@@ -6,6 +6,17 @@ PlayerController::PlayerController(Player* context) {
 
 }
 
+PlayerController::~PlayerController() {
+
+	if (this->context != NULL) {
+
+		delete(this->context);
+		this->context = NULL;
+
+	}
+
+}
+
 GameObject* PlayerController::getData() {
 
 	return this->context;

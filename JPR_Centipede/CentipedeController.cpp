@@ -8,6 +8,17 @@ CentipedeController::CentipedeController(Centipede* context) {
 
 }
 
+CentipedeController::~CentipedeController() {
+
+	if (this->context != NULL) {
+
+		delete(this->context);
+		this->context = NULL;
+
+	}
+
+}
+
 void CentipedeController::setNext(CentipedeController* next) {
 
 	cout << "Next for object " << this << " set to " << next << endl;

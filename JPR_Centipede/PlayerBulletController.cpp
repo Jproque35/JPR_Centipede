@@ -6,6 +6,17 @@ PlayerBulletController::PlayerBulletController(PlayerBullet* context) {
 
 }
 
+PlayerBulletController::~PlayerBulletController() {
+
+	if (this->context != NULL) {
+
+		delete(this->context);
+		this->context = NULL;
+
+	}
+
+}
+
 GameObject* PlayerBulletController::getData() {
 
 	return this->context;

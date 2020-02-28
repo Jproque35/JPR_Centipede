@@ -17,6 +17,7 @@ protected:
 
 public:
 	PlayerController(Player* context);
+	~PlayerController();
 	GameObject* getData();
 	void setKey(Keyboard::Key key);
 

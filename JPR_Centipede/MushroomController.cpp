@@ -6,6 +6,17 @@ MushroomController::MushroomController(Mushroom* context) {
 
 }
 
+MushroomController::~MushroomController() {
+
+	if (this->context != NULL) {
+
+		delete(this->context);
+		this->context = NULL;
+
+	}
+
+}
+
 void MushroomController::updateSub(float elapsedTime) {
 
 

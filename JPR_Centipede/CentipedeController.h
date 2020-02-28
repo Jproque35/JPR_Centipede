@@ -19,6 +19,7 @@ private:
 
 public:
 	CentipedeController(Centipede* context);
+	~CentipedeController();
 	GameObject* getData();
 	void setNext(CentipedeController* next);
 
