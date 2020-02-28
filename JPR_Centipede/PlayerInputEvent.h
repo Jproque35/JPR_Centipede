@@ -5,7 +5,7 @@
 #include "PlayerController.h"
 
 class PlayerInputEvent :
-	public GameEvent
+	public GameEventListener
 {
 
 private:

@@ -3,7 +3,7 @@
 #include "CentipedeController.h"
 
 class CentipedeMoveEvent :
-	public GameEvent
+	public GameEventListener
 {
 
 private:

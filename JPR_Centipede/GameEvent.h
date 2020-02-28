@@ -1,10 +1,10 @@
-#ifndef GAMEEVENT_H
-#define GAMEEVENT_H
+#ifndef GAMEEVENTLISTENER_H
+#define GAMEEVENTLISTENER_H
 #pragma once
 #include "ObjectController.h"
 #include "GameObjectManager.h"
 
-class GameEvent
+class GameEventListener
 {
 
 public:

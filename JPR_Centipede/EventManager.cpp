@@ -25,7 +25,7 @@ EventManager::~EventManager() {
 
 }
 
-void EventManager::addEvent(GameEvent* event) {
+void EventManager::addEvent(GameEventListener* event) {
 
 	this->events.push_back(event);
 

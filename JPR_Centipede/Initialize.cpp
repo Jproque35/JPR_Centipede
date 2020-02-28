@@ -2,6 +2,9 @@
 #include "CentipedeMoveEvent.h"
 #include "PlayerInputEvent.h"
 #include "BulletFiredEvent.h"
+#include "MushroomHitEvent.h"
+#include "CentipedeHitEvent.h"
+#include "BulletCollideEvent.h"
 
 inline int Engine::getNumObjects() {
 
@@ -23,9 +26,19 @@ void Engine::init() {
 void Engine::initObjects() {
 
 	int currPos = 0;
+
+	this->initPlayer(currPos);
+	this->initEnemies(currPos);
+	this->initMushrooms(currPos);
+
+	cout << "Successfully loaded all objects." << endl;
+
+}
+
+void Engine::initPlayer(int &currPos) {
 	GameObject* newObj = new Player(floor(this->gridWidth / 2), floor(this->gridHeight / 2));
 
-	this->objs->add(0,  new PlayerController((Player*)newObj));
+	this->objs->add(0, new PlayerController((Player*)newObj));
 	this->em->addEvent(new PlayerInputEvent(this->objs, 0));
 	this->objs->get(0)->getData()->activate();
 	bulletsStart = ++currPos;
@@ -33,18 +46,23 @@ void Engine::initObjects() {
 	int endPos = currPos + this->numBullets;
 	cout << "Loading bullet objects..." << endl;
 
-	while(currPos < endPos) {
+	while (currPos < endPos) {
 
 		newObj = new PlayerBullet(-1, -1);
 		this->objs->add(currPos, new PlayerBulletController((PlayerBullet*)newObj));
 		this->em->addEvent(new BulletFiredEvent(this->objs, currPos));
+		this->em->addEvent(new BulletCollideEvent(this->objs, currPos));
 		this->loadedBullets.push((PlayerBulletController*)(this->objs->get(currPos)));
 		cout << "Loaded bullet object into slot " << currPos << endl;
 		currPos++;
 
 	}
+}
 
-	endPos = currPos + this->numCentipedes;
+void Engine::initEnemies(int &currPos) {
+
+	GameObject* newObj = NULL;
+	int endPos = currPos + this->numCentipedes;
 	cout << "Loading centipede objects..." << endl;
 
 	while (currPos < endPos) {
@@ -53,14 +71,20 @@ void Engine::initObjects() {
 		this->objs->add(currPos, new CentipedeController((Centipede*)newObj));
 		this->objs->get(currPos)->getData()->activate();
 		this->em->addEvent(new CentipedeMoveEvent(this->objs, currPos));
+		this->em->addEvent(new CentipedeHitEvent(this->objs, currPos));
 		cout << "Loaded centipede object into slot " << currPos << endl;
 		currPos++;
 
 	}
 
+}
+
+void Engine::initMushrooms(int &currPos) {
+
 	srand(time(NULL));
 
-	endPos = currPos + this->numMushrooms;
+	GameObject* newObj;
+	int endPos = currPos + this->numMushrooms;
 	cout << "Loading mushroom objects..." << endl;
 
 	while (currPos < endPos) {
@@ -71,12 +95,11 @@ void Engine::initObjects() {
 		newObj = new Mushroom(tempX, tempY);
 		this->objs->add(currPos, new MushroomController((Mushroom*)newObj));
 		this->objs->get(currPos)->getData()->activate();
+		this->em->addEvent(new MushroomHitEvent(this->objs, currPos));
 		cout << "Loaded mushroom object into slot " << currPos << " at position " << tempX << ", " << tempY << endl;
 		currPos++;
 
 	}
-
-	cout << "Successfully loaded all objects." << endl;
 
 }
 

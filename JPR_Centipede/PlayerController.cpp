@@ -21,6 +21,7 @@ void PlayerController::setKey(Keyboard::Key key) {
 void PlayerController::updateSub(float elapsedTime) {
 
 	if (this->commands.size() < 1) {
+
 		if (key == Keyboard::W) {
 
 			this->commands.push(new ObjectMoveUpCommand(this->context));
@@ -42,7 +43,7 @@ void PlayerController::updateSub(float elapsedTime) {
 
 		}
 
-		key = Keyboard::Unknown;
+		this->key = Keyboard::Unknown;
 
 	}
 
@@ -53,15 +54,3 @@ void PlayerController::collisionSub(GameObject* obj) {
 
 
 }
-
-/*
-void PlayerController::handleFinishedCommand(ObjectCommand* command) {
-
-	if (command != NULL) {
-
-		delete(command);
-		command = NULL;
-
-	}
-
-}*/

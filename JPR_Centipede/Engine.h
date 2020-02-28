@@ -46,6 +46,9 @@ private:
 	void input(float dtAsSeconds);
 	void init();
 	void initObjects();
+	void initPlayer(int &currPos);
+	void initEnemies(int &currPos);
+	void initMushrooms(int &currPos);
 	void initEvents();
 	void update(float dtAsSeconds);
 	void draw();

@@ -100,6 +100,18 @@
     <Filter Include="Header Files\Entities\Player\Events">
       <UniqueIdentifier>{2ce38310-e7f7-442b-bd6d-438918357dab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entities\Centipede\Events">
+      <UniqueIdentifier>{f4f53e89-041d-4a6a-b3e4-4cae0962185b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Player\Events">
+      <UniqueIdentifier>{0da5921a-5756-428a-ab9c-7a317fc81348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Centipede\Events">
+      <UniqueIdentifier>{08bad431-eb8c-45f4-b597-06ca78d07259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Events">
+      <UniqueIdentifier>{b7234294-5851-4ff8-b767-96d086b33e0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
@@ -192,28 +204,25 @@
     <ClCompile Include="ObjectSetPositionCommand.cpp">
       <Filter>Source Files\Entities\GameObject\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="CentipedeState.cpp">
-      <Filter>Source Files\Entities\Centipede</Filter>
-    </ClCompile>
-    <ClCompile Include="SegmentController.cpp">
-      <Filter>Source Files\Entities\Centipede\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="GameEvent.cpp">
       <Filter>Source Files\Engine\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="MushroomHitEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CentipedeMoveEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="InputContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerInputEvent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities\Player\Events</Filter>
     </ClCompile>
     <ClCompile Include="BulletFiredEvent.cpp">
+      <Filter>Source Files\Entities\Player\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="MushroomHitEvent.cpp">
+      <Filter>Source Files\Entities\Mushroom</Filter>
+    </ClCompile>
+    <ClCompile Include="CentipedeMoveEvent.cpp">
+      <Filter>Source Files\Entities\Centipede\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="CentipedeHitEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletCollideEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -290,28 +299,25 @@
     <ClInclude Include="ObjectDeactivateCommand.h">
       <Filter>Header Files\Entities\GameObject\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="CentipedeState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SegmentController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MushroomHitEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CentipedeMoveEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InputContainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerInputEvent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities\Mushroom</Filter>
     </ClInclude>
     <ClInclude Include="BulletFiredEvent.h">
+      <Filter>Header Files\Entities\Player\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInputEvent.h">
+      <Filter>Header Files\Entities\Player\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="CentipedeMoveEvent.h">
+      <Filter>Header Files\Entities\Centipede\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEvent.h">
+      <Filter>Header Files\Entities\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CentipedeHitEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletCollideEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

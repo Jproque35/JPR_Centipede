@@ -13,12 +13,12 @@ class EventManager
 
 private:
 	GameObjectManager* gm;
-	vector<GameEvent*> events;
+	vector<GameEventListener*> events;
 
 public:
 	EventManager(GameObjectManager* gm);
 	~EventManager();
-	void addEvent(GameEvent* event);
+	void addEvent(GameEventListener* event);
 	void update(float elapsedTime);
 
 };

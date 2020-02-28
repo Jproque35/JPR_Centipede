@@ -5,7 +5,7 @@
 #include "PlayerBulletController.h"
 
 class BulletFiredEvent :
-	public GameEvent
+	public GameEventListener
 {
 
 private:
