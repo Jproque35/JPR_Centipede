@@ -65,10 +65,13 @@ void Engine::initObjects() {
 
 	while (currPos < endPos) {
 
-		newObj = new Mushroom(rand() % (int)(this->gridWidth - 1.0f), rand() % (int)(this->gridHeight - 1.0f) + 1);
+		int tempX = rand() % (int)(this->gridWidth - 1.0f);
+		int tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
+
+		newObj = new Mushroom(tempX, tempY);
 		this->objs->add(currPos, new MushroomController((Mushroom*)newObj));
 		this->objs->get(currPos)->getData()->activate();
-		cout << "Loaded mushroom object into slot " << currPos << endl;
+		cout << "Loaded mushroom object into slot " << currPos << " at position " << tempX << ", " << tempY << endl;
 		currPos++;
 
 	}

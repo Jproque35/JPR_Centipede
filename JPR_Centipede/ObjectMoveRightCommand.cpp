@@ -26,6 +26,13 @@ void ObjectMoveRightCommand::execute(float elapsedTime) {
 	if (this->context->position.x + moveDist >= this->xDest) {
 
 		this->context->position.x = this->xDest;
+
+		if (this->context->type == ObjectType::Player) {
+
+			cout << "Final position is " << this->context->position.x << ", " << this->context->position.y << endl;
+
+		}
+
 		this->finished = true;
 
 	}

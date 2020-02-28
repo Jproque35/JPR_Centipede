@@ -9,12 +9,14 @@ CentipedeMoveEvent::CentipedeMoveEvent(GameObjectManager* gm, int i) {
 
 void CentipedeMoveEvent::update(float elapsedTime) {
 
-	if (this->context->dir == CentipedeDirection::Left) {
+	Centipede* data = (Centipede*)(this->context->getData());
+
+	if (data->dir == CentipedeDirection::Left) {
 
 		this->moveLeftRoutine();
 
 	}
-	else if (this->context->dir == CentipedeDirection::Right) {
+	else if (data->dir == CentipedeDirection::Right) {
 
 		this->moveRightRoutine();
 
@@ -79,7 +81,9 @@ void CentipedeMoveEvent::moveRightRoutine() {
 
 void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
-	this->context->dir = dir;
+	Centipede* data = (Centipede*)(this->context->getData());
+
+	data->dir = dir;
 	if (!this->nextLevelBlocked()) {
 		this->queueLevelChangeCommand();
 	}

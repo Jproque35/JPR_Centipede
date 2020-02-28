@@ -18,6 +18,7 @@ protected:
 
 public:
 	~ObjectController();
+	void clearCommands();
 	void queueCommand(ObjectCommand* command);
 	void checkCollisionWithObjects(vector<vector<GameObject*>> objs);
 	virtual GameObject* getData() = 0;

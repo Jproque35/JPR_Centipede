@@ -2,6 +2,12 @@
 
 ObjectController::~ObjectController() {
 
+	this->clearCommands();
+
+}
+
+void ObjectController::clearCommands() {
+
 	while (this->commands.size() > 0) {
 
 		ObjectCommand* currCommand = this->commands.front();

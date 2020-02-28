@@ -4,8 +4,6 @@
 #include "ObjectController.h"
 #include "Centipede.h"
 
-enum class CentipedeDirection {Left, Right, Up, Down};
-
 class CentipedeController : public ObjectController
 {
 
@@ -14,7 +12,6 @@ class CentipedeController : public ObjectController
 private:
 	bool head = false;
 	Centipede* context;
-	CentipedeDirection dir = CentipedeDirection::Left;
 	CentipedeController* next = NULL;
 	bool inReverse = false;
 	void updateSub(float elapsedTime);

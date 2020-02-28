@@ -5,13 +5,15 @@
 #include "PlayerBullet.h"
 #include <iostream>
 
+enum class CentipedeDirection { Left, Right };
+
 class Centipede: public GameObject {
 
 	friend class CentipedeController;
-	friend class CentipedeMoveRightCommand;
-	friend class CentipedeMoveLeftCommand;
-	friend class CentipedeMoveDownCommand;
-	friend class CentipedeMoveUpCommand;
+	friend class CentipedeMoveEvent;
+
+protected:
+	CentipedeDirection dir = CentipedeDirection::Left;
 
 public:
 
