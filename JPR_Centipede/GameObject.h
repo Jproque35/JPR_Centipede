@@ -28,14 +28,16 @@ protected:
 	float xSpeed = 0.0f;
 	float ySpeed = 0.0f;
 	bool active = false;
-	int id = -1;
 
 public:
 	GameObject(float initX, float initY);
+	GameObject(const GameObject& obj);
+	~GameObject();
+	GameObject& operator=(const GameObject& obj);
+
 	void activate();
 	void deactivate();
 	bool isActive();
-	int getId();
 	ObjectType getType();
 	void setPosition(Vector2f pos);
 	Vector2f getPosition();

@@ -10,13 +10,17 @@ using namespace std;
 class GameObjectManager {
 
 private:
-	vector<ObjectController*> objs;
+	vector<ObjectController*> gm;
 	GridManager* grid = NULL;
+
 	void rebuildGrid();
 
 public:
 	GameObjectManager(int size, int x, int y);
+	GameObjectManager(const GameObjectManager& obj);
 	~GameObjectManager();
+	GameObjectManager& operator=(const GameObjectManager& obj);
+
 	int getGridWidth();
 	int getGridHeight();
 	void add(int i, ObjectController* obj);

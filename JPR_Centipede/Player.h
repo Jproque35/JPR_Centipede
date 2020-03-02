@@ -9,7 +9,9 @@ class Player :
 
 public:
 	Player(float initX, float initY);
-
+	Player(const Player& obj);
+	~Player();
+	Player& operator=(const Player& obj);
 };
 
 #endif

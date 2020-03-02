@@ -14,12 +14,15 @@ private:
 	Centipede* context;
 	CentipedeController* next = NULL;
 	bool inReverse = false;
-	void updateSub(float elapsedTime);
 
+	void updateSub(float elapsedTime);
 
 public:
 	CentipedeController(Centipede* context);
+	CentipedeController(const CentipedeController& obj);
 	~CentipedeController();
+	CentipedeController& operator=(const CentipedeController& obj);
+
 	GameObject* getData();
 	void setNext(CentipedeController* next);
 

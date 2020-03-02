@@ -6,7 +6,16 @@ PlayerBulletController::PlayerBulletController(PlayerBullet* context) {
 
 }
 
+PlayerBulletController::PlayerBulletController(const PlayerBulletController& obj) {
+
+	this->context = obj.context;
+	this->commands = obj.commands;
+
+}
+
 PlayerBulletController::~PlayerBulletController() {
+
+	this->clearCommands();
 
 	if (this->context != NULL) {
 
@@ -14,6 +23,12 @@ PlayerBulletController::~PlayerBulletController() {
 		this->context = NULL;
 
 	}
+
+}
+
+PlayerBulletController& PlayerBulletController::operator=(const PlayerBulletController& obj) {
+
+	return *this;
 
 }
 

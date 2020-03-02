@@ -11,6 +11,25 @@ GameObject::GameObject(float initX, float initY) {
 
 }
 
+GameObject::GameObject(const GameObject& obj) {
+
+	this->position = obj.position;
+	this->xSpeed = obj.xSpeed;
+	this->ySpeed = obj.ySpeed;
+	this->shape = obj.shape;
+	this->type = obj.type;
+	this->active = obj.active;
+
+}
+
+GameObject::~GameObject() {}
+
+GameObject& GameObject::operator=(const GameObject& obj) {
+
+	return *this;
+
+}
+
 void GameObject::activate() {
 
 	this->active = true;
@@ -26,12 +45,6 @@ void GameObject::deactivate() {
 bool GameObject::isActive() {
 
 	return this->active;
-
-}
-
-int GameObject::getId() {
-
-	return this->id;
 
 }
 

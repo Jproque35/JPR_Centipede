@@ -7,9 +7,18 @@ CentipedeHitEvent::CentipedeHitEvent(GameObjectManager* gm, int i) {
 
 }
 
-CentipedeHitEvent::~CentipedeHitEvent() {
+CentipedeHitEvent::CentipedeHitEvent(const CentipedeHitEvent& obj) {
 
+	this->gm = obj.gm;
+	this->context = obj.context;
 
+}
+
+CentipedeHitEvent::~CentipedeHitEvent() {}
+
+CentipedeHitEvent& CentipedeHitEvent::operator=(const CentipedeHitEvent& obj) {
+
+	return *this;
 
 }
 

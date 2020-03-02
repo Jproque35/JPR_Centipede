@@ -14,6 +14,10 @@ private:
 
 public:
 	PlayerInputEvent(GameObjectManager* gm, int i);
+	PlayerInputEvent(const PlayerInputEvent& obj);
+	~PlayerInputEvent();
+	PlayerInputEvent& operator=(const PlayerInputEvent& obj);
+
 	void update(float elapsedTime);
 
 };

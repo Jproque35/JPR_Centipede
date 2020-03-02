@@ -14,7 +14,10 @@ private:
 
 public:
 	BulletFiredEvent(GameObjectManager* gm, int i);
+	BulletFiredEvent(const BulletFiredEvent& obj);
 	~BulletFiredEvent();
+	BulletFiredEvent& operator=(const BulletFiredEvent& obj);
+
 	void update(float elapsedTime);
 
 };

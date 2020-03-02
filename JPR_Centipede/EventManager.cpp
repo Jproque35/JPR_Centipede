@@ -10,6 +10,13 @@ EventManager::EventManager(GameObjectManager* gm) {
 
 }
 
+EventManager::EventManager(const EventManager& obj) {
+
+	this->gm = gm;
+	this->events = events;
+
+}
+
 EventManager::~EventManager() {
 
 	for (int i = 0; i < this->events.size(); i++) {
@@ -22,6 +29,12 @@ EventManager::~EventManager() {
 		}
 
 	}
+
+}
+
+EventManager& EventManager::operator=(const EventManager& obj) {
+
+	return *this;
 
 }
 
@@ -42,40 +55,4 @@ void EventManager::update(float elapsedTime) {
 		}
 	}
 
-
-
 }
-
-/*
-void EventManager::updateSub(ObjectController* obj, float elapsedTime) {
-
-	vector<vector<ObjectController*>> lists = CollisionManager::getGridObjects(obj, this->gm);
-
-	for (int j = 0; j < lists.size(); j++) {
-
-		vector<ObjectController*> currList = lists[j];
-
-		for (int k = 0; k < currList.size(); k++) {
-
-			if (CollisionManager::intersects(obj, currList[k])) {
-
-				handleCollision(obj, currList[k]);
-
-			}
-
-		}
-
-	}
-
-}
-
-void EventManager::handleCollision(ObjectController* obj1, ObjectController* obj2) {
-
-	if (obj1->getData()->getType() == ObjectType::PlayerProjectile
-		&& obj2->getData()->getType() == ObjectType::Mushroom) {
-
-		cout << "Mushroom shot" << endl;
-
-	}
-
-}*/

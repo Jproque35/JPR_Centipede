@@ -1,11 +1,5 @@
 #include "ObjectController.h"
 
-ObjectController::~ObjectController() {
-
-	this->clearCommands();
-
-}
-
 void ObjectController::clearCommands() {
 
 	while (this->commands.size() > 0) {
@@ -22,24 +16,6 @@ void ObjectController::clearCommands() {
 void ObjectController::queueCommand(ObjectCommand* command) {
 
 	this->commands.push(command);
-
-}
-
-void ObjectController::checkCollisionWithObjects(vector<vector<GameObject*>> objs) {
-
-	for (int i = 0; i < objs.size(); i++) {
-
-		vector<GameObject*> currList = objs[i];
-
-		for (int j = 0; j < currList.size(); j++) {
-
-			GameObject* currObject = currList[j];
-
-			//this->collisionSub(currObject);
-
-		}
-
-	}
 
 }
 

@@ -7,6 +7,26 @@ CentipedeMoveEvent::CentipedeMoveEvent(GameObjectManager* gm, int i) {
 
 }
 
+CentipedeMoveEvent::CentipedeMoveEvent(const CentipedeMoveEvent& obj) {
+
+	this->gm = obj.gm;
+	this->context = obj.context;
+	this->inReverse = obj.inReverse;
+
+}
+
+CentipedeMoveEvent::~CentipedeMoveEvent() {
+
+
+
+}
+
+CentipedeMoveEvent& CentipedeMoveEvent::operator=(const CentipedeMoveEvent& obj) {
+
+	return *this;
+
+}
+
 void CentipedeMoveEvent::update(float elapsedTime) {
 
 	Centipede* data = (Centipede*)(this->context->getData());

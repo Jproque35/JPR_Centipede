@@ -5,8 +5,6 @@ using namespace std;
 
 PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBullet* context, float x, float y) {
 
-	//cout << "Bullet fire at pos " << x << " " << y << endl;
-
 	this->context = context;
 	this->context->active = true;
 	this->context->position.x = x;
@@ -14,6 +12,21 @@ PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBullet* context, float x,
 
 }
 
+PlayerBulletFireCommand::PlayerBulletFireCommand(const PlayerBulletFireCommand& obj) {
+
+	this->context = obj.context;
+	this->distTravelled = obj.distTravelled;
+	this->finished = obj.finished;
+
+}
+
+PlayerBulletFireCommand::~PlayerBulletFireCommand() {}
+
+PlayerBulletFireCommand& PlayerBulletFireCommand::operator=(const PlayerBulletFireCommand& obj) {
+
+	return *this;
+
+}
 
 void PlayerBulletFireCommand::execute(float elapsedTime) {
 

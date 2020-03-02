@@ -10,6 +10,9 @@ class PlayerBullet : public GameObject
 
 public:
 	PlayerBullet(float initX, float initY);
+	PlayerBullet(const PlayerBullet& obj);
+	~PlayerBullet();
+	PlayerBullet& operator=(const PlayerBullet& obj);
 
 };
 

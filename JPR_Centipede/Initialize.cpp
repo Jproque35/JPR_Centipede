@@ -15,8 +15,8 @@ inline int Engine::getNumObjects() {
 void Engine::init() {
 	int xRes = this->window.getSize().x;
 	int yRes = this->window.getSize().y;
-	this->objs = new GameObjectManager(this->getNumObjects(), this->gridWidth, this->gridHeight);
-	this->em = new EventManager(this->objs);
+	this->gm = new GameObjectManager(this->getNumObjects(), this->gridWidth, this->gridHeight);
+	this->em = new EventManager(this->gm);
 
 	this->initObjects();
 	this->initEvents();
@@ -38,9 +38,9 @@ void Engine::initObjects() {
 void Engine::initPlayer(int &currPos) {
 	GameObject* newObj = new Player(floor(this->gridWidth / 2), floor(this->gridHeight / 2));
 
-	this->objs->add(0, new PlayerController((Player*)newObj));
-	this->em->addEvent(new PlayerInputEvent(this->objs, 0));
-	this->objs->get(0)->getData()->activate();
+	this->gm->add(0, new PlayerController((Player*)newObj));
+	this->em->addEvent(new PlayerInputEvent(this->gm, 0));
+	this->gm->get(0)->getData()->activate();
 	bulletsStart = ++currPos;
 
 	int endPos = currPos + this->numBullets;
@@ -49,10 +49,10 @@ void Engine::initPlayer(int &currPos) {
 	while (currPos < endPos) {
 
 		newObj = new PlayerBullet(-1, -1);
-		this->objs->add(currPos, new PlayerBulletController((PlayerBullet*)newObj));
-		this->em->addEvent(new BulletFiredEvent(this->objs, currPos));
-		this->em->addEvent(new BulletCollideEvent(this->objs, currPos));
-		this->loadedBullets.push((PlayerBulletController*)(this->objs->get(currPos)));
+		this->gm->add(currPos, new PlayerBulletController((PlayerBullet*)newObj));
+		this->em->addEvent(new BulletFiredEvent(this->gm, currPos));
+		this->em->addEvent(new BulletCollideEvent(this->gm, currPos));
+		this->loadedBullets.push((PlayerBulletController*)(this->gm->get(currPos)));
 		cout << "Loaded bullet object into slot " << currPos << endl;
 		currPos++;
 
@@ -68,10 +68,10 @@ void Engine::initEnemies(int &currPos) {
 	while (currPos < endPos) {
 
 		newObj = new Centipede(this->gridWidth / 2, 0.0f);
-		this->objs->add(currPos, new CentipedeController((Centipede*)newObj));
-		this->objs->get(currPos)->getData()->activate();
-		this->em->addEvent(new CentipedeMoveEvent(this->objs, currPos));
-		this->em->addEvent(new CentipedeHitEvent(this->objs, currPos));
+		this->gm->add(currPos, new CentipedeController((Centipede*)newObj));
+		this->gm->get(currPos)->getData()->activate();
+		this->em->addEvent(new CentipedeMoveEvent(this->gm, currPos));
+		this->em->addEvent(new CentipedeHitEvent(this->gm, currPos));
 		cout << "Loaded centipede object into slot " << currPos << endl;
 		currPos++;
 
@@ -93,9 +93,9 @@ void Engine::initMushrooms(int &currPos) {
 		int tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
 
 		newObj = new Mushroom(tempX, tempY);
-		this->objs->add(currPos, new MushroomController((Mushroom*)newObj));
-		this->objs->get(currPos)->getData()->activate();
-		this->em->addEvent(new MushroomHitEvent(this->objs, currPos));
+		this->gm->add(currPos, new MushroomController((Mushroom*)newObj));
+		this->gm->get(currPos)->getData()->activate();
+		this->em->addEvent(new MushroomHitEvent(this->gm, currPos));
 		cout << "Loaded mushroom object into slot " << currPos << " at position " << tempX << ", " << tempY << endl;
 		currPos++;
 

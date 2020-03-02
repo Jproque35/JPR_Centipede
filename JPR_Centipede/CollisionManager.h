@@ -9,6 +9,8 @@ class CollisionManager
 {
 
 public:
+	CollisionManager() = delete;
+	~CollisionManager() = delete;
 	static bool intersects(ObjectController* obj1, ObjectController* obj2);
 	static vector<vector<ObjectController*>> getGridObjects( ObjectController* obj, GameObjectManager* gm);
 

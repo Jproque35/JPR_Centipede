@@ -10,14 +10,16 @@ class MushroomController :
 
 protected:	
 	void updateSub(float elapsedTime);
-	void collisionSub(GameObject* obj);
 
 private:
 	Mushroom* context;
 
 public:
 	MushroomController(Mushroom* context);
+	MushroomController(const MushroomController& obj);
 	~MushroomController();
+	MushroomController& operator=(const MushroomController& obj);
+
 	GameObject* getData();
 
 };

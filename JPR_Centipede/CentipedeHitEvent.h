@@ -14,7 +14,10 @@ private:
 
 public:
 	CentipedeHitEvent(GameObjectManager* gm, int i);
+	CentipedeHitEvent(const CentipedeHitEvent& obj);
 	~CentipedeHitEvent();
+	CentipedeHitEvent& operator=(const CentipedeHitEvent& obj);
+
 	void update(float elapsedTime);
 
 };

@@ -14,6 +14,10 @@ private:
 
 public:
 	PlayerBulletFireCommand(PlayerBullet* context, float x, float y);
+	PlayerBulletFireCommand(const PlayerBulletFireCommand& obj);
+	~PlayerBulletFireCommand();
+	PlayerBulletFireCommand& operator=(const PlayerBulletFireCommand& obj);
+
 	void execute(float elapsedTime);
 
 };

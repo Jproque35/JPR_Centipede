@@ -13,6 +13,22 @@ void ObjectMoveUpCommand::init(GameObject* context) {
 
 }
 
+ObjectMoveUpCommand::ObjectMoveUpCommand(const ObjectMoveUpCommand& obj) {
+
+	this->context = obj.context;
+	this->yDest = obj.yDest;
+	this->finished = obj.finished;
+
+}
+
+ObjectMoveUpCommand::~ObjectMoveUpCommand() {}
+
+ObjectMoveUpCommand& ObjectMoveUpCommand::operator=(const ObjectMoveUpCommand& obj) {
+
+	return *this;
+
+}
+
 void ObjectMoveUpCommand::reset(GameObject* context) {
 
 	this->init(context);

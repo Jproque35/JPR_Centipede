@@ -11,11 +11,14 @@ class Mushroom :
 	friend class MushroomController;
 
 private:
-	int health = 4.0f;
+	int health = 4;
 	bool inHitStun = false;
 
 public:
 	Mushroom(float initX, float initY);
+	Mushroom(const Mushroom &obj);
+	~Mushroom();
+	Mushroom& operator=(const Mushroom &obj);
 
 };
 

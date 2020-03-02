@@ -8,7 +8,19 @@ CentipedeController::CentipedeController(Centipede* context) {
 
 }
 
+CentipedeController::CentipedeController(const CentipedeController& obj) {
+
+	this->context = obj.context;
+	this->commands = obj.commands;
+	this->next = obj.next;
+	this->head = obj.head;
+	this->inReverse = obj.inReverse;
+
+}
+
 CentipedeController::~CentipedeController() {
+
+	this->clearCommands();
 
 	if (this->context != NULL) {
 
@@ -16,6 +28,12 @@ CentipedeController::~CentipedeController() {
 		this->context = NULL;
 
 	}
+
+}
+
+CentipedeController& CentipedeController::operator=(const CentipedeController& obj) {
+
+	return *this;
 
 }
 
@@ -32,41 +50,7 @@ GameObject* CentipedeController::getData() {
 
 }
 
-/*
-void CentipedeController::collisionSub(GameObject* obj) {
+void CentipedeController::updateSub(float elapsedTime) {
 
-	if (this->context != obj) {
-
-		float diameter0 = this->context->getShape().getRadius() * 2;
-		float diameter1 = obj->getShape().getRadius() * 2;
-
-		if (this->context->getPosition().y + diameter0 >= obj->getPosition().y ||
-			this->context->getPosition().y <= obj->getPosition().y + diameter1) {
-
-			if (this->context->getPosition().x + diameter0 >= obj->getPosition().x ||
-				this->context->getPosition().x <= obj->getPosition().x + diameter1) {
-
-
-			}
-
-		}
-
-	}
 
 }
-
-void CentipedeController::handleFinishedCommand(ObjectCommand* command) {
-
-	if (this->next == NULL) {
-
-		delete(command);
-		command = NULL;
-
-	}
-	else {
-
-		this->next->queueCommand(command);
-
-	}
-
-}*/

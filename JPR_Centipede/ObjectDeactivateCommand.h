@@ -13,6 +13,10 @@ private:
 
 public:
 	ObjectDeactivateCommand(GameObject* context);
+	ObjectDeactivateCommand(const ObjectDeactivateCommand& obj);
+	~ObjectDeactivateCommand();
+	ObjectDeactivateCommand& operator=(const ObjectDeactivateCommand& obj);
+
 	void execute(float elapsedTime);
 
 };

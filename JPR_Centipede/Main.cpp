@@ -10,9 +10,11 @@ using namespace sf;
 
 int main()
 {
-	Engine engine;
+	Engine* e = new Engine();
 
-	engine.start();
+	e->start();
+
+	delete(e);
 
 	return 0;
 

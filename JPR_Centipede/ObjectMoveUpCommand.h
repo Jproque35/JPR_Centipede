@@ -15,6 +15,10 @@ private:
 
 public:
 	ObjectMoveUpCommand(GameObject* context);
+	ObjectMoveUpCommand(const ObjectMoveUpCommand& obj);
+	~ObjectMoveUpCommand();
+	ObjectMoveUpCommand& operator=(const ObjectMoveUpCommand& obj);
+
 	void reset(GameObject* context);
 	void execute(float elapsedTime);
 

@@ -23,14 +23,11 @@ using namespace std;
 
 class Engine {
 
-	friend class EventManager;
-
-private: 
+private:
 	RenderWindow window;
-	GameObjectManager* objs;
+	GameObjectManager* gm;
 	EventManager* em;
 	queue<PlayerBulletController*> loadedBullets;
-
 
 	float cellWidth = 0.0f;
 	float gridHeight = 0.0f;
@@ -40,7 +37,6 @@ private:
 	int numCentipedes = 1;
 	int numMushrooms = 20;
 	int getNumObjects();
-	float lastFiredTime = 0.0f;
 
 
 	void input(float dtAsSeconds);
@@ -54,8 +50,11 @@ private:
 	void draw();
 	void drawShape(GameObject* obj);
 
-public:
+public:	
 	Engine();
+	Engine(const Engine& obj);
+	~Engine();
+	Engine& operator=(const Engine& obj);
 	void start();
 
 };

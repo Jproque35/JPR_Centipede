@@ -14,13 +14,17 @@ class GridManager
 private:
 	int width = 0;
 	int height = 0;
-	vector<vector<ObjectController*>> objs;
+	vector<vector<ObjectController*>> gm;
+
 	bool inBounds(int x, int y);
 	int getKey(int x, int y);
 
 public:
 	GridManager(int width, int height);
+	GridManager(const GridManager& obj);
 	~GridManager();
+	GridManager& operator=(const GridManager& obj);
+
 	int getWidth();
 	int getHeight();
 	void clear();

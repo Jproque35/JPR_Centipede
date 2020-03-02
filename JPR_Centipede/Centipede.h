@@ -12,12 +12,14 @@ class Centipede: public GameObject {
 	friend class CentipedeController;
 	friend class CentipedeMoveEvent;
 
-protected:
+private:
 	CentipedeDirection dir = CentipedeDirection::Left;
 
 public:
-
 	Centipede(float initX, float initY);
+	Centipede(const Centipede& obj);
+	~Centipede();
+	Centipede& operator=(const Centipede& obj);
 
 };
 

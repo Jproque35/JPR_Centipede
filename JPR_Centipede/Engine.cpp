@@ -18,6 +18,21 @@ Engine::Engine() {
 
 }
 
+Engine::Engine(const Engine& obj) {}
+
+Engine::~Engine() {
+
+	delete(this->gm);
+	delete(this->em);
+
+}
+
+Engine& Engine::operator=(const Engine& obj) {
+
+	return *this;
+
+}
+
 void Engine::start() {
 
 	Clock clock;
@@ -44,7 +59,5 @@ void Engine::start() {
 		draw();
 
 	}
-
-	delete(this->objs);
 
 }

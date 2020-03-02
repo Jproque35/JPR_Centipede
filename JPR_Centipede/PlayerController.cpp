@@ -6,7 +6,16 @@ PlayerController::PlayerController(Player* context) {
 
 }
 
+PlayerController::PlayerController(const PlayerController& obj) {
+
+	this->context = obj.context;
+	this->commands = obj.commands;
+
+}
+
 PlayerController::~PlayerController() {
+
+	this->clearCommands();
 
 	if (this->context != NULL) {
 

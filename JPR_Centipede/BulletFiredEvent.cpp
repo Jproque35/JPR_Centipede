@@ -7,7 +7,18 @@ BulletFiredEvent::BulletFiredEvent(GameObjectManager* gm, int i) {
 
 }
 
-BulletFiredEvent::~BulletFiredEvent() {
+BulletFiredEvent::BulletFiredEvent(const BulletFiredEvent& obj) {
+
+	this->gm = obj.gm;
+	this->context = obj.context;
+
+}
+
+BulletFiredEvent::~BulletFiredEvent() {}
+
+BulletFiredEvent& BulletFiredEvent::operator=(const BulletFiredEvent& obj) {
+
+	return *this;
 
 }
 

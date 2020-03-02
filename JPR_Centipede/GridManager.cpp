@@ -4,7 +4,15 @@ GridManager::GridManager(int width, int height) {
 
 	this->width = width;
 	this->height = height;
-	this->objs.resize(this->width * this->height);
+	this->gm.resize(this->width * this->height);
+
+}
+
+GridManager::GridManager(const GridManager& obj) {
+
+	this->width = obj.width;
+	this->height = obj.height;
+	this->gm = obj.gm;
 
 }
 
@@ -44,8 +52,8 @@ int GridManager::getHeight() {
 
 void GridManager::clear() {
 
-	this->objs.clear();
-	this->objs.resize(this->width * this->height);
+	this->gm.clear();
+	this->gm.resize(this->width * this->height);
 
 }
 
@@ -57,7 +65,7 @@ bool GridManager::hasType(ObjectType type, int x, int y) {
 
 	}
 
-	vector<ObjectController*> currList = this->objs[this->getKey(x, y)];
+	vector<ObjectController*> currList = this->gm[this->getKey(x, y)];
 
 	for (int i = 0; i < currList.size(); i++) {
 
@@ -80,7 +88,7 @@ void GridManager::add(ObjectController* obj) {
 
 	if (this->inBounds(x, y)) {
 
-		this->objs[this->getKey(x, y)].push_back(obj);
+		this->gm[this->getKey(x, y)].push_back(obj);
 
 	}
 
@@ -92,7 +100,7 @@ vector<ObjectController*> GridManager::get(int x, int y) {
 
 	if (this->inBounds(x, y)) {
 
-		return this->objs[this->getKey(x, y)];
+		return this->gm[this->getKey(x, y)];
 
 	}
 

@@ -15,6 +15,10 @@ private:
 
 public:
 	MushroomHitEvent(GameObjectManager* gm, int i);
+	MushroomHitEvent(const MushroomHitEvent& obj);
+	~MushroomHitEvent();
+	MushroomHitEvent& operator=(const MushroomHitEvent& obj);
+
 	void update(float elapsedTime);
 
 };

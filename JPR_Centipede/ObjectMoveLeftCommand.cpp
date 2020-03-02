@@ -13,6 +13,22 @@ void ObjectMoveLeftCommand::init(GameObject* context) {
 
 }
 
+ObjectMoveLeftCommand::ObjectMoveLeftCommand(const ObjectMoveLeftCommand& obj) {
+
+	this->context = obj.context;
+	this->xDest = obj.xDest;
+	this->finished = obj.finished;
+
+}
+
+ObjectMoveLeftCommand::~ObjectMoveLeftCommand() {}
+
+ObjectMoveLeftCommand& ObjectMoveLeftCommand::operator=(const ObjectMoveLeftCommand& obj) {
+
+	return *this;
+
+}
+
 void ObjectMoveLeftCommand::reset(GameObject* context) {
 
 	this->init(context);

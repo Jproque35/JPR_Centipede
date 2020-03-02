@@ -7,6 +7,21 @@ PlayerInputEvent::PlayerInputEvent(GameObjectManager* gm, int i) {
 
 }
 
+PlayerInputEvent::PlayerInputEvent(const PlayerInputEvent& obj) {
+
+	this->gm = obj.gm;
+	this->context = obj.context;
+
+}
+
+PlayerInputEvent::~PlayerInputEvent() {}
+
+PlayerInputEvent& PlayerInputEvent::operator=(const PlayerInputEvent& obj) {
+
+	return *this;
+
+}
+
 void PlayerInputEvent::update(float elapsedTime) {
 
 	Vector2f currPos = this->context->getData()->getPosition();

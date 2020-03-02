@@ -183,9 +183,6 @@
     <ClCompile Include="GridManager.cpp">
       <Filter>Source Files\Engine\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="CentipedeControllerUpdate.cpp">
-      <Filter>Source Files\Entities\Centipede\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="MushroomController.cpp">
       <Filter>Source Files\Entities\Mushroom</Filter>
     </ClCompile>
@@ -204,9 +201,6 @@
     <ClCompile Include="ObjectSetPositionCommand.cpp">
       <Filter>Source Files\Entities\GameObject\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="GameEvent.cpp">
-      <Filter>Source Files\Engine\Managers</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerInputEvent.cpp">
       <Filter>Source Files\Entities\Player\Events</Filter>
     </ClCompile>
@@ -219,11 +213,11 @@
     <ClCompile Include="CentipedeMoveEvent.cpp">
       <Filter>Source Files\Entities\Centipede\Events</Filter>
     </ClCompile>
-    <ClCompile Include="CentipedeHitEvent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BulletCollideEvent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities\Player\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="CentipedeHitEvent.cpp">
+      <Filter>Source Files\Entities\Centipede\Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -314,11 +308,11 @@
     <ClInclude Include="GameEvent.h">
       <Filter>Header Files\Entities\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="CentipedeHitEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BulletCollideEvent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities\Player\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="CentipedeHitEvent.h">
+      <Filter>Header Files\Entities\Centipede\Events</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

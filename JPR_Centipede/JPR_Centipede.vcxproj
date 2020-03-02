@@ -155,12 +155,10 @@
     <ClCompile Include="BulletCollideEvent.cpp" />
     <ClCompile Include="BulletFiredEvent.cpp" />
     <ClCompile Include="CentipedeController.cpp" />
-    <ClCompile Include="CentipedeControllerUpdate.cpp" />
     <ClCompile Include="CentipedeHitEvent.cpp" />
     <ClCompile Include="CentipedeMoveEvent.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="EventManager.cpp" />
-    <ClCompile Include="GameEvent.cpp" />
     <ClCompile Include="GridManager.cpp" />
     <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="Draw.cpp" />

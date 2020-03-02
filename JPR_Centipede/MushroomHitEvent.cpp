@@ -7,6 +7,21 @@ MushroomHitEvent::MushroomHitEvent(GameObjectManager* gm, int i) {
 
 }
 
+MushroomHitEvent::MushroomHitEvent(const MushroomHitEvent& obj) {
+
+	this->gm = obj.gm;
+	this->context = obj.context;
+
+}
+
+MushroomHitEvent::~MushroomHitEvent() {}
+
+MushroomHitEvent& MushroomHitEvent::operator=(const MushroomHitEvent& obj) {
+
+	return *this;
+
+}
+
 void MushroomHitEvent::update(float elapsedTime) {
 
 	Vector2f currPos = this->context->getData()->getPosition();

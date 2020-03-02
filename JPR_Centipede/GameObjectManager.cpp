@@ -2,11 +2,11 @@
 
 GameObjectManager::GameObjectManager(int size, int x, int y) {
 
-	this->objs.resize(size);
+	this->gm.resize(size);
 
-	for (int i = 0; i < this->objs.size(); i++) {
+	for (int i = 0; i < this->gm.size(); i++) {
 
-		this->objs[i] = NULL;
+		this->gm[i] = NULL;
 
 	}
 
@@ -14,18 +14,31 @@ GameObjectManager::GameObjectManager(int size, int x, int y) {
 
 }
 
+GameObjectManager::GameObjectManager(const GameObjectManager& obj) {
+
+	this->gm = obj.gm;
+	this->grid = obj.grid;
+
+}
+
 GameObjectManager::~GameObjectManager() {
 
-	for (int i = 0; i < this->objs.size(); i++) {
+	for (int i = 0; i < this->gm.size(); i++) {
 
-		if (this->objs[i] != NULL) {
-			delete(this->objs[i]);
-			this->objs[i] = NULL;
+		if (this->gm[i] != NULL) {
+			delete(this->gm[i]);
+			this->gm[i] = NULL;
 		}
 
 	}
 
 	delete(this->grid);
+
+}
+
+GameObjectManager& GameObjectManager::operator=(const GameObjectManager& obj) {
+
+	return *this;
 
 }
 
@@ -45,9 +58,9 @@ void GameObjectManager::rebuildGrid() {
 
 	this->grid->clear();
 
-	for (int i = 0; i < this->objs.size(); i++) {
+	for (int i = 0; i < this->gm.size(); i++) {
 
-		ObjectController* currObj = this->objs[i];
+		ObjectController* currObj = this->gm[i];
 		this->grid->add(currObj);
 
 	}
@@ -56,9 +69,9 @@ void GameObjectManager::rebuildGrid() {
 
 void GameObjectManager::add(int i, ObjectController* obj) {
 
-	if (i < this->objs.size() && i >= 0) {
+	if (i < this->gm.size() && i >= 0) {
 
-		this->objs[i] = obj;
+		this->gm[i] = obj;
 
 	}
 
@@ -68,8 +81,8 @@ void GameObjectManager::add(int i, ObjectController* obj) {
 
 void GameObjectManager::update(int i, float elapsedTime) {
 
-	if (this->objs[i] != NULL) {
-		this->objs[i]->update(elapsedTime);
+	if (this->gm[i] != NULL) {
+		this->gm[i]->update(elapsedTime);
 		this->rebuildGrid();
 	}
 
@@ -77,10 +90,10 @@ void GameObjectManager::update(int i, float elapsedTime) {
 
 void GameObjectManager::updateAll(float elapsedTime) {
 
-	for (int i = 0; i < objs.size(); i++) {
+	for (int i = 0; i < gm.size(); i++) {
 
-		if (this->objs[i] != NULL) {
-			this->objs[i]->update(elapsedTime);
+		if (this->gm[i] != NULL) {
+			this->gm[i]->update(elapsedTime);
 		}
 
 	}
@@ -97,7 +110,7 @@ vector<ObjectController*> GameObjectManager::get(int x, int y) {
 
 ObjectController* GameObjectManager::get(int i) {
 
-	return this->objs[i];
+	return this->gm[i];
 
 }
 
@@ -109,10 +122,10 @@ bool GameObjectManager::hasType(ObjectType type, int x, int y) {
 
 void GameObjectManager::erase(int i) {
 
-	if (this->objs[i] != NULL) {
+	if (this->gm[i] != NULL) {
 
-		delete(this->objs[i]);
-		this->objs[i] = NULL;
+		delete(this->gm[i]);
+		this->gm[i] = NULL;
 
 	}
 
@@ -122,6 +135,6 @@ void GameObjectManager::erase(int i) {
 
 int GameObjectManager::size() {
 
-	return this->objs.size();
+	return this->gm.size();
 
 }

@@ -14,6 +14,10 @@ private:
 
 public:
 	ObjectMoveRightCommand(GameObject* context);
+	ObjectMoveRightCommand(const ObjectMoveRightCommand& obj);
+	~ObjectMoveRightCommand();
+	ObjectMoveRightCommand& operator=(const ObjectMoveRightCommand& obj);
+
 	void reset(GameObject* context);
 	void execute(float elapsedTime);
 };

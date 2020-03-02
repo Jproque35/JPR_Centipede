@@ -22,7 +22,10 @@ protected:
 
 public:
 	PlayerBulletController(PlayerBullet* context);
+	PlayerBulletController(const PlayerBulletController& obj);
 	~PlayerBulletController();
+	PlayerBulletController& operator=(const PlayerBulletController& obj);
+
 	GameObject* getData();
 	void setKey(Keyboard::Key key, float x, float y);
 

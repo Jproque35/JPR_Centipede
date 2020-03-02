@@ -17,7 +17,10 @@ private:
 
 public:
 	EventManager(GameObjectManager* gm);
+	EventManager(const EventManager& obj);
 	~EventManager();
+	EventManager& operator=(const EventManager& obj);
+
 	void addEvent(GameEventListener* event);
 	void update(float elapsedTime);
 

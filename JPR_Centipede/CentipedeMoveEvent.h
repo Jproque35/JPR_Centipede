@@ -18,6 +18,10 @@ private:
 
 public:
 	CentipedeMoveEvent(GameObjectManager* gm, int i);
+	CentipedeMoveEvent(const CentipedeMoveEvent& obj);
+	~CentipedeMoveEvent();
+	CentipedeMoveEvent& operator=(const CentipedeMoveEvent& obj);
+
 	void update(float elapsedTime);
 
 };
