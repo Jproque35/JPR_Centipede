@@ -3,6 +3,18 @@
 #pragma once
 #include <iostream>
 
+enum class CommandType {
+	Generic,
+	MoveUp,
+	MoveDown,
+	MoveLeft,
+	MoveRight,
+	Activate,
+	Deactivate,
+	SetPosition,
+	ShootBullet
+};
+
 using namespace std;
 
 class ObjectCommand
@@ -10,9 +22,11 @@ class ObjectCommand
 
 protected:
 	bool finished = false;
+	CommandType type = CommandType::Generic;
 
 public:
 	bool isFinished();
+	CommandType getType();
 	virtual void execute(float elapsedTime) = 0;
 
 };

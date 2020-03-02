@@ -2,14 +2,9 @@
 
 ObjectMoveUpCommand::ObjectMoveUpCommand(GameObject* context) {
 
-	this->init(context);
-
-}
-
-void ObjectMoveUpCommand::init(GameObject* context) {
-
 	this->context = context;
 	this->yDest = this->context->position.y - 1.0f;
+	this->type = CommandType::MoveUp;
 
 }
 
@@ -26,12 +21,6 @@ ObjectMoveUpCommand::~ObjectMoveUpCommand() {}
 ObjectMoveUpCommand& ObjectMoveUpCommand::operator=(const ObjectMoveUpCommand& obj) {
 
 	return *this;
-
-}
-
-void ObjectMoveUpCommand::reset(GameObject* context) {
-
-	this->init(context);
 
 }
 

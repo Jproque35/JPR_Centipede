@@ -48,6 +48,7 @@ void PlayerBulletController::setKey(Keyboard::Key key, float x, float y) {
 
 void PlayerBulletController::updateSub(float elapsedTime) {
 
+	/*
 	if (this->commands.size() < 1) {
 		if (this->key == Keyboard::Space) {
 
@@ -57,7 +58,7 @@ void PlayerBulletController::updateSub(float elapsedTime) {
 
 		this->key = Keyboard::Unknown;
 
-	}
+	}*/
 
 }
 
@@ -84,15 +85,3 @@ void PlayerBulletController::collisionSub(GameObject* obj) {
 	}
 
 }
-
-/*
-void PlayerBulletController::handleFinishedCommand(ObjectCommand* command) {
-
-	if (command != NULL) {
-
-		delete(command);
-		command = NULL;
-
-	}
-
-}*/

@@ -219,6 +219,9 @@
     <ClCompile Include="CentipedeHitEvent.cpp">
       <Filter>Source Files\Entities\Centipede\Events</Filter>
     </ClCompile>
+    <ClCompile Include="CommandFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -313,6 +316,9 @@
     </ClInclude>
     <ClInclude Include="CentipedeHitEvent.h">
       <Filter>Header Files\Entities\Centipede\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

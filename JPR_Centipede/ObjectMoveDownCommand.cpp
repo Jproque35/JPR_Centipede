@@ -2,14 +2,9 @@
 
 ObjectMoveDownCommand::ObjectMoveDownCommand(GameObject* context) {
 
-	this->init(context);
-
-}
-
-void ObjectMoveDownCommand::init(GameObject* context) {
-
 	this->context = context;
 	this->yDest = this->context->position.y + 1.0f;
+	this->type = CommandType::MoveDown;
 
 }
 
@@ -18,6 +13,7 @@ ObjectMoveDownCommand::ObjectMoveDownCommand(const ObjectMoveDownCommand& obj) {
 	this->context = obj.context;
 	this->yDest = obj.yDest;
 	this->finished = obj.finished;
+	this->type = obj.type;
 
 }
 
@@ -26,12 +22,6 @@ ObjectMoveDownCommand::~ObjectMoveDownCommand() {}
 ObjectMoveDownCommand& ObjectMoveDownCommand::operator=(const ObjectMoveDownCommand& obj) {
 
 	return *this;
-
-}
-
-void ObjectMoveDownCommand::reset(GameObject* context) {
-
-	this->init(context);
 
 }
 

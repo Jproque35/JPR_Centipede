@@ -33,7 +33,19 @@ void BulletFiredEvent::update(float elapsedTime) {
 			float xPos = playerPos.x + player->getData()->getShape().getRadius() - this->context->getData()->getShape().getRadius();
 
 			cout << "Fired object " << this->context << endl;
-			this->context->setKey(Keyboard::Space, xPos, playerPos.y);
+
+			if (this->context->commandQueueSize() < 1) {
+
+				Vector2f newPos;
+				newPos.x = xPos;
+				newPos.y = playerPos.y;
+				this->context->getData()->setPosition(newPos);
+
+				this->context->queueCommand(CommandFactory::makeCommand(CommandType::ShootBullet, 
+					this->context->getData()));
+
+			}
+
 
 		}
 

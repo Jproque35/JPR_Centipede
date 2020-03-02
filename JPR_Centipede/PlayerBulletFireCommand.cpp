@@ -3,12 +3,11 @@
 
 using namespace std;
 
-PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBullet* context, float x, float y) {
+PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBullet* context) {
 
 	this->context = context;
 	this->context->active = true;
-	this->context->position.x = x;
-	this->context->position.y = y;
+	this->type = CommandType::ShootBullet;
 
 }
 
@@ -17,6 +16,7 @@ PlayerBulletFireCommand::PlayerBulletFireCommand(const PlayerBulletFireCommand& 
 	this->context = obj.context;
 	this->distTravelled = obj.distTravelled;
 	this->finished = obj.finished;
+	this->type = obj.type;
 
 }
 

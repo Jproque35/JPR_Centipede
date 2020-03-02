@@ -35,6 +35,7 @@ void BulletCollideEvent::update(float elapsedTime) {
 				|| gm[i]->getData()->getType() == ObjectType::Centipede) {
 
 				this->context->clearCommands();
+				this->context->getData()->setPosition(Vector2f(-1.0f, -1.0f));
 				this->context->getData()->deactivate();
 
 			}

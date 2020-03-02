@@ -3,6 +3,7 @@
 #pragma once
 #include "ObjectController.h"
 #include "GameObjectManager.h"
+#include "CommandFactory.h"
 
 class GameEventListener
 {

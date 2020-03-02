@@ -1,3 +1,58 @@
-﻿  Main.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+﻿  BulletCollideEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(28,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(28,54): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(30,20): warning C4018: '<': signed/unsigned mismatch
+  MushroomHitEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MushroomHitEvent.cpp(29,72): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MushroomHitEvent.cpp(29,61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  PlayerInputEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(34,66): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(34,52): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(44,72): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(44,52): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(54,70): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(54,55): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(64,76): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(64,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

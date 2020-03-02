@@ -70,7 +70,7 @@ void CentipedeMoveEvent::moveLeftRoutine() {
 	}
 	else if (this->context->commands.size() < 1) {
 
-		this->context->commands.push(new ObjectMoveLeftCommand(this->context->getData()));
+		this->context->commands.push(CommandFactory::makeCommand(CommandType::MoveLeft, this->context->getData()));
 
 	}
 
@@ -93,7 +93,7 @@ void CentipedeMoveEvent::moveRightRoutine() {
 	}
 	else if (this->context->commands.size() < 1) {
 
-		this->context->commands.push(new ObjectMoveRightCommand(this->context->getData()));
+		this->context->commands.push(CommandFactory::makeCommand(CommandType::MoveRight, this->context->getData()));
 
 	}
 
@@ -113,10 +113,10 @@ void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 void CentipedeMoveEvent::queueLevelChangeCommand() {
 
 	if (!this->inReverse) {
-		this->context->commands.push(new ObjectMoveDownCommand(this->context->getData()));
+		this->context->commands.push(CommandFactory::makeCommand(CommandType::MoveDown, this->context->getData()));
 	}
 	else {
-		this->context->commands.push(new ObjectMoveUpCommand(this->context->getData()));
+		this->context->commands.push(CommandFactory::makeCommand(CommandType::MoveUp, this->context->getData()));
 	}
 
 }

@@ -1,5 +1,11 @@
 #include "ObjectController.h"
 
+int ObjectController::commandQueueSize() {
+
+	return this->commands.size();
+
+}
+
 void ObjectController::clearCommands() {
 
 	while (this->commands.size() > 0) {

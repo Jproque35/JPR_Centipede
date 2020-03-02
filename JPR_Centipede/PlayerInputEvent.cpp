@@ -25,88 +25,57 @@ PlayerInputEvent& PlayerInputEvent::operator=(const PlayerInputEvent& obj) {
 void PlayerInputEvent::update(float elapsedTime) {
 
 	Vector2f currPos = this->context->getData()->getPosition();
-	float diameter = this->context->getData()->getShape().getRadius() * 2;
 
 	//cout << "Current position is: " << currPos.x << " " << currPos.y << endl;
 
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
 
-		if (currPos.y - 1.0f >= 0) {
+		if (currPos.y - 1.0f >= 0 &&
+			!this->gm->hasType(ObjectType::Mushroom, currPos.x, currPos.y - 1.0f)) {
 
-			if (!this->gm->hasType(ObjectType::Mushroom, currPos.x, currPos.y - 1.0f)) {
-
-				this->context->setKey(Keyboard::W);
-
-			}
-
-			/*
-			else {
-
-				this->context->clearCommands();
-
-			}*/
+			this->queueCommand(CommandType::MoveUp);
 
 		}
 
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
 
-		if (currPos.y + diameter + 1.0f < this->gm->getGridHeight()) {
+		if (ceil(currPos.y) + 1.0f < this->gm->getGridHeight() &&
+			!this->gm->hasType(ObjectType::Mushroom, currPos.x, ceil(currPos.y) + 1.0f)) {
 
-			if (!this->gm->hasType(ObjectType::Mushroom, currPos.x, ceil(currPos.y) + 1.0f)) {
+			this->queueCommand(CommandType::MoveDown);
 
-				this->context->setKey(Keyboard::S);
-
-			}
-
-			/*
-			else {
-
-				this->context->clearCommands();
-
-			}*/
 		}
 
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::A)) {
 
-		if (currPos.x - 1.0f >= 0) {
+		if (currPos.x - 1.0f >= 0 &&
+			!this->gm->hasType(ObjectType::Mushroom, currPos.x - 1.0f, currPos.y)) {
 
-			if (!this->gm->hasType(ObjectType::Mushroom, currPos.x - 1.0f, currPos.y)) {
-
-				this->context->setKey(Keyboard::A);
-
-			}
-
-			/*
-			else {
-
-				this->context->clearCommands();
-
-			}*/
+			this->queueCommand(CommandType::MoveLeft);
 
 		}
 
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::D)) {
 
-		if (currPos.x + diameter + 1.0f < this->gm->getGridWidth() ) {
+		if (ceil(currPos.x) + 1.0f < this->gm->getGridWidth() &&
+			!this->gm->hasType(ObjectType::Mushroom, ceil(currPos.x) + 1.0f, currPos.y)) {
 
-			if (!this->gm->hasType(ObjectType::Mushroom, ceil(currPos.x) + 1.0f, currPos.y)) {
-
-				this->context->setKey(Keyboard::D);
-
-			}
-
-			/*
-			else {
-
-				this->context->clearCommands();
-				cout << "Right blocked" << endl;
-
-			}*/
+			this->queueCommand(CommandType::MoveRight);
 		
 		}
+	}
+
+}
+
+void PlayerInputEvent::queueCommand(CommandType type) {
+
+	if (this->context->commandQueueSize() < 1) {
+
+		this->context->queueCommand(CommandFactory::makeCommand(type, this->context->getData()));
+
 	}
 
 }
