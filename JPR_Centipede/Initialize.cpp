@@ -36,10 +36,10 @@ void Engine::initObjects() {
 }
 
 void Engine::initPlayer(int &currPos) {
-	GameObject* newObj = new Player(floor(this->gridWidth / 2), floor(this->gridHeight / 2));
+	GameObject* newObj;
 
-	this->gm->add(0, new PlayerController((Player*)newObj));
-	this->em->addEvent(new PlayerInputEvent(this->gm, 0));
+	this->gm->add(0, new PlayerController( floor(this->gridWidth/2), floor(this->gridHeight/2) ));
+	this->gm->get(0)->addEventListener(new PlayerInputEvent(this->gm, 0));
 	this->gm->get(0)->getData()->activate();
 	bulletsStart = ++currPos;
 
@@ -48,10 +48,9 @@ void Engine::initPlayer(int &currPos) {
 
 	while (currPos < endPos) {
 
-		newObj = new PlayerBullet(-1, -1);
-		this->gm->add(currPos, new PlayerBulletController((PlayerBullet*)newObj));
-		this->em->addEvent(new BulletFiredEvent(this->gm, currPos));
-		this->em->addEvent(new BulletCollideEvent(this->gm, currPos));
+		this->gm->add(currPos, new PlayerBulletController(-1, -1));
+		this->gm->get(currPos)->addEventListener(new BulletFiredEvent(this->gm, currPos));
+		this->gm->get(currPos)->addEventListener(new BulletCollideEvent(this->gm, currPos));
 		this->loadedBullets.push((PlayerBulletController*)(this->gm->get(currPos)));
 		cout << "Loaded bullet object into slot " << currPos << endl;
 		currPos++;
@@ -61,15 +60,13 @@ void Engine::initPlayer(int &currPos) {
 
 void Engine::initEnemies(int &currPos) {
 
-	GameObject* newObj = NULL;
+	int initPos = currPos;
 	int endPos = currPos + this->numCentipedes;
 	cout << "Loading centipede objects..." << endl;
 
 	while (currPos < endPos) {
 
-		newObj = new Centipede(this->gridWidth / 2, 0.0f);
-		this->gm->add(currPos, new CentipedeController((Centipede*)newObj));
-		this->gm->get(currPos)->getData()->activate();
+		this->gm->add(currPos, new CentipedeController(this->gridWidth / 2, 0.0f));
 		this->em->addEvent(new CentipedeMoveEvent(this->gm, currPos));
 		this->em->addEvent(new CentipedeHitEvent(this->gm, currPos));
 		cout << "Loaded centipede object into slot " << currPos << endl;
@@ -77,13 +74,14 @@ void Engine::initEnemies(int &currPos) {
 
 	}
 
+	this->gm->get(initPos)->getData()->activate();
+
 }
 
 void Engine::initMushrooms(int &currPos) {
 
 	srand(time(NULL));
 
-	GameObject* newObj;
 	int endPos = currPos + this->numMushrooms;
 	cout << "Loading mushroom objects..." << endl;
 
@@ -92,10 +90,9 @@ void Engine::initMushrooms(int &currPos) {
 		int tempX = rand() % (int)(this->gridWidth - 1.0f);
 		int tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
 
-		newObj = new Mushroom(tempX, tempY);
-		this->gm->add(currPos, new MushroomController((Mushroom*)newObj));
+		this->gm->add(currPos, new MushroomController(tempX, tempY));
 		this->gm->get(currPos)->getData()->activate();
-		this->em->addEvent(new MushroomHitEvent(this->gm, currPos));
+		this->gm->get(currPos)->addEventListener(new MushroomHitEvent(this->gm, currPos));
 		cout << "Loaded mushroom object into slot " << currPos << " at position " << tempX << ", " << tempY << endl;
 		currPos++;
 

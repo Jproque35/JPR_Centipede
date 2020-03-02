@@ -6,6 +6,45 @@ int ObjectController::commandQueueSize() {
 
 }
 
+void ObjectController::addEventListener(GameEventListener* event) {
+
+	this->events.push_back(event);
+
+}
+
+void ObjectController::executeEventListeners(float elapsedTime) {
+
+	for (int i = 0; i < this->events.size(); i++) {
+
+		this->events[i]->update(elapsedTime);
+
+	}
+
+}
+
+void ObjectController::clearEventListeners() {
+
+	while (this->events.size() > 0) {
+
+		GameEventListener* currEvent = this->events.front();
+		if (currEvent != NULL) {
+
+			delete(currEvent);
+			currEvent = NULL;
+
+		}
+		this->commands.pop();
+
+	}
+
+}
+
+void ObjectController::queueCommand(ObjectCommand* command) {
+
+	this->commands.push(command);
+
+}
+
 void ObjectController::clearCommands() {
 
 	while (this->commands.size() > 0) {
@@ -16,12 +55,6 @@ void ObjectController::clearCommands() {
 		currCommand = NULL;
 
 	}
-
-}
-
-void ObjectController::queueCommand(ObjectCommand* command) {
-
-	this->commands.push(command);
 
 }
 

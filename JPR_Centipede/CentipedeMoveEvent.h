@@ -1,5 +1,7 @@
 #pragma once
 #include "GameEvent.h"
+#include "ObjectController.h"
+#include "GameObjectManager.h"
 #include "CentipedeController.h"
 
 class CentipedeMoveEvent :

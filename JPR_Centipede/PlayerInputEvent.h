@@ -2,6 +2,8 @@
 #define PLAYERINPUTEVENT_H
 #pragma once
 #include "GameEvent.h"
+#include "ObjectController.h"
+#include "GameObjectManager.h"
 #include "PlayerController.h"
 
 class PlayerInputEvent :

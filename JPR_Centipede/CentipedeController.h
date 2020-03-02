@@ -18,7 +18,7 @@ private:
 	void updateSub(float elapsedTime);
 
 public:
-	CentipedeController(Centipede* context);
+	CentipedeController(float initX, float initY);
 	CentipedeController(const CentipedeController& obj);
 	~CentipedeController();
 	CentipedeController& operator=(const CentipedeController& obj);

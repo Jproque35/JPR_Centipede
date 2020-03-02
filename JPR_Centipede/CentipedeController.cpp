@@ -1,8 +1,8 @@
 #include "CentipedeController.h"
 
-CentipedeController::CentipedeController(Centipede* context) {
+CentipedeController::CentipedeController(float initX, float initY) {
 
-	this->context = context;
+	this->context = new Centipede(initX, initY);
 	//this->grid = grid;
 	this->head = true;
 

@@ -34,10 +34,9 @@ private:
 	float gridWidth = 0.0f;
 	int bulletsStart = -1;
 	int numBullets = 1;
-	int numCentipedes = 1;
-	int numMushrooms = 20;
+	int numCentipedes = 2;
+	int numMushrooms = 30;
 	int getNumObjects();
-
 
 	void input(float dtAsSeconds);
 	void init();
@@ -46,6 +45,7 @@ private:
 	void initEnemies(int &currPos);
 	void initMushrooms(int &currPos);
 	void initEvents();
+	void executeObjectEventListeners(float elapsedTime);
 	void update(float dtAsSeconds);
 	void draw();
 	void drawShape(GameObject* obj);

@@ -1,6 +1,8 @@
 #ifndef CENTIPEDEHITEVENT_H
 #define CENTIPEDEHITEVENT_H
 #pragma once
+#include "ObjectController.h"
+#include "GameObjectManager.h"
 #include "GameEvent.h"
 #include "CentipedeController.h"
 

@@ -21,7 +21,7 @@ protected:
 	//void handleFinishedCommand(ObjectCommand* object);
 
 public:
-	PlayerBulletController(PlayerBullet* context);
+	PlayerBulletController(float initX, float initY);
 	PlayerBulletController(const PlayerBulletController& obj);
 	~PlayerBulletController();
 	PlayerBulletController& operator=(const PlayerBulletController& obj);

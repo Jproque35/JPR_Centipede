@@ -15,7 +15,7 @@ private:
 	Mushroom* context;
 
 public:
-	MushroomController(Mushroom* context);
+	MushroomController(float initX, float initY);
 	MushroomController(const MushroomController& obj);
 	~MushroomController();
 	MushroomController& operator=(const MushroomController& obj);

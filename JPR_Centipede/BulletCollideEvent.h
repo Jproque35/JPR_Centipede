@@ -2,6 +2,8 @@
 #define BULLETCOLLIDEVENT_H
 #pragma once
 #include "GameEvent.h"
+#include "ObjectController.h"
+#include "GameObjectManager.h"
 #include "PlayerBulletController.h"
 
 class BulletCollideEvent :

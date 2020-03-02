@@ -15,7 +15,7 @@ private:
 	void collisionSub(GameObject* obj);
 
 public:
-	PlayerController(Player* context);
+	PlayerController(float initX, float initY);
 	PlayerController(const PlayerController& obj);
 	~PlayerController();
 	PlayerController& operator=(const PlayerController& obj);

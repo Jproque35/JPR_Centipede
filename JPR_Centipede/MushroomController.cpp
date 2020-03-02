@@ -1,8 +1,8 @@
 #include "MushroomController.h"
 
-MushroomController::MushroomController(Mushroom* context) {
+MushroomController::MushroomController(float initX, float initY) {
 
-	this->context = context;
+	this->context = new Mushroom(initX, initY);
 
 }
 

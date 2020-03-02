@@ -2,6 +2,7 @@
 #define MUSHROOMHITEVENT_H
 #pragma once
 #include "GameEvent.h"
+#include "ObjectController.h"
 #include "GameObjectManager.h"
 #include "MushroomController.h"
 

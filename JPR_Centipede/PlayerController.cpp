@@ -1,8 +1,8 @@
 #include "PlayerController.h"
 
-PlayerController::PlayerController(Player* context) {
+PlayerController::PlayerController(float initX, float initY) {
 
-	this->context = context;
+	this->context = new Player(initX, initY);
 
 }
 

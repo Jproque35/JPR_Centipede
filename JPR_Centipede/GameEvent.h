@@ -1,8 +1,6 @@
 #ifndef GAMEEVENTLISTENER_H
 #define GAMEEVENTLISTENER_H
 #pragma once
-#include "ObjectController.h"
-#include "GameObjectManager.h"
 #include "CommandFactory.h"
 
 class GameEventListener

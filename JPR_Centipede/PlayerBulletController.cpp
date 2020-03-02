@@ -1,8 +1,8 @@
 #include "PlayerBulletController.h"
 
-PlayerBulletController::PlayerBulletController(PlayerBullet* context) {
+PlayerBulletController::PlayerBulletController(float initX, float initY) {
 
-	this->context = context;
+	this->context = new PlayerBullet(initX, initY);
 
 }
 
