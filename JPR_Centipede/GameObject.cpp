@@ -1,103 +1,92 @@
 #include "GameObject.h"
 
-GameObject::GameObject(float initX, float initY) {
+int GameObject::commandQueueSize() {
 
-	this->position.x = initX;
-	this->position.y = initY;
-	this->xSpeed = 0.0f;
-	this->ySpeed = 0.0f;
-	this->shape.setPosition(this->position);
-	this->shape.setPointCount(15);
+	return this->commands.size();
 
 }
 
-GameObject::GameObject(const GameObject& obj) {
+void GameObject::addEventListener(GameEventListener* event) {
 
-	this->position = obj.position;
-	this->xSpeed = obj.xSpeed;
-	this->ySpeed = obj.ySpeed;
-	this->shape = obj.shape;
-	this->type = obj.type;
-	this->active = obj.active;
+	this->events.push_back(event);
 
 }
 
-GameObject::~GameObject() {}
+void GameObject::executeEventListeners(float elapsedTime) {
 
-GameObject& GameObject::operator=(const GameObject& obj) {
+	for (int i = 0; i < this->events.size(); i++) {
 
-	return *this;
+		this->events[i]->update(elapsedTime);
 
-}
-
-void GameObject::activate() {
-
-	this->active = true;
+	}
 
 }
 
-void GameObject::deactivate() {
+void GameObject::clearEventListeners() {
 
-	this->active = false;
+	while (this->events.size() > 0) {
 
-}
+		GameEventListener* currEvent = this->events.front();
+		if (currEvent != NULL) {
 
-bool GameObject::isActive() {
+			delete(currEvent);
+			currEvent = NULL;
 
-	return this->active;
+		}
+		this->commands.pop();
 
-}
-
-ObjectType GameObject::getType() {
-
-	return this->type;
-
-}
-
-void GameObject::setPosition(Vector2f pos) {
-
-	this->position = pos;
+	}
 
 }
 
-Vector2f GameObject::getPosition() {
+void GameObject::queueCommand(ObjectCommand* command) {
 
-	return this->position;
-
-}
-
-FloatRect GameObject::getCollisionBox() {
-
-	return this->shape.getGlobalBounds();
+	this->commands.push(command);
 
 }
 
-CircleShape GameObject::getShape() {
+void GameObject::clearCommands() {
 
-	return this->shape;
+	while (this->commands.size() > 0) {
 
-}
+		ObjectCommand* currCommand = this->commands.front();
+		this->commands.pop();
+		delete(currCommand);
+		currCommand = NULL;
 
-void GameObject::setXVelocity(float xSpeed) {
-
-	this->xSpeed = xSpeed;
-
-}
-
-void GameObject::setYVelocity(float ySpeed) {
-
-	this->ySpeed = ySpeed;
+	}
 
 }
 
-float GameObject::getXVelocity() {
+void GameObject::executeCommand(float elapsedTime) {
 
-	return this->xSpeed;
+	if (this->commands.size() > 0) {
+
+		ObjectCommand* currCommand = this->commands.front();
+
+		currCommand->execute(elapsedTime);
+
+		if (currCommand->isFinished()) {
+
+			//this->handleFinishedCommand(currCommand);
+
+			if (currCommand != NULL) {
+
+				this->commands.pop();
+				delete(currCommand);
+				currCommand = NULL;
+
+			}
+
+		}
+
+	}
 
 }
 
-float GameObject::getYVelocity() {
+void GameObject::update(float elapsedTime) {
 
-	return this->ySpeed;
+	this->updateSub(elapsedTime);
+	this->executeCommand(elapsedTime);
 
 }

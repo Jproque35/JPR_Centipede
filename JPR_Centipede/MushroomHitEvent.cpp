@@ -3,7 +3,7 @@
 MushroomHitEvent::MushroomHitEvent(GameObjectManager* gm, int i) {
 
 	this->gm = gm;
-	this->context = (MushroomController*)(this->gm->get(i));
+	this->context = (Mushroom*)(this->gm->get(i));
 
 }
 

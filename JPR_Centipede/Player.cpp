@@ -1,26 +1,49 @@
 #include "Player.h"
-#include <iostream>
 
-using namespace std;
+Player::Player(float initX, float initY) {
 
-Player::Player(float initX, float initY) : GameObject(initX, initY) {
-
-	this->xSpeed = 8.0f;
-	this->ySpeed = 8.0f;
-	this->shape.setRadius(0.5f);
-	this->shape.setOutlineColor(Color::White);
-	this->shape.setOutlineThickness(0.1f);
-	this->shape.setFillColor(Color::Green);
-	this->type = ObjectType::Player;
+	this->context = new PlayerData(initX, initY);
 
 }
 
-Player::Player(const Player& obj) : GameObject(obj) {}
+Player::Player(const Player& obj) {
 
-Player::~Player() {}
+	this->context = obj.context;
+	this->commands = obj.commands;
 
-Player& Player::operator=(const Player& obj) {
+}
 
-	return *this;
+Player::~Player() {
+
+	this->clearCommands();
+
+	if (this->context != NULL) {
+
+		delete(this->context);
+		this->context = NULL;
+
+	}
+
+}
+
+ObjectData* Player::getData() {
+
+	return this->context;
+
+}
+
+void Player::setKey(Keyboard::Key key) {
+
+	this->key = key;
+
+}
+
+void Player::updateSub(float elapsedTime) {
+
+}
+
+void Player::collisionSub(ObjectData* obj) {
+
+
 
 }

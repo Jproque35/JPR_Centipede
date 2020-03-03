@@ -3,7 +3,7 @@
 #pragma once
 #include <unordered_map>
 #include <vector>
-#include "ObjectController.h"
+#include "GameObject.h"
 #include <iostream>
 
 using namespace std;
@@ -14,7 +14,7 @@ class GridManager
 private:
 	int width = 0;
 	int height = 0;
-	vector<vector<ObjectController*>> gm;
+	vector<vector<GameObject*>> gm;
 
 	bool inBounds(int x, int y);
 	int getKey(int x, int y);
@@ -29,8 +29,8 @@ public:
 	int getHeight();
 	void clear();
 	bool hasType(ObjectType type, int x, int y);
-	void add(ObjectController* obj);
-	vector<ObjectController*> get(int x, int y);
+	void add(GameObject* obj);
+	vector<GameObject*> get(int x, int y);
 
 
 };

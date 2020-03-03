@@ -3,7 +3,7 @@
 CentipedeMoveEvent::CentipedeMoveEvent(GameObjectManager* gm, int i) {
 
 	this->gm = gm;
-	this->context = (CentipedeController*)(gm->get(i));
+	this->context = (Centipede*)(gm->get(i));
 
 }
 
@@ -29,7 +29,7 @@ CentipedeMoveEvent& CentipedeMoveEvent::operator=(const CentipedeMoveEvent& obj)
 
 void CentipedeMoveEvent::update(float elapsedTime) {
 
-	Centipede* data = (Centipede*)(this->context->getData());
+	CentipedeData* data = (CentipedeData*)(this->context->getData());
 
 	if (data->dir == CentipedeDirection::Left) {
 
@@ -62,7 +62,7 @@ void CentipedeMoveEvent::moveLeftRoutine() {
 		this->changeLevelAndDirection(CentipedeDirection::Right);
 
 	}
-	else if (this->gm->hasType(ObjectType::Mushroom,
+	else if (this->gm->hasType(ObjectType::MushroomData,
 		this->context->getData()->getPosition().x - 1, this->context->getData()->getPosition().y)) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Right);
@@ -85,7 +85,7 @@ void CentipedeMoveEvent::moveRightRoutine() {
 
 	}
 
-	else if (this->gm->hasType(ObjectType::Mushroom,
+	else if (this->gm->hasType(ObjectType::MushroomData,
 		this->context->getData()->getPosition().x + 1, this->context->getData()->getPosition().y)) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Left);
@@ -101,7 +101,7 @@ void CentipedeMoveEvent::moveRightRoutine() {
 
 void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
-	Centipede* data = (Centipede*)(this->context->getData());
+	CentipedeData* data = (CentipedeData*)(this->context->getData());
 
 	data->dir = dir;
 	if (!this->nextLevelBlocked()) {
@@ -123,13 +123,13 @@ void CentipedeMoveEvent::queueLevelChangeCommand() {
 
 bool CentipedeMoveEvent::nextLevelBlocked() {
 
-	if (!this->inReverse && this->gm->hasType(ObjectType::Mushroom,
+	if (!this->inReverse && this->gm->hasType(ObjectType::MushroomData,
 		this->context->getData()->getPosition().x, this->context->getData()->getPosition().y + 1)) {
 
 		return true;
 
 	}
-	else if (this->inReverse && this->gm->hasType(ObjectType::Mushroom,
+	else if (this->inReverse && this->gm->hasType(ObjectType::MushroomData,
 		this->context->getData()->getPosition().x, this->context->getData()->getPosition().y - 1)) {
 
 		return true;

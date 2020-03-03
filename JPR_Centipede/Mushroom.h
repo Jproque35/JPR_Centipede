@@ -2,23 +2,25 @@
 #define MUSHROOM_H
 #pragma once
 #include "GameObject.h"
-
-using namespace sf;
+#include "MushroomData.h"
 
 class Mushroom :
 	public GameObject
 {
-	friend class MushroomController;
+
+protected:	
+	void updateSub(float elapsedTime);
 
 private:
-	int health = 4;
-	bool inHitStun = false;
+	MushroomData* context;
 
 public:
 	Mushroom(float initX, float initY);
-	Mushroom(const Mushroom &obj);
+	Mushroom(const Mushroom& obj);
 	~Mushroom();
-	Mushroom& operator=(const Mushroom &obj);
+	Mushroom& operator=(const Mushroom& obj);
+
+	ObjectData* getData();
 
 };
 

@@ -2,16 +2,16 @@
 #define BULLETFIREDEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "ObjectController.h"
+#include "GameObject.h"
 #include "GameObjectManager.h"
-#include "PlayerBulletController.h"
+#include "PlayerBullet.h"
 
 class BulletFiredEvent :
 	public GameEventListener
 {
 
 private:
-	PlayerBulletController* context;
+	PlayerBullet* context;
 	GameObjectManager* gm;
 
 public:

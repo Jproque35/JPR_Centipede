@@ -2,17 +2,17 @@
 #define OBJECTSETPOSITIONCOMMAND_H
 #pragma once
 #include "ObjectCommand.h"
-#include "GameObject.h"
+#include "ObjectData.h"
 
 class ObjectSetPositionCommand :
 	public ObjectCommand
 {
 
 private:
-	GameObject* context;
+	ObjectData* context;
 
 public:
-	ObjectSetPositionCommand(GameObject* context);
+	ObjectSetPositionCommand(ObjectData* context);
 	ObjectSetPositionCommand(const ObjectSetPositionCommand& obj);
 	~ObjectSetPositionCommand();
 	ObjectSetPositionCommand& operator=(const ObjectSetPositionCommand& obj);

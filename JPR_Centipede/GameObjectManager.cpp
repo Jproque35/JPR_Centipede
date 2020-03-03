@@ -60,14 +60,14 @@ void GameObjectManager::rebuildGrid() {
 
 	for (int i = 0; i < this->gm.size(); i++) {
 
-		ObjectController* currObj = this->gm[i];
+		GameObject* currObj = this->gm[i];
 		this->grid->add(currObj);
 
 	}
 
 }
 
-void GameObjectManager::add(int i, ObjectController* obj) {
+void GameObjectManager::add(int i, GameObject* obj) {
 
 	if (i < this->gm.size() && i >= 0) {
 
@@ -102,13 +102,13 @@ void GameObjectManager::updateAll(float elapsedTime) {
 
 }
 
-vector<ObjectController*> GameObjectManager::get(int x, int y) {
+vector<GameObject*> GameObjectManager::get(int x, int y) {
 
 	return this->grid->get(x, y);
 
 }
 
-ObjectController* GameObjectManager::get(int i) {
+GameObject* GameObjectManager::get(int i) {
 
 	return this->gm[i];
 

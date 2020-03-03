@@ -3,7 +3,7 @@
 
 using namespace std;
 
-PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBullet* context) {
+PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBulletData* context) {
 
 	this->context = context;
 	this->context->active = true;

@@ -2,24 +2,29 @@
 #define CENTIPEDE_H
 #pragma once
 #include "GameObject.h"
-#include "PlayerBullet.h"
-#include <iostream>
+#include "CentipedeData.h"
 
-enum class CentipedeDirection { Left, Right };
+class Centipede : public GameObject
+{
 
-class Centipede: public GameObject {
-
-	friend class CentipedeController;
 	friend class CentipedeMoveEvent;
 
 private:
-	CentipedeDirection dir = CentipedeDirection::Left;
+	bool head = false;
+	CentipedeData* context;
+	Centipede* next = NULL;
+	bool inReverse = false;
+
+	void updateSub(float elapsedTime);
 
 public:
 	Centipede(float initX, float initY);
 	Centipede(const Centipede& obj);
 	~Centipede();
 	Centipede& operator=(const Centipede& obj);
+
+	ObjectData* getData();
+	void setNext(Centipede* next);
 
 };
 

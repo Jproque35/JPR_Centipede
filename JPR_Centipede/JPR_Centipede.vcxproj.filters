@@ -46,20 +46,8 @@
     <Filter Include="Source Files\Entities\GameObject">
       <UniqueIdentifier>{3a33c386-8935-4d2e-8cd0-7a70839e5aed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Entities\Centipede\Commands">
-      <UniqueIdentifier>{e7542c21-1ee5-4a0c-b3f1-7b72d0c4cad7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Entities\Centipede\Commands">
       <UniqueIdentifier>{c48d6d75-a2db-4af2-bcf1-29d83b06f402}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Entities\Centipede\Controller">
-      <UniqueIdentifier>{58fbc9ce-be21-4c23-8ce0-933684ee20ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Entities\Centipede\Controller">
-      <UniqueIdentifier>{1ab01f00-b17b-4539-9dbd-959a1d235321}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Entities\Centipede\Controller\States">
-      <UniqueIdentifier>{49090cc6-0569-400f-a02d-7d1fca97bad3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Entities\Player\Commands">
       <UniqueIdentifier>{df98ff09-5926-4209-b813-fcfc01679561}</UniqueIdentifier>
@@ -70,26 +58,11 @@
     <Filter Include="Header Files\Entities\GameObject\Commands">
       <UniqueIdentifier>{3c3461e8-0bee-426a-8117-36373c931dfb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Entities\Player\Controller">
-      <UniqueIdentifier>{f9bd3a15-5ab2-4109-a4b0-50f537cc9c3e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Entities\Player\Commands">
       <UniqueIdentifier>{17d215b3-e14f-4a1f-b6f5-2d0b3befe024}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Entities\Player\Controller">
-      <UniqueIdentifier>{f375c1fc-9e28-45fb-b3d9-4df009145a9f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Entities\GameObject\Controller">
-      <UniqueIdentifier>{4f426f54-7f36-4025-b569-af491e9d300e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Entities\GameObject\Controller">
-      <UniqueIdentifier>{7ffd26c2-ebd4-45a9-b0dc-7eab949e93eb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Entities\Mushroom">
       <UniqueIdentifier>{00d2e18a-10e2-4a12-bf06-445b45355125}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Entities\Mushroom\Controller">
-      <UniqueIdentifier>{71d1ea77-9b6b-41f8-b7b2-6346091e5434}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Managers">
       <UniqueIdentifier>{5c9a8f40-ae42-4385-8442-d7e72cd9727a}</UniqueIdentifier>
@@ -111,6 +84,12 @@
     </Filter>
     <Filter Include="Source Files\Engine\Events">
       <UniqueIdentifier>{b7234294-5851-4ff8-b767-96d086b33e0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Mushroom\Events">
+      <UniqueIdentifier>{19255ea8-fc5c-45ca-bd89-b61651f7f998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\GameObject\Events">
+      <UniqueIdentifier>{79eb17d9-e083-4faf-b276-faa8ed450287}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -135,24 +114,6 @@
     <ClCompile Include="Initialize.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Mushroom.cpp">
-      <Filter>Source Files\Entities\Mushroom</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>Source Files\Entities\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Entities\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Centipede.cpp">
-      <Filter>Source Files\Entities\Centipede</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Entities\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="CentipedeController.cpp">
-      <Filter>Source Files\Entities\Centipede\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="ObjectCommand.cpp">
       <Filter>Source Files\Entities\GameObject\Commands</Filter>
     </ClCompile>
@@ -171,20 +132,8 @@
     <ClCompile Include="PlayerBulletFireCommand.cpp">
       <Filter>Source Files\Entities\Player\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerBulletController.cpp">
-      <Filter>Source Files\Entities\Player\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerController.cpp">
-      <Filter>Source Files\Entities\Player\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectController.cpp">
-      <Filter>Source Files\Entities\GameObject\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="GridManager.cpp">
       <Filter>Source Files\Engine\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="MushroomController.cpp">
-      <Filter>Source Files\Entities\Mushroom</Filter>
     </ClCompile>
     <ClCompile Include="EventManager.cpp">
       <Filter>Source Files\Engine\Managers</Filter>
@@ -222,6 +171,36 @@
     <ClCompile Include="CommandFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectData.cpp">
+      <Filter>Source Files\Entities\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Entities\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CentipedeData.cpp">
+      <Filter>Source Files\Entities\Centipede</Filter>
+    </ClCompile>
+    <ClCompile Include="Centipede.cpp">
+      <Filter>Source Files\Entities\Centipede</Filter>
+    </ClCompile>
+    <ClCompile Include="MushroomData.cpp">
+      <Filter>Source Files\Entities\Mushroom</Filter>
+    </ClCompile>
+    <ClCompile Include="Mushroom.cpp">
+      <Filter>Source Files\Entities\Mushroom</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerData.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBulletData.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBullet.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Entities\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -229,21 +208,6 @@
     </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Entities\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerBullet.h">
-      <Filter>Header Files\Entities\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Centipede.h">
-      <Filter>Header Files\Entities\Centipede</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files\Entities\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="CentipedeController.h">
-      <Filter>Header Files\Entities\Centipede\Controller</Filter>
     </ClInclude>
     <ClInclude Include="ObjectCommand.h">
       <Filter>Header Files\Entities\GameObject\Commands</Filter>
@@ -260,26 +224,11 @@
     <ClInclude Include="ObjectMoveRightCommand.h">
       <Filter>Header Files\Entities\GameObject\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerController.h">
-      <Filter>Header Files\Entities\Player\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerBulletController.h">
-      <Filter>Header Files\Entities\Player\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerBulletFireCommand.h">
       <Filter>Header Files\Entities\Player\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectController.h">
-      <Filter>Header Files\Entities\GameObject\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="GridManager.h">
       <Filter>Header Files\Engine\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Mushroom.h">
-      <Filter>Header Files\Entities\Mushroom</Filter>
-    </ClInclude>
-    <ClInclude Include="MushroomController.h">
-      <Filter>Header Files\Entities\Mushroom\Controller</Filter>
     </ClInclude>
     <ClInclude Include="EventManager.h">
       <Filter>Header Files\Engine\Managers</Filter>
@@ -296,9 +245,6 @@
     <ClInclude Include="ObjectDeactivateCommand.h">
       <Filter>Header Files\Entities\GameObject\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="MushroomHitEvent.h">
-      <Filter>Header Files\Entities\Mushroom</Filter>
-    </ClInclude>
     <ClInclude Include="BulletFiredEvent.h">
       <Filter>Header Files\Entities\Player\Events</Filter>
     </ClInclude>
@@ -308,9 +254,6 @@
     <ClInclude Include="CentipedeMoveEvent.h">
       <Filter>Header Files\Entities\Centipede\Events</Filter>
     </ClInclude>
-    <ClInclude Include="GameEvent.h">
-      <Filter>Header Files\Entities\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="BulletCollideEvent.h">
       <Filter>Header Files\Entities\Player\Events</Filter>
     </ClInclude>
@@ -319,6 +262,42 @@
     </ClInclude>
     <ClInclude Include="CommandFactory.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CentipedeData.h">
+      <Filter>Header Files\Entities\Centipede</Filter>
+    </ClInclude>
+    <ClInclude Include="Centipede.h">
+      <Filter>Header Files\Entities\Centipede</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectData.h">
+      <Filter>Header Files\Entities\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Entities\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MushroomData.h">
+      <Filter>Header Files\Entities\Mushroom</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBulletData.h">
+      <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerData.h">
+      <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBullet.h">
+      <Filter>Header Files\Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Mushroom.h">
+      <Filter>Header Files\Entities\Mushroom</Filter>
+    </ClInclude>
+    <ClInclude Include="MushroomHitEvent.h">
+      <Filter>Header Files\Entities\Mushroom\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEvent.h">
+      <Filter>Header Files\Entities\GameObject\Events</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

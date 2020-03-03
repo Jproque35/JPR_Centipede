@@ -1,6 +1,6 @@
 #include "ObjectMoveRightCommand.h"
 
-ObjectMoveRightCommand::ObjectMoveRightCommand(GameObject* context) {
+ObjectMoveRightCommand::ObjectMoveRightCommand(ObjectData* context) {
 
 	this->context = context;
 	this->xDest = this->context->position.x + 1.0f;
@@ -33,7 +33,7 @@ void ObjectMoveRightCommand::execute(float elapsedTime) {
 
 		this->context->position.x = this->xDest;
 
-		if (this->context->type == ObjectType::Player) {
+		if (this->context->type == ObjectType::PlayerData) {
 
 			cout << "Final position is " << this->context->position.x << ", " << this->context->position.y << endl;
 

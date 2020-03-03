@@ -3,7 +3,7 @@
 CentipedeHitEvent::CentipedeHitEvent(GameObjectManager* gm, int i) {
 
 	this->gm = gm;
-	this->context = (CentipedeController*)(this->gm->get(i));
+	this->context = (Centipede*)(this->gm->get(i));
 
 }
 

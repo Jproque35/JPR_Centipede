@@ -20,6 +20,12 @@ GridManager::~GridManager() {
 
 }
 
+GridManager& GridManager::operator=(const GridManager& obj) {
+
+	return *this;
+
+}
+
 inline bool GridManager::inBounds(int x, int y) {
 
 	if (0 <= x && x < this->width) {
@@ -32,7 +38,7 @@ inline bool GridManager::inBounds(int x, int y) {
 
 }
 
-inline int GridManager::getKey(int x, int y) {
+int GridManager::getKey(int x, int y) {
 
 	return y * this->width + x;
 
@@ -65,7 +71,7 @@ bool GridManager::hasType(ObjectType type, int x, int y) {
 
 	}
 
-	vector<ObjectController*> currList = this->gm[this->getKey(x, y)];
+	vector<GameObject*> currList = this->gm[this->getKey(x, y)];
 
 	for (int i = 0; i < currList.size(); i++) {
 
@@ -81,7 +87,7 @@ bool GridManager::hasType(ObjectType type, int x, int y) {
 
 }
 
-void GridManager::add(ObjectController* obj) {
+void GridManager::add(GameObject* obj) {
 
 	int x = obj->getData()->getPosition().x;
 	int y = obj->getData()->getPosition().y;
@@ -94,7 +100,7 @@ void GridManager::add(ObjectController* obj) {
 
 }
 
-vector<ObjectController*> GridManager::get(int x, int y) {
+vector<GameObject*> GridManager::get(int x, int y) {
 
 	//cout << "Retrieving objects at location " << x << ", " << y << endl;
 

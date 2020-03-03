@@ -2,17 +2,17 @@
 #define OBJECTDEACTIVATECOMMAND_H
 #pragma once
 #include "ObjectCommand.h"
-#include "GameObject.h"
+#include "ObjectData.h"
 
 class ObjectDeactivateCommand :
 	public ObjectCommand
 {
 
 private:
-	GameObject* context;
+	ObjectData* context;
 
 public:
-	ObjectDeactivateCommand(GameObject* context);
+	ObjectDeactivateCommand(ObjectData* context);
 	ObjectDeactivateCommand(const ObjectDeactivateCommand& obj);
 	~ObjectDeactivateCommand();
 	ObjectDeactivateCommand& operator=(const ObjectDeactivateCommand& obj);

@@ -2,24 +2,24 @@
 #define OBJECTMOVEUPCOMMAND_H
 #pragma once
 #include "ObjectCommand.h"
-#include "GameObject.h"
+#include "ObjectData.h"
 
 class ObjectMoveUpCommand :
 	public ObjectCommand
 {
 
 private:
-	GameObject* context = NULL;
+	ObjectData* context = NULL;
 	float yDest = 0.0f;
-	void init(GameObject* context);
+	void init(ObjectData* context);
 
 public:
-	ObjectMoveUpCommand(GameObject* context);
+	ObjectMoveUpCommand(ObjectData* context);
 	ObjectMoveUpCommand(const ObjectMoveUpCommand& obj);
 	~ObjectMoveUpCommand();
 	ObjectMoveUpCommand& operator=(const ObjectMoveUpCommand& obj);
 
-	void reset(GameObject* context);
+	void reset(ObjectData* context);
 	void execute(float elapsedTime);
 
 };

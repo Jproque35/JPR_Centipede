@@ -1,15 +1,17 @@
+#ifndef CENTIPEDEMOVEEVENT_H
+#define CENTIPEDEMOVEEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "ObjectController.h"
+#include "GameObject.h"
 #include "GameObjectManager.h"
-#include "CentipedeController.h"
+#include "Centipede.h"
 
 class CentipedeMoveEvent :
 	public GameEventListener
 {
 
 private:
-	CentipedeController* context;
+	Centipede* context;
 	GameObjectManager* gm;
 	bool inReverse = false;
 	void queueLevelChangeCommand();
@@ -28,3 +30,4 @@ public:
 
 };
 
+#endif

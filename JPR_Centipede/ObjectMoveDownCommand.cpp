@@ -1,6 +1,6 @@
 #include "ObjectMoveDownCommand.h"
 
-ObjectMoveDownCommand::ObjectMoveDownCommand(GameObject* context) {
+ObjectMoveDownCommand::ObjectMoveDownCommand(ObjectData* context) {
 
 	this->context = context;
 	this->yDest = this->context->position.y + 1.0f;

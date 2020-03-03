@@ -3,7 +3,7 @@
 BulletFiredEvent::BulletFiredEvent(GameObjectManager* gm, int i) {
 
 	this->gm = gm;
-	this->context = (PlayerBulletController*)(gm->get(i));
+	this->context = (PlayerBullet*)(gm->get(i));
 
 }
 
@@ -28,7 +28,7 @@ void BulletFiredEvent::update(float elapsedTime) {
 
 		if (!this->context->getData()->isActive()) {
 
-			ObjectController* player = this->gm->get(0);
+			GameObject* player = this->gm->get(0);
 			Vector2f playerPos = player->getData()->getPosition();
 			float xPos = playerPos.x + player->getData()->getShape().getRadius() - this->context->getData()->getShape().getRadius();
 

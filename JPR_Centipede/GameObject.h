@@ -1,53 +1,33 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <queue>
-#include <iostream>
+#include "GameEvent.h"
+#include "ObjectMoveLeftCommand.h"
+#include "ObjectMoveUpCommand.h"
+#include "ObjectMoveDownCommand.h"
+#include "ObjectMoveRightCommand.h"
 
-using namespace sf;
-using namespace std;
-
-enum class ObjectType { Generic, Player, PlayerProjectile, Centipede, Mushroom, Unknown };
-
-class GameObject {
-
-	friend class ObjectCommand;
-	friend class ObjectMoveUpCommand;
-	friend class ObjectMoveDownCommand;
-	friend class ObjectMoveLeftCommand;
-	friend class ObjectMoveRightCommand;
-	friend class ObjectActivateCommand;
-	friend class ObjectDeactivateCommand;
-	friend class ObjectSetPositionCommand;
+class GameObject
+{
 
 protected:
-	ObjectType type = ObjectType::Generic;
-	Vector2f position;
-	CircleShape shape;
-	float xSpeed = 0.0f;
-	float ySpeed = 0.0f;
-	bool active = false;
+	vector<GameEventListener*> events;
+	queue<ObjectCommand*> commands;
+	void executeCommand(float elapsedTime);
+
+	virtual void updateSub(float elapsedTime) = 0;
 
 public:
-	GameObject(float initX, float initY);
-	GameObject(const GameObject& obj);
-	~GameObject();
-	GameObject& operator=(const GameObject& obj);
-
-	void activate();
-	void deactivate();
-	bool isActive();
-	ObjectType getType();
-	void setPosition(Vector2f pos);
-	Vector2f getPosition();
-	FloatRect getCollisionBox();
-	CircleShape getShape();
-	void setXVelocity(float xSpeed);
-	void setYVelocity(float ySpeed);
-	float getXVelocity();
-	float getYVelocity();
+	int commandQueueSize();
+	void addEventListener(GameEventListener* event);
+	void executeEventListeners(float elapsedTime);
+	void clearEventListeners();
+	void queueCommand(ObjectCommand* command);
+	void clearCommands();
+	virtual ObjectData* getData() = 0;
+	void update(float elapsedTime);
 
 };
 
 #endif
+

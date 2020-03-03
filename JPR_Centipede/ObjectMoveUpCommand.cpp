@@ -1,6 +1,6 @@
 #include "ObjectMoveUpCommand.h"
 
-ObjectMoveUpCommand::ObjectMoveUpCommand(GameObject* context) {
+ObjectMoveUpCommand::ObjectMoveUpCommand(ObjectData* context) {
 
 	this->context = context;
 	this->yDest = this->context->position.y - 1.0f;

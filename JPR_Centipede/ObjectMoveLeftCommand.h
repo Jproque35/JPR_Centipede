@@ -2,25 +2,25 @@
 #define OBJECTMOVELEFTCOMMAND_H
 #pragma once
 #include "ObjectCommand.h"
-#include "GameObject.h"
+#include "ObjectData.h"
 
 class ObjectMoveLeftCommand :
 	public ObjectCommand
 {
 
 private:
-	GameObject* context = NULL;
+	ObjectData* context = NULL;
 	float xDest = 0.0f;
 
-	void init(GameObject* context);
+	void init(ObjectData* context);
 
 public:
-	ObjectMoveLeftCommand(GameObject* context);
+	ObjectMoveLeftCommand(ObjectData* context);
 	ObjectMoveLeftCommand(const ObjectMoveLeftCommand& obj);
 	~ObjectMoveLeftCommand();
 	ObjectMoveLeftCommand& operator=(const ObjectMoveLeftCommand& obj);
 
-	void reset(GameObject* context);
+	void reset(ObjectData* context);
 	void execute(float elapsedTime);
 };
 

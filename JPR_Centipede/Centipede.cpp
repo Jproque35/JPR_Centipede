@@ -1,25 +1,32 @@
 #include "Centipede.h"
 
+Centipede::Centipede(float initX, float initY) {
 
-Centipede::Centipede(float initX, float initY) :GameObject(initX, initY) {
-
-	this->xSpeed = 15.0f;
-	this->ySpeed = 15.0f;
-	this->shape.setRadius(0.5f);
-	this->shape.setFillColor(Color::Red);
-	this->type = ObjectType::Centipede;
+	this->context = new CentipedeData(initX, initY);
+	this->head = true;
 
 }
 
-Centipede::Centipede(const Centipede& obj) :GameObject(obj) {
+Centipede::Centipede(const Centipede& obj) {
 
-	this->dir = obj.dir;
+	this->context = obj.context;
+	this->commands = obj.commands;
+	this->next = obj.next;
+	this->head = obj.head;
+	this->inReverse = obj.inReverse;
 
 }
 
 Centipede::~Centipede() {
 
+	this->clearCommands();
 
+	if (this->context != NULL) {
+
+		delete(this->context);
+		this->context = NULL;
+
+	}
 
 }
 
@@ -29,3 +36,20 @@ Centipede& Centipede::operator=(const Centipede& obj) {
 
 }
 
+void Centipede::setNext(Centipede* next) {
+
+	cout << "Next for object " << this << " set to " << next << endl;
+	this->next = next;
+
+}
+
+ObjectData* Centipede::getData() {
+
+	return this->context;
+
+}
+
+void Centipede::updateSub(float elapsedTime) {
+
+
+}

@@ -1,9 +1,9 @@
 #include "CollisionManager.h"
 
-bool CollisionManager::intersects(ObjectController* obj1, ObjectController* obj2) {
+bool CollisionManager::intersects(GameObject* obj1, GameObject* obj2) {
 
-	GameObject* data1 = obj1->getData();
-	GameObject* data2 = obj2->getData();
+	ObjectData* data1 = obj1->getData();
+	ObjectData* data2 = obj2->getData();
 
 	if (data1 != data2) {
 
@@ -28,7 +28,7 @@ bool CollisionManager::intersects(ObjectController* obj1, ObjectController* obj2
 
 }
 
-vector<vector<ObjectController*>> CollisionManager::getGridObjects(ObjectController* obj, GameObjectManager* gm) {
+vector<vector<GameObject*>> CollisionManager::getGridObjects(GameObject* obj, GameObjectManager* gm) {
 
 	int xLo = floor(obj->getData()->getPosition().x);
 	int yLo = floor(obj->getData()->getPosition().y);
@@ -36,7 +36,7 @@ vector<vector<ObjectController*>> CollisionManager::getGridObjects(ObjectControl
 	int xHi = floor(obj->getData()->getPosition().x + diameter);
 	int yHi = floor(obj->getData()->getPosition().y + diameter);
 
-	vector<vector<ObjectController*>> desire;
+	vector<vector<GameObject*>> desire;
 
 	for (int i = xLo; i < xHi; i++) {
 

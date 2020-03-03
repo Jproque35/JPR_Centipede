@@ -2,17 +2,17 @@
 #define OBJECTACTIVATECOMMAND_H
 #pragma once
 #include "ObjectCommand.h"
-#include "GameObject.h"
+#include "ObjectData.h"
 
 class ObjectActivateCommand :
 	public ObjectCommand
 {
 
 private:
-	GameObject* context;
+	ObjectData* context;
 
 public:
-	ObjectActivateCommand(GameObject* context);
+	ObjectActivateCommand(ObjectData* context);
 	ObjectActivateCommand(const ObjectActivateCommand& obj);
 	~ObjectActivateCommand();
 	ObjectActivateCommand& operator=(const ObjectActivateCommand& obj);

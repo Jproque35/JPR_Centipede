@@ -2,16 +2,16 @@
 #define PLAYERINPUTEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "ObjectController.h"
+#include "GameObject.h"
 #include "GameObjectManager.h"
-#include "PlayerController.h"
+#include "Player.h"
 
 class PlayerInputEvent :
 	public GameEventListener
 {
 
 private:
-	PlayerController* context;
+	Player* context;
 	GameObjectManager* gm;
 
 	void queueCommand(CommandType type);

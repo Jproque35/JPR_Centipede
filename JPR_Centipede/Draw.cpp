@@ -20,7 +20,7 @@ void Engine::draw() {
 
 }
 
-void Engine::drawShape(GameObject* obj) {
+void Engine::drawShape(ObjectData* obj) {
 
 	CircleShape drawable = obj->getShape();
 	Vector2f drawablePosition = obj->getPosition();

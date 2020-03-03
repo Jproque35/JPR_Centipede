@@ -2,13 +2,13 @@
 #define COMMANDFACTORY_H
 #pragma once
 #include "ObjectCommand.h"
-#include "GameObject.h"
+#include "ObjectData.h"
 
 class CommandFactory
 {
 
 public:
-	static ObjectCommand* makeCommand(CommandType type, GameObject* obj);
+	static ObjectCommand* makeCommand(CommandType type, ObjectData* obj);
 
 };
 

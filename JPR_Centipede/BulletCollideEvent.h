@@ -2,9 +2,9 @@
 #define BULLETCOLLIDEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "ObjectController.h"
+#include "GameObject.h"
 #include "GameObjectManager.h"
-#include "PlayerBulletController.h"
+#include "PlayerBullet.h"
 
 class BulletCollideEvent :
 	public GameEventListener
@@ -12,7 +12,7 @@ class BulletCollideEvent :
 
 private:
 	GameObjectManager* gm;
-	PlayerBulletController* context;
+	PlayerBullet* context;
 
 public:
 	BulletCollideEvent(GameObjectManager* gm, int i);

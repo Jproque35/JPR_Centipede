@@ -1,7 +1,7 @@
 #ifndef GAMEOBJECTMANAGER_H
 #define GAMEOBJECTMANAGER_H
 #pragma once
-#include "ObjectController.h"
+#include "GameObject.h"
 #include "GridManager.h"
 #include <SFML/Graphics.hpp>
 
@@ -10,7 +10,7 @@ using namespace std;
 class GameObjectManager {
 
 private:
-	vector<ObjectController*> gm;
+	vector<GameObject*> gm;
 	GridManager* grid = NULL;
 
 	void rebuildGrid();
@@ -23,11 +23,11 @@ public:
 
 	int getGridWidth();
 	int getGridHeight();
-	void add(int i, ObjectController* obj);
+	void add(int i, GameObject* obj);
 	void update(int i, float elapsedTime);
 	void updateAll(float elapsedTime);
-	vector<ObjectController*> get(int x, int y);
-	ObjectController* get(int i);
+	vector<GameObject*> get(int x, int y);
+	GameObject* get(int i);
 	bool hasType(ObjectType type, int x, int y);
 	void erase(int i);
 	int size();

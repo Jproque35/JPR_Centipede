@@ -3,7 +3,7 @@
 PlayerInputEvent::PlayerInputEvent(GameObjectManager* gm, int i) {
 
 	this->gm = gm;
-	this->context = (PlayerController*)(gm->get(i));
+	this->context = (Player*)(gm->get(i));
 
 }
 
@@ -31,7 +31,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
 
 		if (currPos.y - 1.0f >= 0 &&
-			!this->gm->hasType(ObjectType::Mushroom, currPos.x, currPos.y - 1.0f)) {
+			!this->gm->hasType(ObjectType::MushroomData, currPos.x, currPos.y - 1.0f)) {
 
 			this->queueCommand(CommandType::MoveUp);
 
@@ -41,7 +41,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
 
 		if (ceil(currPos.y) + 1.0f < this->gm->getGridHeight() &&
-			!this->gm->hasType(ObjectType::Mushroom, currPos.x, ceil(currPos.y) + 1.0f)) {
+			!this->gm->hasType(ObjectType::MushroomData, currPos.x, ceil(currPos.y) + 1.0f)) {
 
 			this->queueCommand(CommandType::MoveDown);
 
@@ -51,7 +51,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 	else if (Keyboard::isKeyPressed(Keyboard::A)) {
 
 		if (currPos.x - 1.0f >= 0 &&
-			!this->gm->hasType(ObjectType::Mushroom, currPos.x - 1.0f, currPos.y)) {
+			!this->gm->hasType(ObjectType::MushroomData, currPos.x - 1.0f, currPos.y)) {
 
 			this->queueCommand(CommandType::MoveLeft);
 
@@ -61,7 +61,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 	else if (Keyboard::isKeyPressed(Keyboard::D)) {
 
 		if (ceil(currPos.x) + 1.0f < this->gm->getGridWidth() &&
-			!this->gm->hasType(ObjectType::Mushroom, ceil(currPos.x) + 1.0f, currPos.y)) {
+			!this->gm->hasType(ObjectType::MushroomData, ceil(currPos.x) + 1.0f, currPos.y)) {
 
 			this->queueCommand(CommandType::MoveRight);
 		

@@ -1,6 +1,6 @@
 #include "ObjectMoveLeftCommand.h"
 
-ObjectMoveLeftCommand::ObjectMoveLeftCommand(GameObject* context) {
+ObjectMoveLeftCommand::ObjectMoveLeftCommand(ObjectData* context) {
 
 	this->context = context;
 	this->xDest = this->context->position.x - 1.0f;

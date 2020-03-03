@@ -6,15 +6,11 @@
 #include <vector>
 #include <queue>
 #include "GameObjectManager.h"
+#include "ObjectCommand.h"
+#include "Centipede.h"
 #include "Player.h"
 #include "PlayerBullet.h"
-#include "Centipede.h"
 #include "Mushroom.h"
-#include "ObjectCommand.h"
-#include "CentipedeController.h"
-#include "PlayerController.h"
-#include "PlayerBulletController.h"
-#include "MushroomController.h"
 #include "CollisionManager.h"
 #include "EventManager.h"
 
@@ -27,7 +23,7 @@ private:
 	RenderWindow window;
 	GameObjectManager* gm;
 	EventManager* em;
-	queue<PlayerBulletController*> loadedBullets;
+	queue<PlayerBullet*> loadedBullets;
 
 	float cellWidth = 0.0f;
 	float gridHeight = 0.0f;
@@ -48,7 +44,7 @@ private:
 	void executeObjectEventListeners(float elapsedTime);
 	void update(float dtAsSeconds);
 	void draw();
-	void drawShape(GameObject* obj);
+	void drawShape(ObjectData* obj);
 
 public:	
 	Engine();

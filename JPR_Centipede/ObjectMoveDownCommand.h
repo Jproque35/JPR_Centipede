@@ -2,25 +2,25 @@
 #define OBJECTMOVEDOWNCOMMAND_H
 #pragma once
 #include "ObjectCommand.h"
-#include "GameObject.h"
+#include "ObjectData.h"
 
 class ObjectMoveDownCommand :
 	public ObjectCommand
 {
 
 private:
-	GameObject* context = NULL;
+	ObjectData* context = NULL;
 	float yDest = 0.0f;
 
-	void init(GameObject* context);
+	void init(ObjectData* context);
 
 public:
-	ObjectMoveDownCommand(GameObject* context);
+	ObjectMoveDownCommand(ObjectData* context);
 	ObjectMoveDownCommand(const ObjectMoveDownCommand& obj);
 	~ObjectMoveDownCommand();
 	ObjectMoveDownCommand& operator=(const ObjectMoveDownCommand& obj);
 
-	void reset(GameObject* context);
+	void reset(ObjectData* context);
 	void execute(float elapsedTime);
 };
 
