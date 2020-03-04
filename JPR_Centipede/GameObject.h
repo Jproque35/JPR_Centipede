@@ -13,8 +13,6 @@ class GameObject
 {
 
 protected:
-	vector<GameEventListener*> events;
-	queue<ObjectCommand*> commands;
 	GameObjectState* state;
 
 	void executeCommand(float elapsedTime);

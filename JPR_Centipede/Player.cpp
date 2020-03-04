@@ -10,7 +10,6 @@ Player::Player(float initX, float initY) {
 Player::Player(const Player& obj) {
 
 	this->context = obj.context;
-	this->commands = obj.commands;
 
 }
 
@@ -30,12 +29,6 @@ Player::~Player() {
 ObjectData* Player::getData() {
 
 	return this->context;
-
-}
-
-void Player::setKey(Keyboard::Key key) {
-
-	this->key = key;
 
 }
 

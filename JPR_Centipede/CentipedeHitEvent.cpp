@@ -29,6 +29,7 @@ void CentipedeHitEvent::update(float elapsedTime) {
 	if (this->gm->hasType(ObjectType::PlayerProjectile, currPos.x, currPos.y)) {
 
 		cout << "Centipede got hit" << endl;
+		this->context->getData()->setPosition(Vector2f(0, 0));
 
 	}
 

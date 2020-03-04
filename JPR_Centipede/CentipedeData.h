@@ -7,6 +7,8 @@
 
 enum class CentipedeDirection { Left, Right };
 
+class Centipede;
+
 class CentipedeData: public ObjectData {
 
 	friend class Centipede;
@@ -14,6 +16,8 @@ class CentipedeData: public ObjectData {
 private:
 	CentipedeDirection dir = CentipedeDirection::Left;
 	bool reversed = false;
+	Centipede* next = NULL;
+	Centipede* prev = NULL;
 
 public:
 	CentipedeData(float initX, float initY);
@@ -27,6 +31,10 @@ public:
 	void setReversed();
 	void unsetReversed();
 	bool isReversed();
+	void setNext(Centipede* next);
+	Centipede* getNext();
+	void setPrev(Centipede* prev);
+	Centipede* getPrev();
 
 };
 

@@ -12,10 +12,7 @@ class Centipede : public GameObject
 
 private:
 	CentipedeType type = CentipedeType::Head;
-	CommandType lastCommand = CommandType::Unknown;
 	CentipedeData* context;
-	Centipede* next = NULL;
-	Centipede* prev = NULL;
 
 	void preUpdate(float elapsedTime);
 	void postUpdate(float elapsedTime);

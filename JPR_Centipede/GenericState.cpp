@@ -24,27 +24,27 @@ GenericState& GenericState::operator=(const GenericState& obj) {
 
 }
 
-void GenericState::executeEventListeners(vector<GameEventListener*>& events, float elapsedTime) {
+void GenericState::executeEventListeners(float elapsedTime) {
 
 	for (int i = 0; i < events.size(); i++) {
 
-		events[i]->update(elapsedTime);
+		this->events[i]->update(elapsedTime);
 
 	}
 
 }
 
-void GenericState::executeCommand(queue<ObjectCommand*>& commands, float elapsedTime) {
+void GenericState::executeCommand(float elapsedTime) {
 
 	if (commands.size() > 0) {
 
-		ObjectCommand* currCommand = commands.front();
+		ObjectCommand* currCommand = this->commands.front();
 
 		currCommand->execute(elapsedTime);
 
 		if (currCommand->isFinished()) {
 
-			commands.pop();
+			this->commands.pop();
 			delete(currCommand);
 			currCommand = NULL;
 

@@ -10,7 +10,6 @@ class Player :
 {
 
 private:
-	Keyboard::Key key = Keyboard::Unknown;
 	PlayerData* context;
 	void preUpdate(float elapsedTime);
 	void postUpdate(float elapsedTime);

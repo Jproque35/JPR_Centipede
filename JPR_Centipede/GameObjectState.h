@@ -12,11 +12,18 @@ class GameObjectState
 
 protected:
 	StateType type;
+	vector<GameEventListener*> events;
+	queue<ObjectCommand*> commands;
 
 public:
 	StateType getType();
-	virtual void executeEventListeners(vector<GameEventListener*>& events, float elapsedTime) = 0;
-	virtual void executeCommand(queue<ObjectCommand*>& commands, float elapsedTime) = 0;
+	int getCommandQueueSize();
+	void clearEventListeners();
+	void clearCommands();
+	void addEventListener(GameEventListener* event);
+	void queueCommand(ObjectCommand* command);
+	virtual void executeEventListeners(float elapsedTime) = 0;
+	virtual void executeCommand(float elapsedTime) = 0;
 
 };
 

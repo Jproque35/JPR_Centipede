@@ -13,8 +13,8 @@ public:
 	~GenericState();
 	GenericState& operator=(const GenericState& obj);
 
-	void executeEventListeners(vector<GameEventListener*>& events, float elapsedTime);
-	void executeCommand(queue<ObjectCommand*>& commands, float elapsedTime);
+	void executeEventListeners(float elapsedTime);
+	void executeCommand(float elapsedTime);
 
 };
 

@@ -12,9 +12,6 @@ class PlayerBullet :
 
 private:
 	PlayerBulletData* context;
-	Keyboard::Key key = Keyboard::Unknown;
-	float xPos = 0.0f;
-	float yPos = 0.0f;
 
 protected:
 	void preUpdate(float elapsedTime);
@@ -27,7 +24,6 @@ public:
 	PlayerBullet& operator=(const PlayerBullet& obj);
 
 	ObjectData* getData();
-	void setKey(Keyboard::Key key, float x, float y);
 
 };
 

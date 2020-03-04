@@ -1,18 +1,18 @@
 #include "Centipede.h"
+#include "CentipedeHeadState.h"
 
 Centipede::Centipede(float initX, float initY) {
 
 	this->context = new CentipedeData(initX, initY);
 	this->type = CentipedeType::Head;
-	this->state = new GenericState();
+	//this->state = new GenericState();
+	this->state = new CentipedeHeadState(this->context);
 
 }
 
 Centipede::Centipede(const Centipede& obj) {
 
 	this->context = obj.context;
-	this->commands = obj.commands;
-	this->next = obj.next;
 	this->type = obj.type;
 
 }
@@ -45,13 +45,13 @@ ObjectData* Centipede::getData() {
 void Centipede::setNext(Centipede* next) {
 
 	cout << "Next for object " << this << " set to " << next << endl;
-	this->next = next;
+	this->context->setNext(next);
 
 }
 
 void Centipede::setPrev(Centipede* prev) {
 
-	this->prev = prev;
+	this->context->setPrev(prev);
 
 }
 

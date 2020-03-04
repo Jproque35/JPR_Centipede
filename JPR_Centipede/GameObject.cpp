@@ -2,67 +2,49 @@
 
 int GameObject::commandQueueSize() {
 
-	return this->commands.size();
+	return this->state->getCommandQueueSize();
 
 }
 
 void GameObject::addEventListener(GameEventListener* event) {
 
-	this->events.push_back(event);
+	this->state->addEventListener(event);
 
 }
 
 void GameObject::executeEventListeners(float elapsedTime) {
 
-	this->state->executeEventListeners(this->events, elapsedTime);
+	this->state->executeEventListeners(elapsedTime);
 
 }
 
 void GameObject::clearEventListeners() {
 
-	while (this->events.size() > 0) {
-
-		GameEventListener* currEvent = this->events.front();
-		if (currEvent != NULL) {
-
-			delete(currEvent);
-			currEvent = NULL;
-
-		}
-		this->commands.pop();
-
-	}
+	this->state->clearEventListeners();
 
 }
 
 int GameObject::commandsSize() {
 
-	return this->commands.size();
+	return this->state->getCommandQueueSize();
 
 }
 
 void GameObject::queueCommand(ObjectCommand* command) {
 
-	this->commands.push(command);
+	this->state->queueCommand(command);
 
 }
 
 void GameObject::clearCommands() {
 
-	while (this->commands.size() > 0) {
-
-		ObjectCommand* currCommand = this->commands.front();
-		this->commands.pop();
-		delete(currCommand);
-		currCommand = NULL;
-
-	}
+	this->state->clearCommands();
 
 }
 
 void GameObject::executeCommand(float elapsedTime) {
 
-	this->state->executeCommand(this->commands, elapsedTime);
+	this->state->executeCommand(elapsedTime);
 
 }
 

@@ -70,3 +70,27 @@ bool CentipedeData::isReversed() {
 
 }
 
+void CentipedeData::setNext(Centipede* next) {
+
+	this->next = next;
+
+}
+
+Centipede* CentipedeData::getNext() {
+
+	return this->next;
+
+}
+
+void CentipedeData::setPrev(Centipede* prev) {
+
+	this->prev = prev;
+
+}
+
+Centipede* CentipedeData::getPrev() {
+
+	return this->prev;
+
+}
+

@@ -10,7 +10,6 @@ PlayerBullet::PlayerBullet(float initX, float initY) {
 PlayerBullet::PlayerBullet(const PlayerBullet& obj) {
 
 	this->context = obj.context;
-	this->commands = obj.commands;
 
 }
 
@@ -39,21 +38,13 @@ ObjectData* PlayerBullet::getData() {
 
 }
 
-void PlayerBullet::setKey(Keyboard::Key key, float x, float y) {
-
-	this->xPos = x;
-	this->yPos = y;
-	this->key = key;
-
-}
-
 void PlayerBullet::preUpdate(float elapsedTime) {
 
 }
 
 void PlayerBullet::postUpdate(float elapsedTIme) {
 
-	if (this->commands.size() == 0) {
+	if (this->state->getCommandQueueSize() == 0) {
 
 		this->context->setPosition(Vector2f(-1.0f, -1.0f));
 		this->context->getShape().setPosition(this->context->getPosition());
