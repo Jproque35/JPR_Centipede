@@ -2,17 +2,17 @@
 #define MUSHROOM_H
 #pragma once
 #include "GameObject.h"
+#include "GenericState.h"
 #include "MushroomData.h"
 
 class Mushroom :
 	public GameObject
 {
 
-protected:	
-	void updateSub(float elapsedTime);
-
 private:
 	MushroomData* context;
+	void preUpdate(float elapsedTime);
+	void postUpdate(float elapsedTime);
 
 public:
 	Mushroom(float initX, float initY);

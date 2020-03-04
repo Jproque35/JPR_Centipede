@@ -2,20 +2,23 @@
 #define CENTIPEDE_H
 #pragma once
 #include "GameObject.h"
+#include "GenericState.h"
 #include "CentipedeData.h"
+
+enum class CentipedeType { Head, Body };
 
 class Centipede : public GameObject
 {
 
-	friend class CentipedeMoveEvent;
-
 private:
-	bool head = false;
+	CentipedeType type = CentipedeType::Head;
+	CommandType lastCommand = CommandType::Unknown;
 	CentipedeData* context;
 	Centipede* next = NULL;
-	bool inReverse = false;
+	Centipede* prev = NULL;
 
-	void updateSub(float elapsedTime);
+	void preUpdate(float elapsedTime);
+	void postUpdate(float elapsedTime);
 
 public:
 	Centipede(float initX, float initY);
@@ -24,7 +27,10 @@ public:
 	Centipede& operator=(const Centipede& obj);
 
 	ObjectData* getData();
+	CentipedeType getCentipedeType();
+	void setCentipedeType(CentipedeType type);
 	void setNext(Centipede* next);
+	void setPrev(Centipede* prev);
 
 };
 

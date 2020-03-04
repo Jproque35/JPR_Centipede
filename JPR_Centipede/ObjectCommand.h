@@ -4,6 +4,7 @@
 #include <iostream>
 
 enum class CommandType {
+	Unknown,
 	Generic,
 	MoveUp,
 	MoveDown,

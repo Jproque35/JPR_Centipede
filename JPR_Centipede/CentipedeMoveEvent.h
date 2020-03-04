@@ -12,8 +12,10 @@ class CentipedeMoveEvent :
 
 private:
 	Centipede* context;
+	CentipedeData* data;
 	GameObjectManager* gm;
-	bool inReverse = false;
+
+
 	void queueLevelChangeCommand();
 	void changeLevelAndDirection(CentipedeDirection dir);
 	bool nextLevelBlocked();

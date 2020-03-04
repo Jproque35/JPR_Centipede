@@ -14,11 +14,7 @@ void GameObject::addEventListener(GameEventListener* event) {
 
 void GameObject::executeEventListeners(float elapsedTime) {
 
-	for (int i = 0; i < this->events.size(); i++) {
-
-		this->events[i]->update(elapsedTime);
-
-	}
+	this->state->executeEventListeners(this->events, elapsedTime);
 
 }
 
@@ -36,6 +32,12 @@ void GameObject::clearEventListeners() {
 		this->commands.pop();
 
 	}
+
+}
+
+int GameObject::commandsSize() {
+
+	return this->commands.size();
 
 }
 
@@ -60,33 +62,14 @@ void GameObject::clearCommands() {
 
 void GameObject::executeCommand(float elapsedTime) {
 
-	if (this->commands.size() > 0) {
-
-		ObjectCommand* currCommand = this->commands.front();
-
-		currCommand->execute(elapsedTime);
-
-		if (currCommand->isFinished()) {
-
-			//this->handleFinishedCommand(currCommand);
-
-			if (currCommand != NULL) {
-
-				this->commands.pop();
-				delete(currCommand);
-				currCommand = NULL;
-
-			}
-
-		}
-
-	}
+	this->state->executeCommand(this->commands, elapsedTime);
 
 }
 
 void GameObject::update(float elapsedTime) {
 
-	this->updateSub(elapsedTime);
+	this->preUpdate(elapsedTime);
 	this->executeCommand(elapsedTime);
+	this->postUpdate(elapsedTime);
 
 }

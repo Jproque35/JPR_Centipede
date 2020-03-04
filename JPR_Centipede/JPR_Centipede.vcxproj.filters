@@ -46,9 +46,6 @@
     <Filter Include="Source Files\Entities\GameObject">
       <UniqueIdentifier>{3a33c386-8935-4d2e-8cd0-7a70839e5aed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Entities\Centipede\Commands">
-      <UniqueIdentifier>{c48d6d75-a2db-4af2-bcf1-29d83b06f402}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Entities\Player\Commands">
       <UniqueIdentifier>{df98ff09-5926-4209-b813-fcfc01679561}</UniqueIdentifier>
     </Filter>
@@ -90,6 +87,12 @@
     </Filter>
     <Filter Include="Header Files\Entities\GameObject\Events">
       <UniqueIdentifier>{79eb17d9-e083-4faf-b276-faa8ed450287}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\GameObject\States">
+      <UniqueIdentifier>{d614170e-88f9-4592-a88a-29b03b28e368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\GameObject\States">
+      <UniqueIdentifier>{031cf835-a77c-4fa9-91ef-7a123b54f385}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +204,12 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Entities\Player</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjectState.cpp">
+      <Filter>Source Files\Entities\GameObject\States</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericState.cpp">
+      <Filter>Source Files\Entities\GameObject\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -298,6 +307,12 @@
     </ClInclude>
     <ClInclude Include="GameEvent.h">
       <Filter>Header Files\Entities\GameObject\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectState.h">
+      <Filter>Header Files\Entities\GameObject\States</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericState.h">
+      <Filter>Header Files\Entities\GameObject\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

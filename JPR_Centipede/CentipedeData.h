@@ -10,16 +10,23 @@ enum class CentipedeDirection { Left, Right };
 class CentipedeData: public ObjectData {
 
 	friend class Centipede;
-	friend class CentipedeMoveEvent;
 
 private:
 	CentipedeDirection dir = CentipedeDirection::Left;
+	bool reversed = false;
 
 public:
 	CentipedeData(float initX, float initY);
 	CentipedeData(const CentipedeData& obj);
 	~CentipedeData();
 	CentipedeData& operator=(const CentipedeData& obj);
+	void setDirection(CentipedeDirection dir);
+	CentipedeDirection getDirection();
+	void setDirectionLeft();
+	void setDirectionRight();
+	void setReversed();
+	void unsetReversed();
+	bool isReversed();
 
 };
 

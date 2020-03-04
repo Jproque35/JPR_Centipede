@@ -3,6 +3,7 @@
 PlayerBullet::PlayerBullet(float initX, float initY) {
 
 	this->context = new PlayerBulletData(initX, initY);
+	this->state = new GenericState();
 
 }
 
@@ -46,41 +47,16 @@ void PlayerBullet::setKey(Keyboard::Key key, float x, float y) {
 
 }
 
-void PlayerBullet::updateSub(float elapsedTime) {
-
-	/*
-	if (this->commands.size() < 1) {
-		if (this->key == Keyboard::Space) {
-
-			this->commands.push(new PlayerBulletFireCommand(this->context, this->xPos, this->yPos));
-
-		}
-
-		this->key = Keyboard::Unknown;
-
-	}*/
+void PlayerBullet::preUpdate(float elapsedTime) {
 
 }
 
-void PlayerBullet::collisionSub(ObjectData* obj) {
+void PlayerBullet::postUpdate(float elapsedTIme) {
 
-	if (this->context != obj) {
+	if (this->commands.size() == 0) {
 
-		float diameter0 = this->context->getShape().getRadius() * 2;
-		float diameter1 = obj->getShape().getRadius() * 2;
-
-		if (this->context->getPosition().y + diameter0 >= obj->getPosition().y ||
-			this->context->getPosition().y <= obj->getPosition().y + diameter1) {
-
-			if (this->context->getPosition().x + diameter0 >= obj->getPosition().x ||
-				this->context->getPosition().x <= obj->getPosition().x + diameter1) {
-
-				cout << "Projectile hit something" << endl;
-
-
-			}
-
-		}
+		this->context->setPosition(Vector2f(-1.0f, -1.0f));
+		this->context->getShape().setPosition(this->context->getPosition());
 
 	}
 

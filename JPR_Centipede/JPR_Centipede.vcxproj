@@ -160,6 +160,8 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="CommandFactory.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="GameObjectState.cpp" />
+    <ClCompile Include="GenericState.cpp" />
     <ClCompile Include="GridManager.cpp" />
     <ClCompile Include="MushroomData.cpp" />
     <ClCompile Include="Draw.cpp" />
@@ -199,6 +201,8 @@
     <ClInclude Include="CommandFactory.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="GameEvent.h" />
+    <ClInclude Include="GameObjectState.h" />
+    <ClInclude Include="GenericState.h" />
     <ClInclude Include="GridManager.h" />
     <ClInclude Include="MushroomData.h" />
     <ClInclude Include="Engine.h" />

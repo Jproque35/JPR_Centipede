@@ -2,6 +2,7 @@
 #define PLAYERBULLETCONTROLLER_H
 #pragma once
 #include "GameObject.h"
+#include "GenericState.h"
 #include "PlayerBulletData.h"
 #include "PlayerBulletFireCommand.h"
 
@@ -16,9 +17,8 @@ private:
 	float yPos = 0.0f;
 
 protected:
-	void updateSub(float elapsedTime);
-	void collisionSub(ObjectData* obj);
-	//void handleFinishedCommand(ObjectCommand* object);
+	void preUpdate(float elapsedTime);
+	void postUpdate(float elapsedTime);
 
 public:
 	PlayerBullet(float initX, float initY);

@@ -2,6 +2,8 @@
 #define GAMEOBJECT_H
 #pragma once
 #include "GameEvent.h"
+#include "GameObjectState.h"
+#include "CommandFactory.h"
 #include "ObjectMoveLeftCommand.h"
 #include "ObjectMoveUpCommand.h"
 #include "ObjectMoveDownCommand.h"
@@ -13,15 +15,18 @@ class GameObject
 protected:
 	vector<GameEventListener*> events;
 	queue<ObjectCommand*> commands;
-	void executeCommand(float elapsedTime);
+	GameObjectState* state;
 
-	virtual void updateSub(float elapsedTime) = 0;
+	void executeCommand(float elapsedTime);
+	virtual void preUpdate(float elapsedTime) = 0;
+	virtual void postUpdate(float elapsedTime) = 0;
 
 public:
 	int commandQueueSize();
 	void addEventListener(GameEventListener* event);
 	void executeEventListeners(float elapsedTime);
 	void clearEventListeners();
+	int commandsSize();
 	void queueCommand(ObjectCommand* command);
 	void clearCommands();
 	virtual ObjectData* getData() = 0;

@@ -2,6 +2,7 @@
 #define PLAYERCONTROLLER_H
 #pragma once
 #include "GameObject.h"
+#include "GenericState.h"
 #include "PlayerData.h"
 
 class Player :
@@ -11,8 +12,8 @@ class Player :
 private:
 	Keyboard::Key key = Keyboard::Unknown;
 	PlayerData* context;
-	void updateSub(float elapsedTime);
-	void collisionSub(ObjectData* obj);
+	void preUpdate(float elapsedTime);
+	void postUpdate(float elapsedTime);
 
 public:
 	Player(float initX, float initY);

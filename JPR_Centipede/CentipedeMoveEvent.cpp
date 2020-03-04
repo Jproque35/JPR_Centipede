@@ -4,6 +4,7 @@ CentipedeMoveEvent::CentipedeMoveEvent(GameObjectManager* gm, int i) {
 
 	this->gm = gm;
 	this->context = (Centipede*)(gm->get(i));
+	this->data = (CentipedeData*)this->context->getData();
 
 }
 
@@ -11,7 +12,6 @@ CentipedeMoveEvent::CentipedeMoveEvent(const CentipedeMoveEvent& obj) {
 
 	this->gm = obj.gm;
 	this->context = obj.context;
-	this->inReverse = obj.inReverse;
 
 }
 
@@ -29,14 +29,12 @@ CentipedeMoveEvent& CentipedeMoveEvent::operator=(const CentipedeMoveEvent& obj)
 
 void CentipedeMoveEvent::update(float elapsedTime) {
 
-	CentipedeData* data = (CentipedeData*)(this->context->getData());
-
-	if (data->dir == CentipedeDirection::Left) {
+	if (this->data->getDirection() == CentipedeDirection::Left) {
 
 		this->moveLeftRoutine();
 
 	}
-	else if (data->dir == CentipedeDirection::Right) {
+	else if (this->data->getDirection() == CentipedeDirection::Right) {
 
 		this->moveRightRoutine();
 
@@ -44,12 +42,12 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 	if (this->context->getData()->getPosition().y - 1.0 < 0.0f) {
 
-		this->inReverse = false;
+		this->data->unsetReversed();
 
 	}
 	else if (this->context->getData()->getPosition().y + 1.0f >= this->gm->getGridHeight()) {
 
-		this->inReverse = true;
+		this->data->setReversed();
 
 	}
 
@@ -57,7 +55,7 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 void CentipedeMoveEvent::moveLeftRoutine() {
 
-	if (this->context->getData()->getPosition().x - 1 < 0 && this->context->commands.size() <= 1) {
+	if (this->context->getData()->getPosition().x - 1 < 0 && this->context->commandsSize() <= 1) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Right);
 
@@ -68,9 +66,9 @@ void CentipedeMoveEvent::moveLeftRoutine() {
 		this->changeLevelAndDirection(CentipedeDirection::Right);
 
 	}
-	else if (this->context->commands.size() < 1) {
+	else if (this->context->commandsSize() < 1) {
 
-		this->context->commands.push(CommandFactory::makeCommand(CommandType::MoveLeft, this->context->getData()));
+		this->context->queueCommand(CommandFactory::makeCommand(CommandType::MoveLeft, this->context->getData()));
 
 	}
 
@@ -78,7 +76,7 @@ void CentipedeMoveEvent::moveLeftRoutine() {
 
 void CentipedeMoveEvent::moveRightRoutine() {
 
-	if (this->context->getData()->getPosition().x + 1 >= this->gm->getGridWidth() && this->context->commands.size() <= 1) {
+	if (this->context->getData()->getPosition().x + 1 >= this->gm->getGridWidth() && this->context->commandsSize() <= 1) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Left);
 
@@ -91,9 +89,9 @@ void CentipedeMoveEvent::moveRightRoutine() {
 		this->changeLevelAndDirection(CentipedeDirection::Left);
 
 	}
-	else if (this->context->commands.size() < 1) {
+	else if (this->context->commandsSize() < 1) {
 
-		this->context->commands.push(CommandFactory::makeCommand(CommandType::MoveRight, this->context->getData()));
+		this->context->queueCommand(CommandFactory::makeCommand(CommandType::MoveRight, this->context->getData()));
 
 	}
 
@@ -101,9 +99,8 @@ void CentipedeMoveEvent::moveRightRoutine() {
 
 void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
-	CentipedeData* data = (CentipedeData*)(this->context->getData());
+	this->data->setDirection(dir);
 
-	data->dir = dir;
 	if (!this->nextLevelBlocked()) {
 		this->queueLevelChangeCommand();
 	}
@@ -112,24 +109,26 @@ void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
 void CentipedeMoveEvent::queueLevelChangeCommand() {
 
-	if (!this->inReverse) {
-		this->context->commands.push(CommandFactory::makeCommand(CommandType::MoveDown, this->context->getData()));
+	CentipedeData* data = (CentipedeData*)(this->context->getData());
+
+	if (!this->data->isReversed()) {
+		this->context->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context->getData()));
 	}
 	else {
-		this->context->commands.push(CommandFactory::makeCommand(CommandType::MoveUp, this->context->getData()));
+		this->context->queueCommand(CommandFactory::makeCommand(CommandType::MoveUp, this->context->getData()));
 	}
 
 }
 
 bool CentipedeMoveEvent::nextLevelBlocked() {
 
-	if (!this->inReverse && this->gm->hasType(ObjectType::MushroomData,
+	if (!this->data->isReversed() && this->gm->hasType(ObjectType::MushroomData,
 		this->context->getData()->getPosition().x, this->context->getData()->getPosition().y + 1)) {
 
 		return true;
 
 	}
-	else if (this->inReverse && this->gm->hasType(ObjectType::MushroomData,
+	else if (this->data->isReversed() && this->gm->hasType(ObjectType::MushroomData,
 		this->context->getData()->getPosition().x, this->context->getData()->getPosition().y - 1)) {
 
 		return true;

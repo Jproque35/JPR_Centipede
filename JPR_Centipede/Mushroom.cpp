@@ -3,6 +3,7 @@
 Mushroom::Mushroom(float initX, float initY) {
 
 	this->context = new MushroomData(initX, initY);
+	this->state = new GenericState();
 
 }
 
@@ -31,14 +32,19 @@ Mushroom& Mushroom::operator=(const Mushroom& obj) {
 
 }
 
-void Mushroom::updateSub(float elapsedTime) {
+ObjectData* Mushroom::getData() {
+
+	return this->context;
+
+}
+
+void Mushroom::preUpdate(float elapsedTime) {
 
 
 
 }
+void Mushroom::postUpdate(float elapsedTime) {
 
-ObjectData* Mushroom::getData() {
 
-	return this->context;
 
 }

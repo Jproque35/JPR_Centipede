@@ -76,13 +76,30 @@ void Engine::initEnemies(int &currPos) {
 
 	int currPos2 = initPos;
 
-	while (currPos2 < endPos - 1) {
+	while (currPos2 < endPos) {
 
 		Centipede* currObj = (Centipede*)(this->gm->get(currPos2));
-		currObj->setNext((Centipede*)(this->gm->get(currPos2 + 1)));
-		cout << "Next for " << currPos2 << " set to " << currPos2 + 1 << endl;
-		currPos2++;
 
+		if (currPos2 > initPos) {
+
+			currObj->setPrev((Centipede*)(this->gm->get(currPos2 - 1)));
+
+		}
+
+		if (currPos2 < endPos - 1) {
+
+			currObj->setNext((Centipede*)(this->gm->get(currPos2 + 1)));
+			cout << "Next for " << currPos2 << " set to " << currPos2 + 1 << endl;
+
+		}
+
+		if (currPos2 > initPos && currPos2 < endPos) {
+
+			currObj->setCentipedeType(CentipedeType::Body);
+
+		}
+
+		currPos2++;
 
 	}
 

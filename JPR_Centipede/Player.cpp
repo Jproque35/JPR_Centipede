@@ -3,6 +3,7 @@
 Player::Player(float initX, float initY) {
 
 	this->context = new PlayerData(initX, initY);
+	this->state = new GenericState();
 
 }
 
@@ -38,12 +39,12 @@ void Player::setKey(Keyboard::Key key) {
 
 }
 
-void Player::updateSub(float elapsedTime) {
+void Player::preUpdate(float elapsedTime) {
 
 }
 
-void Player::collisionSub(ObjectData* obj) {
+void Player::postUpdate(float elapsedTime) {
 
-
+	
 
 }

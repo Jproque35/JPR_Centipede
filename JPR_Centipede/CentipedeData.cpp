@@ -14,6 +14,7 @@ CentipedeData::CentipedeData(float initX, float initY) :ObjectData(initX, initY)
 CentipedeData::CentipedeData(const CentipedeData& obj) :ObjectData(obj) {
 
 	this->dir = obj.dir;
+	this->reversed = obj.reversed;
 
 }
 
@@ -26,6 +27,46 @@ CentipedeData::~CentipedeData() {
 CentipedeData& CentipedeData::operator=(const CentipedeData& obj) {
 
 	return *this;
+
+}
+
+CentipedeDirection CentipedeData::getDirection() {
+
+	return this->dir;
+
+}
+
+void CentipedeData::setDirection(CentipedeDirection dir) {
+
+	this->dir = dir;
+
+}
+
+void CentipedeData::setDirectionLeft() {
+
+	this->dir = CentipedeDirection::Left;
+
+}
+void CentipedeData::setDirectionRight() {
+
+	this->dir = CentipedeDirection::Right;
+
+}
+void CentipedeData::setReversed() {
+
+	this->reversed = true;
+
+}
+
+void CentipedeData::unsetReversed() {
+
+	this->reversed = false;
+
+}
+
+bool CentipedeData::isReversed() {
+
+	return this->reversed;
 
 }
 
