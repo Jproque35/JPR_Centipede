@@ -163,9 +163,11 @@
     <ClCompile Include="GameObjectState.cpp" />
     <ClCompile Include="GenericState.cpp" />
     <ClCompile Include="GridManager.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="MushroomData.cpp" />
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="NullState.cpp" />
     <ClCompile Include="ObjectData.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="Initialize.cpp" />
@@ -204,8 +206,10 @@
     <ClInclude Include="GameObjectState.h" />
     <ClInclude Include="GenericState.h" />
     <ClInclude Include="GridManager.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="MushroomData.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="NullState.h" />
     <ClInclude Include="ObjectData.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="CentipedeData.h" />

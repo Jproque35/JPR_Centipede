@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "GridManager.h"
 #include <SFML/Graphics.hpp>
+#include "InputManager.h"
 
 using namespace std;
 
@@ -11,7 +12,8 @@ class GameObjectManager {
 
 private:
 	vector<GameObject*> gm;
-	GridManager* grid = NULL;
+	InputManager* im;
+	GridManager* grid;
 
 	void rebuildGrid();
 
@@ -21,6 +23,7 @@ public:
 	~GameObjectManager();
 	GameObjectManager& operator=(const GameObjectManager& obj);
 
+	InputManager* getInputManager();
 	int getGridWidth();
 	int getGridHeight();
 	void add(int i, GameObject* obj);

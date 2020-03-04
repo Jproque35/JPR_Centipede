@@ -24,7 +24,7 @@ BulletFiredEvent& BulletFiredEvent::operator=(const BulletFiredEvent& obj) {
 
 void BulletFiredEvent::update(float elapsedTime) {
 
-	if (Keyboard::isKeyPressed(Keyboard::Space)) {
+	if (this->gm->getInputManager()->isFirePressed()) {
 
 		if (!this->context->getData()->isActive()) {
 

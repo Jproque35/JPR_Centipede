@@ -28,7 +28,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 
 	//cout << "Current position is: " << currPos.x << " " << currPos.y << endl;
 
-	if (Keyboard::isKeyPressed(Keyboard::W)) {
+	if (this->gm->getInputManager()->isUpPressed()) {
 
 		if (currPos.y - 1.0f >= 0 &&
 			!this->gm->hasType(ObjectType::MushroomData, currPos.x, currPos.y - 1.0f)) {
@@ -38,7 +38,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 		}
 
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::S)) {
+	else if (this->gm->getInputManager()->isDownPressed()) {
 
 		if (ceil(currPos.y) + 1.0f < this->gm->getGridHeight() &&
 			!this->gm->hasType(ObjectType::MushroomData, currPos.x, ceil(currPos.y) + 1.0f)) {
@@ -48,7 +48,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 		}
 
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::A)) {
+	else if (this->gm->getInputManager()->isLeftPressed()) {
 
 		if (currPos.x - 1.0f >= 0 &&
 			!this->gm->hasType(ObjectType::MushroomData, currPos.x - 1.0f, currPos.y)) {
@@ -58,7 +58,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 		}
 
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::D)) {
+	else if (this->gm->getInputManager()->isRightPressed()) {
 
 		if (ceil(currPos.x) + 1.0f < this->gm->getGridWidth() &&
 			!this->gm->hasType(ObjectType::MushroomData, ceil(currPos.x) + 1.0f, currPos.y)) {

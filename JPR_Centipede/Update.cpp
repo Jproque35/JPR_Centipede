@@ -3,6 +3,7 @@
 void Engine::update(float dtAsSeconds) {
 
 	//cout << "Updating objects..." << endl;
+	this->gm->getInputManager()->update();
 	this->em->update(dtAsSeconds);
 	this->executeObjectEventListeners(dtAsSeconds);
 	this->gm->updateAll(dtAsSeconds);

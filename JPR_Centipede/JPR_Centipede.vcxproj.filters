@@ -210,6 +210,12 @@
     <ClCompile Include="GenericState.cpp">
       <Filter>Source Files\Entities\GameObject\States</Filter>
     </ClCompile>
+    <ClCompile Include="NullState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -313,6 +319,12 @@
     </ClInclude>
     <ClInclude Include="GenericState.h">
       <Filter>Header Files\Entities\GameObject\States</Filter>
+    </ClInclude>
+    <ClInclude Include="NullState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

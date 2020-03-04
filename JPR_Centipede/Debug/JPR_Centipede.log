@@ -11,8 +11,6 @@ C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(2
           ]
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(30,20): warning C4018: '<': signed/unsigned mismatch
   BulletFiredEvent.cpp
-  Centipede.cpp
-  CentipedeData.cpp
   CentipedeHitEvent.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeHitEvent.cpp(29,72): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
@@ -70,37 +68,22 @@ C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CollisionManager.cpp(33,
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CollisionManager.cpp(34,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CollisionManager.cpp(36,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CollisionManager.cpp(37,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  EventManager.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EventManager.cpp(22,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EventManager.cpp(49,20): warning C4018: '<': signed/unsigned mismatch
+  InputManager.cpp
   Draw.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Engine.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(15,78): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(15,48): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-  EventManager.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EventManager.cpp(22,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EventManager.cpp(49,20): warning C4018: '<': signed/unsigned mismatch
-  GameObject.cpp
   GameObjectManager.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(7,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(61,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(72,8): warning C4018: '<': signed/unsigned mismatch
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(93,20): warning C4018: '<': signed/unsigned mismatch
-  GameObjectState.cpp
-  GenericState.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GenericState.cpp(5,20): warning C4018: '<': signed/unsigned mismatch
-  GridManager.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GridManager.cpp(76,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GridManager.cpp(92,8): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GridManager.cpp(93,8): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(27,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(68,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(79,8): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(100,20): warning C4018: '<': signed/unsigned mismatch
   Initialize.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(18,79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
@@ -113,7 +96,6 @@ C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(123,39): 
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Main.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Mushroom.cpp
   MushroomHitEvent.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MushroomHitEvent.cpp(29,72): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
@@ -125,10 +107,6 @@ C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MushroomHitEvent.cpp(29,
           [
               T=float
           ]
-  Generating Code...
-  Compiling...
-  Player.cpp
-  PlayerBullet.cpp
   PlayerInputEvent.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(34,70): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with

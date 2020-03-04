@@ -1,5 +1,29 @@
 #include "GenericState.h"
 
+GenericState::GenericState() {
+
+	this->type = StateType::Generic;
+
+}
+
+GenericState::GenericState(const GenericState& obj) {
+
+	this->type = obj.type;
+
+}
+
+GenericState::~GenericState() {
+
+
+
+}
+
+GenericState& GenericState::operator=(const GenericState& obj) {
+
+	return *this;
+
+}
+
 void GenericState::executeEventListeners(vector<GameEventListener*>& events, float elapsedTime) {
 
 	for (int i = 0; i < events.size(); i++) {
