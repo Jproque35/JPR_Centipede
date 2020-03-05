@@ -12,6 +12,7 @@ GameObjectManager::GameObjectManager(int size, int x, int y) {
 
 	this->grid = new GridManager(x, y);
 	this->im = new InputManager();
+	this->hud = new HudObject();
 
 }
 
@@ -46,6 +47,12 @@ GameObjectManager& GameObjectManager::operator=(const GameObjectManager& obj) {
 InputManager* GameObjectManager::getInputManager() {
 
 	return this->im;
+
+}
+
+HudObject* GameObjectManager::getHudObject() {
+
+	return this->hud;
 
 }
 

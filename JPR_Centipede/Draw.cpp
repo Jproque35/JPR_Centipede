@@ -7,15 +7,22 @@ void Engine::draw() {
 	for (int i = 0; i < this->gm->size(); i++) {
 
 		if(this->gm->get(i) != NULL) {
-			//if(this->gm->get(i)->getData()->isActive()) {
+
+			if(this->gm->get(i)->getData()->isActive()) {
 
 				this->drawShape( this->gm->get(i)->getData() );
 
-			//}
+			}
 		}
 
 	}
 	
+	Text hudText = this->gm->getHudObject()->getHudText();
+
+	window.draw(hudText);
+
+	Text testHud;
+
 	this->window.display();
 
 }

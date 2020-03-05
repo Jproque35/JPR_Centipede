@@ -4,13 +4,15 @@ MushroomHitEvent::MushroomHitEvent(GameObjectManager* gm, int i) {
 
 	this->gm = gm;
 	this->context = (Mushroom*)(this->gm->get(i));
+	this->data = (MushroomData*)(this->context->getData());
 
 }
 
 MushroomHitEvent::MushroomHitEvent(const MushroomHitEvent& obj) {
 
-	this->gm = obj.gm;
+	this->data = obj.data;
 	this->context = obj.context;
+	this->gm = obj.gm;
 
 }
 
@@ -28,7 +30,20 @@ void MushroomHitEvent::update(float elapsedTime) {
 
 	if (this->gm->hasType(ObjectType::PlayerProjectile, currPos.x, currPos.y)) {
 
-		cout << "Mushroom got hit" << endl;
+
+
+		if (this->data->isActive()) {
+
+			this->data->decrementHealth();
+			cout << "Mushroom got hit, HP is " << this->data->getHealth() << endl;
+
+			if (this->data->getHealth() <= 0) {
+
+				this->data->deactivate();
+				this->data->setPosition(Vector2f(-1.0f, -1.0f));
+
+			}
+		}
 
 	}
 

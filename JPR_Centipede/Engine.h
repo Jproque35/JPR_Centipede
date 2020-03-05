@@ -30,8 +30,8 @@ private:
 	float gridWidth = 0.0f;
 	int bulletsStart = -1;
 	int numBullets = 1;
-	int numCentipedes = 2;
-	int numMushrooms = 30;
+	int numCentipedes = 20;
+	int numMushrooms = 50;
 	int getNumObjects();
 
 	void input(float dtAsSeconds);

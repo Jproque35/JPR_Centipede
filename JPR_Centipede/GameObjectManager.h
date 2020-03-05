@@ -5,6 +5,7 @@
 #include "GridManager.h"
 #include <SFML/Graphics.hpp>
 #include "InputManager.h"
+#include "ScoreObject.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ private:
 	vector<GameObject*> gm;
 	InputManager* im;
 	GridManager* grid;
+	HudObject* hud;
 
 	void rebuildGrid();
 
@@ -24,6 +26,7 @@ public:
 	GameObjectManager& operator=(const GameObjectManager& obj);
 
 	InputManager* getInputManager();
+	HudObject* getHudObject();
 	int getGridWidth();
 	int getGridHeight();
 	void add(int i, GameObject* obj);

@@ -161,6 +161,7 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="CommandFactory.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="GameObjectFactory.cpp" />
     <ClCompile Include="GameObjectState.cpp" />
     <ClCompile Include="GenericState.cpp" />
     <ClCompile Include="GridManager.cpp" />
@@ -192,6 +193,7 @@
     <ClCompile Include="PlayerBulletFireCommand.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerInputEvent.cpp" />
+    <ClCompile Include="ScoreObject.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +207,7 @@
     <ClInclude Include="CommandFactory.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="GameEvent.h" />
+    <ClInclude Include="GameObjectFactory.h" />
     <ClInclude Include="GameObjectState.h" />
     <ClInclude Include="GenericState.h" />
     <ClInclude Include="GridManager.h" />
@@ -232,6 +235,7 @@
     <ClInclude Include="PlayerBulletFireCommand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInputEvent.h" />
+    <ClInclude Include="ScoreObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

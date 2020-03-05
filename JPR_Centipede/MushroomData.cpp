@@ -22,3 +22,21 @@ MushroomData& MushroomData::operator=(const MushroomData& obj) {
 	return *this;
 
 }
+
+int MushroomData::getHealth() {
+
+	return this->health;
+
+}
+
+void MushroomData::setHealth(int health) {
+
+	this->health = health;
+
+}
+
+void MushroomData::decrementHealth() {
+
+	this->health--;
+
+}

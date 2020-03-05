@@ -1,5 +1,2 @@
-﻿  Centipede.cpp
-  CentipedeHeadState.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeHeadState.cpp(12,20): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+﻿  ScoreObject.cpp
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

@@ -12,6 +12,7 @@ class MushroomHitEvent :
 
 private:
 	Mushroom* context;
+	MushroomData* data;
 	GameObjectManager* gm;
 
 public:

@@ -5,8 +5,8 @@ Centipede::Centipede(float initX, float initY) {
 
 	this->context = new CentipedeData(initX, initY);
 	this->type = CentipedeType::Head;
-	//this->state = new GenericState();
-	this->state = new CentipedeHeadState(this->context);
+	this->state = new GenericState();
+	//this->state = new CentipedeHeadState(this->context);
 
 }
 

@@ -20,6 +20,10 @@ public:
 	~MushroomData();
 	MushroomData& operator=(const MushroomData &obj);
 
+	int getHealth();
+	void setHealth(int i);
+	void decrementHealth();
+
 };
 
 #endif
