@@ -13,6 +13,7 @@
 #include "Mushroom.h"
 #include "CollisionManager.h"
 #include "EventManager.h"
+#include "GameObjectFactory.h"
 
 using namespace sf;
 using namespace std;

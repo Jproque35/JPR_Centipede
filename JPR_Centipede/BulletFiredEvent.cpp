@@ -1,9 +1,9 @@
 #include "BulletFiredEvent.h"
 
-BulletFiredEvent::BulletFiredEvent(GameObjectManager* gm, int i) {
+BulletFiredEvent::BulletFiredEvent(GameObjectManager* gm, PlayerBullet* context) {
 
 	this->gm = gm;
-	this->context = (PlayerBullet*)(gm->get(i));
+	this->context = context;
 
 }
 

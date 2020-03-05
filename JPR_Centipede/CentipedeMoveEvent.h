@@ -23,7 +23,7 @@ private:
 	void moveRightRoutine();
 
 public:
-	CentipedeMoveEvent(GameObjectManager* gm, int i);
+	CentipedeMoveEvent(GameObjectManager* gm, Centipede* context);
 	CentipedeMoveEvent(const CentipedeMoveEvent& obj);
 	~CentipedeMoveEvent();
 	CentipedeMoveEvent& operator=(const CentipedeMoveEvent& obj);

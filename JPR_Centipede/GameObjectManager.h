@@ -15,7 +15,7 @@ private:
 	vector<GameObject*> gm;
 	InputManager* im;
 	GridManager* grid;
-	HudObject* hud;
+	ScoreObject* hud;
 
 	void rebuildGrid();
 
@@ -26,7 +26,7 @@ public:
 	GameObjectManager& operator=(const GameObjectManager& obj);
 
 	InputManager* getInputManager();
-	HudObject* getHudObject();
+	ScoreObject* getHudObject();
 	int getGridWidth();
 	int getGridHeight();
 	void add(int i, GameObject* obj);

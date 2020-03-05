@@ -16,7 +16,7 @@ private:
 	GameObjectManager* gm;
 
 public:
-	MushroomHitEvent(GameObjectManager* gm, int i);
+	MushroomHitEvent(GameObjectManager* gm, Mushroom* context);
 	MushroomHitEvent(const MushroomHitEvent& obj);
 	~MushroomHitEvent();
 	MushroomHitEvent& operator=(const MushroomHitEvent& obj);

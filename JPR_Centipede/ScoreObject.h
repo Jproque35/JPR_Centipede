@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class HudObject
+class ScoreObject
 {
 
 private:
@@ -15,7 +15,7 @@ private:
 	int score = 0;
 
 public:
-	HudObject();
+	ScoreObject();
 	int getScore();
 	void increaseScore(int i);
 	void setScore(int i);

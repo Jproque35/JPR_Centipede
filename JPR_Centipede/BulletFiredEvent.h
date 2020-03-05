@@ -15,7 +15,7 @@ private:
 	GameObjectManager* gm;
 
 public:
-	BulletFiredEvent(GameObjectManager* gm, int i);
+	BulletFiredEvent(GameObjectManager* gm, PlayerBullet* context);
 	BulletFiredEvent(const BulletFiredEvent& obj);
 	~BulletFiredEvent();
 	BulletFiredEvent& operator=(const BulletFiredEvent& obj);

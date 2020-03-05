@@ -17,7 +17,7 @@ private:
 	void queueCommand(CommandType type);
 
 public:
-	PlayerInputEvent(GameObjectManager* gm, int i);
+	PlayerInputEvent(GameObjectManager* gm, Player* context);
 	PlayerInputEvent(const PlayerInputEvent& obj);
 	~PlayerInputEvent();
 	PlayerInputEvent& operator=(const PlayerInputEvent& obj);

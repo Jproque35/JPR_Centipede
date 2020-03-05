@@ -12,7 +12,7 @@ GameObjectManager::GameObjectManager(int size, int x, int y) {
 
 	this->grid = new GridManager(x, y);
 	this->im = new InputManager();
-	this->hud = new HudObject();
+	this->hud = new ScoreObject();
 
 }
 
@@ -50,7 +50,7 @@ InputManager* GameObjectManager::getInputManager() {
 
 }
 
-HudObject* GameObjectManager::getHudObject() {
+ScoreObject* GameObjectManager::getHudObject() {
 
 	return this->hud;
 

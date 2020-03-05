@@ -15,7 +15,7 @@ private:
 	PlayerBullet* context;
 
 public:
-	BulletCollideEvent(GameObjectManager* gm, int i);
+	BulletCollideEvent(GameObjectManager* gm, PlayerBullet* context);
 	BulletCollideEvent(const BulletCollideEvent& obj);
 	~BulletCollideEvent();
 	BulletCollideEvent& operator=(const BulletCollideEvent& obj);

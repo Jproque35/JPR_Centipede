@@ -1,10 +1,4 @@
 #include "Engine.h"
-#include "CentipedeMoveEvent.h"
-#include "PlayerInputEvent.h"
-#include "BulletFiredEvent.h"
-#include "MushroomHitEvent.h"
-#include "CentipedeHitEvent.h"
-#include "BulletCollideEvent.h"
 
 inline int Engine::getNumObjects() {
 
@@ -36,10 +30,11 @@ void Engine::initObjects() {
 }
 
 void Engine::initPlayer(int &currPos) {
-	ObjectData* newObj;
+	
+	float initX = floor(this->gridWidth / 2);
+	float initY = floor(this->gridHeight / 2);
 
-	this->gm->add(0, new Player( floor(this->gridWidth/2), floor(this->gridHeight/2) ));
-	this->gm->get(0)->addEventListener(new PlayerInputEvent(this->gm, 0));
+	this->gm->add(0, GameObjectFactory::makeObject(ObjectType::PlayerData, this->gm, initX, initY));
 	this->gm->get(0)->getData()->activate();
 	bulletsStart = ++currPos;
 
@@ -48,10 +43,7 @@ void Engine::initPlayer(int &currPos) {
 
 	while (currPos < endPos) {
 
-		this->gm->add(currPos, new PlayerBullet(-1, -1));
-		this->gm->get(currPos)->addEventListener(new BulletFiredEvent(this->gm, currPos));
-		this->gm->get(currPos)->addEventListener(new BulletCollideEvent(this->gm, currPos));
-		this->loadedBullets.push((PlayerBullet*)(this->gm->get(currPos)));
+		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::PlayerProjectile, this->gm, initX, initY));
 		cout << "Loaded bullet object into slot " << currPos << endl;
 		currPos++;
 
@@ -66,9 +58,10 @@ void Engine::initEnemies(int &currPos) {
 
 	while (currPos < endPos) {
 
-		this->gm->add(currPos, new Centipede(this->gridWidth / 2, 0.0f));
-		this->em->addEvent(new CentipedeMoveEvent(this->gm, currPos));
-		this->em->addEvent(new CentipedeHitEvent(this->gm, currPos));
+		float initX = floor(this->gridWidth / 2);
+		float initY = 0.0f;
+
+		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::CentipedeData, this->gm, initX, initY) );
 		cout << "Loaded centipede object into slot " << currPos << endl;
 		currPos++;
 
@@ -117,12 +110,13 @@ void Engine::initMushrooms(int &currPos) {
 
 	while (currPos < endPos) {
 
-		int tempX = rand() % (int)(this->gridWidth - 1.0f);
-		int tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
+		float tempX = rand() % (int)(this->gridWidth - 1.0f);
+		float tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
 
-		this->gm->add(currPos, new Mushroom(tempX, tempY));
+		Mushroom* newObj = new Mushroom(tempX, tempY);
+
+		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::MushroomData, this->gm, tempX, tempY));
 		this->gm->get(currPos)->getData()->activate();
-		this->gm->get(currPos)->addEventListener(new MushroomHitEvent(this->gm, currPos));
 		cout << "Loaded mushroom object into slot " << currPos << " at position " << tempX << ", " << tempY << endl;
 		currPos++;
 

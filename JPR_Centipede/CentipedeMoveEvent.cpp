@@ -1,9 +1,9 @@
 #include "CentipedeMoveEvent.h"
 
-CentipedeMoveEvent::CentipedeMoveEvent(GameObjectManager* gm, int i) {
+CentipedeMoveEvent::CentipedeMoveEvent(GameObjectManager* gm, Centipede* context) {
 
 	this->gm = gm;
-	this->context = (Centipede*)(gm->get(i));
+	this->context = context;
 	this->data = (CentipedeData*)this->context->getData();
 
 }
@@ -45,7 +45,7 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 		this->data->unsetReversed();
 
 	}
-	else if (this->context->getData()->getPosition().y + 1.0f >= this->gm->getGridHeight()) {
+	else if (ceil(this->context->getData()->getPosition().y + 1.0f) >= this->gm->getGridHeight()) {
 
 		this->data->setReversed();
 
@@ -76,7 +76,7 @@ void CentipedeMoveEvent::moveLeftRoutine() {
 
 void CentipedeMoveEvent::moveRightRoutine() {
 
-	if (this->context->getData()->getPosition().x + 1 >= this->gm->getGridWidth() && this->context->commandsSize() <= 1) {
+	if (ceil(this->context->getData()->getPosition().x) + 1 >= this->gm->getGridWidth() && this->context->commandsSize() <= 1) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Left);
 
@@ -84,7 +84,7 @@ void CentipedeMoveEvent::moveRightRoutine() {
 	}
 
 	else if (this->gm->hasType(ObjectType::MushroomData,
-		this->context->getData()->getPosition().x + 1, this->context->getData()->getPosition().y)) {
+		ceil(this->context->getData()->getPosition().x) + 1, floor(this->context->getData()->getPosition().y))) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Left);
 
@@ -123,7 +123,7 @@ void CentipedeMoveEvent::queueLevelChangeCommand() {
 bool CentipedeMoveEvent::nextLevelBlocked() {
 
 	if (!this->data->isReversed() && this->gm->hasType(ObjectType::MushroomData,
-		this->context->getData()->getPosition().x, this->context->getData()->getPosition().y + 1)) {
+		this->context->getData()->getPosition().x, ceil(this->context->getData()->getPosition().y) + 1)) {
 
 		return true;
 

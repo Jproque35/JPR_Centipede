@@ -1,9 +1,9 @@
 #include "PlayerInputEvent.h"
 
-PlayerInputEvent::PlayerInputEvent(GameObjectManager* gm, int i) {
+PlayerInputEvent::PlayerInputEvent(GameObjectManager* gm, Player* context) {
 
 	this->gm = gm;
-	this->context = (Player*)(gm->get(i));
+	this->context = context;
 
 }
 

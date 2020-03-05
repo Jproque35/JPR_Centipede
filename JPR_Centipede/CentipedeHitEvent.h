@@ -15,7 +15,7 @@ private:
 	Centipede* context;
 
 public:
-	CentipedeHitEvent(GameObjectManager* gm, int i);
+	CentipedeHitEvent(GameObjectManager* gm, Centipede* context);
 	CentipedeHitEvent(const CentipedeHitEvent& obj);
 	~CentipedeHitEvent();
 	CentipedeHitEvent& operator=(const CentipedeHitEvent& obj);

@@ -1,6 +1,6 @@
 #include "ScoreObject.h"
 
-HudObject::HudObject() {
+ScoreObject::ScoreObject() {
 
     this->font;
     this->font.loadFromFile("game_over.ttf");
@@ -15,7 +15,7 @@ HudObject::HudObject() {
 
 }
 
-void HudObject::updateHud() {
+void ScoreObject::updateHud() {
 
     stringstream ss;
     ss << "Score: " << this->score;
@@ -23,26 +23,26 @@ void HudObject::updateHud() {
 
 }
 
-int HudObject::getScore() {
+int ScoreObject::getScore() {
 
     return this->score;
 
 }
 
-void HudObject::increaseScore(int i) {
+void ScoreObject::increaseScore(int i) {
 
     this->score += i;
     this->updateHud();
 
 }
 
-void HudObject::setScore(int i) {
+void ScoreObject::setScore(int i) {
 
     this->score = i;
     this->updateHud();
 }
 
-Text HudObject::getHudText() {
+Text ScoreObject::getHudText() {
 
     return this->hud;
 
