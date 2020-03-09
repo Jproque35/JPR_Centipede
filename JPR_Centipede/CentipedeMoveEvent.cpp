@@ -40,12 +40,12 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 	}
 
-	if (this->context->getData()->getPosition().y - 1.0 < 0.0f) {
+	if (floor(this->data->getPosition().y - 1.0f) < 0) {
 
 		this->data->unsetReversed();
 
 	}
-	else if (ceil(this->context->getData()->getPosition().y + 1.0f) >= this->gm->getGridHeight()) {
+	else if (ceil(this->data->getPosition().y + 1.0f) >= this->gm->getGridHeight()) {
 
 		this->data->setReversed();
 
@@ -55,13 +55,7 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 void CentipedeMoveEvent::moveLeftRoutine() {
 
-	if (this->context->getData()->getPosition().x - 1 < 0 && this->context->commandsSize() <= 1) {
-
-		this->changeLevelAndDirection(CentipedeDirection::Right);
-
-	}
-	else if (this->gm->hasType(ObjectType::MushroomData,
-		this->context->getData()->getPosition().x - 1, this->context->getData()->getPosition().y)) {
+	if (this->leftBlocked()) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Right);
 
@@ -76,15 +70,7 @@ void CentipedeMoveEvent::moveLeftRoutine() {
 
 void CentipedeMoveEvent::moveRightRoutine() {
 
-	if (ceil(this->context->getData()->getPosition().x) + 1 >= this->gm->getGridWidth() && this->context->commandsSize() <= 1) {
-
-		this->changeLevelAndDirection(CentipedeDirection::Left);
-
-
-	}
-
-	else if (this->gm->hasType(ObjectType::MushroomData,
-		ceil(this->context->getData()->getPosition().x) + 1, floor(this->context->getData()->getPosition().y))) {
+	if (this->rightBlocked()) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Left);
 
@@ -102,34 +88,123 @@ void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 	this->data->setDirection(dir);
 
 	if (!this->nextLevelBlocked()) {
+
+		cout << "Next level not blocked: " <<  this->data->getPosition().x << ", " << this->data->getPosition().y << endl;
 		this->queueLevelChangeCommand();
+
+	}
+	else {
+
+		cout << "Next level IS blocked" << this->data->getPosition().x << ", " << this->data->getPosition().y << endl;
+
 	}
 
 }
 
 void CentipedeMoveEvent::queueLevelChangeCommand() {
 
-	CentipedeData* data = (CentipedeData*)(this->context->getData());
-
 	if (!this->data->isReversed()) {
-		this->context->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context->getData()));
+
+		this->context->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->data));
+
 	}
 	else {
-		this->context->queueCommand(CommandFactory::makeCommand(CommandType::MoveUp, this->context->getData()));
+
+		this->context->queueCommand(CommandFactory::makeCommand(CommandType::MoveUp, this->data));
+
 	}
 
 }
 
 bool CentipedeMoveEvent::nextLevelBlocked() {
 
-	if (!this->data->isReversed() && this->gm->hasType(ObjectType::MushroomData,
-		this->context->getData()->getPosition().x, ceil(this->context->getData()->getPosition().y) + 1)) {
+	if (!this->data->isReversed() && this->downBlocked()) {
 
 		return true;
 
 	}
-	else if (this->data->isReversed() && this->gm->hasType(ObjectType::MushroomData,
-		this->context->getData()->getPosition().x, this->context->getData()->getPosition().y - 1)) {
+	else if (this->data->isReversed() && this->upBlocked()) {
+
+		return true;
+
+	}
+
+	return false;
+
+}
+
+bool CentipedeMoveEvent::leftBlocked() {
+
+	Vector2f currPos = this->data->getPosition();
+
+	int xDest = floor(currPos.x - 1.0f);
+
+	if (xDest < 0) {
+
+		return true;
+
+	}
+	else if (this->gm->hasType(ObjectType::MushroomData, xDest, currPos.y)) {
+
+		return true;
+
+	}
+
+	return false;
+
+}
+
+bool CentipedeMoveEvent::rightBlocked() {
+
+	Vector2f currPos = this->data->getPosition();
+	int xDest = ceil(currPos.x + 1.0f);
+
+	if (xDest >= this->gm->getGridWidth()) {
+
+		return true;
+
+	}
+	else if (this->gm->hasType(ObjectType::MushroomData, xDest, currPos.y)) {
+
+		return true;
+
+	}
+
+	return false;
+
+}
+
+bool CentipedeMoveEvent::upBlocked() {
+
+	Vector2f currPos = this->data->getPosition();
+	int yDest = floor(currPos.y - 1.0f);
+
+	if (yDest < 0) {
+
+		return true;
+
+	}
+	else if (this->gm->hasType(ObjectType::MushroomData, currPos.x, yDest)) {
+
+		return true;
+
+	}
+
+	return false;
+
+}
+
+bool CentipedeMoveEvent::downBlocked() {
+
+	Vector2f currPos = this->data->getPosition();
+	int yDest = ceil(currPos.y + 1.0f);
+
+	if (yDest >= this->gm->getGridHeight()) {
+
+		return true;
+
+	}
+	else if (this->gm->hasType(ObjectType::MushroomData, currPos.x, yDest)) {
 
 		return true;
 

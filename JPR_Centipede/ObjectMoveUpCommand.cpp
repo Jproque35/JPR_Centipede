@@ -40,4 +40,6 @@ void ObjectMoveUpCommand::execute(float elapsedTime) {
 
 	}
 
+	this->context->shape.setPosition(this->context->position);
+
 }
