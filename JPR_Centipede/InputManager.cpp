@@ -2,20 +2,20 @@
 
 bool InputManager::isUpPressed() {
 
-	return this->upPressed;
+	return this->upActive;
 
 }
 
-void InputManager::checkUpPressed() {
+void InputManager::upPressed() {
 
 	if (Keyboard::isKeyPressed(this->upKey)) {
 
-		this->upPressed = true;
+		this->upActive = true;
 
 	}
 	else {
 
-		this->upPressed = false;
+		this->upActive = false;
 
 	}
 
@@ -23,20 +23,20 @@ void InputManager::checkUpPressed() {
 
 bool InputManager::isDownPressed() {
 
-	return this->downPressed;
+	return this->downActive;
 
 }
 
-void InputManager::checkDownPressed() {
+void InputManager::downPressed() {
 
 	if (Keyboard::isKeyPressed(this->downKey)) {
 
-		this->downPressed = true;
+		this->downActive = true;
 
 	}
 	else {
 
-		this->downPressed = false;
+		this->downActive = false;
 
 	}
 
@@ -44,20 +44,20 @@ void InputManager::checkDownPressed() {
 
 bool InputManager::isLeftPressed() {
 
-	return this->leftPressed;
+	return this->leftActive;
 
 }
 
-void InputManager::checkLeftPressed() {
+void InputManager::leftPressed() {
 
 	if (Keyboard::isKeyPressed(this->leftKey)) {
 
-		this->leftPressed = true;
+		this->leftActive = true;
 
 	}
 	else {
 
-		this->leftPressed = false;
+		this->leftActive = false;
 
 	}
 
@@ -65,40 +65,40 @@ void InputManager::checkLeftPressed() {
 
 bool InputManager::isRightPressed() {
 
-	return this->rightPressed;
+	return this->rightActive;
 
 }
 
-void InputManager::checkRightPressed() {
+void InputManager::rightPressed() {
 
 	if (Keyboard::isKeyPressed(this->rightKey)) {
 
-		this->rightPressed = true;
+		this->rightActive = true;
 
 	}
 	else {
 
-		this->rightPressed = false;
+		this->rightActive = false;
 
 	}
 
 }
 bool InputManager::isFirePressed() {
 
-	return this->firePressed;
+	return this->fireActive;
 
 }
 
-void InputManager::checkFirePressed() {
+void InputManager::firePressed() {
 
 	if (Keyboard::isKeyPressed(this->fireKey)) {
 
-		this->firePressed = true;
+		this->fireActive = true;
 
 	}
 	else {
 
-		this->firePressed = false;
+		this->fireActive = false;
 
 	}
 
@@ -106,11 +106,11 @@ void InputManager::checkFirePressed() {
 
 void InputManager::update() {
 
-	this->checkLeftPressed();
-	this->checkDownPressed();
-	this->checkUpPressed();
-	this->checkRightPressed();
-	this->checkFirePressed();
+	this->leftPressed();
+	this->downPressed();
+	this->upPressed();
+	this->rightPressed();
+	this->firePressed();
 
 }
 

@@ -14,23 +14,23 @@ private:
 	Keyboard::Key leftKey = Keyboard::A;
 	Keyboard::Key rightKey = Keyboard::D;
 	Keyboard::Key fireKey = Keyboard::Space;
-	bool upPressed = false;
-	bool downPressed = false;
-	bool leftPressed = false;
-	bool rightPressed = false;
-	bool firePressed = false;
+	bool upActive = false;
+	bool downActive = false;
+	bool leftActive = false;
+	bool rightActive = false;
+	bool fireActive = false;
 
 public:
 	bool isUpPressed();
-	void checkUpPressed();
+	void upPressed();
 	bool isDownPressed();
-	void checkDownPressed();
+	void downPressed();
 	bool isLeftPressed();
-	void checkLeftPressed();
+	void leftPressed();
 	bool isRightPressed();
-	void checkRightPressed();
+	void rightPressed();
 	bool isFirePressed();
-	void checkFirePressed();
+	void firePressed();
 	void update();
 
 };

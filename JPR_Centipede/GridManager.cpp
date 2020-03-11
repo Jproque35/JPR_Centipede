@@ -38,9 +38,9 @@ inline bool GridManager::inBounds(int x, int y) {
 
 }
 
-int GridManager::getKey(int x, int y) {
+inline int GridManager::getKey(float x, float y) {
 
-	return y * this->width + x;
+	return floor(y) * this->width + floor(x);
 
 }
 

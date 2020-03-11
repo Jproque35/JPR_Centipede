@@ -1,26 +1,2 @@
-﻿  CentipedeMoveEvent.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(140,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(147,69): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(160,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(167,69): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(180,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(187,62): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(200,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(207,62): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
+﻿  InputManager.cpp
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

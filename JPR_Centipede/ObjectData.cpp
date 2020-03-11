@@ -16,7 +16,7 @@ ObjectData::ObjectData(const ObjectData& obj) {
 	this->position = obj.position;
 	this->xSpeed = obj.xSpeed;
 	this->ySpeed = obj.ySpeed;
-	this->shape = obj.shape;
+	this->shape = CircleShape(this->shape);
 	this->type = obj.type;
 	this->active = obj.active;
 
@@ -25,6 +25,13 @@ ObjectData::ObjectData(const ObjectData& obj) {
 ObjectData::~ObjectData() {}
 
 ObjectData& ObjectData::operator=(const ObjectData& obj) {
+
+	this->position = obj.position;
+	this->xSpeed = obj.xSpeed;
+	this->ySpeed = obj.ySpeed;
+	this->shape = obj.shape;
+	this->type = obj.type;
+	this->active = obj.active;
 
 	return *this;
 

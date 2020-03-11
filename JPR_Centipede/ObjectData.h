@@ -25,9 +25,8 @@ protected:
 	ObjectType type = ObjectType::Generic;
 	Vector2f position;
 	CircleShape shape;
-	float xSpeed = 0.0f;
-	float ySpeed = 0.0f;
 	bool active = false;
+	float xSpeed = 0.0f, ySpeed = 0.0f;
 
 public:
 	ObjectData(float initX, float initY);

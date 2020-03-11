@@ -17,7 +17,7 @@ private:
 	vector<vector<GameObject*>> gm;
 
 	bool inBounds(int x, int y);
-	int getKey(int x, int y);
+	int getKey(float x,float y);
 
 public:
 	GridManager(int width, int height);

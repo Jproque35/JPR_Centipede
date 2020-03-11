@@ -16,8 +16,8 @@ class CentipedeData: public ObjectData {
 private:
 	CentipedeDirection dir = CentipedeDirection::Left;
 	bool reversed = false;
-	Centipede* next = NULL;
-	Centipede* prev = NULL;
+	Centipede* next;
+	Centipede* prev;
 
 public:
 	CentipedeData(float initX, float initY);

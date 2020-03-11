@@ -10,14 +10,19 @@ MushroomData::MushroomData(float initX, float initY) :ObjectData(initX, initY) {
 
 MushroomData::MushroomData(const MushroomData& obj) : ObjectData(obj) {
 
-	this->health = obj.health;
-	this->inHitStun = obj.inHitStun;
+	this->health = int(obj.health);
 
 }
 
 MushroomData::~MushroomData() {}
 
 MushroomData& MushroomData::operator=(const MushroomData& obj) {
+
+	if (this != &obj) {
+
+
+
+	}
 
 	return *this;
 

@@ -12,7 +12,6 @@ class MushroomData :
 
 private:
 	int health = 4;
-	bool inHitStun = false;
 
 public:
 	MushroomData(float initX, float initY);
