@@ -11,9 +11,9 @@ class MushroomHitEvent :
 {
 
 private:
+	GameObjectManager* gm;
 	Mushroom* context;
 	MushroomData* data;
-	GameObjectManager* gm;
 
 public:
 	MushroomHitEvent(Mushroom* context);

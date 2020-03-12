@@ -2,8 +2,6 @@
 
 GameObjectManager* GameObjectManager::instance = 0;
 
-GameObjectManager::GameObjectManager() {}
-
 GameObjectManager::GameObjectManager(const GameObjectManager& obj) {
 
 	this->gm = obj.gm;
@@ -16,8 +14,10 @@ GameObjectManager::~GameObjectManager() {
 	for (int i = 0; i < this->gm.size(); i++) {
 
 		if (this->gm[i] != NULL) {
+
 			delete(this->gm[i]);
 			this->gm[i] = NULL;
+
 		}
 
 	}
@@ -44,6 +44,13 @@ GameObjectManager* GameObjectManager::getInstance() {
 
 }
 
+void GameObjectManager::resetInstance() {
+
+	delete(instance);
+	instance = NULL;
+
+}
+
 void GameObjectManager::init(int size, int x, int y) {
 
 	this->gm.resize(size);
@@ -55,13 +62,6 @@ void GameObjectManager::init(int size, int x, int y) {
 	}
 
 	this->grid = new GridManager(x, y);
-	this->hud = new ScoreObject();
-
-}
-
-ScoreObject* GameObjectManager::getHudObject() {
-
-	return this->hud;
 
 }
 

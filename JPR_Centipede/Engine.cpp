@@ -24,7 +24,9 @@ Engine::Engine(const Engine& obj) {}
 
 Engine::~Engine() {
 
-	delete(this->gm);
+	GameObjectManager::resetInstance();
+	InputManager::resetInstance();
+	ScoreManager::resetInstance();
 	delete(this->em);
 
 }
@@ -44,6 +46,13 @@ Engine* Engine::getInstance() {
 	}
 
 	return instance;
+
+}
+
+void Engine::resetInstance() {
+
+	delete(instance);
+	instance = NULL;
 
 }
 

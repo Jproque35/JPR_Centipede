@@ -1,5 +1,48 @@
-﻿  Draw.cpp
+﻿  BulletCollideEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(28,59): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(28,48): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(30,20): warning C4018: '<': signed/unsigned mismatch
+  GameEvent.cpp
+  GameObjectFactory.cpp
+  GameObjectState.cpp
+  Draw.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Engine.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(17,78): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(17,48): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  NullState.cpp
+  Initialize.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(17,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(17,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(110,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(117,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(118,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Input.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Main.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  MushroomHitEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MushroomHitEvent.cpp(31,72): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MushroomHitEvent.cpp(31,61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  GameObject.cpp
   Update.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Generating Code...

@@ -23,12 +23,14 @@ ObjectData::ObjectData(float initX, float initY) {
 
 ObjectData::ObjectData(const ObjectData& obj) {
 
-	this->position = obj.position;
+	this->position = Vector2f(obj.position);
 	this->xSpeed = obj.xSpeed;
 	this->ySpeed = obj.ySpeed;
-	this->shape = CircleShape(this->shape);
+	this->shape = CircleShape(obj.shape);
 	this->type = obj.type;
 	this->active = obj.active;
+	this->font = Font(obj.font);
+	this->posText = Text(obj.posText);
 
 }
 
@@ -42,6 +44,8 @@ ObjectData& ObjectData::operator=(const ObjectData& obj) {
 	this->shape = obj.shape;
 	this->type = obj.type;
 	this->active = obj.active;
+	this->font = obj.font;
+	this->posText = obj.posText;
 
 	return *this;
 

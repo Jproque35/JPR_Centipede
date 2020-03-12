@@ -1,6 +1,8 @@
 #include "ScoreObject.h"
 
-ScoreObject::ScoreObject() {
+ScoreManager* ScoreManager::instance = 0;
+
+ScoreManager::ScoreManager() {
 
     this->font.loadFromFile("game_over.ttf");
 
@@ -10,11 +12,32 @@ ScoreObject::ScoreObject() {
     this->hud.setFillColor(sf::Color::White);
     this->hud.setOutlineColor(sf::Color::Black);
     this->hud.setOutlineThickness(1.0f);
-    this->updateHud();
+    this->updateScoreText();
 
 }
 
-void ScoreObject::updateHud() {
+ScoreManager::~ScoreManager() {}
+
+ScoreManager* ScoreManager::getInstance() {
+
+    if (!instance) {
+
+        instance = new ScoreManager();
+
+    }
+
+    return instance;
+
+}
+
+void ScoreManager::resetInstance() {
+
+    delete(instance);
+    instance = NULL;
+
+}
+
+void ScoreManager::updateScoreText() {
 
     stringstream ss;
     ss << "Score: " << this->score;
@@ -22,26 +45,26 @@ void ScoreObject::updateHud() {
 
 }
 
-int ScoreObject::getScore() {
+int ScoreManager::getScore() {
 
     return this->score;
 
 }
 
-void ScoreObject::increaseScore(int i) {
+void ScoreManager::increaseScore(int i) {
 
     this->score += i;
-    this->updateHud();
+    this->updateScoreText();
 
 }
 
-void ScoreObject::setScore(int i) {
+void ScoreManager::setScore(int i) {
 
     this->score = i;
-    this->updateHud();
+    this->updateScoreText();
 }
 
-Text ScoreObject::getHudText() {
+Text ScoreManager::getScoreText() {
 
     return this->hud;
 

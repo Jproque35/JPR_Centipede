@@ -2,8 +2,8 @@
 #define CENTIPEDEHITEVENT_H
 #pragma once
 #include "GameObject.h"
-#include "GameObjectManager.h"
 #include "GameEvent.h"
+#include "GameObjectManager.h"
 #include "Centipede.h"
 
 class CentipedeHitEvent :
@@ -13,6 +13,7 @@ class CentipedeHitEvent :
 private:
 	GameObjectManager* gm;
 	Centipede* context;
+	ScoreManager* sm;
 
 public:
 	CentipedeHitEvent(Centipede* context);

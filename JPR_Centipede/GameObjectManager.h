@@ -15,19 +15,19 @@ private:
 	static GameObjectManager* instance;
 	vector<GameObject*> gm;
 	GridManager* grid;
-	ScoreObject* hud;
 
-	GameObjectManager();
-	void rebuildGrid();
-
-public:
-	static GameObjectManager* getInstance();
+	GameObjectManager() {};
 	GameObjectManager(const GameObjectManager& obj);
 	~GameObjectManager();
 	GameObjectManager& operator=(const GameObjectManager& obj);
 
+	void rebuildGrid();
+
+public:
+	static GameObjectManager* getInstance();
+	static void resetInstance();
 	void init(int size, int x, int y);
-	ScoreObject* getHudObject();
+	ScoreManager* getHudObject();
 	int getGridWidth();
 	int getGridHeight();
 	void add(int i, GameObject* obj);

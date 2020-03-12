@@ -25,6 +25,7 @@ private:
 	RenderWindow window;
 	GameObjectManager* gm;
 	InputManager* im;
+	ScoreManager* sm;
 	EventManager* em;
 
 	float cellWidth = 0.0f;
@@ -37,6 +38,10 @@ private:
 	int getNumObjects();
 
 	Engine();
+	Engine(const Engine& obj);
+	~Engine();
+	Engine& operator=(const Engine& obj);
+
 	void input(float dtAsSeconds);
 	void init();
 	void initObjects();
@@ -52,9 +57,7 @@ private:
 
 public:
 	static Engine* getInstance();
-	Engine(const Engine& obj);
-	~Engine();
-	Engine& operator=(const Engine& obj);
+	static void resetInstance();
 	void start();
 
 };

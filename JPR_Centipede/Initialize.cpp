@@ -11,6 +11,7 @@ void Engine::init() {
 	int yRes = this->window.getSize().y;
 	this->gm = GameObjectManager::getInstance();
 	this->im = InputManager::getInstance();
+	this->sm = ScoreManager::getInstance();
 	this->em = new EventManager(this->gm);
 
 	this->gm->init(this->getNumObjects(), this->gridWidth, this->gridHeight);

@@ -14,7 +14,7 @@ int main()
 
 	e->start();
 
-	delete(e);
+	Engine::resetInstance();
 
 	return 0;
 

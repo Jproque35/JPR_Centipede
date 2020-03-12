@@ -161,6 +161,7 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="CommandFactory.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="GameEvent.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
     <ClCompile Include="GameObjectState.cpp" />
     <ClCompile Include="GenericState.cpp" />

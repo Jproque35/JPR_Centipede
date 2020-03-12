@@ -2,8 +2,8 @@
 
 CentipedeMoveEvent::CentipedeMoveEvent(Centipede* context) {
 
-	this->gm = GameObjectManager::getInstance();
 	this->context = context;
+	this->gm = GameObjectManager::getInstance();
 	this->data = (CentipedeData*)this->context->getData();
 
 }
@@ -56,7 +56,7 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 void CentipedeMoveEvent::moveLeftRoutine() {
 
-	if (this->leftBlocked()) {
+	if (this->leftBlocked() && this->context->commandsSize() < 1) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Right);
 
@@ -71,7 +71,7 @@ void CentipedeMoveEvent::moveLeftRoutine() {
 
 void CentipedeMoveEvent::moveRightRoutine() {
 
-	if (this->rightBlocked()) {
+	if (this->rightBlocked() && this->context->commandsSize() < 1) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Left);
 

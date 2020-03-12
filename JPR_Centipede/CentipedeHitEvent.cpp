@@ -2,14 +2,16 @@
 
 CentipedeHitEvent::CentipedeHitEvent(Centipede* context) {
 
-	this->gm = GameObjectManager::getInstance();
 	this->context = context;
+	this->gm = GameObjectManager::getInstance();
+	this->sm = ScoreManager::getInstance();
 
 }
 
 CentipedeHitEvent::CentipedeHitEvent(const CentipedeHitEvent& obj) {
 
-	this->gm = obj.gm;
+	this->gm = GameObjectManager::getInstance();
+	this->sm = ScoreManager::getInstance();
 	this->context = obj.context;
 
 }
@@ -29,7 +31,7 @@ void CentipedeHitEvent::update(float elapsedTime) {
 	if (this->gm->hasType(ObjectType::PlayerProjectile, currPos.x, currPos.y)) {
 
 		cout << "Centipede got hit" << endl;
-		this->gm->getHudObject()->increaseScore(10);
+		this->sm->increaseScore(10);
 		this->context->getData()->setPosition(Vector2f(0, 0));
 
 	}

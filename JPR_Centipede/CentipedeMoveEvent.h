@@ -11,9 +11,9 @@ class CentipedeMoveEvent :
 {
 
 private:
+	GameObjectManager* gm;
 	Centipede* context;
 	CentipedeData* data;
-	GameObjectManager* gm;
 
 	void queueLevelChangeCommand();
 	void changeLevelAndDirection(CentipedeDirection dir);

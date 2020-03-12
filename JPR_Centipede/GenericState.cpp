@@ -14,7 +14,21 @@ GenericState::GenericState(const GenericState& obj) {
 
 GenericState::~GenericState() {
 
+	for (int i = 0; i < this->events.size(); i++) {
 
+		delete(this->events[i]);
+		this->events[i] = NULL;
+
+	}
+
+	while (this->commands.size() > 0) {
+
+		ObjectCommand* currCommand = this->commands.front();
+		this->commands.pop();
+		delete(currCommand);
+		currCommand = NULL;
+
+	}
 
 }
 

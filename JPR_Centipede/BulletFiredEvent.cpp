@@ -2,8 +2,8 @@
 
 BulletFiredEvent::BulletFiredEvent(PlayerBullet* context) {
 
-	this->gm = GameObjectManager::getInstance();
 	this->im = InputManager::getInstance();
+	this->gm = GameObjectManager::getInstance();
 	this->context = context;
 
 }

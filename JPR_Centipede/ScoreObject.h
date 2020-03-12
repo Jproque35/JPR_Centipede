@@ -1,26 +1,33 @@
-#ifndef HUDOBJECT_H
-#define HUDOBEJCT_H
+#ifndef SCOREMANAGER_H
+#define SCOREMANAGER_H
 #pragma once
 #include "ObjectData.h"
 #include <sstream>
 
 using namespace std;
 
-class ScoreObject
+class ScoreManager
 {
 
 private:
+	static ScoreManager* instance;
 	Text hud;
 	Font font;
 	int score = 0;
+	ScoreManager();
+	ScoreManager(const ScoreManager& obj);
+	~ScoreManager();
+	ScoreManager& operator=(const ScoreManager& obj);
 
 public:
-	ScoreObject();
+	static ScoreManager* getInstance();
+	static void resetInstance();
+
 	int getScore();
 	void increaseScore(int i);
 	void setScore(int i);
-	void updateHud();
-	Text getHudText();
+	void updateScoreText();
+	Text getScoreText();
 
 };
 

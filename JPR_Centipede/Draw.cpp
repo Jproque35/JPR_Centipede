@@ -23,7 +23,7 @@ void Engine::draw() {
 
 	}
 	
-	Text hudText = this->gm->getHudObject()->getHudText();
+	Text hudText = this->sm->getScoreText();
 
 	window.draw(hudText);
 

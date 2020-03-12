@@ -2,8 +2,8 @@
 
 BulletCollideEvent::BulletCollideEvent(PlayerBullet* context) {
 
-	this->gm = GameObjectManager::getInstance();
 	this->context = context;
+	this->gm = GameObjectManager::getInstance();
 
 }
 

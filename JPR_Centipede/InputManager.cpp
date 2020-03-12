@@ -2,6 +2,8 @@
 
 InputManager* InputManager::instance = 0;
 
+InputManager::~InputManager() {};
+
 InputManager* InputManager::getInstance() {
 
 	if (!instance) {
@@ -11,6 +13,13 @@ InputManager* InputManager::getInstance() {
 	}
 
 	return instance;
+
+}
+
+void InputManager::resetInstance() {
+
+	delete(instance);
+	instance = NULL;
 
 }
 
@@ -126,14 +135,14 @@ bool InputManager::isDebugActive() {
 
 void InputManager::debugPressed() {
 
-	if (Keyboard::isKeyPressed(this->debugKey) && !this->debugLock) {
+	if (Keyboard::isKeyPressed(this->debugKey)) {
 
-		if (!this->debugActive) {
+		if (!this->debugActive && !this->debugLock) {
 
 			this->debugActive = true; 
 
 		}
-		else {
+		else if(this->debugActive && !this->debugLock) {
 
 			this->debugActive = false;
 

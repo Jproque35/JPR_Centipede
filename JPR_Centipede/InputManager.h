@@ -25,9 +25,13 @@ private:
 	bool debugLock = false;
 
 	InputManager() {};
+	InputManager(const InputManager& obj);
+	~InputManager();
+	InputManager& operator=(const InputManager& obj);
 
 public:
 	static InputManager* getInstance();
+	static void resetInstance();
 	bool isUpPressed();
 	void upPressed();
 	bool isDownPressed();
