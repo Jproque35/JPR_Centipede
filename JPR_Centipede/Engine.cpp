@@ -1,5 +1,7 @@
 #include "Engine.h"
 
+Engine* Engine::instance = NULL;
+
 Engine::Engine() {
 
 	Vector2f resolution;
@@ -30,6 +32,18 @@ Engine::~Engine() {
 Engine& Engine::operator=(const Engine& obj) {
 
 	return *this;
+
+}
+
+Engine* Engine::getInstance() {
+
+	if (!instance) {
+
+		instance = new Engine();
+
+	}
+
+	return instance;
 
 }
 

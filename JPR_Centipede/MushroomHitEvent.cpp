@@ -1,8 +1,8 @@
 #include "MushroomHitEvent.h"
 
-MushroomHitEvent::MushroomHitEvent(GameObjectManager* gm, Mushroom* context) {
+MushroomHitEvent::MushroomHitEvent(Mushroom* context) {
 
-	this->gm = gm;
+	this->gm = GameObjectManager::getInstance();
 	this->context = context;
 	this->data = (MushroomData*)(this->context->getData());
 

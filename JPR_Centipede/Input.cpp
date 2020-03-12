@@ -8,4 +8,6 @@ void Engine::input(float dtAsSeconds) {
 		
 	}
 
+	this->im->update();
+
 }

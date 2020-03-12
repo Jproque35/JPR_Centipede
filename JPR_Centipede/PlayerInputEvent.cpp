@@ -1,8 +1,9 @@
 #include "PlayerInputEvent.h"
 
-PlayerInputEvent::PlayerInputEvent(GameObjectManager* gm, Player* context) {
+PlayerInputEvent::PlayerInputEvent(Player* context) {
 
-	this->gm = gm;
+	this->gm = GameObjectManager::getInstance();
+	this->im = InputManager::getInstance();
 	this->context = context;
 
 }
@@ -28,7 +29,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 
 	//cout << "Current position is: " << currPos.x << " " << currPos.y << endl;
 
-	if (this->gm->getInputManager()->isUpPressed()) {
+	if (this->im->isUpPressed()) {
 
 		if (currPos.y - 1.0f >= 0 &&
 			!this->gm->hasType(ObjectType::MushroomData, currPos.x, currPos.y - 1.0f)) {
@@ -38,7 +39,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 		}
 
 	}
-	else if (this->gm->getInputManager()->isDownPressed()) {
+	else if (this->im->isDownPressed()) {
 
 		if (ceil(currPos.y) + 1.0f < this->gm->getGridHeight() &&
 			!this->gm->hasType(ObjectType::MushroomData, currPos.x, ceil(currPos.y) + 1.0f)) {
@@ -48,7 +49,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 		}
 
 	}
-	else if (this->gm->getInputManager()->isLeftPressed()) {
+	else if (this->im->isLeftPressed()) {
 
 		if (currPos.x - 1.0f >= 0 &&
 			!this->gm->hasType(ObjectType::MushroomData, currPos.x - 1.0f, currPos.y)) {
@@ -58,7 +59,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 		}
 
 	}
-	else if (this->gm->getInputManager()->isRightPressed()) {
+	else if (this->im->isRightPressed()) {
 
 		if (ceil(currPos.x) + 1.0f < this->gm->getGridWidth() &&
 			!this->gm->hasType(ObjectType::MushroomData, ceil(currPos.x) + 1.0f, currPos.y)) {

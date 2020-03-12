@@ -1,8 +1,9 @@
 #include "BulletFiredEvent.h"
 
-BulletFiredEvent::BulletFiredEvent(GameObjectManager* gm, PlayerBullet* context) {
+BulletFiredEvent::BulletFiredEvent(PlayerBullet* context) {
 
-	this->gm = gm;
+	this->gm = GameObjectManager::getInstance();
+	this->im = InputManager::getInstance();
 	this->context = context;
 
 }
@@ -24,7 +25,7 @@ BulletFiredEvent& BulletFiredEvent::operator=(const BulletFiredEvent& obj) {
 
 void BulletFiredEvent::update(float elapsedTime) {
 
-	if (this->gm->getInputManager()->isFirePressed()) {
+	if (this->im->isFirePressed()) {
 
 		if (!this->context->getData()->isActive()) {
 

@@ -9,8 +9,11 @@ inline int Engine::getNumObjects() {
 void Engine::init() {
 	int xRes = this->window.getSize().x;
 	int yRes = this->window.getSize().y;
-	this->gm = new GameObjectManager(this->getNumObjects(), this->gridWidth, this->gridHeight);
+	this->gm = GameObjectManager::getInstance();
+	this->im = InputManager::getInstance();
 	this->em = new EventManager(this->gm);
+
+	this->gm->init(this->getNumObjects(), this->gridWidth, this->gridHeight);
 
 	this->initObjects();
 	this->initEvents();
@@ -34,7 +37,7 @@ void Engine::initPlayer(int &currPos) {
 	float initX = floor(this->gridWidth / 2);
 	float initY = floor(this->gridHeight / 2);
 
-	this->gm->add(0, GameObjectFactory::makeObject(ObjectType::PlayerData, this->gm, initX, initY));
+	this->gm->add(0, GameObjectFactory::makeObject(ObjectType::PlayerData, initX, initY));
 	this->gm->get(0)->getData()->activate();
 	bulletsStart = ++currPos;
 
@@ -43,7 +46,7 @@ void Engine::initPlayer(int &currPos) {
 
 	while (currPos < endPos) {
 
-		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::PlayerProjectile, this->gm, initX, initY));
+		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::PlayerProjectile, initX, initY));
 		cout << "Loaded bullet object into slot " << currPos << endl;
 		currPos++;
 
@@ -61,7 +64,7 @@ void Engine::initEnemies(int &currPos) {
 		float initX = floor(this->gridWidth / 2);
 		float initY = 0.0f;
 
-		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::CentipedeData, this->gm, initX, initY) );
+		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::CentipedeData, initX, initY) );
 		cout << "Loaded centipede object into slot " << currPos << endl;
 		currPos++;
 
@@ -115,7 +118,7 @@ void Engine::initMushrooms(int &currPos) {
 
 		Mushroom* newObj = new Mushroom(tempX, tempY);
 
-		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::MushroomData, this->gm, tempX, tempY));
+		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::MushroomData, tempX, tempY));
 		this->gm->get(currPos)->getData()->activate();
 		cout << "Loaded mushroom object into slot " << currPos << " at position " << tempX << ", " << tempY << endl;
 		currPos++;

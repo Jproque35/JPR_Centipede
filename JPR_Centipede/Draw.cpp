@@ -11,7 +11,12 @@ void Engine::draw() {
 			if(this->gm->get(i)->getData()->isActive()) {
 
 				this->drawShape( this->gm->get(i)->getData() );
-				this->drawText(this->gm->get(i)->getData()->getPositionText());
+
+				if (this->im->isDebugActive()) {
+
+					this->drawText(this->gm->get(i)->getData()->getPositionText());
+
+				}
 
 			}
 		}

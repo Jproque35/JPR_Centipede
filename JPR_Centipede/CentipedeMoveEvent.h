@@ -27,7 +27,7 @@ private:
 	bool downBlocked();
 
 public:
-	CentipedeMoveEvent(GameObjectManager* gm, Centipede* context);
+	CentipedeMoveEvent(Centipede* context);
 	CentipedeMoveEvent(const CentipedeMoveEvent& obj);
 	~CentipedeMoveEvent();
 	CentipedeMoveEvent& operator=(const CentipedeMoveEvent& obj);

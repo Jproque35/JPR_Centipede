@@ -10,7 +10,7 @@ using namespace sf;
 
 int main()
 {
-	Engine* e = new Engine();
+	Engine* e = Engine::getInstance();
 
 	e->start();
 

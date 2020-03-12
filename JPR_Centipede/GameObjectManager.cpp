@@ -1,20 +1,8 @@
 #include "GameObjectManager.h"
 
-GameObjectManager::GameObjectManager(int size, int x, int y) {
+GameObjectManager* GameObjectManager::instance = 0;
 
-	this->gm.resize(size);
-
-	for (int i = 0; i < this->gm.size(); i++) {
-
-		this->gm[i] = NULL;
-
-	}
-
-	this->grid = new GridManager(x, y);
-	this->im = new InputManager();
-	this->hud = new ScoreObject();
-
-}
+GameObjectManager::GameObjectManager() {}
 
 GameObjectManager::GameObjectManager(const GameObjectManager& obj) {
 
@@ -44,9 +32,30 @@ GameObjectManager& GameObjectManager::operator=(const GameObjectManager& obj) {
 
 }
 
-InputManager* GameObjectManager::getInputManager() {
+GameObjectManager* GameObjectManager::getInstance() {
 
-	return this->im;
+	if (!instance) {
+
+		instance = new GameObjectManager();
+
+	}
+
+	return instance;
+
+}
+
+void GameObjectManager::init(int size, int x, int y) {
+
+	this->gm.resize(size);
+
+	for (int i = 0; i < this->gm.size(); i++) {
+
+		this->gm[i] = NULL;
+
+	}
+
+	this->grid = new GridManager(x, y);
+	this->hud = new ScoreObject();
 
 }
 

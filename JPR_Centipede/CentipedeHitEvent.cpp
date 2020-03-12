@@ -1,8 +1,8 @@
 #include "CentipedeHitEvent.h"
 
-CentipedeHitEvent::CentipedeHitEvent(GameObjectManager* gm, Centipede* context) {
+CentipedeHitEvent::CentipedeHitEvent(Centipede* context) {
 
-	this->gm = gm;
+	this->gm = GameObjectManager::getInstance();
 	this->context = context;
 
 }

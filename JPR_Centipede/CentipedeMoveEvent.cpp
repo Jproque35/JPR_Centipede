@@ -1,8 +1,8 @@
 #include "CentipedeMoveEvent.h"
 
-CentipedeMoveEvent::CentipedeMoveEvent(GameObjectManager* gm, Centipede* context) {
+CentipedeMoveEvent::CentipedeMoveEvent(Centipede* context) {
 
-	this->gm = gm;
+	this->gm = GameObjectManager::getInstance();
 	this->context = context;
 	this->data = (CentipedeData*)this->context->getData();
 

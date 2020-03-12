@@ -12,20 +12,21 @@ using namespace std;
 class GameObjectManager {
 
 private:
+	static GameObjectManager* instance;
 	vector<GameObject*> gm;
-	InputManager* im;
 	GridManager* grid;
 	ScoreObject* hud;
 
+	GameObjectManager();
 	void rebuildGrid();
 
 public:
-	GameObjectManager(int size, int x, int y);
+	static GameObjectManager* getInstance();
 	GameObjectManager(const GameObjectManager& obj);
 	~GameObjectManager();
 	GameObjectManager& operator=(const GameObjectManager& obj);
 
-	InputManager* getInputManager();
+	void init(int size, int x, int y);
 	ScoreObject* getHudObject();
 	int getGridWidth();
 	int getGridHeight();

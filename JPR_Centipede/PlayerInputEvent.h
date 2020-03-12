@@ -13,11 +13,12 @@ class PlayerInputEvent :
 private:
 	Player* context;
 	GameObjectManager* gm;
+	InputManager* im;
 
 	void queueCommand(CommandType type);
 
 public:
-	PlayerInputEvent(GameObjectManager* gm, Player* context);
+	PlayerInputEvent(Player* context);
 	PlayerInputEvent(const PlayerInputEvent& obj);
 	~PlayerInputEvent();
 	PlayerInputEvent& operator=(const PlayerInputEvent& obj);

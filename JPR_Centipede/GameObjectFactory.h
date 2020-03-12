@@ -15,7 +15,7 @@ class GameObjectFactory
 {
 
 public:
-	static GameObject* makeObject(ObjectType type, GameObjectManager* gm, float initX, float initY);
+	static GameObject* makeObject(ObjectType type, float initX, float initY);
 
 };
 

@@ -1,5 +1,19 @@
 #include "InputManager.h"
 
+InputManager* InputManager::instance = 0;
+
+InputManager* InputManager::getInstance() {
+
+	if (!instance) {
+
+		instance = new InputManager();
+
+	}
+
+	return instance;
+
+}
+
 bool InputManager::isUpPressed() {
 
 	return this->upActive;
@@ -104,6 +118,38 @@ void InputManager::firePressed() {
 
 }
 
+bool InputManager::isDebugActive() {
+
+	return this->debugActive;
+
+}
+
+void InputManager::debugPressed() {
+
+	if (Keyboard::isKeyPressed(this->debugKey) && !this->debugLock) {
+
+		if (!this->debugActive) {
+
+			this->debugActive = true; 
+
+		}
+		else {
+
+			this->debugActive = false;
+
+		}
+
+		this->debugLock = true;
+
+	}
+	else {
+
+		this->debugLock = false;
+
+	}
+
+}
+
 void InputManager::update() {
 
 	this->leftPressed();
@@ -111,6 +157,7 @@ void InputManager::update() {
 	this->upPressed();
 	this->rightPressed();
 	this->firePressed();
+	this->debugPressed();
 
 }
 

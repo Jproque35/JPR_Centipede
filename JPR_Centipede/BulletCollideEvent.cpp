@@ -1,8 +1,8 @@
 #include "BulletCollideEvent.h"
 
-BulletCollideEvent::BulletCollideEvent(GameObjectManager* gm, PlayerBullet* context) {
+BulletCollideEvent::BulletCollideEvent(PlayerBullet* context) {
 
-	this->gm = gm;
+	this->gm = GameObjectManager::getInstance();
 	this->context = context;
 
 }

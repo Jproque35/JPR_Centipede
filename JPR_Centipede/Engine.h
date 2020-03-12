@@ -21,10 +21,11 @@ using namespace std;
 class Engine {
 
 private:
+	static Engine* instance;
 	RenderWindow window;
 	GameObjectManager* gm;
+	InputManager* im;
 	EventManager* em;
-	queue<PlayerBullet*> loadedBullets;
 
 	float cellWidth = 0.0f;
 	float gridHeight = 0.0f;
@@ -35,6 +36,7 @@ private:
 	int numMushrooms = 50;
 	int getNumObjects();
 
+	Engine();
 	void input(float dtAsSeconds);
 	void init();
 	void initObjects();
@@ -48,8 +50,8 @@ private:
 	void drawShape(ObjectData* obj);
 	void drawText(const Text& drawable);
 
-public:	
-	Engine();
+public:
+	static Engine* getInstance();
 	Engine(const Engine& obj);
 	~Engine();
 	Engine& operator=(const Engine& obj);
