@@ -110,7 +110,7 @@ void Engine::initMushrooms(int &currPos) {
 
 	while (currPos < endPos) {
 
-		float tempX = rand() % (int)(this->gridWidth - 1.0f);
+		float tempX = rand() % (int)(this->gridWidth);
 		float tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
 
 		Mushroom* newObj = new Mushroom(tempX, tempY);

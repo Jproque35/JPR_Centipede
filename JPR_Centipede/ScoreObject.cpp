@@ -2,7 +2,6 @@
 
 ScoreObject::ScoreObject() {
 
-    this->font;
     this->font.loadFromFile("game_over.ttf");
 
     this->hud.setPosition(Vector2f(0.0f, 0.0f));

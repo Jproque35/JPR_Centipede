@@ -46,6 +46,7 @@ private:
 	void update(float dtAsSeconds);
 	void draw();
 	void drawShape(ObjectData* obj);
+	void drawText(const Text& drawable);
 
 public:	
 	Engine();

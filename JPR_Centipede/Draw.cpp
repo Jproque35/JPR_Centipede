@@ -11,6 +11,7 @@ void Engine::draw() {
 			if(this->gm->get(i)->getData()->isActive()) {
 
 				this->drawShape( this->gm->get(i)->getData() );
+				this->drawText(this->gm->get(i)->getData()->getPositionText());
 
 			}
 		}
@@ -37,4 +38,15 @@ void Engine::drawShape(ObjectData* obj) {
 	drawable.setPosition(drawablePosition);
 	this->window.draw(drawable);
 
+}
+
+void Engine::drawText(const Text& drawable) {
+
+	Text currText = drawable;
+	float xPos = currText.getPosition().x * this->cellWidth;
+	float yPos = currText.getPosition().y * this->cellWidth;
+
+	currText.setPosition(Vector2f(xPos, yPos));
+
+	this->window.draw(currText);
 }

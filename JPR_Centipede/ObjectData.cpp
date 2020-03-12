@@ -1,4 +1,5 @@
 #include "ObjectData.h"
+#include <sstream>
 
 ObjectData::ObjectData(float initX, float initY) {
 
@@ -8,6 +9,15 @@ ObjectData::ObjectData(float initX, float initY) {
 	this->ySpeed = 0.0f;
 	this->shape.setPosition(this->position);
 	this->shape.setPointCount(15);
+
+	this->font.loadFromFile("game_over.ttf");
+
+	this->posText.setPosition(Vector2f(0.0f, 0.0f));
+	this->posText.setFont(this->font);
+	this->posText.setCharacterSize(36);
+	this->posText.setFillColor(sf::Color::White);
+	this->posText.setOutlineColor(sf::Color::Black);
+	this->posText.setOutlineThickness(1.0f);
 
 }
 
@@ -106,5 +116,16 @@ float ObjectData::getXVelocity() {
 float ObjectData::getYVelocity() {
 
 	return this->ySpeed;
+
+}
+
+Text ObjectData::getPositionText() {
+
+	stringstream ss;
+	ss << "(" << this->position.x << "," << this->position.y << ")";
+	this->posText.setString(ss.str());
+	this->posText.setPosition(this->position);
+
+	return this->posText;
 
 }

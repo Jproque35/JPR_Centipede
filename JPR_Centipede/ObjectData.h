@@ -27,6 +27,8 @@ protected:
 	CircleShape shape;
 	bool active = false;
 	float xSpeed = 0.0f, ySpeed = 0.0f;
+	Text posText;
+	Font font;
 
 public:
 	ObjectData(float initX, float initY);
@@ -46,6 +48,7 @@ public:
 	void setYVelocity(float ySpeed);
 	float getXVelocity();
 	float getYVelocity();
+	Text getPositionText();
 
 };
 
