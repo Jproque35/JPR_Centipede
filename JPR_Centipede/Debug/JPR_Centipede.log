@@ -5,4 +5,6 @@ C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(36,19): warning
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(37,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Draw.cpp(56,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Draw.cpp(56,17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameObjectFactory.cpp
+  Generating Code...
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

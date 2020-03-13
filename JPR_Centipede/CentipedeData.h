@@ -11,8 +11,6 @@ class Centipede;
 
 class CentipedeData: public ObjectData {
 
-	friend class Centipede;
-
 private:
 	CentipedeDirection dir = CentipedeDirection::Left;
 	bool reversed = false;

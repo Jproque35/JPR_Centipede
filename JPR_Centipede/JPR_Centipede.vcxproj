@@ -155,6 +155,7 @@
     <ClCompile Include="BulletCollideEvent.cpp" />
     <ClCompile Include="BulletFiredEvent.cpp" />
     <ClCompile Include="Centipede.cpp" />
+    <ClCompile Include="CentipedeBodyState.cpp" />
     <ClCompile Include="CentipedeHeadState.cpp" />
     <ClCompile Include="CentipedeHitEvent.cpp" />
     <ClCompile Include="CentipedeMoveEvent.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="BulletCollideEvent.h" />
     <ClInclude Include="BulletFiredEvent.h" />
     <ClInclude Include="Centipede.h" />
+    <ClInclude Include="CentipedeBodyState.h" />
     <ClInclude Include="CentipedeHeadState.h" />
     <ClInclude Include="CentipedeHitEvent.h" />
     <ClInclude Include="CentipedeMoveEvent.h" />

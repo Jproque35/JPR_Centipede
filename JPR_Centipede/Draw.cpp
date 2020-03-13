@@ -18,7 +18,7 @@ void Engine::draw() {
 
 		if(this->gm->get(i) != NULL) {
 
-			if(this->gm->get(i)->getData()->isActive()) {
+			//if(this->gm->get(i)->getData()->isActive()) {
 
 				this->drawShape(this->gm->get(i)->getData());
 
@@ -34,7 +34,7 @@ void Engine::draw() {
 
 				}
 
-			}
+			//}
 		}
 
 	}

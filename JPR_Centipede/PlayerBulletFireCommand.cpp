@@ -8,6 +8,8 @@ PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBulletData* context) {
 	this->context = context;
 	this->context->active = true;
 	this->type = CommandType::ShootBullet;
+	this->sBuf.loadFromFile("assets/sounds/mmzx_vent_mx_shoot.wav");
+	this->fireSound.setBuffer(this->sBuf);
 
 }
 
@@ -31,6 +33,12 @@ PlayerBulletFireCommand& PlayerBulletFireCommand::operator=(const PlayerBulletFi
 void PlayerBulletFireCommand::execute(float elapsedTime) {
 
 	if (this->context->active) {
+
+		if (this->distTravelled == 0) {
+
+			this->fireSound.play();
+
+		}
 
 		this->context->position.y -= this->context->ySpeed * elapsedTime;
 		this->distTravelled += this->context->ySpeed * elapsedTime;

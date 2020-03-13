@@ -8,7 +8,7 @@
 using namespace sf;
 using namespace std;
 
-enum class ObjectType { Generic, PlayerData, PlayerProjectile, CentipedeData, MushroomData, Unknown };
+enum class ObjectType { Generic, PlayerData, PlayerProjectile, CentipedeData, CentipedeBody, MushroomData, Unknown };
 
 class ObjectData {
 

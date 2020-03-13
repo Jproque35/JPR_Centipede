@@ -25,8 +25,23 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 	}
 	else if (type == ObjectType::CentipedeData) {
 
-		cout << "Creating Centipede object..." << endl;
+		cout << "Creating Centipede Head object..." << endl;
 		Centipede* centipede = new Centipede(initX, initY);
+		centipede->setState(new CentipedeHeadState((CentipedeData*)centipede->getData()));
+
+		centipede->addEventListener(new CentipedeMoveEvent(centipede));
+		//centipede->addEventListener(new CentipedeHitEvent(centipede));
+		cout << "Centipede object created." << endl;
+
+		return centipede;
+
+	}
+	else if (type == ObjectType::CentipedeBody) {
+
+		cout << "Creating Centipede Body object..." << endl;
+		Centipede* centipede = new Centipede(initX, initY);
+		centipede->setState(new CentipedeBodyState((CentipedeData*)centipede->getData()));
+
 		centipede->addEventListener(new CentipedeMoveEvent(centipede));
 		centipede->addEventListener(new CentipedeHitEvent(centipede));
 		cout << "Centipede object created." << endl;

@@ -31,8 +31,8 @@ void CentipedeHeadState::executeCommand(float elapsedTime) {
 
 			if (this->context->getNext() != NULL) {
 
-				cout << "Command sent to " << this->context->getNext() << endl;
-				this->context->getNext()->queueCommand(CommandFactory::makeCommand(currCommand->getType(), (ObjectData*)(this->context->getNext())));
+				//cout << "Command sent to " << this->context->getNext() << endl;
+				//this->context->getNext()->queueCommand(CommandFactory::makeCommand(currCommand->getType(), (ObjectData*)(this->context->getNext())));
 
 			}
 

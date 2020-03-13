@@ -1,5 +1,18 @@
 #include "GameObject.h"
 
+void GameObject::setState(GameObjectState* state) {
+
+	if (this->state != NULL) {
+
+		delete(this->state);
+		this->state = NULL;
+
+	}
+
+	this->state = state;
+
+}
+
 int GameObject::commandQueueSize() {
 
 	return this->state->getCommandQueueSize();

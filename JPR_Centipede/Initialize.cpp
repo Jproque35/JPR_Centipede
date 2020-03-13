@@ -60,12 +60,22 @@ void Engine::initEnemies(int &currPos) {
 	int endPos = currPos + this->numCentipedes;
 	cout << "Loading centipede objects..." << endl;
 
+	float initX = floor(this->gridWidth / 2);
+	float initY = 0.0f;
+
+	this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::CentipedeData, initX, initY));
+
+	currPos++;
+
 	while (currPos < endPos) {
 
-		float initX = floor(this->gridWidth / 2);
-		float initY = 0.0f;
+		if (currPos > initPos) {
 
-		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::CentipedeData, initX, initY) );
+
+
+		}
+
+		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::CentipedeBody, initX, initY) );
 		cout << "Loaded centipede object into slot " << currPos << endl;
 		currPos++;
 
@@ -73,6 +83,7 @@ void Engine::initEnemies(int &currPos) {
 
 	int currPos2 = initPos;
 
+	/*
 	while (currPos2 < endPos) {
 
 		Centipede* currObj = (Centipede*)(this->gm->get(currPos2));
@@ -98,7 +109,7 @@ void Engine::initEnemies(int &currPos) {
 
 		currPos2++;
 
-	}
+	}*/
 
 
 	this->gm->get(initPos)->getData()->activate();

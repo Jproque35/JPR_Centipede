@@ -10,6 +10,8 @@
 #include "MushroomHitEvent.h"
 #include "CentipedeHitEvent.h"
 #include "BulletCollideEvent.h"
+#include "CentipedeHeadState.h"
+#include "CentipedeBodyState.h"
 
 class GameObjectFactory
 {

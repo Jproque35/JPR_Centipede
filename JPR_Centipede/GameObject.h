@@ -20,6 +20,7 @@ protected:
 	virtual void postUpdate(float elapsedTime) = 0;
 
 public:
+	void setState(GameObjectState* state);
 	int commandQueueSize();
 	void addEventListener(GameEventListener* event);
 	void executeEventListeners(float elapsedTime);
