@@ -28,9 +28,13 @@ private:
 	ScoreManager* sm;
 	EventManager* em;
 
-	float cellWidth = 0.0f;
-	float gridHeight = 0.0f;
-	float gridWidth = 0.0f;
+	Texture bgImg;
+	Sprite background;
+	vector<Sprite> backgroundTiles;
+
+	int cellWidth = 0.0f;
+	int gridHeight = 0.0f;
+	int gridWidth = 0.0f;
 	int bulletsStart = -1;
 	int numBullets = 1;
 	int numCentipedes = 20;
@@ -53,6 +57,8 @@ private:
 	void update(float dtAsSeconds);
 	void draw();
 	void drawShape(ObjectData* obj);
+	void drawSprite(Sprite spr);
+	void drawBackgroundTile(Sprite img);
 	void drawText(const Text& drawable);
 
 public:

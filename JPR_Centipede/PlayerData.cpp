@@ -12,6 +12,8 @@ PlayerData::PlayerData(float initX, float initY) : ObjectData(initX, initY) {
 	this->shape.setOutlineThickness(0.1f);
 	this->shape.setFillColor(Color::Green);
 	this->type = ObjectType::PlayerData;
+	this->img.loadFromFile("assets/sprites/player.png");
+	this->spr.setTexture(this->img);
 
 }
 

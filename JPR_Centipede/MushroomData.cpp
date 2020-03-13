@@ -5,6 +5,8 @@ MushroomData::MushroomData(float initX, float initY) :ObjectData(initX, initY) {
 	this->shape.setRadius(0.5);
 	this->shape.setFillColor(Color::Magenta);
 	this->type = ObjectType::MushroomData;
+	this->img.loadFromFile("assets/sprites/mushroom.png");
+	this->spr.setTexture(this->img);
 
 }
 

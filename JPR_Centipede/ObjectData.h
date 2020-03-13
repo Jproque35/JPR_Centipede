@@ -25,6 +25,8 @@ protected:
 	ObjectType type = ObjectType::Generic;
 	Vector2f position;
 	CircleShape shape;
+	Texture img;
+	Sprite spr;
 	bool active = false;
 	float xSpeed = 0.0f, ySpeed = 0.0f;
 	Text posText;
@@ -49,6 +51,7 @@ public:
 	float getXVelocity();
 	float getYVelocity();
 	Text getPositionText();
+	Sprite getSprite();
 
 };
 

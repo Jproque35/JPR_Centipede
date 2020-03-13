@@ -11,8 +11,30 @@ Engine::Engine() {
 	resolution.y = 900;
 
 	this->cellWidth = resolution.y / 40.0f;
-	this->gridHeight = 40.0f;
-	this->gridWidth = 20.0f;
+	this->gridHeight = 40;
+	this->gridWidth = 20;
+
+	this->bgImg.loadFromFile("assets/sprites/bg.png");
+	this->background.setTexture(this->bgImg);
+	this->background.setPosition(Vector2f(0.0f, 0.0f));
+
+	Vector2u bgSize = this->background.getTexture()->getSize();
+	float bgX = (float)(this->cellWidth * this->gridWidth) / (float)bgSize.x;
+	float bgY = (float)(this->cellWidth * this->gridHeight) / (float)bgSize.y;
+	this->background.setScale(bgX, bgY);
+
+	//this->backgroundTiles = new Sprite[this->gridHeight * this->gridWidth];
+	
+	this->backgroundTiles.resize(this->gridHeight * this->gridWidth);
+
+	for (int i = 0; i < this->gridHeight * this->gridWidth; i++) {
+
+		(this->backgroundTiles[i]).setTexture(this->bgImg);
+		int tempX = (i % this->gridWidth) * this->cellWidth;
+		int tempY = (i * this->gridWidth) * this->cellWidth;
+		this->backgroundTiles[i].setPosition(Vector2f( tempX, tempY ));
+
+	}
 
 	this->window.create(VideoMode(this->gridWidth * cellWidth, this->gridHeight * cellWidth), "Simple Game Engine", Style::Default);
 

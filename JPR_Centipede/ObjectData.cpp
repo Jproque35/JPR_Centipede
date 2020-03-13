@@ -10,6 +10,10 @@ ObjectData::ObjectData(float initX, float initY) {
 	this->shape.setPosition(this->position);
 	this->shape.setPointCount(15);
 
+	//this->img.loadFromFile("assets/sprites/centi.png");
+	//this->spr.setTexture(this->img);
+	this->spr.setPosition(this->position);
+
 	this->font.loadFromFile("game_over.ttf");
 
 	this->posText.setPosition(Vector2f(0.0f, 0.0f));
@@ -131,5 +135,11 @@ Text ObjectData::getPositionText() {
 	this->posText.setPosition(this->position);
 
 	return this->posText;
+
+}
+
+Sprite ObjectData::getSprite() {
+
+	return this->spr;
 
 }

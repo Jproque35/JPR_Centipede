@@ -41,4 +41,7 @@ void ObjectMoveLeftCommand::execute(float elapsedTime) {
 
 	}
 
+	this->context->shape.setPosition(this->context->position);
+	this->context->spr.setPosition(this->context->position);
+
 }
