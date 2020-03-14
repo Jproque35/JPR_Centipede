@@ -3,6 +3,8 @@
 #pragma once
 #include "GameObjectState.h"
 #include "CentipedeData.h"
+#include "GameObjectManager.h"
+#include "CommandFactory.h"
 
 class CentipedeHeadState :
 	public GameObjectState

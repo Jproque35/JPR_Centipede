@@ -42,19 +42,6 @@ ObjectData* Centipede::getData() {
 
 }
 
-void Centipede::setNext(Centipede* next) {
-
-	cout << "Next for object " << this << " set to " << next << endl;
-	this->context->setNext(next);
-
-}
-
-void Centipede::setPrev(Centipede* prev) {
-
-	this->context->setPrev(prev);
-
-}
-
 CentipedeType Centipede::getCentipedeType() {
 
 	return this->type;

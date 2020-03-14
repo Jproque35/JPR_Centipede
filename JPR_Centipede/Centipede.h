@@ -26,8 +26,6 @@ public:
 	ObjectData* getData();
 	CentipedeType getCentipedeType();
 	void setCentipedeType(CentipedeType type);
-	void setNext(Centipede* next);
-	void setPrev(Centipede* prev);
 
 };
 

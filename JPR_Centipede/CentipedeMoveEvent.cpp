@@ -54,7 +54,7 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 }
 
-void CentipedeMoveEvent::moveLeftRoutine() {
+inline void CentipedeMoveEvent::moveLeftRoutine() {
 
 	if (this->leftBlocked() && this->context->commandsSize() < 1) {
 
@@ -69,7 +69,7 @@ void CentipedeMoveEvent::moveLeftRoutine() {
 
 }
 
-void CentipedeMoveEvent::moveRightRoutine() {
+inline void CentipedeMoveEvent::moveRightRoutine() {
 
 	if (this->rightBlocked() && this->context->commandsSize() < 1) {
 
@@ -84,7 +84,7 @@ void CentipedeMoveEvent::moveRightRoutine() {
 
 }
 
-void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
+inline void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
 	this->data->setDirection(dir);
 
@@ -102,7 +102,7 @@ void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
 }
 
-void CentipedeMoveEvent::queueLevelChangeCommand() {
+inline void CentipedeMoveEvent::queueLevelChangeCommand() {
 
 	if (!this->data->isReversed()) {
 
@@ -117,7 +117,7 @@ void CentipedeMoveEvent::queueLevelChangeCommand() {
 
 }
 
-bool CentipedeMoveEvent::nextLevelBlocked() {
+inline bool CentipedeMoveEvent::nextLevelBlocked() {
 
 	if (!this->data->isReversed() && this->downBlocked()) {
 		
@@ -134,7 +134,7 @@ bool CentipedeMoveEvent::nextLevelBlocked() {
 
 }
 
-bool CentipedeMoveEvent::leftBlocked() {
+inline bool CentipedeMoveEvent::leftBlocked() {
 
 	Vector2f currPos = this->data->getPosition();
 
@@ -155,7 +155,7 @@ bool CentipedeMoveEvent::leftBlocked() {
 
 }
 
-bool CentipedeMoveEvent::rightBlocked() {
+inline bool CentipedeMoveEvent::rightBlocked() {
 
 	Vector2f currPos = this->data->getPosition();
 	int xDest = ceil(currPos.x + 1.0f);
@@ -175,7 +175,7 @@ bool CentipedeMoveEvent::rightBlocked() {
 
 }
 
-bool CentipedeMoveEvent::upBlocked() {
+inline bool CentipedeMoveEvent::upBlocked() {
 
 	Vector2f currPos = this->data->getPosition();
 
@@ -206,7 +206,7 @@ bool CentipedeMoveEvent::upBlocked() {
 
 }
 
-bool CentipedeMoveEvent::downBlocked() {
+inline bool CentipedeMoveEvent::downBlocked() {
 
 	Vector2f currPos = this->data->getPosition();
 

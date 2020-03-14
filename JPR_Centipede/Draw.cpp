@@ -39,7 +39,7 @@ void Engine::draw() {
 
 	}
 	
-	Text hudText = this->sm->getScoreText();
+	Text hudText = this->scm->getScoreText();
 
 	window.draw(hudText);
 

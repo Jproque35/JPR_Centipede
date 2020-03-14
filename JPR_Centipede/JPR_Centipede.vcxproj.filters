@@ -94,6 +94,12 @@
     <Filter Include="Header Files\Entities\GameObject\States">
       <UniqueIdentifier>{031cf835-a77c-4fa9-91ef-7a123b54f385}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Factories">
+      <UniqueIdentifier>{6de7d94d-aa16-4a0e-847f-7c6b3233cf3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Factories">
+      <UniqueIdentifier>{9cd04a01-f6c5-43c7-8cd4-ad7b72f3c748}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
@@ -171,9 +177,6 @@
     <ClCompile Include="CentipedeHitEvent.cpp">
       <Filter>Source Files\Entities\Centipede\Events</Filter>
     </ClCompile>
-    <ClCompile Include="CommandFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ObjectData.cpp">
       <Filter>Source Files\Entities\GameObject</Filter>
     </ClCompile>
@@ -210,26 +213,38 @@
     <ClCompile Include="GenericState.cpp">
       <Filter>Source Files\Entities\GameObject\States</Filter>
     </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="NullState.cpp">
       <Filter>Source Files\Entities\GameObject\States</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjectFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ScoreObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEvent.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CentipedeHeadState.cpp">
       <Filter>Source Files\Entities\Centipede</Filter>
     </ClCompile>
     <ClCompile Include="CentipedeBodyState.cpp">
       <Filter>Source Files\Entities\Centipede</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreObject.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteManager.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFactory.cpp">
+      <Filter>Source Files\Engine\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectFactory.cpp">
+      <Filter>Source Files\Engine\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEvent.cpp">
+      <Filter>Source Files\Engine\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="CentipedeBodyHitEvent.cpp">
+      <Filter>Source Files\Entities\Centipede\Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -290,9 +305,6 @@
     <ClInclude Include="CentipedeHitEvent.h">
       <Filter>Header Files\Entities\Centipede\Events</Filter>
     </ClInclude>
-    <ClInclude Include="CommandFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CentipedeData.h">
       <Filter>Header Files\Entities\Centipede</Filter>
     </ClInclude>
@@ -341,17 +353,29 @@
     <ClInclude Include="NullState.h">
       <Filter>Header Files\Entities\GameObject\States</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjectFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ScoreObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CentipedeHeadState.h">
       <Filter>Header Files\Entities\Centipede</Filter>
     </ClInclude>
     <ClInclude Include="CentipedeBodyState.h">
       <Filter>Header Files\Entities\Centipede</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Header Files\Engine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteManager.h">
+      <Filter>Header Files\Engine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreObject.h">
+      <Filter>Header Files\Engine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory.h">
+      <Filter>Header Files\Engine\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectFactory.h">
+      <Filter>Header Files\Engine\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="CentipedeBodyHitEvent.h">
+      <Filter>Header Files\Entities\Centipede\Events</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

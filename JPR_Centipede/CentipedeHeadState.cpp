@@ -29,10 +29,12 @@ void CentipedeHeadState::executeCommand(float elapsedTime) {
 
 			//cout << this->context->getNext() << endl;
 
-			if (this->context->getNext() != NULL) {
+			GameObjectManager* gm = GameObjectManager::getInstance();
 
-				//cout << "Command sent to " << this->context->getNext() << endl;
-				//this->context->getNext()->queueCommand(CommandFactory::makeCommand(currCommand->getType(), (ObjectData*)(this->context->getNext())));
+			if (this->context->getNextId() > -1) {
+
+				Centipede* nextObj = (Centipede*)(gm->get(this->context->getNextId()));
+				nextObj->queueCommand(CommandFactory::makeCommand(currCommand->getType(), nextObj->getData()));
 
 			}
 

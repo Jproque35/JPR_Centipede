@@ -25,8 +25,10 @@ private:
 	RenderWindow window;
 	GameObjectManager* gm;
 	InputManager* im;
-	ScoreManager* sm;
+	ScoreManager* scm;
 	EventManager* em;
+	SpriteManager* spm;
+	SoundManager* sdm;
 
 	Texture bgImg;
 	Sprite background;
@@ -37,7 +39,7 @@ private:
 	int gridWidth = 0.0f;
 	int bulletsStart = -1;
 	int numBullets = 1;
-	int numCentipedes = 20;
+	int numCentipedes = 11;
 	int numMushrooms = 50;
 	int getNumObjects();
 

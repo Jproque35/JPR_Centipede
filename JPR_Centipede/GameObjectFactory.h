@@ -5,13 +5,14 @@
 #include "Player.h"
 #include "PlayerBullet.h"
 #include "CentipedeMoveEvent.h"
+#include "CentipedeHeadState.h"
 #include "PlayerInputEvent.h"
 #include "BulletFiredEvent.h"
 #include "MushroomHitEvent.h"
-#include "CentipedeHitEvent.h"
 #include "BulletCollideEvent.h"
-#include "CentipedeHeadState.h"
 #include "CentipedeBodyState.h"
+#include "CentipedeMoveEvent.h"
+#include "CentipedeHitEvent.h"
 
 class GameObjectFactory
 {

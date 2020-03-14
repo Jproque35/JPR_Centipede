@@ -11,7 +11,7 @@ void Engine::init() {
 	int yRes = this->window.getSize().y;
 	this->gm = GameObjectManager::getInstance();
 	this->im = InputManager::getInstance();
-	this->sm = ScoreManager::getInstance();
+	this->scm = ScoreManager::getInstance();
 	this->em = new EventManager(this->gm);
 
 	this->gm->init(this->getNumObjects(), this->gridWidth, this->gridHeight);
@@ -83,33 +83,20 @@ void Engine::initEnemies(int &currPos) {
 
 	int currPos2 = initPos;
 
-	/*
 	while (currPos2 < endPos) {
 
-		Centipede* currObj = (Centipede*)(this->gm->get(currPos2));
-
-		if (currPos2 > initPos) {
-
-			currObj->setPrev((Centipede*)(this->gm->get(currPos2 - 1)));
-
-		}
+		CentipedeData* currData = (CentipedeData*)(this->gm->get(currPos2)->getData());
 
 		if (currPos2 < endPos - 1) {
 
-			currObj->setNext((Centipede*)(this->gm->get(currPos2 + 1)));
+			currData->setNextId(currPos2 + 1);
 			cout << "Next for " << currPos2 << " set to " << currPos2 + 1 << endl;
-
-		}
-
-		if (currPos2 > initPos && currPos2 < endPos) {
-
-			currObj->setCentipedeType(CentipedeType::Body);
 
 		}
 
 		currPos2++;
 
-	}*/
+	}
 
 
 	this->gm->get(initPos)->getData()->activate();

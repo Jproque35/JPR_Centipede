@@ -42,8 +42,8 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 		Centipede* centipede = new Centipede(initX, initY);
 		centipede->setState(new CentipedeBodyState((CentipedeData*)centipede->getData()));
 
-		centipede->addEventListener(new CentipedeMoveEvent(centipede));
-		centipede->addEventListener(new CentipedeHitEvent(centipede));
+		//centipede->addEventListener(new CentipedeMoveEvent(centipede));
+		//centipede->addEventListener(new CentipedeHitEvent(centipede));
 		cout << "Centipede object created." << endl;
 
 		return centipede;

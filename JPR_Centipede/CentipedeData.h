@@ -14,8 +14,8 @@ class CentipedeData: public ObjectData {
 private:
 	CentipedeDirection dir = CentipedeDirection::Left;
 	bool reversed = false;
-	Centipede* next;
-	Centipede* prev;
+	int next = -1;
+	int prev = -1;
 
 public:
 	CentipedeData(float initX, float initY);
@@ -29,10 +29,10 @@ public:
 	void setReversed();
 	void unsetReversed();
 	bool isReversed();
-	void setNext(Centipede* next);
-	Centipede* getNext();
-	void setPrev(Centipede* prev);
-	Centipede* getPrev();
+	void setNextId(int next);
+	int getNextId();
+	void setPrevId(int prev);
+	int getPrevId();
 
 };
 

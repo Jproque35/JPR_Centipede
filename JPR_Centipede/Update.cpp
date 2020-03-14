@@ -6,7 +6,7 @@ void Engine::update(float dtAsSeconds) {
 	this->em->update(dtAsSeconds);
 	this->executeObjectEventListeners(dtAsSeconds);
 	this->gm->updateAll(dtAsSeconds);
-	this->sm->updateScoreText();
+	this->scm->updateScoreText();
 
 }
 

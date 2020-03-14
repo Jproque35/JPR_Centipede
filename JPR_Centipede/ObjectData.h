@@ -1,7 +1,8 @@
 #ifndef OBJECTDATA_H
 #define OBJECTDATA_H
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "SoundManager.h"
+#include "SpriteManager.h"
 #include <queue>
 #include <iostream>
 
