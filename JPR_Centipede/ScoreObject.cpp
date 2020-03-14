@@ -6,12 +6,12 @@ ScoreManager::ScoreManager() {
 
     this->font.loadFromFile("game_over.ttf");
 
-    this->hud.setPosition(Vector2f(0.0f, 0.0f));
-    this->hud.setFont(this->font);
-    this->hud.setCharacterSize(75);
-    this->hud.setFillColor(sf::Color::White);
-    this->hud.setOutlineColor(sf::Color::Black);
-    this->hud.setOutlineThickness(1.0f);
+    this->scoreText.setPosition(Vector2f(0.0f, 0.0f));
+    this->scoreText.setFont(this->font);
+    this->scoreText.setCharacterSize(75);
+    this->scoreText.setFillColor(sf::Color::White);
+    this->scoreText.setOutlineColor(sf::Color::Black);
+    this->scoreText.setOutlineThickness(1.0f);
     this->updateScoreText();
 
 }
@@ -41,11 +41,11 @@ void ScoreManager::updateScoreText() {
 
     stringstream ss;
     ss << "Score: " << this->score;
-    hud.setString(ss.str());
+    scoreText.setString(ss.str());
 
 }
 
-int ScoreManager::getScore() {
+int ScoreManager::getScore() const {
 
     return this->score;
 
@@ -64,8 +64,8 @@ void ScoreManager::setScore(int i) {
     this->updateScoreText();
 }
 
-Text ScoreManager::getScoreText() {
+Text ScoreManager::getScoreText() const {
 
-    return this->hud;
+    return this->scoreText;
 
 }

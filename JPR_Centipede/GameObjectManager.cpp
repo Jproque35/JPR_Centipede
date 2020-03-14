@@ -65,13 +65,13 @@ void GameObjectManager::init(int size, int x, int y) {
 
 }
 
-int GameObjectManager::getGridWidth() {
+int GameObjectManager::getGridWidth() const {
 
 	return this->grid->getWidth();
 
 }
 
-int GameObjectManager::getGridHeight() {
+int GameObjectManager::getGridHeight() const {
 
 	return this->grid->getHeight();
 
@@ -125,19 +125,19 @@ void GameObjectManager::updateAll(float elapsedTime) {
 
 }
 
-vector<GameObject*> GameObjectManager::get(int x, int y) {
+vector<GameObject*> GameObjectManager::get(int x, int y) const {
 
 	return this->grid->get(x, y);
 
 }
 
-GameObject* GameObjectManager::get(int i) {
+GameObject* GameObjectManager::get(int i) const {
 
 	return this->gm[i];
 
 }
 
-bool GameObjectManager::hasType(ObjectType type, int x, int y) {
+bool GameObjectManager::hasType(ObjectType type, int x, int y) const {
 
 	return this->grid->hasType(type, x, y);
 
@@ -156,7 +156,7 @@ void GameObjectManager::erase(int i) {
 
 }
 
-int GameObjectManager::size() {
+int GameObjectManager::size() const {
 
 	return this->gm.size();
 

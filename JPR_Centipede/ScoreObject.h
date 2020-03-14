@@ -11,7 +11,7 @@ class ScoreManager
 
 private:
 	static ScoreManager* instance;
-	Text hud;
+	Text scoreText;
 	Font font;
 	int score = 0;
 	ScoreManager();
@@ -23,11 +23,11 @@ public:
 	static ScoreManager* getInstance();
 	static void resetInstance();
 
-	int getScore();
+	int getScore() const;
 	void increaseScore(int i);
 	void setScore(int i);
 	void updateScoreText();
-	Text getScoreText();
+	Text getScoreText() const;
 
 };
 

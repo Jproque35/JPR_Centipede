@@ -36,13 +36,13 @@ Centipede& Centipede::operator=(const Centipede& obj) {
 
 }
 
-ObjectData* Centipede::getData() {
+ObjectData* Centipede::getData() const {
 
 	return this->context;
 
 }
 
-CentipedeType Centipede::getCentipedeType() {
+CentipedeType Centipede::getCentipedeType() const {
 
 	return this->type;
 

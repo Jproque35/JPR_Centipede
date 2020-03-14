@@ -23,7 +23,7 @@ void InputManager::resetInstance() {
 
 }
 
-bool InputManager::isUpPressed() {
+bool InputManager::isUpPressed() const {
 
 	return this->upActive;
 
@@ -44,7 +44,7 @@ void InputManager::upPressed() {
 
 }
 
-bool InputManager::isDownPressed() {
+bool InputManager::isDownPressed() const{
 
 	return this->downActive;
 
@@ -65,7 +65,7 @@ void InputManager::downPressed() {
 
 }
 
-bool InputManager::isLeftPressed() {
+bool InputManager::isLeftPressed() const{
 
 	return this->leftActive;
 
@@ -86,7 +86,7 @@ void InputManager::leftPressed() {
 
 }
 
-bool InputManager::isRightPressed() {
+bool InputManager::isRightPressed() const{
 
 	return this->rightActive;
 
@@ -106,7 +106,7 @@ void InputManager::rightPressed() {
 	}
 
 }
-bool InputManager::isFirePressed() {
+bool InputManager::isFirePressed() const{
 
 	return this->fireActive;
 
@@ -116,18 +116,25 @@ void InputManager::firePressed() {
 
 	if (Keyboard::isKeyPressed(this->fireKey)) {
 
-		this->fireActive = true;
+		if (!this->fireActive && !this->fireLock) {
+
+			this->fireActive = true;
+
+		}
+
+		this->fireLock = true;
 
 	}
 	else {
 
 		this->fireActive = false;
+		this->fireLock = false;
 
 	}
 
 }
 
-bool InputManager::isDebugActive() {
+bool InputManager::isDebugActive() const{
 
 	return this->debugActive;
 

@@ -20,8 +20,7 @@ public:
 	~Player();
 	Player& operator=(const Player& obj);
 
-	ObjectData* getData();
-	void setKey(Keyboard::Key key);
+	ObjectData* getData() const;
 
 };
 

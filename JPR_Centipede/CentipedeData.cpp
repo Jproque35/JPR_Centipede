@@ -1,7 +1,7 @@
 #include "CentipedeData.h"
 
 
-CentipedeData::CentipedeData(float initX, float initY) :ObjectData(initX, initY) {
+CentipedeData::CentipedeData(float initX, float initY) : ObjectData(initX, initY) {
 
 	this->xSpeed = 8.0f;
 	this->ySpeed = 8.0f;
@@ -14,7 +14,7 @@ CentipedeData::CentipedeData(float initX, float initY) :ObjectData(initX, initY)
 
 }
 
-CentipedeData::CentipedeData(const CentipedeData& obj) :ObjectData(obj) {
+CentipedeData::CentipedeData(const CentipedeData& obj) : ObjectData(obj) {
 
 	this->dir = obj.dir;
 	this->reversed = obj.reversed;
@@ -33,7 +33,7 @@ CentipedeData& CentipedeData::operator=(const CentipedeData& obj) {
 
 }
 
-CentipedeDirection CentipedeData::getDirection() {
+CentipedeDirection CentipedeData::getDirection() const {
 
 	return this->dir;
 
@@ -67,7 +67,7 @@ void CentipedeData::unsetReversed() {
 
 }
 
-bool CentipedeData::isReversed() {
+bool CentipedeData::isReversed() const {
 
 	return this->reversed;
 
@@ -79,7 +79,7 @@ void CentipedeData::setNextId(int next) {
 
 }
 
-int CentipedeData::getNextId() {
+int CentipedeData::getNextId() const {
 
 	return this->next;
 
@@ -91,7 +91,7 @@ void CentipedeData::setPrevId(int prev) {
 
 }
 
-int CentipedeData::getPrevId() {
+int CentipedeData::getPrevId() const {
 
 	return this->prev;
 

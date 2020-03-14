@@ -32,7 +32,7 @@ PlayerBullet& PlayerBullet::operator=(const PlayerBullet& obj) {
 
 }
 
-ObjectData* PlayerBullet::getData() {
+ObjectData* PlayerBullet::getData() const {
 
 	return this->context;
 

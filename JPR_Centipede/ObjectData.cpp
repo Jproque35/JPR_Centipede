@@ -67,7 +67,7 @@ void ObjectData::deactivate() {
 
 }
 
-bool ObjectData::isActive() {
+bool ObjectData::isActive() const {
 
 	return this->active;
 
@@ -83,21 +83,26 @@ void ObjectData::setPosition(Vector2f pos) {
 
 	this->position = pos;
 
+	stringstream ss;
+	ss << "(" << this->position.x << "," << this->position.y << ")";
+	this->posText.setString(ss.str());
+	this->posText.setPosition(this->position);
+
 }
 
-Vector2f ObjectData::getPosition() {
+Vector2f ObjectData::getPosition() const {
 
 	return this->position;
 
 }
 
-FloatRect ObjectData::getCollisionBox() {
+FloatRect ObjectData::getCollisionBox() const {
 
 	return this->shape.getGlobalBounds();
 
 }
 
-CircleShape ObjectData::getShape() {
+CircleShape ObjectData::getShape() const {
 
 	return this->shape;
 
@@ -115,30 +120,25 @@ void ObjectData::setYVelocity(float ySpeed) {
 
 }
 
-float ObjectData::getXVelocity() {
+float ObjectData::getXVelocity() const {
 
 	return this->xSpeed;
 
 }
 
-float ObjectData::getYVelocity() {
+float ObjectData::getYVelocity() const {
 
 	return this->ySpeed;
 
 }
 
-Text ObjectData::getPositionText() {
-
-	stringstream ss;
-	ss << "(" << this->position.x << "," << this->position.y << ")";
-	this->posText.setString(ss.str());
-	this->posText.setPosition(this->position);
+Text ObjectData::getPositionText() const {
 
 	return this->posText;
 
 }
 
-Sprite ObjectData::getSprite() {
+Sprite ObjectData::getSprite() const {
 
 	return this->spr;
 

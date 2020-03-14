@@ -20,7 +20,7 @@ public:
 	~Mushroom();
 	Mushroom& operator=(const Mushroom& obj);
 
-	ObjectData* getData();
+	ObjectData* getData() const;
 
 };
 

@@ -32,7 +32,7 @@ Mushroom& Mushroom::operator=(const Mushroom& obj) {
 
 }
 
-ObjectData* Mushroom::getData() {
+ObjectData* Mushroom::getData() const {
 
 	return this->context;
 

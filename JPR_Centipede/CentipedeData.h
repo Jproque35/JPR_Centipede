@@ -22,17 +22,18 @@ public:
 	CentipedeData(const CentipedeData& obj);
 	~CentipedeData();
 	CentipedeData& operator=(const CentipedeData& obj);
+
 	void setDirection(CentipedeDirection dir);
-	CentipedeDirection getDirection();
+	CentipedeDirection getDirection() const;
 	void setDirectionLeft();
 	void setDirectionRight();
 	void setReversed();
 	void unsetReversed();
-	bool isReversed();
+	bool isReversed() const;
 	void setNextId(int next);
-	int getNextId();
+	int getNextId() const;
 	void setPrevId(int prev);
-	int getPrevId();
+	int getPrevId() const;
 
 };
 

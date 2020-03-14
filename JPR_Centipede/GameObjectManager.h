@@ -27,17 +27,16 @@ public:
 	static GameObjectManager* getInstance();
 	static void resetInstance();
 	void init(int size, int x, int y);
-	ScoreManager* getHudObject();
-	int getGridWidth();
-	int getGridHeight();
+	int getGridWidth() const;
+	int getGridHeight() const;
 	void add(int i, GameObject* obj);
 	void update(int i, float elapsedTime);
 	void updateAll(float elapsedTime);
-	vector<GameObject*> get(int x, int y);
-	GameObject* get(int i);
-	bool hasType(ObjectType type, int x, int y);
+	vector<GameObject*> get(int x, int y) const ;
+	GameObject* get(int i) const;
+	bool hasType(ObjectType type, int x, int y) const;
 	void erase(int i);
-	int size();
+	int size() const;
 
 };
 

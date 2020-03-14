@@ -41,18 +41,18 @@ public:
 
 	void activate();
 	void deactivate();
-	bool isActive();
+	bool isActive() const;
 	ObjectType getType();
 	void setPosition(Vector2f pos);
-	Vector2f getPosition();
-	FloatRect getCollisionBox();
-	CircleShape getShape();
+	Vector2f getPosition() const;
+	FloatRect getCollisionBox() const;
+	CircleShape getShape() const;
 	void setXVelocity(float xSpeed);
 	void setYVelocity(float ySpeed);
-	float getXVelocity();
-	float getYVelocity();
-	Text getPositionText();
-	Sprite getSprite();
+	float getXVelocity() const;
+	float getYVelocity() const;
+	Text getPositionText() const;
+	Sprite getSprite() const;
 
 };
 

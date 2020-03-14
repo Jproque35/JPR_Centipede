@@ -30,7 +30,7 @@ MushroomData& MushroomData::operator=(const MushroomData& obj) {
 
 }
 
-int MushroomData::getHealth() {
+int MushroomData::getHealth() const {
 
 	return this->health;
 
@@ -44,6 +44,6 @@ void MushroomData::setHealth(int health) {
 
 void MushroomData::decrementHealth() {
 
-	this->health--;
+	--this->health;
 
 }

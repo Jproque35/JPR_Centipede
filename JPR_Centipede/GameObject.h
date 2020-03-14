@@ -28,7 +28,7 @@ public:
 	int commandsSize();
 	void queueCommand(ObjectCommand* command);
 	void clearCommands();
-	virtual ObjectData* getData() = 0;
+	virtual ObjectData* getData() const = 0;
 	void update(float elapsedTime);
 
 };

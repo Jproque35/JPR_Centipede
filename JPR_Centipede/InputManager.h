@@ -21,6 +21,7 @@ private:
 	bool leftActive = false;
 	bool rightActive = false;
 	bool fireActive = false;
+	bool fireLock = false;
 	bool debugActive = false;
 	bool debugLock = false;
 
@@ -32,17 +33,17 @@ private:
 public:
 	static InputManager* getInstance();
 	static void resetInstance();
-	bool isUpPressed();
+	bool isUpPressed() const;
 	void upPressed();
-	bool isDownPressed();
+	bool isDownPressed() const;
 	void downPressed();
-	bool isLeftPressed();
+	bool isLeftPressed() const;
 	void leftPressed();
-	bool isRightPressed();
+	bool isRightPressed() const;
 	void rightPressed();
-	bool isFirePressed();
+	bool isFirePressed() const;
 	void firePressed();
-	bool isDebugActive();
+	bool isDebugActive() const;
 	void debugPressed();
 	void update();
 

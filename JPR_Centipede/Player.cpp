@@ -26,7 +26,7 @@ Player::~Player() {
 
 }
 
-ObjectData* Player::getData() {
+ObjectData* Player::getData() const {
 
 	return this->context;
 
