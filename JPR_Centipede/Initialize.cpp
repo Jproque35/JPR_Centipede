@@ -12,6 +12,8 @@ void Engine::init() {
 	this->gm = GameObjectManager::getInstance();
 	this->im = InputManager::getInstance();
 	this->scm = ScoreManager::getInstance();
+	this->sdm = SoundManager::getInstance();
+	this->spm = SpriteManager::getInstance();
 	this->em = new EventManager(this->gm);
 
 	this->gm->init(this->getNumObjects(), this->gridWidth, this->gridHeight);

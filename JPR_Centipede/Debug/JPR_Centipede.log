@@ -1,5 +1,69 @@
-﻿  CentipedeBodyState.cpp
+﻿  BulletCollideEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(28,59): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(28,48): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\BulletCollideEvent.cpp(30,20): warning C4018: '<': signed/unsigned mismatch
+  BulletFiredEvent.cpp
+  Centipede.cpp
+  CentipedeBodyHitEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeBodyHitEvent.cpp(30,66): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeBodyHitEvent.cpp(30,55): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  CentipedeBodyState.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeBodyState.cpp(11,20): warning C4018: '<': signed/unsigned mismatch
+  CentipedeHeadState.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeHeadState.cpp(12,20): warning C4018: '<': signed/unsigned mismatch
+  CentipedeHitEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeHitEvent.cpp(31,72): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeHitEvent.cpp(31,61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  CentipedeMoveEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(141,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(148,67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(161,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(168,67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(182,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(186,15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(190,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(199,62): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(213,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(217,15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(221,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeMoveEvent.cpp(230,62): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  CollisionManager.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CollisionManager.cpp(33,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CollisionManager.cpp(34,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CollisionManager.cpp(36,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CollisionManager.cpp(37,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Draw.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(37,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
@@ -27,17 +91,27 @@ C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.cpp(35,50): warni
           [
               T=float
           ]
+  EventManager.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EventManager.cpp(22,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EventManager.cpp(49,20): warning C4018: '<': signed/unsigned mismatch
+  GameObjectFactory.cpp
+  GameObjectManager.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(14,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(58,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(84,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(95,8): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameObjectManager.cpp(116,20): warning C4018: '<': signed/unsigned mismatch
   Initialize.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(37,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(38,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(39,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(38,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(39,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(63,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(108,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(115,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(116,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(40,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(41,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(65,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(110,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(117,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Initialize.cpp(118,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Input.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(37,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
@@ -48,6 +122,50 @@ C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning 
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(37,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(38,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(39,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  MushroomHitEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MushroomHitEvent.cpp(31,72): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\MushroomHitEvent.cpp(31,61): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  PlayerInputEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(35,70): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(35,56): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(45,76): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(45,56): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(55,74): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(55,59): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(65,80): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerInputEvent.cpp(65,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Update.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(37,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data

@@ -1,5 +1,6 @@
 #include "PlayerBulletFireCommand.h"
 #include <iostream>
+#include "SoundManager.h"
 
 using namespace std;
 
@@ -8,7 +9,10 @@ PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBulletData* context) {
 	this->context = context;
 	this->context->active = true;
 	this->type = CommandType::ShootBullet;
-	this->sBuf.loadFromFile("assets/sounds/mmzx_vent_mx_shoot.wav");
+
+
+	SoundManager* sm = SoundManager::getInstance();
+	this->sBuf = sm->get(0);
 	this->fireSound.setBuffer(this->sBuf);
 
 }

@@ -2,9 +2,18 @@
 
 SoundManager* SoundManager::instance = NULL;
 
-SoundManager::SoundManager() {};
+SoundManager::SoundManager() {
 
-SoundManager::~SoundManager() {};
+	this->bufs = new SoundBuffer[128];
+	this->bufs[0].loadFromFile("assets/sounds/mmzx_vent_mx_shoot.wav");
+
+};
+
+SoundManager::~SoundManager() {
+
+	delete[] this->bufs;
+
+};
 
 SoundManager* SoundManager::getInstance() {
 
@@ -26,5 +35,11 @@ void SoundManager::resetInstance() {
 		instance = NULL;
 
 	}
+
+}
+
+SoundBuffer SoundManager::get(int i) const {
+
+	return this->bufs[i];
 
 }
