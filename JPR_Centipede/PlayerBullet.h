@@ -23,6 +23,7 @@ public:
 	~PlayerBullet();
 	PlayerBullet& operator=(const PlayerBullet& obj);
 
+	void init(float xPos, float yPos);
 	ObjectData* getData() const;
 
 };

@@ -15,9 +15,9 @@ private:
 	SoundBuffer* bufs;
 
 	SoundManager();
-	SoundManager(const SoundManager& obj);
+	SoundManager(const SoundManager& obj) = delete;
 	~SoundManager();
-	SoundManager& operator=(const SoundManager& obj);
+	SoundManager& operator=(const SoundManager& obj) = delete;
 
 public:
 	static SoundManager* getInstance();

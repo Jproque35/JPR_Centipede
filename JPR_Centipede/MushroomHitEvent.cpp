@@ -1,4 +1,5 @@
 #include "MushroomHitEvent.h"
+#include "GameObjectFactory.h"
 
 MushroomHitEvent::MushroomHitEvent(Mushroom* context) {
 
@@ -38,6 +39,12 @@ void MushroomHitEvent::update(float elapsedTime) {
 			cout << "Mushroom got hit, HP is " << this->data->getHealth() << endl;
 
 			if (this->data->getHealth() <= 0) {
+
+ 				this->gm->erase(this->context->getData()->getId());
+				
+				GameObjectFactory* objFactory = GameObjectFactory::getInstance();
+
+				objFactory->storeObject(this->context);
 
 				this->data->deactivate();
 				this->data->setPosition(Vector2f(-1.0f, -1.0f));

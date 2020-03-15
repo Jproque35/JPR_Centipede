@@ -14,10 +14,11 @@ private:
 	Text scoreText;
 	Font font;
 	int score = 0;
+
 	ScoreManager();
-	ScoreManager(const ScoreManager& obj);
+	ScoreManager(const ScoreManager& obj) = delete;
 	~ScoreManager();
-	ScoreManager& operator=(const ScoreManager& obj);
+	ScoreManager& operator=(const ScoreManager& obj) = delete;
 
 public:
 	static ScoreManager* getInstance();

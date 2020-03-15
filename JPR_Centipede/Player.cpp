@@ -4,6 +4,7 @@ Player::Player(float initX, float initY) {
 
 	this->context = new PlayerData(initX, initY);
 	this->state = new GenericState();
+	this->init(initX, initY);
 
 }
 
@@ -23,6 +24,12 @@ Player::~Player() {
 		this->context = NULL;
 
 	}
+
+}
+
+void Player::init(float xPos, float yPos) {
+
+	this->context->init(xPos, yPos);
 
 }
 

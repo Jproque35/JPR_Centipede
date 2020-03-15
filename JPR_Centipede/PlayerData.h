@@ -12,6 +12,8 @@ public:
 	PlayerData(const PlayerData& obj);
 	~PlayerData();
 	PlayerData& operator=(const PlayerData& obj);
+
+	void init(float xPos, float yPos);
 };
 
 #endif

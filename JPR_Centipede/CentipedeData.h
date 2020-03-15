@@ -23,6 +23,7 @@ public:
 	~CentipedeData();
 	CentipedeData& operator=(const CentipedeData& obj);
 
+	void init(float xPos, float yPos);
 	void setDirection(CentipedeDirection dir);
 	CentipedeDirection getDirection() const;
 	void setDirectionLeft();

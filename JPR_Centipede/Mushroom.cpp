@@ -4,7 +4,7 @@ Mushroom::Mushroom(float initX, float initY) {
 
 	this->context = new MushroomData(initX, initY);
 	this->state = new GenericState();
-
+	this->init(initX, initY);
 }
 
 Mushroom::Mushroom(const Mushroom& obj) {
@@ -29,6 +29,12 @@ Mushroom::~Mushroom() {
 Mushroom& Mushroom::operator=(const Mushroom& obj) {
 
 	return *this;
+
+}
+
+void Mushroom::init(float xPos, float yPos) {
+
+	this->context->init(xPos, yPos);
 
 }
 

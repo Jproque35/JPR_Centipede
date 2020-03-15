@@ -1,19 +1,6 @@
 #include "EventManager.h"
 
-EventManager::EventManager(GameObjectManager* gm) {
-
-	this->gm = gm;
-
-	cout << "Resizing object events to size " << this->gm->size() << endl;
-	this->events.resize(0);
-	cout << "Successfully resized" << endl;
-
-}
-
-EventManager::EventManager(const EventManager& obj) {
-
-	this->gm = gm;
-	this->events = events;
+EventManager::EventManager() {
 
 }
 
@@ -32,9 +19,26 @@ EventManager::~EventManager() {
 
 }
 
-EventManager& EventManager::operator=(const EventManager& obj) {
+EventManager* EventManager::getInstance() {
 
-	return *this;
+	if (!instance) {
+
+		instance = new EventManager();
+
+	}
+
+	return instance;
+
+}
+
+void EventManager::resetInstance() {
+
+	if (instance != NULL) {
+
+		delete(instance);
+		instance = NULL;
+
+	}
 
 }
 

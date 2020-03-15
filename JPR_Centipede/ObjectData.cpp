@@ -55,6 +55,18 @@ ObjectData& ObjectData::operator=(const ObjectData& obj) {
 
 }
 
+void ObjectData::setId(int id) {
+
+	this->id = id;
+
+}
+
+int ObjectData::getId() {
+
+	return this->id;
+
+}
+
 void ObjectData::activate() {
 
 	this->active = true;
@@ -79,14 +91,21 @@ ObjectType ObjectData::getType() {
 
 }
 
+void ObjectData::setX(float xPos) {
+
+	this->position.x = xPos;
+
+}
+
+void ObjectData::setY(float yPos) {
+
+	this->position.y = yPos;
+
+}
+
 void ObjectData::setPosition(Vector2f pos) {
 
 	this->position = pos;
-
-	stringstream ss;
-	ss << "(" << this->position.x << "," << this->position.y << ")";
-	this->posText.setString(ss.str());
-	this->posText.setPosition(this->position);
 
 }
 
@@ -132,7 +151,12 @@ float ObjectData::getYVelocity() const {
 
 }
 
-Text ObjectData::getPositionText() const {
+Text ObjectData::getPositionText() {
+
+	stringstream ss;
+	ss << "(" << this->position.x << "," << this->position.y << ")";
+	this->posText.setString(ss.str());
+	this->posText.setPosition(this->position);
 
 	return this->posText;
 

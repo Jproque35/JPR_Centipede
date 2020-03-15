@@ -19,6 +19,7 @@ public:
 	~MushroomData();
 	MushroomData& operator=(const MushroomData &obj);
 
+	void init(float xPos, float yPos);
 	int getHealth() const;
 	void setHealth(int i);
 	void decrementHealth();

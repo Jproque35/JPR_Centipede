@@ -14,9 +14,9 @@ private:
 	static SpriteManager* instance;
 
 	SpriteManager();
-	SpriteManager(const SpriteManager& obj);
+	SpriteManager(const SpriteManager& obj) = delete;
 	~SpriteManager();
-	SpriteManager& operator=(const SpriteManager& obj);
+	SpriteManager& operator=(const SpriteManager& obj) = delete;
 
 public:
 	static SpriteManager* getInstance();

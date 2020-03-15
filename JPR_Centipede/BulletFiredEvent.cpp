@@ -42,7 +42,7 @@ void BulletFiredEvent::update(float elapsedTime) {
 				newPos.y = playerPos.y;
 				this->context->getData()->setPosition(newPos);
 
-				this->context->queueCommand(CommandFactory::makeCommand(CommandType::ShootBullet, 
+				this->context->queueCommand(CommandFactory::makeCommand(CommandType::ShootBullet,
 					this->context->getData()));
 
 			}

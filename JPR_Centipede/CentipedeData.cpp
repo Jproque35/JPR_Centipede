@@ -3,14 +3,13 @@
 
 CentipedeData::CentipedeData(float initX, float initY) : ObjectData(initX, initY) {
 
-	this->xSpeed = 8.0f;
-	this->ySpeed = 8.0f;
 	this->shape.setRadius(0.5f);
 	this->shape.setFillColor(Color::Red);
 	this->type = ObjectType::CentipedeData;
 
 	this->img.loadFromFile("assets/sprites/centi.png");
 	this->spr.setTexture(this->img);
+	this->init(initX, initY);
 
 }
 
@@ -30,6 +29,15 @@ CentipedeData::~CentipedeData() {
 CentipedeData& CentipedeData::operator=(const CentipedeData& obj) {
 
 	return *this;
+
+}
+
+void CentipedeData::init(float xPos, float yPos) {
+
+	this->position.x = xPos;
+	this->position.y = yPos;
+	this->xSpeed = 8.0f;
+	this->ySpeed = 8.0f;
 
 }
 

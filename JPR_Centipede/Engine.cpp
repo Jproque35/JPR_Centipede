@@ -51,7 +51,8 @@ Engine::~Engine() {
 	ScoreManager::resetInstance();
 	SoundManager::resetInstance();
 	SpriteManager::resetInstance();
-	delete(this->em);
+	GameObjectFactory::resetInstance();
+	EventManager::resetInstance();
 
 }
 

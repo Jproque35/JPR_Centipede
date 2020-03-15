@@ -1,5 +1,7 @@
 #include "Engine.h"
 
+EventManager* EventManager::instance = NULL;
+
 inline int Engine::getNumObjects() {
 
 	return 1 + this->numBullets + this->numCentipedes + this->numMushrooms;
@@ -14,7 +16,8 @@ void Engine::init() {
 	this->scm = ScoreManager::getInstance();
 	this->sdm = SoundManager::getInstance();
 	this->spm = SpriteManager::getInstance();
-	this->em = new EventManager(this->gm);
+	this->em = EventManager::getInstance();
+	this->objFactory = GameObjectFactory::getInstance();
 
 	this->gm->init(this->getNumObjects(), this->gridWidth, this->gridHeight);
 
@@ -40,7 +43,7 @@ void Engine::initPlayer(int &currPos) {
 	float initX = floor(this->gridWidth / 2);
 	float initY = floor(this->gridHeight / 2);
 
-	this->gm->add(0, GameObjectFactory::makeObject(ObjectType::PlayerData, initX, initY));
+	this->gm->add(currPos, this->objFactory->makeObject(ObjectType::PlayerData, initX, initY));
 	this->gm->get(0)->getData()->activate();
 	bulletsStart = ++currPos;
 
@@ -49,7 +52,7 @@ void Engine::initPlayer(int &currPos) {
 
 	while (currPos < endPos) {
 
-		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::PlayerProjectile, initX, initY));
+		this->gm->add(currPos, this->objFactory->makeObject(ObjectType::PlayerProjectile, initX, initY));
 		cout << "Loaded bullet object into slot " << currPos << endl;
 		currPos++;
 
@@ -65,7 +68,7 @@ void Engine::initEnemies(int &currPos) {
 	float initX = floor(this->gridWidth / 2);
 	float initY = 0.0f;
 
-	this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::CentipedeData, initX, initY));
+	this->gm->add(currPos, this->objFactory->makeObject(ObjectType::CentipedeData, initX, initY));
 
 	currPos++;
 
@@ -77,7 +80,7 @@ void Engine::initEnemies(int &currPos) {
 
 		}
 
-		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::CentipedeBody, initX, initY) );
+		this->gm->add(currPos, this->objFactory->makeObject(ObjectType::CentipedeBody, initX, initY) );
 		cout << "Loaded centipede object into slot " << currPos << endl;
 		currPos++;
 
@@ -117,10 +120,9 @@ void Engine::initMushrooms(int &currPos) {
 		float tempX = rand() % (int)(this->gridWidth);
 		float tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
 
-		Mushroom* newObj = new Mushroom(tempX, tempY);
-
-		this->gm->add(currPos, GameObjectFactory::makeObject(ObjectType::MushroomData, tempX, tempY));
+		this->gm->add(currPos, this->objFactory->makeObject(ObjectType::MushroomData, tempX, tempY));
 		this->gm->get(currPos)->getData()->activate();
+		this->gm->get(currPos)->getData()->setId(currPos);
 		cout << "Loaded mushroom object into slot " << currPos << " at position " << tempX << ", " << tempY << endl;
 		currPos++;
 

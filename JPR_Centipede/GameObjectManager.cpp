@@ -147,7 +147,7 @@ void GameObjectManager::erase(int i) {
 
 	if (this->gm[i] != NULL) {
 
-		delete(this->gm[i]);
+		//delete(this->gm[i]);
 		this->gm[i] = NULL;
 
 	}

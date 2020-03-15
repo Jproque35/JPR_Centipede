@@ -290,9 +290,6 @@
     <ClInclude Include="ObjectDeactivateCommand.h">
       <Filter>Header Files\Entities\GameObject\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="BulletFiredEvent.h">
-      <Filter>Header Files\Entities\Player\Events</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerInputEvent.h">
       <Filter>Header Files\Entities\Player\Events</Filter>
     </ClInclude>
@@ -376,6 +373,9 @@
     </ClInclude>
     <ClInclude Include="CentipedeBodyHitEvent.h">
       <Filter>Header Files\Entities\Centipede\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletFiredEvent.h">
+      <Filter>Header Files\Entities\Player\Events</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

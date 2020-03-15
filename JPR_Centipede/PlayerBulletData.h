@@ -14,6 +14,7 @@ public:
 	~PlayerBulletData();
 	PlayerBulletData& operator=(const PlayerBulletData& obj);
 
+	void init(float xPos, float yPos);
 };
 
 #endif

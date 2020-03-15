@@ -90,7 +90,7 @@ inline void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) 
 
 	if (!this->nextLevelBlocked()) {
 
-		cout << "Next level not blocked: " <<  this->data->getPosition().x << ", " << this->data->getPosition().y << endl;
+		cout << "Next level not blocked: " << this->data->getPosition().x << ", " << this->data->getPosition().y << endl;
 		this->queueLevelChangeCommand();
 
 	}
@@ -120,7 +120,7 @@ inline void CentipedeMoveEvent::queueLevelChangeCommand() {
 inline bool CentipedeMoveEvent::nextLevelBlocked() {
 
 	if (!this->data->isReversed() && this->downBlocked()) {
-		
+
 		return true;
 
 	}

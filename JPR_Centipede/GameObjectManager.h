@@ -32,7 +32,7 @@ public:
 	void add(int i, GameObject* obj);
 	void update(int i, float elapsedTime);
 	void updateAll(float elapsedTime);
-	vector<GameObject*> get(int x, int y) const ;
+	vector<GameObject*> get(int x, int y) const;
 	GameObject* get(int i) const;
 	bool hasType(ObjectType type, int x, int y) const;
 	void erase(int i);

@@ -14,7 +14,9 @@ void Engine::executeObjectEventListeners(float elapsedTime) {
 
 	for (int i = 0; i < this->gm->size(); i++) {
 
-		this->gm->get(i)->executeEventListeners(elapsedTime);
+		if (this->gm->get(i) != NULL) {
+			this->gm->get(i)->executeEventListeners(elapsedTime);
+		}
 
 	}
 

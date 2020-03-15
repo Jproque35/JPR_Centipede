@@ -4,6 +4,7 @@ PlayerBullet::PlayerBullet(float initX, float initY) {
 
 	this->context = new PlayerBulletData(initX, initY);
 	this->state = new GenericState();
+	this->init(initX, initY);
 
 }
 
@@ -29,6 +30,12 @@ PlayerBullet::~PlayerBullet() {
 PlayerBullet& PlayerBullet::operator=(const PlayerBullet& obj) {
 
 	return *this;
+
+}
+
+void PlayerBullet :: init(float xPos, float yPos) {
+
+	this->context->init(xPos, yPos);
 
 }
 

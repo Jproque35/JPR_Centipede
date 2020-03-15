@@ -26,9 +26,9 @@ private:
 	bool debugLock = false;
 
 	InputManager() {};
-	InputManager(const InputManager& obj);
+	InputManager(const InputManager& obj) = delete;
 	~InputManager();
-	InputManager& operator=(const InputManager& obj);
+	InputManager& operator=(const InputManager& obj) = delete;
 
 public:
 	static InputManager* getInstance();

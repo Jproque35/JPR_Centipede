@@ -30,6 +30,7 @@ protected:
 	Sprite spr;
 	bool active = false;
 	float xSpeed = 0.0f, ySpeed = 0.0f;
+	int id = -1;
 	Text posText;
 	Font font;
 
@@ -39,10 +40,15 @@ public:
 	~ObjectData();
 	ObjectData& operator=(const ObjectData& obj);
 
+	virtual void init(float xPos, float yPos) = 0;
+	void setId(int id);
+	int getId();
 	void activate();
 	void deactivate();
 	bool isActive() const;
 	ObjectType getType();
+	void setX(float xPos);
+	void setY(float YPos);
 	void setPosition(Vector2f pos);
 	Vector2f getPosition() const;
 	FloatRect getCollisionBox() const;
@@ -51,7 +57,7 @@ public:
 	void setYVelocity(float ySpeed);
 	float getXVelocity() const;
 	float getYVelocity() const;
-	Text getPositionText() const;
+	Text getPositionText();
 	Sprite getSprite() const;
 
 };

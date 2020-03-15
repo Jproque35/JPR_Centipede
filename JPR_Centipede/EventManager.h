@@ -3,7 +3,9 @@
 #pragma once
 #include "GameEvent.h"
 #include "GameObjectManager.h"
+#include "GameObjectFactory.h"
 #include "CollisionManager.h"
+#include "InputManager.h"
 #include <vector>
 
 using namespace std;
@@ -12,15 +14,17 @@ class EventManager
 {
 
 private:
-	GameObjectManager* gm;
+	static EventManager* instance;
 	vector<GameEventListener*> events;
 
-public:
-	EventManager(GameObjectManager* gm);
-	EventManager(const EventManager& obj);
+	EventManager();
+	EventManager(const EventManager& obj) = delete;
 	~EventManager();
-	EventManager& operator=(const EventManager& obj);
+	EventManager& operator=(const EventManager& obj) = delete;
 
+public:
+	static EventManager* getInstance();
+	static void resetInstance();
 	void addEvent(GameEventListener* event);
 	void update(float elapsedTime);
 

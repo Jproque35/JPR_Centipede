@@ -29,6 +29,7 @@ private:
 	EventManager* em;
 	SpriteManager* spm;
 	SoundManager* sdm;
+	GameObjectFactory* objFactory;
 
 	Texture bgImg;
 	Sprite background;

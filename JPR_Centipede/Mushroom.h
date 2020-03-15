@@ -20,6 +20,7 @@ public:
 	~Mushroom();
 	Mushroom& operator=(const Mushroom& obj);
 
+	void init(float xPos, float yPos);
 	ObjectData* getData() const;
 
 };

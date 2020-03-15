@@ -23,6 +23,7 @@ public:
 	~Centipede();
 	Centipede& operator=(const Centipede& obj);
 
+	void init(float xPos, float yPos);
 	ObjectData* getData() const;
 	CentipedeType getCentipedeType()const;
 	void setCentipedeType(CentipedeType type);

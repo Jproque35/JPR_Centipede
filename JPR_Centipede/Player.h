@@ -20,6 +20,7 @@ public:
 	~Player();
 	Player& operator=(const Player& obj);
 
+	void init(float xPos, float yPos);
 	ObjectData* getData() const;
 
 };

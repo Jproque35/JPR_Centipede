@@ -7,6 +7,7 @@ MushroomData::MushroomData(float initX, float initY) :ObjectData(initX, initY) {
 	this->type = ObjectType::MushroomData;
 	this->img.loadFromFile("assets/sprites/mushroom.png");
 	this->spr.setTexture(this->img);
+	this->init(initX, initY);
 
 }
 
@@ -27,6 +28,13 @@ MushroomData& MushroomData::operator=(const MushroomData& obj) {
 	}
 
 	return *this;
+
+}
+
+void MushroomData::init(float xPos, float yPos) {
+
+	this->position.x = xPos;
+	this->position.y = yPos;
 
 }
 

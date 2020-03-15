@@ -4,8 +4,9 @@
 Centipede::Centipede(float initX, float initY) {
 
 	this->context = new CentipedeData(initX, initY);
-	this->type = CentipedeType::Head;
 	this->state = new GenericState();
+	this->type = CentipedeType::Head;
+	this->init(initX, initY);
 	//this->state = new CentipedeHeadState(this->context);
 
 }
@@ -33,6 +34,12 @@ Centipede::~Centipede() {
 Centipede& Centipede::operator=(const Centipede& obj) {
 
 	return *this;
+
+}
+
+void Centipede::init(float xPos, float yPos) {
+
+	this->context->init(xPos, yPos);
 
 }
 

@@ -8,21 +8,7 @@ GridManager::GridManager(int width, int height) {
 
 }
 
-GridManager::GridManager(const GridManager& obj) {
-
-	this->width = obj.width;
-	this->height = obj.height;
-	this->gm = obj.gm;
-
-}
-
 GridManager::~GridManager() {
-
-}
-
-GridManager& GridManager::operator=(const GridManager& obj) {
-
-	return *this;
 
 }
 
@@ -89,13 +75,15 @@ bool GridManager::hasType(ObjectType type, int x, int y) {
 
 void GridManager::add(GameObject* obj) {
 
-	int x = obj->getData()->getPosition().x;
-	int y = obj->getData()->getPosition().y;
+	if (obj != NULL) {
+		int x = obj->getData()->getPosition().x;
+		int y = obj->getData()->getPosition().y;
 
-	if (this->inBounds(x, y)) {
+		if (this->inBounds(x, y)) {
 
-		this->gm[this->getKey(x, y)].push_back(obj);
+			this->gm[this->getKey(x, y)].push_back(obj);
 
+		}
 	}
 
 }
