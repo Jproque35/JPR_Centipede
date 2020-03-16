@@ -54,7 +54,7 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 }
 
-inline void CentipedeMoveEvent::moveLeftRoutine() {
+void CentipedeMoveEvent::moveLeftRoutine() {
 
 	if (this->leftBlocked() && this->context->commandsSize() < 1) {
 
@@ -69,7 +69,7 @@ inline void CentipedeMoveEvent::moveLeftRoutine() {
 
 }
 
-inline void CentipedeMoveEvent::moveRightRoutine() {
+void CentipedeMoveEvent::moveRightRoutine() {
 
 	if (this->rightBlocked() && this->context->commandsSize() < 1) {
 
@@ -84,7 +84,7 @@ inline void CentipedeMoveEvent::moveRightRoutine() {
 
 }
 
-inline void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
+void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
 	this->data->setDirection(dir);
 
@@ -102,7 +102,7 @@ inline void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) 
 
 }
 
-inline void CentipedeMoveEvent::queueLevelChangeCommand() {
+void CentipedeMoveEvent::queueLevelChangeCommand() {
 
 	if (!this->data->isReversed()) {
 

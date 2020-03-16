@@ -2,10 +2,10 @@
 
 GameObjectManager* GameObjectManager::instance = 0;
 
-GameObjectManager::GameObjectManager(const GameObjectManager& obj) {
+GameObjectManager::GameObjectManager() {
 
-	this->gm = obj.gm;
-	this->grid = obj.grid;
+	//this->objFactory = GameObjectFactory::getInstance();
+	this->grid = NULL;
 
 }
 
@@ -23,12 +23,6 @@ GameObjectManager::~GameObjectManager() {
 	}
 
 	delete(this->grid);
-
-}
-
-GameObjectManager& GameObjectManager::operator=(const GameObjectManager& obj) {
-
-	return *this;
 
 }
 
@@ -51,12 +45,13 @@ void GameObjectManager::resetInstance() {
 
 }
 
-void GameObjectManager::init(int size, int x, int y) {
+void GameObjectManager::init(int x, int y) {
 
-	this->gm.resize(size);
+	this->gm.resize(256);
 
 	for (int i = 0; i < this->gm.size(); i++) {
 
+		this->freeIds.push(i);
 		this->gm[i] = NULL;
 
 	}
@@ -90,23 +85,38 @@ void GameObjectManager::rebuildGrid() {
 
 }
 
-void GameObjectManager::add(int i, GameObject* obj) {
+void GameObjectManager::add(GameObject* obj) {
 
-	if (i < this->gm.size() && i >= 0) {
+	int newPos = -1;
 
-		this->gm[i] = obj;
+	if (this->freeIds.size() > 0) {
+
+		newPos = this->freeIds.front();
+		this->freeIds.pop();
 
 	}
 
-	this->grid->add(obj);
+	if (newPos > -1 && obj != NULL) {
+
+		this->gm[newPos] = obj;
+		obj->getData()->setId(newPos);
+
+	}
+	else {
+
+		cout << "There are no free slots." << endl;
+
+	}
 
 }
 
 void GameObjectManager::update(int i, float elapsedTime) {
 
 	if (this->gm[i] != NULL) {
+
 		this->gm[i]->update(elapsedTime);
 		this->rebuildGrid();
+
 	}
 
 }
@@ -148,6 +158,24 @@ void GameObjectManager::erase(int i) {
 	if (this->gm[i] != NULL) {
 
 		//delete(this->gm[i]);
+		//this->objFactory->storeObject(this->gm[i]);
+		this->freeIds.push(i);
+
+		/*
+		cout << "Free IDs: ";
+
+		for (int i = 0; i < this->freeIds.size(); ++i) {
+
+			int currId = this->freeIds.front();
+			cout << currId << " ";
+			this->freeIds.pop();
+			this->freeIds.push(currId);
+
+		}
+
+		cout << endl;
+		*/
+
 		this->gm[i] = NULL;
 
 	}

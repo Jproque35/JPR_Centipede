@@ -121,6 +121,11 @@ void InputManager::firePressed() {
 			this->fireActive = true;
 
 		}
+		else {
+
+			this->fireActive = false;
+
+		}
 
 		this->fireLock = true;
 

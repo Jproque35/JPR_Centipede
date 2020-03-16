@@ -100,6 +100,12 @@
     <Filter Include="Source Files\Engine\Factories">
       <UniqueIdentifier>{9cd04a01-f6c5-43c7-8cd4-ad7b72f3c748}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Factories\ObjectLoader">
+      <UniqueIdentifier>{fc8e9b49-c3ec-4a99-81b3-fc45bd216725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Factories\ObjectLoader">
+      <UniqueIdentifier>{b80f56da-dccb-4c0c-b80f-c9998fc0c24d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
@@ -249,6 +255,12 @@
     <ClCompile Include="FontManager.cpp">
       <Filter>Source Files\Engine\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectLoader.cpp">
+      <Filter>Source Files\Engine\Factories\ObjectLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="MushroomLoader.cpp">
+      <Filter>Source Files\Engine\Factories\ObjectLoader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -382,6 +394,12 @@
     </ClInclude>
     <ClInclude Include="FontManager.h">
       <Filter>Header Files\Engine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectLoader.h">
+      <Filter>Header Files\Engine\Factories\ObjectLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="MushroomLoader.h">
+      <Filter>Header Files\Engine\Factories\ObjectLoader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

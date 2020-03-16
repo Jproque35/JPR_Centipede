@@ -5,6 +5,9 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "PlayerBullet.h"
+#include "Mushroom.h"
+
+
 #include "CentipedeMoveEvent.h"
 #include "CentipedeHeadState.h"
 #include "PlayerInputEvent.h"
@@ -14,6 +17,7 @@
 #include "CentipedeBodyState.h"
 #include "CentipedeMoveEvent.h"
 #include "CentipedeHitEvent.h"
+
 
 class GameObjectFactory
 {

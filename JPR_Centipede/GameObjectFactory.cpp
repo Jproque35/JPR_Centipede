@@ -6,7 +6,7 @@ GameObjectFactory::GameObjectFactory() {
 
 	for (int i = 0; i < 800; ++i) {
 
-		cout << "Creating reserve mmushroom " << i << endl;
+		//cout << "Creating reserve mmushroom " << i << endl;
 		this->mushrooms.push(new Mushroom(-1, - 1));
 
 	}
@@ -28,9 +28,9 @@ GameObjectFactory::~GameObjectFactory() {
 			Mushroom* currObj = this->mushrooms.front();
 			this->mushrooms.pop();
 			delete(currObj);
+			currObj = NULL;
 
 		}
-
 	}
 
 	while (this->bullets.size() > 0) {
@@ -40,6 +40,20 @@ GameObjectFactory::~GameObjectFactory() {
 			PlayerBullet* currObj = this->bullets.front();
 			this->bullets.pop();
 			delete(currObj);
+			currObj = NULL;
+
+		}
+
+	}
+
+	while (this->misc.size() > 0) {
+
+		if (this->misc.front() != NULL) {
+
+			GameObject* currObj = this->misc.front();
+			this->misc.pop();
+			delete(currObj);
+			currObj = NULL;
 
 		}
 
@@ -72,8 +86,9 @@ void GameObjectFactory::resetInstance() {
 
 GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float initY) {
 
+	
 	if (type == ObjectType::PlayerData) {
-
+		
 		cout << "Creating Player object..." << endl;
 		Player* player = new Player(initX, initY);
 		player->addEventListener(new PlayerInputEvent(player));
@@ -82,7 +97,7 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 		return player;
 
 	}
-	else if (type == ObjectType::PlayerProjectile) {
+	else if (type == ObjectType::PlayerProjectile && this->bullets.size() > 0) {
 
 		cout << "Creating Bullet object..." << endl;
 		PlayerBullet* playerBullet = bullets.front();
@@ -102,7 +117,7 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 		centipede->setState(new CentipedeHeadState((CentipedeData*)centipede->getData()));
 
 		centipede->addEventListener(new CentipedeMoveEvent(centipede));
-		//centipede->addEventListener(new CentipedeHitEvent(centipede));
+		centipede->addEventListener(new CentipedeHitEvent(centipede));
 		cout << "Centipede object created." << endl;
 
 		return centipede;
@@ -115,13 +130,13 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 		centipede->setState(new CentipedeBodyState((CentipedeData*)centipede->getData()));
 
 		//centipede->addEventListener(new CentipedeMoveEvent(centipede));
-		//centipede->addEventListener(new CentipedeHitEvent(centipede));
+		centipede->addEventListener(new CentipedeHitEvent(centipede));
 		cout << "Centipede object created." << endl;
 
 		return centipede;
 
 	}
-	else if (type == ObjectType::MushroomData) {
+	else if (type == ObjectType::MushroomData && this->mushrooms.size() > 0) {
 
 		cout << "Creating Mushroom object..." << endl;
 		Mushroom* mushroom = this->mushrooms.front();
@@ -154,6 +169,7 @@ void GameObjectFactory::storeObject(GameObject* obj) {
 	}
 	else {
 
+		cout << "Stored obect with unidentified type " << obj << " in reserve." << endl;
 		this->misc.push(obj);
 
 	}

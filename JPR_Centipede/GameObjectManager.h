@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "GridManager.h"
 #include <SFML/Graphics.hpp>
+//#include "GameObjectFactory.h"
 #include "InputManager.h"
 #include "ScoreObject.h"
 
@@ -14,22 +15,26 @@ class GameObjectManager {
 private:
 	static GameObjectManager* instance;
 	vector<GameObject*> gm;
+	//GameObjectFactory* objFactory;
 	GridManager* grid;
+	queue<int> freeIds;
+	int largestFreeId = -1;
 
-	GameObjectManager() {};
-	GameObjectManager(const GameObjectManager& obj);
+	GameObjectManager();
+	GameObjectManager(const GameObjectManager& obj) = delete;
 	~GameObjectManager();
-	GameObjectManager& operator=(const GameObjectManager& obj);
+	GameObjectManager& operator=(const GameObjectManager& obj) = delete;
 
 	void rebuildGrid();
 
 public:
 	static GameObjectManager* getInstance();
 	static void resetInstance();
-	void init(int size, int x, int y);
+
+	void init(int x, int y);
 	int getGridWidth() const;
 	int getGridHeight() const;
-	void add(int i, GameObject* obj);
+	void add(GameObject* obj);
 	void update(int i, float elapsedTime);
 	void updateAll(float elapsedTime);
 	vector<GameObject*> get(int x, int y) const;

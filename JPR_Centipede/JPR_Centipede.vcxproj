@@ -173,6 +173,7 @@
     <ClCompile Include="MushroomData.cpp" />
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="MushroomLoader.cpp" />
     <ClCompile Include="NullState.cpp" />
     <ClCompile Include="ObjectData.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
@@ -186,6 +187,7 @@
     <ClCompile Include="ObjectCommand.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="ObjectDeactivateCommand.cpp" />
+    <ClCompile Include="ObjectLoader.cpp" />
     <ClCompile Include="ObjectMoveDownCommand.cpp" />
     <ClCompile Include="ObjectMoveLeftCommand.cpp" />
     <ClCompile Include="ObjectMoveRightCommand.cpp" />
@@ -223,6 +225,7 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="MushroomData.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="MushroomLoader.h" />
     <ClInclude Include="NullState.h" />
     <ClInclude Include="ObjectData.h" />
     <ClInclude Include="GameObjectManager.h" />
@@ -233,6 +236,7 @@
     <ClInclude Include="ObjectCommand.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="ObjectDeactivateCommand.h" />
+    <ClInclude Include="ObjectLoader.h" />
     <ClInclude Include="ObjectMoveDownCommand.h" />
     <ClInclude Include="ObjectMoveLeftCommand.h" />
     <ClInclude Include="ObjectMoveRightCommand.h" />

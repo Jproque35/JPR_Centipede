@@ -32,7 +32,7 @@ void CentipedeHitEvent::update(float elapsedTime) {
 
 		cout << "Centipede got hit" << endl;
 		this->scm->increaseScore(10);
-		this->context->getData()->setPosition(Vector2f(0, 0));
+		//this->context->getData()->setPosition(Vector2f(0, 0));
 
 	}
 
