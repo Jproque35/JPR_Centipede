@@ -4,13 +4,14 @@ GameObjectFactory* GameObjectFactory::instance = NULL;
 
 GameObjectFactory::GameObjectFactory() {
 
-	for (int i = 0; i < 800; i++) {
+	for (int i = 0; i < 800; ++i) {
 
+		cout << "Creating reserve mmushroom " << i << endl;
 		this->mushrooms.push(new Mushroom(-1, - 1));
 
 	}
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 3; ++i) {
 
 		this->bullets.push(new PlayerBullet(-1, -1));
 

@@ -7,8 +7,10 @@ CentipedeData::CentipedeData(float initX, float initY) : ObjectData(initX, initY
 	this->shape.setFillColor(Color::Red);
 	this->type = ObjectType::CentipedeData;
 
+	/*
 	this->img.loadFromFile("assets/sprites/centi.png");
 	this->spr.setTexture(this->img);
+	*/
 	this->init(initX, initY);
 
 }

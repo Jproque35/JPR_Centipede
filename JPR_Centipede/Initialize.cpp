@@ -17,9 +17,11 @@ void Engine::init() {
 	this->sdm = SoundManager::getInstance();
 	this->spm = SpriteManager::getInstance();
 	this->em = EventManager::getInstance();
+	this->fm = FontManager::getInstance();
 	this->objFactory = GameObjectFactory::getInstance();
 
 	this->gm->init(this->getNumObjects(), this->gridWidth, this->gridHeight);
+	this->sdm->loadFromFile("assets/soundlist.txt");
 
 	this->initObjects();
 	this->initEvents();

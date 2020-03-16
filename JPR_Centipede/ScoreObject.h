@@ -12,7 +12,6 @@ class ScoreManager
 private:
 	static ScoreManager* instance;
 	Text scoreText;
-	Font font;
 	int score = 0;
 
 	ScoreManager();

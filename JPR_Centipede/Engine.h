@@ -27,6 +27,7 @@ private:
 	InputManager* im;
 	ScoreManager* scm;
 	EventManager* em;
+	FontManager* fm;
 	SpriteManager* spm;
 	SoundManager* sdm;
 	GameObjectFactory* objFactory;

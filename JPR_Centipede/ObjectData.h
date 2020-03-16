@@ -3,6 +3,7 @@
 #pragma once
 #include "SoundManager.h"
 #include "SpriteManager.h"
+#include "FontManager.h"
 #include <queue>
 #include <iostream>
 
@@ -32,7 +33,6 @@ protected:
 	float xSpeed = 0.0f, ySpeed = 0.0f;
 	int id = -1;
 	Text posText;
-	Font font;
 
 public:
 	ObjectData(float initX, float initY);

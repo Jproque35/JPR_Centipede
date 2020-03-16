@@ -246,6 +246,9 @@
     <ClCompile Include="CentipedeBodyHitEvent.cpp">
       <Filter>Source Files\Entities\Centipede\Events</Filter>
     </ClCompile>
+    <ClCompile Include="FontManager.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -376,6 +379,9 @@
     </ClInclude>
     <ClInclude Include="BulletFiredEvent.h">
       <Filter>Header Files\Entities\Player\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="FontManager.h">
+      <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

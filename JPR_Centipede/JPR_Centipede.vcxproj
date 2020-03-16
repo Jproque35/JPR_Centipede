@@ -163,6 +163,7 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="CommandFactory.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameEvent.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
     <ClCompile Include="GameObjectState.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="CommandFactory.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="FontManager.h" />
     <ClInclude Include="GameEvent.h" />
     <ClInclude Include="GameObjectFactory.h" />
     <ClInclude Include="GameObjectState.h" />

@@ -14,10 +14,13 @@ ObjectData::ObjectData(float initX, float initY) {
 	//this->spr.setTexture(this->img);
 	this->spr.setPosition(this->position);
 
-	this->font.loadFromFile("game_over.ttf");
+	//this->font = new Font();
+	//this->font->loadFromFile("game_over.ttf");
+
+	FontManager* fm = FontManager::getInstance();
 
 	this->posText.setPosition(Vector2f(0.0f, 0.0f));
-	this->posText.setFont(this->font);
+	this->posText.setFont(*fm->get(0));
 	this->posText.setCharacterSize(36);
 	this->posText.setFillColor(sf::Color::White);
 	this->posText.setOutlineColor(sf::Color::Black);
@@ -33,7 +36,6 @@ ObjectData::ObjectData(const ObjectData& obj) {
 	this->shape = CircleShape(obj.shape);
 	this->type = obj.type;
 	this->active = obj.active;
-	this->font = Font(obj.font);
 	this->posText = Text(obj.posText);
 
 }
@@ -48,7 +50,6 @@ ObjectData& ObjectData::operator=(const ObjectData& obj) {
 	this->shape = obj.shape;
 	this->type = obj.type;
 	this->active = obj.active;
-	this->font = obj.font;
 	this->posText = obj.posText;
 
 	return *this;

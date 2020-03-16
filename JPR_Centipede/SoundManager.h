@@ -2,6 +2,9 @@
 #define SOUNDMANAGER_H
 #pragma once
 #include <string>
+#include <fstream>
+#include <sstream>
+#include <iostream>
 #include <SFML/Audio.hpp>
 
 using namespace sf;
@@ -19,10 +22,12 @@ private:
 	~SoundManager();
 	SoundManager& operator=(const SoundManager& obj) = delete;
 
+	void parseLine(const char* str, int i);
+
 public:
 	static SoundManager* getInstance();
 	static void resetInstance();
-	int loadFromFile(String f);
+	void loadFromFile(const char* filename);
 	SoundBuffer get(int i) const;
 
 };
