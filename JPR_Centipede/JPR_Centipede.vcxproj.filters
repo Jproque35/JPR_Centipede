@@ -261,6 +261,9 @@
     <ClCompile Include="MushroomLoader.cpp">
       <Filter>Source Files\Engine\Factories\ObjectLoader</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerHitEvent.cpp">
+      <Filter>Source Files\Entities\Player\Events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -400,6 +403,9 @@
     </ClInclude>
     <ClInclude Include="MushroomLoader.h">
       <Filter>Header Files\Engine\Factories\ObjectLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHitEvent.h">
+      <Filter>Header Files\Entities\Player\Events</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -198,6 +198,7 @@
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="PlayerBulletFireCommand.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerHitEvent.cpp" />
     <ClCompile Include="PlayerInputEvent.cpp" />
     <ClCompile Include="ScoreObject.cpp" />
     <ClCompile Include="SoundManager.cpp" />
@@ -247,6 +248,7 @@
     <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="PlayerBulletFireCommand.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerHitEvent.h" />
     <ClInclude Include="PlayerInputEvent.h" />
     <ClInclude Include="ScoreObject.h" />
     <ClInclude Include="SoundManager.h" />

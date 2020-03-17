@@ -7,7 +7,7 @@
 #include "PlayerBullet.h"
 #include "Mushroom.h"
 
-
+#include "PlayerHitEvent.h"
 #include "CentipedeMoveEvent.h"
 #include "CentipedeHeadState.h"
 #include "PlayerInputEvent.h"

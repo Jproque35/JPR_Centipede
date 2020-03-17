@@ -2,7 +2,7 @@
 
 GameObjectFactory* GameObjectFactory::instance = NULL;
 
-GameObjectFactory::GameObjectFactory() {
+GameObjectFactory::GameObjectFactory() {                                                                   
 
 	for (int i = 0; i < 800; ++i) {
 
@@ -92,6 +92,7 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 		cout << "Creating Player object..." << endl;
 		Player* player = new Player(initX, initY);
 		player->addEventListener(new PlayerInputEvent(player));
+		player->addEventListener(new PlayerHitEvent(player));
 		cout << "Player object created." << endl;
 
 		return player;

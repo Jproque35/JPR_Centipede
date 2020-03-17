@@ -2,6 +2,9 @@
 #define GAMEEVENTLISTENER_H
 #pragma once
 #include "CommandFactory.h"
+#include <iostream>
+
+using namespace std;
 
 class GameEventListener
 {
