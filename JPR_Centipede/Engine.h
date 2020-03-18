@@ -5,6 +5,7 @@
 #include <iostream>;
 #include <vector>
 #include <queue>
+#include <sstream>
 #include "GameObjectManager.h"
 #include "ObjectCommand.h"
 #include "Centipede.h"
@@ -35,6 +36,8 @@ private:
 	Texture bgImg;
 	Sprite background;
 	vector<Sprite> backgroundTiles;
+
+	Text hudText;
 
 	int cellWidth = 0.0f;
 	int gridHeight = 0.0f;

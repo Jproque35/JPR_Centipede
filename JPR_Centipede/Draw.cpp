@@ -39,11 +39,17 @@ void Engine::draw() {
 
 	}
 	
-	Text hudText = this->scm->getScoreText();
+	//Text hudText = this->scm->getScoreText();
 
-	window.draw(hudText);
+	//window.draw(hudText);
 
-	Text testHud;
+	//Text testHud;
+
+	stringstream ss;
+	ss << "Score: " << this->scm->getScore() << "\n";
+	ss << "Lives: " << this->scm->getLives() << "\n";
+	this->hudText.setString(ss.str());
+	window.draw(this->hudText);
 
 	this->window.display();
 

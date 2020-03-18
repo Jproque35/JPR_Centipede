@@ -11,8 +11,8 @@ class ScoreManager
 
 private:
 	static ScoreManager* instance;
-	Text scoreText;
 	int score = 0;
+	int lives = 3;
 
 	ScoreManager();
 	ScoreManager(const ScoreManager& obj) = delete;
@@ -24,10 +24,10 @@ public:
 	static void resetInstance();
 
 	int getScore() const;
+	int getLives() const;
 	void increaseScore(int i);
 	void setScore(int i);
-	void updateScoreText();
-	Text getScoreText() const;
+	void setLives(int i);
 
 };
 

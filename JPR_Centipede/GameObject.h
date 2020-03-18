@@ -4,10 +4,6 @@
 #include "GameEvent.h"
 #include "GameObjectState.h"
 #include "CommandFactory.h"
-#include "ObjectMoveLeftCommand.h"
-#include "ObjectMoveUpCommand.h"
-#include "ObjectMoveDownCommand.h"
-#include "ObjectMoveRightCommand.h"
 
 class GameObject
 {
@@ -16,8 +12,6 @@ protected:
 	GameObjectState* state;
 
 	void executeCommand(float elapsedTime);
-	virtual void preUpdate(float elapsedTime) = 0;
-	virtual void postUpdate(float elapsedTime) = 0;
 
 public:
 	virtual void init(float xPos, float yPos) = 0;

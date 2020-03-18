@@ -2,19 +2,7 @@
 
 ScoreManager* ScoreManager::instance = 0;
 
-ScoreManager::ScoreManager() {
-
-    FontManager* fm = FontManager::getInstance();
-
-    this->scoreText.setPosition(Vector2f(0.0f, 0.0f));
-    this->scoreText.setFont(*fm->get(0));
-    this->scoreText.setCharacterSize(75);
-    this->scoreText.setFillColor(sf::Color::White);
-    this->scoreText.setOutlineColor(sf::Color::Black);
-    this->scoreText.setOutlineThickness(1.0f);
-    this->updateScoreText();
-
-}
+ScoreManager::ScoreManager() {}
 
 ScoreManager::~ScoreManager() {}
 
@@ -37,35 +25,32 @@ void ScoreManager::resetInstance() {
 
 }
 
-void ScoreManager::updateScoreText() {
-
-    stringstream ss;
-    ss << "Score: " << this->score;
-    scoreText.setString(ss.str());
-
-}
-
 int ScoreManager::getScore() const {
 
     return this->score;
 
 }
 
+int ScoreManager::getLives() const {
+
+    return this->lives;
+
+}
+
 void ScoreManager::increaseScore(int i) {
 
     this->score += i;
-    this->updateScoreText();
 
 }
 
 void ScoreManager::setScore(int i) {
 
     this->score = i;
-    this->updateScoreText();
+
 }
 
-Text ScoreManager::getScoreText() const {
+void ScoreManager::setLives(int i) {
 
-    return this->scoreText;
+    this->lives = i;
 
 }

@@ -23,6 +23,13 @@ void Engine::init() {
 	this->gm->init(this->gridWidth, this->gridHeight);
 	this->sdm->loadFromFile("assets/soundlist.txt");
 
+	this->hudText.setPosition(Vector2f(0.0f, 0.0f));
+	this->hudText.setFont(*fm->get(0));
+	this->hudText.setCharacterSize(75);
+	this->hudText.setFillColor(sf::Color::White);
+	this->hudText.setOutlineColor(sf::Color::Black);
+	this->hudText.setOutlineThickness(1.0f);
+
 	this->initObjects();
 	this->initEvents();
 
