@@ -44,13 +44,8 @@ ObjectData* Mushroom::getData() const {
 
 }
 
-void Mushroom::preUpdate(float elapsedTime) {
+void Mushroom::update(float elapsedTime) {
 
-
-
-}
-void Mushroom::postUpdate(float elapsedTime) {
-
-
+	this->executeCommand(elapsedTime);
 
 }

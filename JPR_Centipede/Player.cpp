@@ -39,12 +39,92 @@ ObjectData* Player::getData() const {
 
 }
 
-void Player::preUpdate(float elapsedTime) {
+void Player::updateCollisions() {
+
+	vector<GameObject*> objs = CollisionManager::getGridObjects(this);
+
+	this->upBlocked = false;
+	this->downBlocked = false;
+	this->leftBlocked = false;
+	this->rightBlocked = false;
+
+	for (int i = 0; i < objs.size(); i++) {
+
+		if (CollisionManager::intersects(this, objs[i])) {
+
+			if (objs[i]->getData()->getPosition().x < this->context->getPosition().x) {
+
+				this->upBlocked = true;
+
+			}
+
+
+
+		}
+
+	}
 
 }
 
-void Player::postUpdate(float elapsedTime) {
+void Player::update(float elapsedTime) {
 
-	
+	/*
+	this->updateCollisions();
+
+	InputManager* im = InputManager::getInstance();
+	GameObjectManager* gm = GameObjectManager::getInstance();
+	Vector2f currPos = this->context->getPosition();
+	float speed = this->context->getXVelocity();
+
+	if (im->isUpPressed()) {
+
+		if (currPos.y - 1.0f >= 0 &&
+			!gm->hasType(ObjectType::MushroomData, currPos.x, currPos.y - 1.0f)) {
+
+			this->queueStateCommand(CommandType::MoveUp);
+
+		}
+
+	}
+	else if (im->isDownPressed()) {
+
+		if (ceil(currPos.y) + 1.0f < gm->getGridHeight() &&
+			!gm->hasType(ObjectType::MushroomData, currPos.x, ceil(currPos.y) + 1.0f)) {
+
+			this->queueStateCommand(CommandType::MoveDown);
+
+		}
+
+	}
+	else if (im->isLeftPressed()) {
+
+		if (currPos.x - 1.0f >= 0 &&
+			!gm->hasType(ObjectType::MushroomData, currPos.x - 1.0f, currPos.y)) {
+
+			this->queueStateCommand(CommandType::MoveLeft);
+
+		}
+
+	}
+	else if (im->isRightPressed()) {
+
+		if (ceil(currPos.x) + 1.0f < gm->getGridWidth() &&
+			!gm->hasType(ObjectType::MushroomData, ceil(currPos.x) + 1.0f, currPos.y)) {
+
+			this->queueStateCommand(CommandType::MoveRight);
+
+		}
+	}*/
+	this->state->executeCommand(elapsedTime);
+
+}
+
+void Player::queueStateCommand(CommandType type) {
+
+	if (this->state->getCommandQueueSize() < 1) {
+
+		this->state->queueCommand(CommandFactory::makeCommand(type, this->context));
+
+	}
 
 }

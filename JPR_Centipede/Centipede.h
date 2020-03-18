@@ -14,9 +14,6 @@ private:
 	CentipedeType type = CentipedeType::Head;
 	CentipedeData* context;
 
-	void preUpdate(float elapsedTime);
-	void postUpdate(float elapsedTime);
-
 public:
 	Centipede(float initX, float initY);
 	Centipede(const Centipede& obj);
@@ -27,6 +24,7 @@ public:
 	ObjectData* getData() const;
 	CentipedeType getCentipedeType()const;
 	void setCentipedeType(CentipedeType type);
+	void update(float elapsedTime);
 
 };
 

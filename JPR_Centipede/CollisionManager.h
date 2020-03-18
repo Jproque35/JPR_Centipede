@@ -3,7 +3,6 @@
 #pragma once
 #include "GameObject.h"
 #include "GameObjectManager.h"
-#include "GridManager.h"
 
 class CollisionManager
 {
@@ -12,7 +11,7 @@ public:
 	CollisionManager() = delete;
 	~CollisionManager() = delete;
 	static bool intersects(GameObject* obj1, GameObject* obj2);
-	static vector<vector<GameObject*>> getGridObjects( GameObject* obj, GameObjectManager* gm);
+	static vector<GameObject*> getGridObjects( GameObject* obj );
 
 };
 

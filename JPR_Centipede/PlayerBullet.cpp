@@ -45,17 +45,8 @@ ObjectData* PlayerBullet::getData() const {
 
 }
 
-void PlayerBullet::preUpdate(float elapsedTime) {
+void PlayerBullet::update(float elapsedTime) {
 
-}
-
-void PlayerBullet::postUpdate(float elapsedTIme) {
-
-	if (this->state->getCommandQueueSize() == 0) {
-
-		this->context->setPosition(Vector2f(-1.0f, -1.0f));
-		this->context->getShape().setPosition(this->context->getPosition());
-
-	}
+	this->executeCommand(elapsedTime);
 
 }

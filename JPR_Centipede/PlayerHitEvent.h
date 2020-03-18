@@ -3,6 +3,7 @@
 #pragma once
 #include "GameEvent.h"
 #include "GameObjectFactory.h"
+#include "ScoreObject.h"
 
 class PlayerHitEvent :
 	public GameEventListener

@@ -3,6 +3,7 @@
 CentipedeBodyState::CentipedeBodyState(CentipedeData* data) {
 
 	this->context = data;
+	this->lastPos = data->getPosition();
 
 }
 
@@ -33,6 +34,7 @@ void CentipedeBodyState::executeCommand(float elapsedTime) {
 			if (this->context->getNextId() > -1) {
 
 				Centipede* nextObj = (Centipede*)(gm->get(this->context->getNextId()));
+				nextObj->getData()->setPosition(this->lastPos);
 				nextObj->queueCommand(CommandFactory::makeCommand(currCommand->getType(), nextObj->getData()));
 
 			}
@@ -40,6 +42,7 @@ void CentipedeBodyState::executeCommand(float elapsedTime) {
 			this->commands.pop();
 			delete(currCommand);
 			currCommand = NULL;
+			this->lastPos = this->context->getPosition();
 
 		}
 

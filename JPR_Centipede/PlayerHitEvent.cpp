@@ -39,6 +39,9 @@ void PlayerHitEvent::update(float elapsedTime) {
 	if (this->hasCentipede(currPos.x, currPos.y)) {
 
 		cout << "Player hit by centipede" << endl;
+		ScoreManager* sm = ScoreManager::getInstance();
+
+		sm->setLives(sm->getLives() - 1);
 
 	}
 

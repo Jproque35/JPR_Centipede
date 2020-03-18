@@ -12,6 +12,7 @@ class CentipedeBodyState :
 
 private:
 	CentipedeData* context;
+	Vector2f lastPos;
 
 public:
 	CentipedeBodyState(CentipedeData* data);

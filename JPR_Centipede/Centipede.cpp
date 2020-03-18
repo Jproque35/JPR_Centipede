@@ -61,12 +61,8 @@ void Centipede::setCentipedeType(CentipedeType type) {
 
 }
 
-void Centipede::preUpdate(float elapsedTime) {
+void Centipede::update(float elapsedTime) {
 
-
-}
-
-void Centipede::postUpdate(float elapsedTime) {
-
+	this->executeCommand(elapsedTime);
 
 }

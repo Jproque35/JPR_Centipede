@@ -60,9 +60,3 @@ void GameObject::executeCommand(float elapsedTime) {
 	this->state->executeCommand(elapsedTime);
 
 }
-
-void GameObject::update(float elapsedTime) {
-
-	this->executeCommand(elapsedTime);
-
-}

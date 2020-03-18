@@ -28,7 +28,9 @@ bool CollisionManager::intersects(GameObject* obj1, GameObject* obj2) {
 
 }
 
-vector<vector<GameObject*>> CollisionManager::getGridObjects(GameObject* obj, GameObjectManager* gm) {
+vector<GameObject*> CollisionManager::getGridObjects(GameObject* obj) {
+
+	GameObjectManager* gm = GameObjectManager::getInstance();
 
 	int xLo = floor(obj->getData()->getPosition().x);
 	int yLo = floor(obj->getData()->getPosition().y);
@@ -36,13 +38,19 @@ vector<vector<GameObject*>> CollisionManager::getGridObjects(GameObject* obj, Ga
 	int xHi = floor(obj->getData()->getPosition().x + diameter);
 	int yHi = floor(obj->getData()->getPosition().y + diameter);
 
-	vector<vector<GameObject*>> desire;
+	vector<GameObject*> desire;
 
-	for (int i = xLo; i < xHi; i++) {
+	for (int i = xLo; i <= xHi; i++) {
 
-		for (int j = yLo; j < yHi; j++) {
+		for (int j = yLo; j <= yHi; j++) {
 
-			desire.push_back(gm->get(i, j));
+			vector<GameObject*> currList = gm->get(i, j);
+
+			for (int k = 0; k < currList.size(); k++) {
+
+				desire.push_back( currList[k] );
+
+			}
 
 		}
 	}

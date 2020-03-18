@@ -11,8 +11,6 @@ class Mushroom :
 
 private:
 	MushroomData* context;
-	void preUpdate(float elapsedTime);
-	void postUpdate(float elapsedTime);
 
 public:
 	Mushroom(float initX, float initY);
@@ -22,6 +20,7 @@ public:
 
 	void init(float xPos, float yPos);
 	ObjectData* getData() const;
+	void update(float elapsedTime);
 
 };
 

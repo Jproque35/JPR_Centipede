@@ -12,10 +12,10 @@ class PlayerBullet :
 
 private:
 	PlayerBulletData* context;
+	float distTravelled = 0.0f;
 
 protected:
-	void preUpdate(float elapsedTime);
-	void postUpdate(float elapsedTime);
+
 
 public:
 	PlayerBullet(float initX, float initY);
@@ -25,6 +25,7 @@ public:
 
 	void init(float xPos, float yPos);
 	ObjectData* getData() const;
+	void update(float elapsedTime);
 
 };
 

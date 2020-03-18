@@ -4,6 +4,10 @@
 #include "GameObject.h"
 #include "GenericState.h"
 #include "PlayerData.h"
+#include "InputManager.h"
+#include "GameObjectManager.h"
+#include "CollisionManager.h"
+#include "CommandFactory.h"
 
 class Player :
 	public GameObject
@@ -11,8 +15,12 @@ class Player :
 
 private:
 	PlayerData* context;
-	void preUpdate(float elapsedTime);
-	void postUpdate(float elapsedTime);
+	bool upBlocked = false;
+	bool downBlocked = false;
+	bool rightBlocked = false;
+	bool leftBlocked = false;
+	void updateCollisions();
+	void queueStateCommand(CommandType type);
 
 public:
 	Player(float initX, float initY);
@@ -22,6 +30,7 @@ public:
 
 	void init(float xPos, float yPos);
 	ObjectData* getData() const;
+	void update(float elapsedTime);
 
 };
 
