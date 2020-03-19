@@ -1,14 +1,13 @@
 #ifndef GAMEOBJECTMANAGER_H
 #define GAMEOBJECTMANAGER_H
 #pragma once
-#include "GameObject.h"
-#include "GridManager.h"
-#include <SFML/Graphics.hpp>
-//#include "GameObjectFactory.h"
-#include "InputManager.h"
-#include "ScoreObject.h"
+#include <queue>
+#include "ObjectType.h"
 
 using namespace std;
+
+class GameObject;
+class GridManager;
 
 class GameObjectManager {
 

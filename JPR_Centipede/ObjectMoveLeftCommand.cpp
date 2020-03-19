@@ -1,9 +1,10 @@
 #include "ObjectMoveLeftCommand.h"
+#include "GameObject.h"
 
-ObjectMoveLeftCommand::ObjectMoveLeftCommand(ObjectData* context) {
+ObjectMoveLeftCommand::ObjectMoveLeftCommand(GameObject* context) {
 
 	this->context = context;
-	this->xDest = this->context->position.x - 1.0f;
+	this->xDest = this->context->getX() - 1.0f;
 	this->type = CommandType::MoveLeft;
 
 }
@@ -27,21 +28,21 @@ ObjectMoveLeftCommand& ObjectMoveLeftCommand::operator=(const ObjectMoveLeftComm
 
 void ObjectMoveLeftCommand::execute(float elapsedTime) {
 
-	float moveDist = this->context->xSpeed * elapsedTime;
+	float moveDist = this->context->getXSpeed() * elapsedTime;
 
-	if (this->context->position.x - moveDist <= this->xDest) {
+	if (this->context->getX() - moveDist <= this->xDest) {
 
-		this->context->position.x = this->xDest;
+		this->context->setX(this->xDest);
 		this->finished = true;
 
 	}
 	else {
 
-		this->context->position.x -= moveDist;
+		this->context->setX(this->context->getX() - moveDist);
 
 	}
 
-	this->context->shape.setPosition(this->context->position);
-	this->context->spr.setPosition(this->context->position);
+	this->context->setShapePosition(this->context->getX(), this->context->getY());
+	this->context->setSpritePosition(this->context->getX(), this->context->getY());
 
 }

@@ -1,4 +1,5 @@
 #include "GridManager.h"
+#include "GameObject.h"
 
 GridManager::GridManager(int width, int height) {
 
@@ -61,7 +62,7 @@ bool GridManager::hasType(ObjectType type, int x, int y) {
 
 	for (int i = 0; i < currList.size(); i++) {
 
-		if (currList[i]->getData()->getType() == type) {
+		if (currList[i]->getType() == type) {
 
 			return true;
 
@@ -76,8 +77,8 @@ bool GridManager::hasType(ObjectType type, int x, int y) {
 void GridManager::add(GameObject* obj) {
 
 	if (obj != NULL) {
-		int x = obj->getData()->getPosition().x;
-		int y = obj->getData()->getPosition().y;
+		float x = obj->getX();
+		float y = obj->getY();
 
 		if (this->inBounds(x, y)) {
 

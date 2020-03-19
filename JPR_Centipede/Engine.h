@@ -6,18 +6,18 @@
 #include <vector>
 #include <queue>
 #include <sstream>
-#include "GameObjectManager.h"
-#include "ObjectCommand.h"
-#include "Centipede.h"
-#include "Player.h"
-#include "PlayerBullet.h"
-#include "Mushroom.h"
-#include "CollisionManager.h"
-#include "EventManager.h"
-#include "GameObjectFactory.h"
 
 using namespace sf;
 using namespace std;
+
+class GameObjectManager;
+class InputManager;
+class ScoreManager;
+class EventManager;
+class FontManager;
+class SpriteManager;
+class SoundManager;
+class GameObjectFactory;
 
 class Engine {
 
@@ -63,7 +63,7 @@ private:
 	void executeObjectEventListeners(float elapsedTime);
 	void update(float dtAsSeconds);
 	void draw();
-	void drawShape(ObjectData* obj);
+	void drawShape(CircleShape shape);
 	void drawSprite(Sprite spr);
 	void drawBackgroundTile(Sprite img);
 	void drawText(const Text& drawable);

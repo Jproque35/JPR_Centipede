@@ -2,19 +2,7 @@
 #define OBJECTCOMMAND_H
 #pragma once
 #include <iostream>
-
-enum class CommandType {
-	Unknown,
-	Generic,
-	MoveUp,
-	MoveDown,
-	MoveLeft,
-	MoveRight,
-	Activate,
-	Deactivate,
-	SetPosition,
-	ShootBullet
-};
+#include "CommandType.h"
 
 using namespace std;
 

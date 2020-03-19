@@ -1,14 +1,11 @@
 #ifndef EVENTMANAGER_H
 #define EVENTMANAGER_H
 #pragma once
-#include "GameEvent.h"
-#include "GameObjectManager.h"
-#include "GameObjectFactory.h"
-#include "CollisionManager.h"
-#include "InputManager.h"
 #include <vector>
 
 using namespace std;
+
+class GameEventListener;
 
 class EventManager
 {

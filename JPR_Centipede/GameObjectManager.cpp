@@ -1,4 +1,6 @@
 #include "GameObjectManager.h"
+#include "GameObject.h"
+#include "GridManager.h"
 
 GameObjectManager* GameObjectManager::instance = 0;
 
@@ -98,8 +100,8 @@ void GameObjectManager::add(GameObject* obj) {
 
 	if (newPos > -1 && obj != NULL) {
 
+		obj->setId(newPos);
 		this->gm[newPos] = obj;
-		obj->getData()->setId(newPos);
 
 	}
 	else {

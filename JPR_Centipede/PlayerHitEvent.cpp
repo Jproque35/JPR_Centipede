@@ -1,4 +1,7 @@
 #include "PlayerHitEvent.h"
+#include "GameObjectManager.h"
+#include "Player.h"
+#include "ScoreObject.h"
 
 PlayerHitEvent::PlayerHitEvent(Player* context) {
 
@@ -26,17 +29,15 @@ inline bool PlayerHitEvent::hasCentipede(float xPos, float yPos) {
 	GameObjectManager* gm = GameObjectManager::getInstance();
 
 	return gm->hasType(ObjectType::CentipedeBody, xPos, yPos)
-		|| gm->hasType(ObjectType::CentipedeData, xPos, yPos);
+		|| gm->hasType(ObjectType::CentipedeHead, xPos, yPos);
 
 }
 
 void PlayerHitEvent::update(float elapsedTime) {
 
-	PlayerData* data = (PlayerData*)this->context->getData();
 	GameObjectManager* gm = GameObjectManager::getInstance();
-	Vector2f currPos = this->context->getData()->getPosition();
 
-	if (this->hasCentipede(currPos.x, currPos.y)) {
+	if (this->hasCentipede(this->context->getX(), this->context->getY())) {
 
 		cout << "Player hit by centipede" << endl;
 		ScoreManager* sm = ScoreManager::getInstance();

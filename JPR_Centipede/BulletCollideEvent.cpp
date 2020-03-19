@@ -1,4 +1,7 @@
 #include "BulletCollideEvent.h"
+#include "GameObjectManager.h"
+#include "PlayerBullet.h"
+#include "GameObjectState.h"
 
 BulletCollideEvent::BulletCollideEvent(PlayerBullet* context) {
 
@@ -24,19 +27,18 @@ BulletCollideEvent& BulletCollideEvent::operator=(const BulletCollideEvent& obj)
 
 void BulletCollideEvent::update(float elapsedTime) {
 
-	Vector2f currPos = this->context->getData()->getPosition();
-	vector<GameObject*> gm = this->gm->get(currPos.x, currPos.y);
+	vector<GameObject*> gm = this->gm->get(this->context->getX(), this->context->getY());
 
 	for (int i = 0; i < gm.size(); i++) {
 
 		if (gm[i] != NULL) {
 
-			if (gm[i]->getData()->getType() == ObjectType::MushroomData
-				|| gm[i]->getData()->getType() == ObjectType::CentipedeData) {
+			if (gm[i]->getType() == ObjectType::Mushroom
+				|| gm[i]->getType() == ObjectType::CentipedeHead) {
 
-				this->context->clearCommands();
-				this->context->getData()->setPosition(Vector2f(-1.0f, -1.0f));
-				this->context->getData()->deactivate();
+				this->context->getState()->clearCommands();
+				this->context->setX(-1.0f);
+				this->context->setY(-1.0f);
 
 			}
 

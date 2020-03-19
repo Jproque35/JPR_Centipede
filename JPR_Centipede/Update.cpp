@@ -1,4 +1,8 @@
 #include "Engine.h"
+#include "EventManager.h"
+#include "GameObjectManager.h"
+#include "GameObject.h"
+#include "GameObjectState.h"
 
 void Engine::update(float dtAsSeconds) {
 
@@ -14,7 +18,9 @@ void Engine::executeObjectEventListeners(float elapsedTime) {
 	for (int i = 0; i < this->gm->size(); i++) {
 
 		if (this->gm->get(i) != NULL) {
-			this->gm->get(i)->executeEventListeners(elapsedTime);
+
+			this->gm->get(i)->getState()->executeEventListeners(elapsedTime);
+
 		}
 
 	}

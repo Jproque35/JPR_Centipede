@@ -2,29 +2,31 @@
 #define CENTIPEDE_H
 #pragma once
 #include "GameObject.h"
-#include "GenericState.h"
-#include "CentipedeData.h"
-
-enum class CentipedeType { Head, Body };
+#include "CentipedeDirection.h"
 
 class Centipede : public GameObject
 {
 
 private:
-	CentipedeType type = CentipedeType::Head;
-	CentipedeData* context;
+	Centipede* next = NULL;
+	Centipede* prev = NULL;
+	CentipedeDirection dir = CentipedeDirection::Left;
+	bool reversed = false;
 
 public:
-	Centipede(float initX, float initY);
+	Centipede();
 	Centipede(const Centipede& obj);
 	~Centipede();
 	Centipede& operator=(const Centipede& obj);
 
 	void init(float xPos, float yPos);
-	ObjectData* getData() const;
-	CentipedeType getCentipedeType()const;
-	void setCentipedeType(CentipedeType type);
-	void update(float elapsedTime);
+
+	void setDirection(CentipedeDirection dir);
+	CentipedeDirection getDirection() const;
+
+	void setReversed();
+	void unsetReversed();
+	bool isReversed() const;
 
 };
 

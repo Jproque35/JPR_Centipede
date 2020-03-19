@@ -2,30 +2,19 @@
 
 PlayerBullet::PlayerBullet(float initX, float initY) {
 
-	this->context = new PlayerBulletData(initX, initY);
-	this->state = new GenericState();
-	this->init(initX, initY);
+	this->shape.setRadius(0.2f);
+	this->shape.setFillColor(Color::Yellow);
+	this->type = ObjectType::PlayerBullet;
 
 }
 
 PlayerBullet::PlayerBullet(const PlayerBullet& obj) {
 
-	this->context = obj.context;
+	GameObject::assignmentAux(obj);
 
 }
 
-PlayerBullet::~PlayerBullet() {
-
-	this->clearCommands();
-
-	if (this->context != NULL) {
-
-		delete(this->context);
-		this->context = NULL;
-
-	}
-
-}
+PlayerBullet::~PlayerBullet() {}
 
 PlayerBullet& PlayerBullet::operator=(const PlayerBullet& obj) {
 
@@ -33,20 +22,13 @@ PlayerBullet& PlayerBullet::operator=(const PlayerBullet& obj) {
 
 }
 
-void PlayerBullet :: init(float xPos, float yPos) {
+void PlayerBullet::init(float xPos, float yPos) {
 
-	this->context->init(xPos, yPos);
-
-}
-
-ObjectData* PlayerBullet::getData() const {
-
-	return this->context;
+	this->pos.x = xPos;
+	this->pos.y = yPos;
+	this->xSpeed = 0.0f;
+	this->ySpeed = 20.0f;
+	this->shape.setPosition(this->pos);
 
 }
 
-void PlayerBullet::update(float elapsedTime) {
-
-	this->executeCommand(elapsedTime);
-
-}

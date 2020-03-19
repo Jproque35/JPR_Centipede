@@ -1,35 +1,15 @@
 #include "Centipede.h"
-#include "CentipedeHeadState.h"
 
-Centipede::Centipede(float initX, float initY) {
+Centipede::Centipede() {
 
-	this->context = new CentipedeData(initX, initY);
-	this->state = new GenericState();
-	this->type = CentipedeType::Head;
-	this->init(initX, initY);
-	//this->state = new CentipedeHeadState(this->context);
+	this->type = ObjectType::CentipedeHead;
+	this->shape.setFillColor(Color::Red);
 
 }
 
-Centipede::Centipede(const Centipede& obj) {
+Centipede::Centipede(const Centipede& obj) {}
 
-	this->context = obj.context;
-	this->type = obj.type;
-
-}
-
-Centipede::~Centipede() {
-
-	this->clearCommands();
-
-	if (this->context != NULL) {
-
-		delete(this->context);
-		this->context = NULL;
-
-	}
-
-}
+Centipede::~Centipede() {}
 
 Centipede& Centipede::operator=(const Centipede& obj) {
 
@@ -39,30 +19,40 @@ Centipede& Centipede::operator=(const Centipede& obj) {
 
 void Centipede::init(float xPos, float yPos) {
 
-	this->context->init(xPos, yPos);
+	this->pos.x = xPos;
+	this->pos.y = yPos;
+	this->xSpeed = 8.0f;
+	this->ySpeed = 8.0f;
+	this->shape.setPosition(this->pos);
 
 }
 
-ObjectData* Centipede::getData() const {
+void Centipede::setDirection(CentipedeDirection dir) {
 
-	return this->context;
-
-}
-
-CentipedeType Centipede::getCentipedeType() const {
-
-	return this->type;
+	this->dir = dir;
 
 }
 
-void Centipede::setCentipedeType(CentipedeType type) {
+CentipedeDirection Centipede::getDirection() const {
 
-	this->type = type;
+	return this->dir;
 
 }
 
-void Centipede::update(float elapsedTime) {
+void Centipede::setReversed() {
 
-	this->executeCommand(elapsedTime);
+	this->reversed = true;
+
+}
+
+void Centipede::unsetReversed() {
+
+	this->reversed = false;
+
+}
+
+bool Centipede::isReversed() const {
+
+	return this->reversed;
 
 }

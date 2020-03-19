@@ -1,8 +1,10 @@
 #include "GenericState.h"
+#include "GameEvent.h"
+#include "ObjectCommand.h"
 
 GenericState::GenericState() {
 
-	this->type = StateType::Generic;
+	this->type = StateType::GenericState;
 
 }
 
@@ -65,5 +67,11 @@ void GenericState::executeCommand(float elapsedTime) {
 		}
 
 	}
+
+}
+
+void GenericState::update(float elapsedTime) {
+
+	this->executeCommand(elapsedTime);
 
 }

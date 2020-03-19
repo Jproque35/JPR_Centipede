@@ -1,12 +1,13 @@
 #ifndef GRIDMANAGER_H
 #define GRIDMANAGER_H
 #pragma once
-#include <unordered_map>
 #include <vector>
-#include "GameObject.h"
 #include <iostream>
+#include "ObjectType.h"
 
 using namespace std;
+
+class GameObject;
 
 class GridManager
 {

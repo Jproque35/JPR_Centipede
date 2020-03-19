@@ -1,4 +1,13 @@
 #include "Engine.h"
+#include "GameObjectManager.h"
+#include "GameObject.h"
+#include "ScoreObject.h"
+#include "InputManager.h"
+#include "GameObjectFactory.h"
+#include "EventManager.h"
+#include "SpriteManager.h"
+#include "SoundManager.h"
+#include "FontManager.h"
 
 EventManager* EventManager::instance = NULL;
 
@@ -52,10 +61,9 @@ void Engine::initPlayer(int &currPos) {
 	float initX = floor(this->gridWidth / 2);
 	float initY = floor(this->gridHeight / 2);
 
-	GameObject* currObj = this->objFactory->makeObject(ObjectType::PlayerData, initX, initY);
+	GameObject* currObj = this->objFactory->makeObject(ObjectType::Player, initX, initY);
 
 	this->gm->add(currObj);
-	currObj->getData()->activate();
 	bulletsStart = ++currPos;
 
 	int endPos = currPos + this->numBullets;
@@ -63,10 +71,10 @@ void Engine::initPlayer(int &currPos) {
 
 	while (currPos < endPos) {
 
-		currObj = this->objFactory->makeObject(ObjectType::PlayerProjectile, initX, initY);
+		currObj = this->objFactory->makeObject(ObjectType::PlayerBullet, initX, initY);
 
 		this->gm->add(currObj);
-		cout << "Loaded bullet object into slot " << currObj->getData()->getId() << endl;
+		cout << "Loaded bullet object into slot " << currObj->getId() << endl;
 		++currPos;
 
 	}
@@ -81,12 +89,11 @@ void Engine::initEnemies(int &currPos) {
 	float initX = floor(this->gridWidth / 2);
 	float initY = 0.0f;
 
-	GameObject* currObj = this->objFactory->makeObject(ObjectType::CentipedeData, initX, initY);
+	GameObject* currObj = this->objFactory->makeObject(ObjectType::CentipedeHead, initX, initY);
 
 	this->gm->add( currObj );
-	currObj->getData()->activate();
 
-	cout << "Loaded centipede object into slot " << currObj->getData()->getId() << endl;
+	cout << "Loaded centipede object into slot " << currObj->getId() << endl;
 	++currPos;
 
 	while (currPos < endPos) {
@@ -100,26 +107,8 @@ void Engine::initEnemies(int &currPos) {
 		currObj = this->objFactory->makeObject(ObjectType::CentipedeBody, initX, initY);
 
 		this->gm->add(currObj);
-		cout << "Loaded centipede object into slot " << currObj->getData()->getId() << endl;
+		cout << "Loaded centipede object into slot " << currObj->getId() << endl;
 		++currPos;
-
-	}
-
-	
-	int currPos2 = initPos;
-
-	while (currPos2 < endPos) {
-
-		CentipedeData* currData = (CentipedeData*)(this->gm->get(currPos2)->getData());
-
-		if (currPos2 < endPos - 1) {
-
-			currData->setNextId(currPos2 + 1);
-			cout << "Next for " << currPos2 << " set to " << currPos2 + 1 << endl;
-
-		}
-
-		currPos2++;
 
 	}
 
@@ -138,11 +127,10 @@ void Engine::initMushrooms(int &currPos) {
 		float tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
 
 		GameObject* currObj = 
-			this->objFactory->makeObject(ObjectType::MushroomData, tempX, tempY);
+			this->objFactory->makeObject(ObjectType::Mushroom, tempX, tempY);
 
 		this->gm->add(currObj);
-		currObj->getData()->activate();
-		cout << "Loaded mushroom object into slot " << currObj->getData()->getId() << " at position " << tempX << ", " << tempY << endl;
+		cout << "Loaded mushroom object into slot " << currObj->getId() << " at position " << tempX << ", " << tempY << endl;
 		currPos++;
 
 	}

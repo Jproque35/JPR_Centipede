@@ -2,8 +2,10 @@
 #define CENTIPEDEHITEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "GameObjectManager.h"
-#include "Centipede.h"
+
+class GameObjectManager;
+class Centipede;
+class ScoreManager;
 
 class CentipedeHitEvent :
 	public GameEventListener

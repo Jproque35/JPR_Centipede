@@ -2,20 +2,19 @@
 #define CENTIPEDEBODYSTATE_H
 #pragma once
 #include "GameObjectState.h"
-#include "CentipedeData.h"
-#include "Centipede.h"
-#include "GameObjectManager.h"
+
+class Centipede;
 
 class CentipedeBodyState : 
 	public GameObjectState
 {
 
 private:
-	CentipedeData* context;
+	Centipede* context;
 	Vector2f lastPos;
 
 public:
-	CentipedeBodyState(CentipedeData* data);
+	CentipedeBodyState(Centipede* data);
 	CentipedeBodyState(const CentipedeBodyState& obj);
 	~CentipedeBodyState();
 	CentipedeBodyState& operator=(const CentipedeBodyState& obj);

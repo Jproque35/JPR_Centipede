@@ -1,12 +1,14 @@
 #include "GameObjectState.h"
+#include "ObjectCommand.h"
+#include "GameEvent.h"
 
-StateType GameObjectState::getType() {
+StateType GameObjectState::getType() const {
 
 	return this->type;
 
 }
 
-int GameObjectState::getCommandQueueSize() {
+int GameObjectState::getNumCommands() const {
 
 	return this->commands.size();
 

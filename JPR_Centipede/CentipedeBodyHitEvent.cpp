@@ -1,5 +1,9 @@
 #include "CentipedeBodyHitEvent.h"
-
+#include "Centipede.h"
+#include "GameObjectManager.h"
+#include "ScoreObject.h"
+#include "ObjectType.h"
+#include "CentipedeDirection.h"
 
 CentipedeBodyHitEvent::CentipedeBodyHitEvent(Centipede* context) {
 
@@ -23,31 +27,27 @@ CentipedeBodyHitEvent& CentipedeBodyHitEvent::operator=(const CentipedeBodyHitEv
 
 void CentipedeBodyHitEvent::update(float elapsedTime) {
 
-	Vector2f currPos = this->context->getData()->getPosition();
 	GameObjectManager* gm = GameObjectManager::getInstance();
 	ScoreManager* scm = ScoreManager::getInstance();
 
-	if (gm->hasType(ObjectType::PlayerProjectile, currPos.x, currPos.y)) {
-
-		CentipedeData* data = (CentipedeData*)(this->context->getData());
+	if (gm->hasType(ObjectType::PlayerBullet, this->context->getX(), this->context->getY())) {
 
 		cout << "Centipede got hit" << endl;
 		
-		if (data->getDirection() == CentipedeDirection::Left) {
+		if (this->context->getDirection() == CentipedeDirection::Left) {
 
-			data->setDirection(CentipedeDirection::Right);
+			this->context->setDirection(CentipedeDirection::Right);
 
 		}
 		else {
 
-			data->setDirection(CentipedeDirection::Left);
+			this->context->setDirection(CentipedeDirection::Left);
 
 		}
 
-		this->context->setState(new CentipedeHeadState(data));
+		//this->context->setState(new CentipedeHeadState(data));
 
 		scm->increaseScore(10);
-		//this->context->getData()->setPosition(Vector2f(0, 0));
 
 	}
 }

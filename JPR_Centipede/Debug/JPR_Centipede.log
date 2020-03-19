@@ -1,6 +1,2 @@
-﻿  PlayerHitEvent.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerHitEvent.cpp(28,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerHitEvent.cpp(28,48): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerHitEvent.cpp(29,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerHitEvent.cpp(29,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  Mushroom.cpp
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

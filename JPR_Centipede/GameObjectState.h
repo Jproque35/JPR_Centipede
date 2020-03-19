@@ -1,11 +1,17 @@
 #ifndef GAMEOBJECTSTATE_H
 #define GAMEOBJECTSTATE_H
 #pragma once
-#include "ObjectData.h"
-#include "GameEvent.h"
-#include "ObjectCommand.h"
+#include <vector>
+#include <queue>
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
+#include "StateTypes.h"
 
-enum class StateType { Generic, Null, CentipedeHead, CentipedeBody };
+using namespace sf;
+using namespace std;
+
+class GameEventListener;
+class ObjectCommand;
 
 class GameObjectState
 {
@@ -16,14 +22,16 @@ protected:
 	queue<ObjectCommand*> commands;
 
 public:
-	StateType getType();
-	int getCommandQueueSize();
+	GameObjectState* copy(const GameObjectState& obj);
+	StateType getType() const;
+	int getNumCommands() const;
 	void clearEventListeners();
 	void clearCommands();
 	void addEventListener(GameEventListener* event);
 	void queueCommand(ObjectCommand* command);
 	virtual void executeEventListeners(float elapsedTime) = 0;
 	virtual void executeCommand(float elapsedTime) = 0;
+	virtual void update(float elapsedTime) = 0;
 
 };
 

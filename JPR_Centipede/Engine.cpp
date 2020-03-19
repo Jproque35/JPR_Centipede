@@ -1,4 +1,12 @@
 #include "Engine.h"
+#include "GameObjectManager.h"
+#include "ScoreObject.h"
+#include "InputManager.h"
+#include "GameObjectFactory.h"
+#include "EventManager.h"
+#include "SpriteManager.h"
+#include "SoundManager.h"
+#include "FontManager.h"
 
 Engine* Engine::instance = NULL;
 
@@ -10,9 +18,9 @@ Engine::Engine() {
 	resolution.x = 1600;
 	resolution.y = 900;
 
-	this->cellWidth = resolution.y / 40.0f;
-	this->gridHeight = 40;
-	this->gridWidth = 20;
+	this->cellWidth = resolution.y / 30.0f;
+	this->gridHeight = 30;
+	this->gridWidth = 30;
 
 	this->bgImg.loadFromFile("assets/sprites/bg.png");
 	this->background.setTexture(this->bgImg);

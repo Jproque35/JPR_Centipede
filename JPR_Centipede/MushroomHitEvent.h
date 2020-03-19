@@ -2,9 +2,9 @@
 #define MUSHROOMHITEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "GameObject.h"
-#include "GameObjectManager.h"
-#include "Mushroom.h"
+
+class Mushroom;
+class GameObjectManager;
 
 class MushroomHitEvent :
 	public GameEventListener
@@ -13,7 +13,6 @@ class MushroomHitEvent :
 private:
 	GameObjectManager* gm;
 	Mushroom* context;
-	MushroomData* data;
 
 public:
 	MushroomHitEvent(Mushroom* context);

@@ -1,9 +1,10 @@
 #include "ObjectMoveDownCommand.h"
+#include "GameObject.h"
 
-ObjectMoveDownCommand::ObjectMoveDownCommand(ObjectData* context) {
+ObjectMoveDownCommand::ObjectMoveDownCommand(GameObject* context) {
 
 	this->context = context;
-	this->yDest = this->context->position.y + 1.0f;
+	this->yDest = this->context->getY() + 1.0f;
 	this->type = CommandType::MoveDown;
 
 }
@@ -27,21 +28,21 @@ ObjectMoveDownCommand& ObjectMoveDownCommand::operator=(const ObjectMoveDownComm
 
 void ObjectMoveDownCommand::execute(float elapsedTime) {
 
-	float moveDist = this->context->ySpeed * elapsedTime;
+	float moveDist = this->context->getYSpeed() * elapsedTime;
 
-	if (this->context->position.y + moveDist >= this->yDest) {
+	if (this->context->getY() + moveDist >= this->yDest) {
 
-		this->context->position.y = yDest;
+		this->context->setY(yDest);
 		this->finished = true;
 
 	}
 	else {
 
-		this->context->position.y += moveDist;
+		this->context->setY(this->context->getY() + moveDist);
 
 	}
 
-	this->context->shape.setPosition(this->context->position);
-	this->context->spr.setPosition(this->context->position);
+	this->context->setSpritePosition( this->context->getX(), this->context->getY() );
+	this->context->setShapePosition( this->context->getX(), this->context->getY() );
 
 }

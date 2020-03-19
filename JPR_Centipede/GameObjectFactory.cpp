@@ -1,4 +1,9 @@
 #include "GameObjectFactory.h"
+#include "Mushroom.h"
+#include "PlayerBullet.h"
+#include "Player.h"
+#include "Centipede.h"
+#include <iostream>
 
 GameObjectFactory* GameObjectFactory::instance = NULL;
 
@@ -87,38 +92,30 @@ void GameObjectFactory::resetInstance() {
 GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float initY) {
 
 	
-	if (type == ObjectType::PlayerData) {
+	if (type == ObjectType::Player) {
 		
 		cout << "Creating Player object..." << endl;
-		Player* player = new Player(initX, initY);
-		player->addEventListener(new PlayerInputEvent(player));
-		player->addEventListener(new PlayerHitEvent(player));
+		Player* player = new Player();
 		cout << "Player object created." << endl;
 
 		return player;
 
 	}
-	else if (type == ObjectType::PlayerProjectile && this->bullets.size() > 0) {
+	else if (type == ObjectType::PlayerBullet && this->bullets.size() > 0) {
 
 		cout << "Creating Bullet object..." << endl;
 		PlayerBullet* playerBullet = bullets.front();
 		bullets.pop();
 		playerBullet->init(initX, initY);
-		playerBullet->addEventListener(new BulletFiredEvent(playerBullet));
-		playerBullet->addEventListener(new BulletCollideEvent(playerBullet));
 		cout << "Bullet object created." << endl;
 
 		return playerBullet;
 
 	}
-	else if (type == ObjectType::CentipedeData) {
+	else if (type == ObjectType::CentipedeHead) {
 
 		cout << "Creating Centipede Head object..." << endl;
-		Centipede* centipede = new Centipede(initX, initY);
-		centipede->setState(new CentipedeHeadState((CentipedeData*)centipede->getData()));
-
-		centipede->addEventListener(new CentipedeMoveEvent(centipede));
-		centipede->addEventListener(new CentipedeHitEvent(centipede));
+		Centipede* centipede = new Centipede();
 		cout << "Centipede object created." << endl;
 
 		return centipede;
@@ -127,23 +124,17 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 	else if (type == ObjectType::CentipedeBody) {
 
 		cout << "Creating Centipede Body object..." << endl;
-		Centipede* centipede = new Centipede(initX, initY);
-		centipede->setState(new CentipedeBodyState((CentipedeData*)centipede->getData()));
-
-		//centipede->addEventListener(new CentipedeMoveEvent(centipede));
-		centipede->addEventListener(new CentipedeHitEvent(centipede));
+		Centipede* centipede = new Centipede();
 		cout << "Centipede object created." << endl;
 
 		return centipede;
 
 	}
-	else if (type == ObjectType::MushroomData && this->mushrooms.size() > 0) {
+	else if (type == ObjectType::Mushroom && this->mushrooms.size() > 0) {
 
 		cout << "Creating Mushroom object..." << endl;
 		Mushroom* mushroom = this->mushrooms.front();
 		this->mushrooms.pop();
-		mushroom->init(initX, initY);
-		mushroom->addEventListener(new MushroomHitEvent(mushroom));
 		cout << "Mushroom object created." << endl;
 
 		return mushroom;
@@ -156,13 +147,13 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 
 void GameObjectFactory::storeObject(GameObject* obj) {
 
-	if (obj->getData()->getType() == ObjectType::PlayerProjectile) {
+	if (obj->getType() == ObjectType::PlayerBullet) {
 
 		cout << "Stored Bullet object " << obj << " in reserve." << endl;
 		this->bullets.push((PlayerBullet*)obj);
 
 	}
-	else if (obj->getData()->getType() == ObjectType::MushroomData) {
+	else if (obj->getType() == ObjectType::Mushroom) {
 
 		cout << "Stored Mushroom object " << obj << " in reserve." << endl;
 		this->mushrooms.push((Mushroom*)obj);

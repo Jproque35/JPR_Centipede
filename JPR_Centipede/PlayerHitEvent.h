@@ -2,8 +2,8 @@
 #define PLAYERHITEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "GameObjectFactory.h"
-#include "ScoreObject.h"
+
+class Player;
 
 class PlayerHitEvent :
 	public GameEventListener

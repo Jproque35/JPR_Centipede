@@ -1,4 +1,9 @@
 #include "BulletFiredEvent.h"
+#include "InputManager.h"
+#include "GameObjectManager.h"
+#include "PlayerBullet.h"
+#include "GameObjectState.h"
+#include "CommandFactory.h"
 
 BulletFiredEvent::BulletFiredEvent(PlayerBullet* context) {
 
@@ -27,28 +32,21 @@ void BulletFiredEvent::update(float elapsedTime) {
 
 	if (this->im->isFirePressed()) {
 
-		if (!this->context->getData()->isActive()) {
-
-			GameObject* player = this->gm->get(0);
-			Vector2f playerPos = player->getData()->getPosition();
-			float xPos = playerPos.x + player->getData()->getShape().getRadius() - this->context->getData()->getShape().getRadius();
+		GameObject* player = this->gm->get(0);
 
 			cout << "Fired object " << this->context << endl;
 
-			if (this->context->commandQueueSize() < 1) {
 
-				Vector2f newPos;
-				newPos.x = xPos;
-				newPos.y = playerPos.y;
-				this->context->getData()->setPosition(newPos);
 
-				this->context->queueCommand(CommandFactory::makeCommand(CommandType::ShootBullet,
-					this->context->getData()));
+			if (this->context->getState()->getNumCommands() < 1) {
+
+				this->context->setX(player->getX());
+				this->context->setY(player->getY());
+
+				this->context->getState()->queueCommand(
+					CommandFactory::makeCommand(CommandType::ShootBullet, this->context));
 
 			}
-
-
-		}
 
 	}
 

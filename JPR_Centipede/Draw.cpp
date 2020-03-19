@@ -1,4 +1,8 @@
 #include "Engine.h"
+#include "GameObjectManager.h"
+#include "GameObject.h"
+#include "InputManager.h"
+#include "ScoreObject.h"
 
 void Engine::draw() {
 
@@ -20,12 +24,11 @@ void Engine::draw() {
 
 			//if(this->gm->get(i)->getData()->isActive()) {
 
-				this->drawShape(this->gm->get(i)->getData());
+				this->drawShape(this->gm->get(i)->getShape());
 
 				if (this->im->isDebugActive()) {
 
-
-					this->drawText(this->gm->get(i)->getData()->getPositionText());
+					//this->drawText(this->gm->get(i)->getData()->getPositionText());
 
 				}
 				else {
@@ -55,15 +58,16 @@ void Engine::draw() {
 
 }
 
-void Engine::drawShape(ObjectData* obj) {
+void Engine::drawShape(CircleShape shape) {
 
-	CircleShape drawable = obj->getShape();
-	Vector2f drawablePosition = obj->getPosition();
-	drawable.scale(cellWidth, cellWidth);
+	shape.scale(cellWidth, cellWidth);
+	Vector2f drawablePosition = shape.getPosition();
+
 	drawablePosition.x *= this->cellWidth;
 	drawablePosition.y *= this->cellWidth;
-	drawable.setPosition(drawablePosition);
-	this->window.draw(drawable);
+	shape.setPosition(drawablePosition);
+
+	this->window.draw(shape);
 
 }
 

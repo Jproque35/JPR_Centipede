@@ -2,9 +2,10 @@
 #define CENTIPEDEMOVEEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "GameObject.h"
-#include "GameObjectManager.h"
-#include "Centipede.h"
+#include "CentipedeDirection.h"
+
+class GameObjectManager;
+class Centipede;
 
 class CentipedeMoveEvent :
 	public GameEventListener
@@ -13,7 +14,6 @@ class CentipedeMoveEvent :
 private:
 	GameObjectManager* gm;
 	Centipede* context;
-	CentipedeData* data;
 
 	void queueLevelChangeCommand();
 	void changeLevelAndDirection(CentipedeDirection dir);

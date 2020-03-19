@@ -1,4 +1,5 @@
 #include "EventManager.h"
+#include "GameEvent.h"
 
 EventManager::EventManager() {
 

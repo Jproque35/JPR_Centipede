@@ -1,32 +1,34 @@
 #include "Mushroom.h"
+#include "MushroomNormalState.h"
 
 Mushroom::Mushroom(float initX, float initY) {
 
-	this->context = new MushroomData(initX, initY);
-	this->state = new GenericState();
-	this->init(initX, initY);
+	this->type = ObjectType::Mushroom;
+	this->shape.setFillColor(Color::Magenta);
+	
+	GameObjectState* newState = new MushroomNormalState(this);
+	this->currState = newState;
+	this->states[newState->getType()] = newState;
+
+
 }
 
 Mushroom::Mushroom(const Mushroom& obj) {
 
-	this->context = obj.context;
+
 
 }
 
 Mushroom::~Mushroom() {
 
-	this->clearCommands();
-
-	if (this->context != NULL) {
-
-		delete(this->context);
-		this->context = NULL;
-
-	}
+	GameObject::deleteStates();
 
 }
 
 Mushroom& Mushroom::operator=(const Mushroom& obj) {
+
+	GameObject::assignmentAux(obj);
+	this->health = obj.health;
 
 	return *this;
 
@@ -34,18 +36,28 @@ Mushroom& Mushroom::operator=(const Mushroom& obj) {
 
 void Mushroom::init(float xPos, float yPos) {
 
-	this->context->init(xPos, yPos);
+	this->pos.x = xPos;
+	this->pos.y = yPos;
+	this->xSpeed = 0.0f;
+	this->ySpeed = 0.0f;
+	this->shape.setPosition(this->pos);
 
 }
 
-ObjectData* Mushroom::getData() const {
+void Mushroom::decrementHealth() {
 
-	return this->context;
+	--this->health;
 
 }
 
-void Mushroom::update(float elapsedTime) {
+void Mushroom::resetHealth() {
 
-	this->executeCommand(elapsedTime);
+	this->health = 4;
+
+}
+
+int Mushroom::getHealth() const {
+
+	return this->health;
 
 }

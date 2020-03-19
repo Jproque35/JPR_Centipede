@@ -2,9 +2,11 @@
 #define PLAYERINPUTEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "GameObject.h"
-#include "GameObjectManager.h"
-#include "Player.h"
+#include "CommandType.h"
+
+class Player;
+class GameObjectManager;
+class InputManager;
 
 class PlayerInputEvent :
 	public GameEventListener

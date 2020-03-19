@@ -2,7 +2,7 @@
 
 NullState::NullState() {
 
-	this->type = StateType::Null;
+	this->type = StateType::Unknown;
 
 }
 

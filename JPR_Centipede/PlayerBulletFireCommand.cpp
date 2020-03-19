@@ -1,13 +1,13 @@
 #include "PlayerBulletFireCommand.h"
 #include <iostream>
 #include "SoundManager.h"
+#include "PlayerBullet.h"
 
 using namespace std;
 
-PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBulletData* context) {
+PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBullet* context) {
 
 	this->context = context;
-	this->context->active = true;
 	this->type = CommandType::ShootBullet;
 
 
@@ -36,28 +36,25 @@ PlayerBulletFireCommand& PlayerBulletFireCommand::operator=(const PlayerBulletFi
 
 void PlayerBulletFireCommand::execute(float elapsedTime) {
 
-	if (this->context->active) {
-
 		if (this->distTravelled == 0) {
 
 			this->fireSound.play();
 
 		}
 
-		this->context->position.y -= this->context->ySpeed * elapsedTime;
-		this->distTravelled += this->context->ySpeed * elapsedTime;
+		float moveDist = this->context->getYSpeed() * elapsedTime;
 
-		this->context->shape.setPosition(this->context->position);
-		this->context->spr.setPosition(this->context->position);
+		this->context->setY( this->context->getY() - moveDist );
 
-		//if (this->context->position.y < 0.0f) {
+		this->distTravelled += moveDist;
+
+		this->context->getShape().setPosition(this->context->getX(), this->context->getY());
+		this->context->getSprite().setPosition(this->context->getX(), this->context->getY());
+
 		if(this->distTravelled >= 10.0f) {
 
-			this->context->active = false;
 			this->finished = true;
 
 		}
-
-	}
 
 }

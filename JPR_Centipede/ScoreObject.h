@@ -1,7 +1,6 @@
 #ifndef SCOREMANAGER_H
 #define SCOREMANAGER_H
 #pragma once
-#include "ObjectData.h"
 #include <sstream>
 
 using namespace std;

@@ -2,22 +2,25 @@
 #define PLAYERBULLETFIRECOMMAND_H
 #pragma once
 #include "ObjectCommand.h"
-#include "PlayerBulletData.h"
 #include <SFML/Audio.hpp>
+
+using namespace sf;
+
+class PlayerBullet;
 
 class PlayerBulletFireCommand :
 	public ObjectCommand
 {
 
 private:
-	PlayerBulletData* context;
+	PlayerBullet* context = NULL;
 	float distTravelled = 0.0f;
 	SoundBuffer sBuf;
 	Sound fireSound;
 	
 
 public:
-	PlayerBulletFireCommand(PlayerBulletData* context);
+	PlayerBulletFireCommand(PlayerBullet* context);
 	PlayerBulletFireCommand(const PlayerBulletFireCommand& obj);
 	~PlayerBulletFireCommand();
 	PlayerBulletFireCommand& operator=(const PlayerBulletFireCommand& obj);

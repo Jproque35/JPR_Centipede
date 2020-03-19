@@ -2,22 +2,14 @@
 #define GAMEOBJECTFACTORY_H
 #pragma once
 #include <vector>
-#include "GameObject.h"
-#include "Player.h"
-#include "PlayerBullet.h"
-#include "Mushroom.h"
+#include <queue>
+#include "ObjectType.h"
 
-#include "PlayerHitEvent.h"
-#include "CentipedeMoveEvent.h"
-#include "CentipedeHeadState.h"
-#include "PlayerInputEvent.h"
-#include "BulletFiredEvent.h"
-#include "MushroomHitEvent.h"
-#include "BulletCollideEvent.h"
-#include "CentipedeBodyState.h"
-#include "CentipedeMoveEvent.h"
-#include "CentipedeHitEvent.h"
+using namespace std;
 
+class Mushroom;
+class PlayerBullet;
+class GameObject;
 
 class GameObjectFactory
 {

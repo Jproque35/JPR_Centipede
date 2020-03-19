@@ -2,9 +2,10 @@
 #define BULLETFIREDEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "GameObject.h"
-#include "GameObjectManager.h"
-#include "PlayerBullet.h"
+
+class PlayerBullet;
+class GameObjectManager;
+class InputManager;
 
 class BulletFiredEvent :
 	public GameEventListener

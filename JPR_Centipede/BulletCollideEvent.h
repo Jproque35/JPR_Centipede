@@ -2,9 +2,9 @@
 #define BULLETCOLLIDEVENT_H
 #pragma once
 #include "GameEvent.h"
-#include "GameObject.h"
-#include "GameObjectManager.h"
-#include "PlayerBullet.h"
+
+class GameObjectManager;
+class PlayerBullet;
 
 class BulletCollideEvent :
 	public GameEventListener

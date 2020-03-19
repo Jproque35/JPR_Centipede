@@ -1,17 +1,17 @@
 #include "MushroomHitEvent.h"
 #include "GameObjectFactory.h"
+#include "GameObjectManager.h"
+#include "Mushroom.h"
 
 MushroomHitEvent::MushroomHitEvent(Mushroom* context) {
 
 	this->gm = GameObjectManager::getInstance();
 	this->context = context;
-	this->data = (MushroomData*)(this->context->getData());
 
 }
 
 MushroomHitEvent::MushroomHitEvent(const MushroomHitEvent& obj) {
 
-	this->data = obj.data;
 	this->context = obj.context;
 	this->gm = obj.gm;
 
@@ -27,31 +27,24 @@ MushroomHitEvent& MushroomHitEvent::operator=(const MushroomHitEvent& obj) {
 
 void MushroomHitEvent::update(float elapsedTime) {
 
-	Vector2f currPos = this->context->getData()->getPosition();
-
-	if (this->gm->hasType(ObjectType::PlayerProjectile, currPos.x, currPos.y)) {
+	if (this->gm->hasType(ObjectType::PlayerBullet, this->context->getX(), this->context->getY())) {
 
 
+		this->context->decrementHealth();
+		cout << "Mushroom got hit, HP is " << this->context->getHealth() << endl;
 
-		if (this->data->isActive()) {
+		if (this->context->getHealth() <= 0) {
 
-			this->data->decrementHealth();
-			cout << "Mushroom got hit, HP is " << this->data->getHealth() << endl;
-
-			if (this->data->getHealth() <= 0) {
-
- 				this->gm->erase(this->context->getData()->getId());
+ 			this->gm->erase(this->context->getId());
 				
-				GameObjectFactory* objFactory = GameObjectFactory::getInstance();
+			GameObjectFactory* objFactory = GameObjectFactory::getInstance();
 
-				objFactory->storeObject(this->context);
+			objFactory->storeObject(this->context);
 
-				this->data->deactivate();
-				this->data->setPosition(Vector2f(-1.0f, -1.0f));
+			this->context->setX(-1.0f);
+			this->context->setY(-1.0f);
 
-			}
 		}
-
 	}
 
 }

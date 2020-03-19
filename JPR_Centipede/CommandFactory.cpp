@@ -4,8 +4,9 @@
 #include "ObjectMoveLeftCommand.h"
 #include "ObjectMoveRightCommand.h"
 #include "PlayerBulletFireCommand.h"
+#include "PlayerBullet.h"
 
-ObjectCommand* CommandFactory::makeCommand(CommandType type, ObjectData* obj) {
+ObjectCommand* CommandFactory::makeCommand(CommandType type, GameObject* obj) {
 
 	if (type == CommandType::MoveUp) {
 
@@ -29,7 +30,7 @@ ObjectCommand* CommandFactory::makeCommand(CommandType type, ObjectData* obj) {
 	}
 	else if (type == CommandType::ShootBullet) {
 
-		return new PlayerBulletFireCommand((PlayerBulletData*)obj);
+		return new PlayerBulletFireCommand((PlayerBullet*)obj);
 
 	}
 

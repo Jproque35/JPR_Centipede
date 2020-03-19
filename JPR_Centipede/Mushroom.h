@@ -2,15 +2,13 @@
 #define MUSHROOM_H
 #pragma once
 #include "GameObject.h"
-#include "GenericState.h"
-#include "MushroomData.h"
 
 class Mushroom :
 	public GameObject
 {
 
 private:
-	MushroomData* context;
+	int health = 4;
 
 public:
 	Mushroom(float initX, float initY);
@@ -19,8 +17,10 @@ public:
 	Mushroom& operator=(const Mushroom& obj);
 
 	void init(float xPos, float yPos);
-	ObjectData* getData() const;
-	void update(float elapsedTime);
+
+	void decrementHealth();
+	void resetHealth();
+	int getHealth() const;
 
 };
 

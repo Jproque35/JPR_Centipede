@@ -1,6 +1,10 @@
 #include "CentipedeBodyState.h"
+#include "Centipede.h"
+#include "GameObjectManager.h"
+#include "ObjectCommand.h"
+#include "GameEvent.h"
 
-CentipedeBodyState::CentipedeBodyState(CentipedeData* data) {
+CentipedeBodyState::CentipedeBodyState(Centipede* data) {
 
 	this->context = data;
 	this->lastPos = data->getPosition();
@@ -31,13 +35,15 @@ void CentipedeBodyState::executeCommand(float elapsedTime) {
 
 			GameObjectManager* gm = GameObjectManager::getInstance();
 
+
+			/*
 			if (this->context->getNextId() > -1) {
 
 				Centipede* nextObj = (Centipede*)(gm->get(this->context->getNextId()));
 				nextObj->getData()->setPosition(this->lastPos);
 				nextObj->queueCommand(CommandFactory::makeCommand(currCommand->getType(), nextObj->getData()));
 
-			}
+			}*/
 
 			this->commands.pop();
 			delete(currCommand);
