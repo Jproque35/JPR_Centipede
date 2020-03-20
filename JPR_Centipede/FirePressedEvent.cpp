@@ -5,8 +5,15 @@
 #include "Player.h"
 #include "PlayerBullet.h"
 #include "ObjectType.h"
+#include "SoundManager.h"
 
-FirePressedEvent::FirePressedEvent() {}
+FirePressedEvent::FirePressedEvent() {
+
+	SoundManager* sdm = SoundManager::getInstance();
+	this->sBuf = sdm->get(0);
+	this->bulletSound.setBuffer(this->sBuf);
+
+}
 
 FirePressedEvent::FirePressedEvent(const FirePressedEvent& obj) {}
 
@@ -35,6 +42,7 @@ void FirePressedEvent::update(float elapsedTime) {
 		if (bullet != NULL) {
 			gm->add(bullet);
 			bullet->init(player->getX(), player->getY());
+			this->bulletSound.play();
 		}
 
 	}

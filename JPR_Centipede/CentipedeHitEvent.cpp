@@ -3,6 +3,8 @@
 #include "ScoreObject.h"
 #include "Centipede.h"
 #include "StateTypes.h"
+#include "GameObjectFactory.h"
+#include "GameObjectState.h"
 
 CentipedeHitEvent::CentipedeHitEvent(Centipede* context) {
 
@@ -30,13 +32,25 @@ CentipedeHitEvent& CentipedeHitEvent::operator=(const CentipedeHitEvent& obj) {
 
 void CentipedeHitEvent::update(float elapsedTime) {
 
-	if (this->gm->hasType(ObjectType::PlayerBullet, this->context->getX(), this->context->getY())) {
+	float hitX = round(this->context->getX());
+	float hitY = round(this->context->getY());
+
+	if (this->gm->hasType(ObjectType::PlayerBullet, hitX, hitY)) {
 
 		cout << "Centipede got hit" << endl;
 		
+		GameObjectManager* gm = GameObjectManager::getInstance();
+		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
+		GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, hitX, hitY);
+		gm->add(newMushroom);
+		newMushroom->init(floor(this->context->getX()), floor(this->context->getY()));
+
 		if (this->context->getNext() != NULL) {
 
 			this->context->getNext()->setStateType( StateType::CentipedeHeadState );
+			this->context->getNext()->getState()->clearCommands();
+			//this->context->getNext()->setX(hitX);
+			//this->context->getNext()->setY(hitY);
 			this->context->getNext()->setPrev(NULL);
 
 		}

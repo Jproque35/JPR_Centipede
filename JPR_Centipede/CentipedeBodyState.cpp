@@ -6,59 +6,28 @@
 #include "CommandFactory.h"
 #include "CentipedeBodyHitEvent.h"
 
+CentipedeBodyState::~CentipedeBodyState() {
+
+	
+}
+
 CentipedeBodyState::CentipedeBodyState(Centipede* data) {
 
 	this->context = data;
-	this->lastPos = data->getPosition();
+	this->lastPos = Vector2f(-1.0f, -1.0f);
 	this->events.push_back(new CentipedeBodyHitEvent(data));
 
-}
-
-void CentipedeBodyState::executeEventListeners(float elapsedTime) {
-
-	for (int i = 0; i < events.size(); i++) {
-
-		this->events[i]->update(elapsedTime);
-
-	}
-
-}
-
-void CentipedeBodyState::executeCommand(float elapsedTime) {
-
-	if (commands.size() > 0) {
-
-		ObjectCommand* currCommand = this->commands.front();
-
-		currCommand->execute(elapsedTime);
-
-		if (currCommand->isFinished()) {
-
-			//cout << this->context->getNext() << endl;
-
-			GameObjectManager* gm = GameObjectManager::getInstance();
-
-			if (this->context->getNext() != NULL) {
-
-				this->context->getNext()->setX(this->lastPos.x);
-				this->context->getNext()->setY(this->lastPos.y);
-				this->context->getNext()->getState()->queueCommand(
-					CommandFactory::makeCommand(currCommand->getType(), this->context->getNext()));
-
-			}
-
-			this->commands.pop();
-			delete(currCommand);
-			currCommand = NULL;
-			this->lastPos = this->context->getPosition();
-
-		}
-
-	}
+	cout << "lastPos initialized to " << this->lastPos.x << ", " << this->lastPos.y << endl;
 
 }
 
 void CentipedeBodyState::update(float elapsedTime) {
+
+	if (this->lastPos.x < 0 || this->lastPos.y < 0) {
+
+		this->lastPos = this->context->getPosition();
+
+	}
 
 	this->executeCommand(elapsedTime);
 

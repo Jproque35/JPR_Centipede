@@ -91,17 +91,17 @@ void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
 	this->context->setDirection(dir);
 
-	if (!this->nextLevelBlocked()) {
+	//if (!this->nextLevelBlocked()) {
 
 		//cout << "Next level not blocked: " << this->data->getPosition().x << ", " << this->data->getPosition().y << endl;
-		this->queueLevelChangeCommand();
+	this->queueLevelChangeCommand();
 
-	}
-	else {
+	//}
+	//else {
 
 		//cout << "Next level IS blocked" << this->data->getPosition().x << ", " << this->data->getPosition().y << endl;
 
-	}
+	//}
 
 }
 

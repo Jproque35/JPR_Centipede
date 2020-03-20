@@ -7,46 +7,26 @@
 void Engine::draw() {
 
 	window.clear(Color(0, 0, 0, 0));
-	
-	//this->window.draw(this->background);
-
-	//this->window.draw(this->backgroundTiles[2]);
-
-	/*
-	for (int i = 0; i < this->gridWidth * this->gridHeight; i++) {
-
-		this->window.draw(this->backgroundTiles[i]);
-	}*/
 
 	for (int i = 0; i < this->gm->size(); i++) {
 
 		if(this->gm->get(i) != NULL) {
 
-			//if(this->gm->get(i)->getData()->isActive()) {
+			this->drawShape(this->gm->get(i)->getShape());
 
-				this->drawShape(this->gm->get(i)->getShape());
+			if (this->im->isDebugActive()) {
 
-				if (this->im->isDebugActive()) {
+				//this->drawText(this->gm->get(i)->getData()->getPositionText());
 
-					//this->drawText(this->gm->get(i)->getData()->getPositionText());
+			}
+			else {
 
-				}
-				else {
+				//this->drawSprite( this->gm->get(i)->getData()->getSprite() );
 
-					//this->drawSprite( this->gm->get(i)->getData()->getSprite() );
-
-				}
-
-			//}
+			}
 		}
 
 	}
-	
-	//Text hudText = this->scm->getScoreText();
-
-	//window.draw(hudText);
-
-	//Text testHud;
 
 	stringstream ss;
 	ss << "Score: " << this->scm->getScore() << "\n";

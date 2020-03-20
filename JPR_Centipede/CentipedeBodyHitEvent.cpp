@@ -6,6 +6,8 @@
 #include "CentipedeDirection.h"
 #include "Mushroom.h"
 #include "GameObjectFactory.h"
+#include "GameObjectState.h"
+#include "CommandFactory.h"
 
 CentipedeBodyHitEvent::CentipedeBodyHitEvent(Centipede* context) {
 
@@ -32,20 +34,29 @@ void CentipedeBodyHitEvent::update(float elapsedTime) {
 	GameObjectManager* gm = GameObjectManager::getInstance();
 	ScoreManager* scm = ScoreManager::getInstance();
 
-	if (gm->hasType(ObjectType::PlayerBullet, this->context->getX(), this->context->getY())) {
+	float hitX = round(this->context->getX());
+	float hitY = round(this->context->getY());
+
+	if (gm->hasType(ObjectType::PlayerBullet, hitX, hitY)) {
 
 		GameObjectManager* gm = GameObjectManager::getInstance();
 		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
-		GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, this->context->getX(), this->context->getY());		
+		GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, hitX, hitY);		
+		ScoreManager* scm = ScoreManager::getInstance();
 		gm->add( newMushroom );
 		newMushroom->init(floor(this->context->getX()), floor(this->context->getY()));
 
-		if (this->context->getNext() != NULL) {
-			this->context->setStateType(StateType::CentipedeHeadState);
-			this->context->setX(floor(this->context->getX()));
-			this->context->setY(floor(this->context->getY()));
+		scm->increaseScore(10);
 
-			/*
+		if (this->context->getNext() != NULL) {
+
+			this->context->setStateType(StateType::CentipedeHeadState);
+			this->context->setX(hitX);
+			this->context->setY(hitY);
+			this->context->getState()->clearCommands();
+			this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context) );
+
+			
 			if (this->context->getDirection() == CentipedeDirection::Left) {
 
 				this->context->setDirection(CentipedeDirection::Right);
@@ -55,7 +66,7 @@ void CentipedeBodyHitEvent::update(float elapsedTime) {
 
 				this->context->setDirection(CentipedeDirection::Left);
 
-			}*/
+			}
 		}
 		else {
 

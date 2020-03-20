@@ -33,8 +33,8 @@ void Player::init(float xPos, float yPos) {
 
 	this->pos.x = xPos;
 	this->pos.y = yPos;
-	this->xSpeed = 8.0f;
-	this->ySpeed = 8.0f;
+	this->xSpeed = 20.0f;
+	this->ySpeed = 20.0f;
 	this->shape.setPosition(this->pos);
 
 }

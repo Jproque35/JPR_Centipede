@@ -69,7 +69,7 @@ GameObjectFactory::~GameObjectFactory() {
 
 			currObj = this->mushrooms.front();
 			this->mushrooms.pop();
-			delete(currObj);
+			//delete(currObj);
 			currObj = NULL;
 
 		}
@@ -131,52 +131,52 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 	
 	if (type == ObjectType::Player && this->player.size() > 0) {
 		
-		cout << "Creating Player object..." << endl;
+		//cout << "Creating Player object..." << endl;
 		Player* player = this->player.front();
-		cout << "Player object created." << endl;
+		//cout << "Player object created." << endl;
 
 		return player;
 
 	}
 	else if (type == ObjectType::PlayerBullet && this->bullets.size() > 0) {
 
-		cout << "Creating Bullet object..." << endl;
+		//cout << "Creating Bullet object..." << endl;
 		PlayerBullet* playerBullet = bullets.front();
 		bullets.pop();
 		//playerBullet->init(initX, initY);
-		cout << "Bullet object created." << endl;
+		//cout << "Bullet object created." << endl;
 
 		return playerBullet;
 
 	}
 	else if (type == ObjectType::CentipedeHead && this->centipedes.size() > 0) {
 
-		cout << "Creating Centipede Head object..." << endl;
+		//cout << "Creating Centipede Head object..." << endl;
 		Centipede* centipede = this->centipedes.front();
 		this->centipedes.pop();
 		centipede->setStateType(StateType::CentipedeHeadState);
-		cout << "Centipede object created." << endl;
+		//cout << "Centipede object created." << endl;
 
 		return centipede;
 
 	}
 	else if (type == ObjectType::CentipedeBody && this->centipedes.size() > 0) {
 
-		cout << "Creating Centipede Body object..." << endl;
+		//cout << "Creating Centipede Body object..." << endl;
 		Centipede* centipede = this->centipedes.front();
 		this->centipedes.pop();
 		centipede->setStateType(StateType::CentipedeBodyState);
-		cout << "Centipede object created." << endl;
+		//cout << "Centipede object created." << endl;
 
 		return centipede;
 
 	}
 	else if (type == ObjectType::Mushroom && this->mushrooms.size() > 0) {
 
-		cout << "Creating Mushroom object..." << endl;
+		//cout << "Creating Mushroom object..." << endl;
 		Mushroom* mushroom = this->mushrooms.front();
 		this->mushrooms.pop();
-		cout << "Mushroom object created." << endl;
+		//cout << "Mushroom object created." << endl;
 
 		return mushroom;
 

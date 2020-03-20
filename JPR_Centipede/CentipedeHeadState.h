@@ -1,17 +1,13 @@
 #ifndef CENTIPEDEHEADSTATE_H
 #define CENTIPEDEHEADSTATE_H
 #pragma once
-#include "GameObjectState.h"
+#include "CentipedeState.h"
 
 class Centipede;
 
 class CentipedeHeadState :
-	public GameObjectState
+	public CentipedeState
 {
-
-private:
-	Centipede* context;
-	Vector2f lastPos;
 
 public:
 	CentipedeHeadState(Centipede* data);
@@ -19,8 +15,6 @@ public:
 	~CentipedeHeadState();
 	CentipedeHeadState& operator=(const CentipedeHeadState& obj);
 
-	void executeEventListeners(float elapsedTime);
-	void executeCommand(float elapsedTime);
 	void update(float elapsedTime);
 
 };

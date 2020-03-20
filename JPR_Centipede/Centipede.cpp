@@ -1,6 +1,9 @@
 #include "Centipede.h"
 #include "CentipedeHeadState.h"
 #include "CentipedeBodyState.h"
+#include <iostream>
+
+using namespace std;
 
 Centipede::Centipede() {
 
@@ -28,9 +31,12 @@ void Centipede::init(float xPos, float yPos) {
 
 	this->pos.x = xPos;
 	this->pos.y = yPos;
-	this->xSpeed = 8.0f;
-	this->ySpeed = 8.0f;
+	this->xSpeed = 20.0f;
+	this->ySpeed = 20.0f;
 	this->shape.setPosition(this->pos);
+
+	cout << "Centipede initialized at position " << this->pos.x << ", " << this->pos.y << endl;
+	//cout << "Sprite position for centipede is " << this->shape.getPosition().x << ", " << this->shape.getPosition().y << endl;
 
 }
 

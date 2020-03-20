@@ -160,6 +160,7 @@
     <ClCompile Include="CentipedeHeadState.cpp" />
     <ClCompile Include="CentipedeHitEvent.cpp" />
     <ClCompile Include="CentipedeMoveEvent.cpp" />
+    <ClCompile Include="CentipedeState.cpp" />
     <ClCompile Include="CommandFactory.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="FirePressedEvent.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="CentipedeHeadState.h" />
     <ClInclude Include="CentipedeHitEvent.h" />
     <ClInclude Include="CentipedeMoveEvent.h" />
+    <ClInclude Include="CentipedeState.h" />
     <ClInclude Include="CommandFactory.h" />
     <ClInclude Include="CommandType.h" />
     <ClInclude Include="EventManager.h" />

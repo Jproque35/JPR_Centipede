@@ -261,6 +261,9 @@
     <ClCompile Include="FirePressedEvent.cpp">
       <Filter>Source Files\Engine\Events</Filter>
     </ClCompile>
+    <ClCompile Include="CentipedeState.cpp">
+      <Filter>Source Files\Entities\Centipede\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -397,6 +400,9 @@
     </ClInclude>
     <ClInclude Include="FirePressedEvent.h">
       <Filter>Header Files\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="CentipedeState.h">
+      <Filter>Header Files\Entities\Centipede\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

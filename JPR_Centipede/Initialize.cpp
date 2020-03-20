@@ -76,7 +76,7 @@ void Engine::initEnemies(int &currPos) {
 	int endPos = currPos + this->numCentipedes;
 	cout << "Loading centipede objects..." << endl;
 
-	float initX = floor(this->gridWidth / 2);
+	float initX = round(this->gridWidth / 2);
 	float initY = 0.0f;
 
 	vector<Centipede*> centipedes = this->generateCentipede(initX, initY);
@@ -109,7 +109,7 @@ void Engine::initMushrooms(int &currPos) {
 
 		this->gm->add(currObj);
 
-		cout << "Loaded mushroom object into slot " << currObj->getId() << " at position " << tempX << ", " << tempY << endl;
+		//cout << "Loaded mushroom object into slot " << currObj->getId() << " at position " << tempX << ", " << tempY << endl;
 		currPos++;
 
 	}
@@ -141,12 +141,14 @@ vector<Centipede*> Engine::generateCentipede(float initX, float initY) {
 	for (int i = 0; i < this->numCentipedes - 1; ++i) {
 
 		desire[i]->setNext(desire[i + 1]);
+		cout << "Next for " << desire[i] << " set to " << desire[i + 1] << endl;
 
 	}
 
 	for (int i = this->numCentipedes - 1; i > 0; --i) {
 
 		desire[i]->setPrev(desire[i - 1]);
+		cout << "prev for " << desire[i] << " set to " << desire[i - 1] << endl;
 
 	}
 

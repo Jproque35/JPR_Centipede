@@ -2,10 +2,17 @@
 #define FIREPRESSEDEVENT_H
 #pragma once
 #include "GameEvent.h"
+#include <SFML/Audio.hpp>
+
+using namespace sf;
 
 class FirePressedEvent
 	: public GameEventListener
 {
+
+private:
+	SoundBuffer sBuf;
+	Sound bulletSound;
 
 public:
 	FirePressedEvent();
