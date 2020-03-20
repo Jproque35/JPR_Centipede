@@ -21,6 +21,12 @@ public:
 
 	void init(float xPos, float yPos);
 
+	void setNext(Centipede* next);
+	Centipede* getNext() const;
+
+	void setPrev(Centipede* prev);
+	Centipede* getPrev() const;
+
 	void setDirection(CentipedeDirection dir);
 	CentipedeDirection getDirection() const;
 

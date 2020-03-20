@@ -2,6 +2,7 @@
 #include <iostream>
 #include "SoundManager.h"
 #include "PlayerBullet.h"
+#include "GameObjectManager.h"
 
 using namespace std;
 
@@ -52,6 +53,10 @@ void PlayerBulletFireCommand::execute(float elapsedTime) {
 		this->context->getSprite().setPosition(this->context->getX(), this->context->getY());
 
 		if(this->distTravelled >= 10.0f) {
+
+			GameObjectManager* gm = GameObjectManager::getInstance();
+
+			gm->erase(this->context->getId());
 
 			this->finished = true;
 

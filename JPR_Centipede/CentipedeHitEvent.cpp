@@ -2,6 +2,7 @@
 #include "GameObjectManager.h"
 #include "ScoreObject.h"
 #include "Centipede.h"
+#include "StateTypes.h"
 
 CentipedeHitEvent::CentipedeHitEvent(Centipede* context) {
 
@@ -32,7 +33,17 @@ void CentipedeHitEvent::update(float elapsedTime) {
 	if (this->gm->hasType(ObjectType::PlayerBullet, this->context->getX(), this->context->getY())) {
 
 		cout << "Centipede got hit" << endl;
-		this->scm->increaseScore(10);
+		
+		if (this->context->getNext() != NULL) {
+
+			this->context->getNext()->setStateType( StateType::CentipedeHeadState );
+			this->context->getNext()->setPrev(NULL);
+
+		}
+
+		this->gm->erase(this->context->getId());
+
+		this->scm->increaseScore(100);
 		//this->context->getData()->setPosition(Vector2f(0, 0));
 
 	}

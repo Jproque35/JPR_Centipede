@@ -8,6 +8,8 @@
 #include "SpriteManager.h"
 #include "SoundManager.h"
 #include "FontManager.h"
+#include "FirePressedEvent.h"
+#include "Centipede.h"
 
 EventManager* EventManager::instance = NULL;
 
@@ -62,22 +64,10 @@ void Engine::initPlayer(int &currPos) {
 	float initY = floor(this->gridHeight / 2);
 
 	GameObject* currObj = this->objFactory->makeObject(ObjectType::Player, initX, initY);
+	currObj->init(initX, initY);
 
 	this->gm->add(currObj);
-	bulletsStart = ++currPos;
 
-	int endPos = currPos + this->numBullets;
-	cout << "Loading bullet objects..." << endl;
-
-	while (currPos < endPos) {
-
-		currObj = this->objFactory->makeObject(ObjectType::PlayerBullet, initX, initY);
-
-		this->gm->add(currObj);
-		cout << "Loaded bullet object into slot " << currObj->getId() << endl;
-		++currPos;
-
-	}
 }
 
 void Engine::initEnemies(int &currPos) {
@@ -89,26 +79,12 @@ void Engine::initEnemies(int &currPos) {
 	float initX = floor(this->gridWidth / 2);
 	float initY = 0.0f;
 
-	GameObject* currObj = this->objFactory->makeObject(ObjectType::CentipedeHead, initX, initY);
+	vector<Centipede*> centipedes = this->generateCentipede(initX, initY);
 
-	this->gm->add( currObj );
+	for (int i = 0; i < centipedes.size(); ++i) {
 
-	cout << "Loaded centipede object into slot " << currObj->getId() << endl;
-	++currPos;
-
-	while (currPos < endPos) {
-
-		if (currPos > initPos) {
-
-
-
-		}
-
-		currObj = this->objFactory->makeObject(ObjectType::CentipedeBody, initX, initY);
-
-		this->gm->add(currObj);
-		cout << "Loaded centipede object into slot " << currObj->getId() << endl;
-		++currPos;
+		this->gm->add(centipedes[i]);
+		centipedes[i]->init(initX, initY);
 
 	}
 
@@ -129,7 +105,10 @@ void Engine::initMushrooms(int &currPos) {
 		GameObject* currObj = 
 			this->objFactory->makeObject(ObjectType::Mushroom, tempX, tempY);
 
+		currObj->init(tempX, tempY);
+
 		this->gm->add(currObj);
+
 		cout << "Loaded mushroom object into slot " << currObj->getId() << " at position " << tempX << ", " << tempY << endl;
 		currPos++;
 
@@ -141,6 +120,37 @@ void Engine::initEvents() {
 
 	cout << "Loading game events.." << endl;
 
+	this->em->addEvent(new FirePressedEvent());
+
 	cout << "Successfully loaded all game events." << endl;
 
 }
+
+vector<Centipede*> Engine::generateCentipede(float initX, float initY) {
+
+	vector<Centipede*> desire;
+
+	desire.push_back( (Centipede*)objFactory->makeObject(ObjectType::CentipedeHead, initX, initY) );
+
+	for (int i = 0; i < this->numCentipedes - 1; ++i) {
+
+		desire.push_back( (Centipede*)objFactory->makeObject(ObjectType::CentipedeBody, initX, initY) );
+
+	}
+
+	for (int i = 0; i < this->numCentipedes - 1; ++i) {
+
+		desire[i]->setNext(desire[i + 1]);
+
+	}
+
+	for (int i = this->numCentipedes - 1; i > 0; --i) {
+
+		desire[i]->setPrev(desire[i - 1]);
+
+	}
+
+	return desire;
+
+}
+

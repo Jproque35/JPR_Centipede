@@ -3,11 +3,18 @@
 #include "GameObjectManager.h"
 #include "ObjectCommand.h"
 #include "GameEvent.h"
+#include "CentipedeMoveEvent.h"
+#include "CommandFactory.h"
+#include "CentipedeHitEvent.h"
 
 CentipedeHeadState::CentipedeHeadState(Centipede* data) {
 
 	this->context = data;
 	this->lastPos = data->getPosition();
+	this->type = StateType::CentipedeHeadState;
+
+	this->events.push_back( new CentipedeMoveEvent(data) );
+	this->events.push_back(new CentipedeHitEvent(data));
 
 }
 
@@ -35,14 +42,15 @@ void CentipedeHeadState::executeCommand(float elapsedTime) {
 
 			GameObjectManager* gm = GameObjectManager::getInstance();
 
-			/*
-			if (this->context->getNextId() > -1) {
+			
+			if (this->context->getNext() != NULL) {
 
-				Centipede* nextObj = (Centipede*)(gm->get(this->context->getNextId()));
-				nextObj->getData()->setPosition(this->lastPos);
-				nextObj->queueCommand(CommandFactory::makeCommand(currCommand->getType(), nextObj->getData()));
+				this->context->getNext()->setX(this->lastPos.x);
+				this->context->getNext()->setY(this->lastPos.y);
+				this->context->getNext()->getState()->queueCommand(
+					CommandFactory::makeCommand(currCommand->getType(), this->context->getNext()));
 
-			}*/
+			}
 
 			this->commands.pop();
 			delete(currCommand);
@@ -52,5 +60,11 @@ void CentipedeHeadState::executeCommand(float elapsedTime) {
 		}
 
 	}
+
+}
+
+void CentipedeHeadState::update(float elapsedTime) {
+
+	this->executeCommand(elapsedTime);
 
 }

@@ -11,11 +11,7 @@ MushroomNormalState::MushroomNormalState(Mushroom* context) : GenericState() {
 
 }
 
-MushroomNormalState::MushroomNormalState(const MushroomNormalState& obj) {
-
-
-
-}
+MushroomNormalState::MushroomNormalState(const MushroomNormalState& obj) {}
 
 MushroomNormalState::~MushroomNormalState() {}
 

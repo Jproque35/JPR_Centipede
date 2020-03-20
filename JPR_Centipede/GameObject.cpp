@@ -35,6 +35,7 @@ void GameObject::assignmentAux(const GameObject& obj) {
 
 void GameObject::deleteStates() {
 
+	/*
 	for (auto it = this->states.begin(); it != this->states.end(); it++) {
 
 		GameObjectState* currState = this->states[it->first];
@@ -46,7 +47,7 @@ void GameObject::deleteStates() {
 
 		this->states.erase(it);
 
-	}
+	}*/
 
 }
 

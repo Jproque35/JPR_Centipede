@@ -162,6 +162,7 @@
     <ClCompile Include="CentipedeMoveEvent.cpp" />
     <ClCompile Include="CommandFactory.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="FirePressedEvent.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameEvent.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
@@ -188,8 +189,10 @@
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="PlayerBulletFireCommand.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBulletState.cpp" />
     <ClCompile Include="PlayerHitEvent.cpp" />
     <ClCompile Include="PlayerInputEvent.cpp" />
+    <ClCompile Include="PlayerNormalState.cpp" />
     <ClCompile Include="ScoreObject.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
@@ -208,6 +211,7 @@
     <ClInclude Include="CommandFactory.h" />
     <ClInclude Include="CommandType.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="FirePressedEvent.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="GameEvent.h" />
     <ClInclude Include="GameObjectFactory.h" />
@@ -232,8 +236,10 @@
     <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="PlayerBulletFireCommand.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerBulletState.h" />
     <ClInclude Include="PlayerHitEvent.h" />
     <ClInclude Include="PlayerInputEvent.h" />
+    <ClInclude Include="PlayerNormalState.h" />
     <ClInclude Include="ScoreObject.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpriteManager.h" />

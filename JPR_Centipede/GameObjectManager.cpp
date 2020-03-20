@@ -1,4 +1,5 @@
 #include "GameObjectManager.h"
+#include "GameObjectFactory.h"
 #include "GameObject.h"
 #include "GridManager.h"
 
@@ -13,6 +14,7 @@ GameObjectManager::GameObjectManager() {
 
 GameObjectManager::~GameObjectManager() {
 
+	/*
 	for (int i = 0; i < this->gm.size(); i++) {
 
 		if (this->gm[i] != NULL) {
@@ -22,7 +24,7 @@ GameObjectManager::~GameObjectManager() {
 
 		}
 
-	}
+	}*/
 
 	delete(this->grid);
 
@@ -159,8 +161,9 @@ void GameObjectManager::erase(int i) {
 
 	if (this->gm[i] != NULL) {
 
-		//delete(this->gm[i]);
-		//this->objFactory->storeObject(this->gm[i]);
+		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
+		objFactory->storeObject(this->gm[i]);
+		this->gm[i] = NULL;
 		this->freeIds.push(i);
 
 		/*

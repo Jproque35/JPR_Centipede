@@ -4,6 +4,8 @@
 #include "ScoreObject.h"
 #include "ObjectType.h"
 #include "CentipedeDirection.h"
+#include "Mushroom.h"
+#include "GameObjectFactory.h"
 
 CentipedeBodyHitEvent::CentipedeBodyHitEvent(Centipede* context) {
 
@@ -32,22 +34,40 @@ void CentipedeBodyHitEvent::update(float elapsedTime) {
 
 	if (gm->hasType(ObjectType::PlayerBullet, this->context->getX(), this->context->getY())) {
 
-		cout << "Centipede got hit" << endl;
-		
-		if (this->context->getDirection() == CentipedeDirection::Left) {
+		GameObjectManager* gm = GameObjectManager::getInstance();
+		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
+		GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, this->context->getX(), this->context->getY());		
+		gm->add( newMushroom );
+		newMushroom->init(floor(this->context->getX()), floor(this->context->getY()));
 
-			this->context->setDirection(CentipedeDirection::Right);
+		if (this->context->getNext() != NULL) {
+			this->context->setStateType(StateType::CentipedeHeadState);
+			this->context->setX(floor(this->context->getX()));
+			this->context->setY(floor(this->context->getY()));
 
+			/*
+			if (this->context->getDirection() == CentipedeDirection::Left) {
+
+				this->context->setDirection(CentipedeDirection::Right);
+
+			}
+			else {
+
+				this->context->setDirection(CentipedeDirection::Left);
+
+			}*/
 		}
 		else {
 
-			this->context->setDirection(CentipedeDirection::Left);
+			gm->erase(this->context->getId());
 
 		}
 
-		//this->context->setState(new CentipedeHeadState(data));
+		if (this->context->getPrev() != NULL) {
 
-		scm->increaseScore(10);
+			this->context->getPrev()->setNext(NULL);
+
+		}
 
 	}
 }

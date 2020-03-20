@@ -13,7 +13,7 @@ GridManager::~GridManager() {
 
 }
 
-inline bool GridManager::inBounds(int x, int y) {
+inline bool GridManager::inBounds(float x, float y) {
 
 	if (0 <= x && x < this->width) {
 
@@ -81,6 +81,8 @@ void GridManager::add(GameObject* obj) {
 		float y = obj->getY();
 
 		if (this->inBounds(x, y)) {
+
+			//cout << "Adding to position " << x << ", " << y << endl;
 
 			this->gm[this->getKey(x, y)].push_back(obj);
 

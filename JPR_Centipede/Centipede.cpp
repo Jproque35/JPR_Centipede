@@ -1,9 +1,16 @@
 #include "Centipede.h"
+#include "CentipedeHeadState.h"
+#include "CentipedeBodyState.h"
 
 Centipede::Centipede() {
 
 	this->type = ObjectType::CentipedeHead;
 	this->shape.setFillColor(Color::Red);
+
+	this->states[StateType::CentipedeHeadState] = new CentipedeHeadState(this);
+	this->states[StateType::CentipedeBodyState] = new CentipedeBodyState(this);
+
+	this->currState = this->states[StateType::CentipedeHeadState];
 
 }
 
@@ -24,6 +31,30 @@ void Centipede::init(float xPos, float yPos) {
 	this->xSpeed = 8.0f;
 	this->ySpeed = 8.0f;
 	this->shape.setPosition(this->pos);
+
+}
+
+void Centipede::setNext(Centipede* next) {
+
+	this->next = next;
+
+}
+
+Centipede* Centipede::getNext() const {
+
+	return this->next;
+
+}
+
+void Centipede::setPrev(Centipede* prev) {
+
+	this->prev = prev;
+
+}
+
+Centipede* Centipede::getPrev() const {
+
+	return this->prev;
 
 }
 

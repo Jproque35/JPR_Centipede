@@ -18,6 +18,7 @@ class FontManager;
 class SpriteManager;
 class SoundManager;
 class GameObjectFactory;
+class Centipede;
 
 class Engine {
 
@@ -44,7 +45,7 @@ private:
 	int gridWidth = 0.0f;
 	int bulletsStart = -1;
 	int numBullets = 1;
-	int numCentipedes = 11;
+	int numCentipedes = 10;
 	int numMushrooms = 50;
 	int getNumObjects();
 
@@ -67,6 +68,7 @@ private:
 	void drawSprite(Sprite spr);
 	void drawBackgroundTile(Sprite img);
 	void drawText(const Text& drawable);
+	vector<Centipede*> generateCentipede(float initX, float initY);
 
 public:
 	static Engine* getInstance();

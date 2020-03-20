@@ -17,7 +17,7 @@ private:
 	int height = 0;
 	vector<vector<GameObject*>> gm;
 
-	bool inBounds(int x, int y);
+	bool inBounds(float x, float y);
 	int getKey(float x,float y);
 
 public:

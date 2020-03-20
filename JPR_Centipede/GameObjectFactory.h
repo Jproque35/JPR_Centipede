@@ -9,6 +9,8 @@ using namespace std;
 
 class Mushroom;
 class PlayerBullet;
+class Player;
+class Centipede;
 class GameObject;
 
 class GameObjectFactory
@@ -24,6 +26,8 @@ private:
 
 	queue<Mushroom*> mushrooms;
 	queue<PlayerBullet*> bullets;
+	queue<Player*> player;
+	queue<Centipede*> centipedes;
 	queue<GameObject*> misc;
 
 public:

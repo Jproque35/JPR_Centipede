@@ -1,10 +1,15 @@
 #include "PlayerBullet.h"
+#include "PlayerBulletState.h"
 
 PlayerBullet::PlayerBullet(float initX, float initY) {
 
 	this->shape.setRadius(0.2f);
 	this->shape.setFillColor(Color::Yellow);
 	this->type = ObjectType::PlayerBullet;
+
+	PlayerBulletState* normalState = new PlayerBulletState(this);
+	this->currState = normalState;
+	this->states[normalState->getType()] = normalState;
 
 }
 

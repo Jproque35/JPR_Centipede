@@ -19,11 +19,7 @@ Mushroom::Mushroom(const Mushroom& obj) {
 
 }
 
-Mushroom::~Mushroom() {
-
-	GameObject::deleteStates();
-
-}
+Mushroom::~Mushroom() {}
 
 Mushroom& Mushroom::operator=(const Mushroom& obj) {
 
