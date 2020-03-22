@@ -19,7 +19,11 @@ PlayerBullet::PlayerBullet(const PlayerBullet& obj) {
 
 }
 
-PlayerBullet::~PlayerBullet() {}
+PlayerBullet::~PlayerBullet() {
+
+	cout << "Destructing PlayerBullet object..." << endl;
+
+}
 
 PlayerBullet& PlayerBullet::operator=(const PlayerBullet& obj) {
 

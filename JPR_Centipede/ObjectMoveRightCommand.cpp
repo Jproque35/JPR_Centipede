@@ -18,7 +18,11 @@ ObjectMoveRightCommand::ObjectMoveRightCommand(const ObjectMoveRightCommand& obj
 
 }
 
-ObjectMoveRightCommand::~ObjectMoveRightCommand() {}
+ObjectMoveRightCommand::~ObjectMoveRightCommand() {
+
+	cout << "Deleting MoveRightCommand..." << endl;
+
+}
 
 ObjectMoveRightCommand& ObjectMoveRightCommand::operator=(const ObjectMoveRightCommand& obj) {
 

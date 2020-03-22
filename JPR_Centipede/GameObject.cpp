@@ -1,6 +1,9 @@
 #include "GameObject.h"
 #include "GameObjectState.h"
 #include "FontManager.h"
+#include <iostream>
+
+using namespace std;
 
 GameObject::GameObject() {
 
@@ -16,6 +19,24 @@ GameObject::GameObject() {
 	this->posText.setFillColor(sf::Color::White);
 	this->posText.setOutlineColor(sf::Color::Black);
 	this->posText.setOutlineThickness(1.0f);
+
+}
+
+GameObject::~GameObject() {
+
+	cout << "Destructing GameObject..." << endl;
+
+	delete(this->currState);
+
+	/*
+	GameObjectState* delState = NULL;
+	for (auto it : this->states) {
+
+		delState = this->states[it.first];
+		delete(delState);
+		delState = NULL;
+
+	}*/
 
 }
 

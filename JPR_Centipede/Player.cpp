@@ -18,7 +18,11 @@ Player::Player(const Player& obj) {
 
 }
 
-Player::~Player() {}
+Player::~Player() {
+
+	cout << "Destructing Player object..." << endl;
+
+}
 
 Player& Player::operator=(const Player& obj)
 {

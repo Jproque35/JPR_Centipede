@@ -15,7 +15,11 @@ PlayerHitEvent::PlayerHitEvent(const PlayerHitEvent& obj) {
 
 }
 
-PlayerHitEvent::~PlayerHitEvent() {};
+PlayerHitEvent::~PlayerHitEvent() {
+
+	cout << "Destroying PlayerHitEvent..." << endl;
+
+}
 
 PlayerHitEvent& PlayerHitEvent::operator=(const PlayerHitEvent& obj) {
 

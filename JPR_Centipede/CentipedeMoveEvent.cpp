@@ -20,11 +20,17 @@ CentipedeMoveEvent::CentipedeMoveEvent(const CentipedeMoveEvent& obj) {
 
 CentipedeMoveEvent::~CentipedeMoveEvent() {
 
-
+	cout << "Destroying CentipedeMoveEvent..." << endl;
 
 }
 
 CentipedeMoveEvent& CentipedeMoveEvent::operator=(const CentipedeMoveEvent& obj) {
+
+	if (this == &obj) {
+
+		return *this;
+
+	}
 
 	return *this;
 

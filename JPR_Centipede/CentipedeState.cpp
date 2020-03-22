@@ -7,7 +7,7 @@
 
 CentipedeState::~CentipedeState() {
 
-
+	cout << "Destroying CentipedeState..." << endl;
 
 }
 

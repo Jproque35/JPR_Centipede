@@ -14,6 +14,12 @@ PlayerBulletState::PlayerBulletState(PlayerBullet* obj) {
 
 }
 
+PlayerBulletState::~PlayerBulletState() {
+
+	cout << "Destroying PlayerBulletState..." << endl;
+
+}
+
 void PlayerBulletState::update(float elapsedTime) {
 
 	if (this->distTravelled == 0.0f) {

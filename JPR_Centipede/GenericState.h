@@ -10,7 +10,7 @@ class GenericState :
 public:
 	GenericState();
 	GenericState(const GenericState& obj);
-	~GenericState();
+	virtual ~GenericState();
 	GenericState& operator=(const GenericState& obj);
 
 	void executeEventListeners(float elapsedTime);

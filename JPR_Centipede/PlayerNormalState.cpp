@@ -10,3 +10,9 @@ PlayerNormalState::PlayerNormalState(Player* context) {
 	this->events.push_back(new PlayerInputEvent(context));
 
 }
+
+PlayerNormalState::~PlayerNormalState() {
+
+	cout << "Destroying PlayerState..." << endl;
+
+}

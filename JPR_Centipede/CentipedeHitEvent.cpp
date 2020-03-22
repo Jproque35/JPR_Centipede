@@ -22,7 +22,11 @@ CentipedeHitEvent::CentipedeHitEvent(const CentipedeHitEvent& obj) {
 
 }
 
-CentipedeHitEvent::~CentipedeHitEvent() {}
+CentipedeHitEvent::~CentipedeHitEvent() {
+
+	cout << "Destroying CentipedeHitEvent..." << endl;
+
+}
 
 CentipedeHitEvent& CentipedeHitEvent::operator=(const CentipedeHitEvent& obj) {
 

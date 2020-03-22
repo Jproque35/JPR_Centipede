@@ -17,7 +17,11 @@ ObjectMoveUpCommand::ObjectMoveUpCommand(const ObjectMoveUpCommand& obj) {
 
 }
 
-ObjectMoveUpCommand::~ObjectMoveUpCommand() {}
+ObjectMoveUpCommand::~ObjectMoveUpCommand() {
+
+	cout << "Deleting MoveUpCommand..." << endl;
+
+}
 
 ObjectMoveUpCommand& ObjectMoveUpCommand::operator=(const ObjectMoveUpCommand& obj) {
 

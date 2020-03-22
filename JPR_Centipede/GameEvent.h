@@ -9,6 +9,7 @@ class GameEventListener
 {
 
 public:
+	virtual ~GameEventListener();
 	virtual void update(float elapsedTime) = 0;
 
 };

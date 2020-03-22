@@ -14,6 +14,8 @@ protected:
 	CommandType type = CommandType::Generic;
 
 public:
+	virtual ~ObjectCommand();
+
 	bool isFinished();
 	CommandType getType();
 	virtual void execute(float elapsedTime) = 0;

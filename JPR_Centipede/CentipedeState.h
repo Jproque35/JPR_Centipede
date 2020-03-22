@@ -15,6 +15,7 @@ protected:
 
 public:
 	virtual ~CentipedeState();
+
 	void executeEventListeners(float elapsedTime);
 	void executeCommand(float elapsedTime);
 

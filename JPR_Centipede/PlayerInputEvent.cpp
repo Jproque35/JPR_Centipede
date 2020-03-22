@@ -20,7 +20,11 @@ PlayerInputEvent::PlayerInputEvent(const PlayerInputEvent& obj) {
 
 }
 
-PlayerInputEvent::~PlayerInputEvent() {}
+PlayerInputEvent::~PlayerInputEvent() {
+
+	cout << "Destroying PlayerInputEvent..." << endl;
+
+}
 
 PlayerInputEvent& PlayerInputEvent::operator=(const PlayerInputEvent& obj) {
 

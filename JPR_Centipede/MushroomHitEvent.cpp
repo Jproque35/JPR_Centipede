@@ -17,7 +17,11 @@ MushroomHitEvent::MushroomHitEvent(const MushroomHitEvent& obj) {
 
 }
 
-MushroomHitEvent::~MushroomHitEvent() {}
+MushroomHitEvent::~MushroomHitEvent() {
+
+	cout << "Deleting MushroomHitEvent..." << endl;
+
+}
 
 MushroomHitEvent& MushroomHitEvent::operator=(const MushroomHitEvent& obj) {
 
@@ -36,13 +40,6 @@ void MushroomHitEvent::update(float elapsedTime) {
 		if (this->context->getHealth() <= 0) {
 
  			this->gm->erase(this->context->getId());
-				
-			GameObjectFactory* objFactory = GameObjectFactory::getInstance();
-
-			objFactory->storeObject(this->context);
-
-			this->context->setX(-1.0f);
-			this->context->setY(-1.0f);
 
 		}
 	}

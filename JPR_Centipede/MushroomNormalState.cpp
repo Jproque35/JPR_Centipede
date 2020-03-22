@@ -13,7 +13,11 @@ MushroomNormalState::MushroomNormalState(Mushroom* context) : GenericState() {
 
 MushroomNormalState::MushroomNormalState(const MushroomNormalState& obj) {}
 
-MushroomNormalState::~MushroomNormalState() {}
+MushroomNormalState::~MushroomNormalState() {
+
+	cout << "Deleting MushroomNormalState..." << endl;
+
+}
 
 MushroomNormalState& MushroomNormalState::operator=(const MushroomNormalState& obj) {
 

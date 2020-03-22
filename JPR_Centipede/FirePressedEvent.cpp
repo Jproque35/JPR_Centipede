@@ -10,8 +10,7 @@
 FirePressedEvent::FirePressedEvent() {
 
 	SoundManager* sdm = SoundManager::getInstance();
-	this->sBuf = sdm->get(0);
-	this->bulletSound.setBuffer(this->sBuf);
+	this->bulletSound.setBuffer(*sdm->get(0));
 
 }
 

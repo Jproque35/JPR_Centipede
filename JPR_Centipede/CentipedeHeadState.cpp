@@ -9,7 +9,7 @@
 
 CentipedeHeadState::~CentipedeHeadState() {
 
-
+	cout << "Desstroying CentipedeHeadState..." << endl;
 
 }
 

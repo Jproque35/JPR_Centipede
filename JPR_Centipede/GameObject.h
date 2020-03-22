@@ -6,6 +6,7 @@
 #include <SFML/Audio.hpp>
 #include "StateTypes.h"
 #include "ObjectType.h"
+#include <iostream>
 
 using namespace sf;
 using namespace std;
@@ -32,6 +33,7 @@ protected:
 
 public:
 	GameObject();
+	virtual ~GameObject();
 
 	virtual void init(float xPos, float yPos) = 0;
 

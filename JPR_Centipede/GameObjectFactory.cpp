@@ -34,57 +34,61 @@ GameObjectFactory::GameObjectFactory() {
 
 GameObjectFactory::~GameObjectFactory() {
 
+	GameObject* currObj = NULL;
+
 	while (this->player.size() > 0) {
 
-		Player* currObj = NULL;
 		if (this->player.front() != NULL) {
 
 			currObj = this->player.front();
-			this->player.pop();
 			delete(currObj);
 			currObj = NULL;
 
 		}
+
+
+		this->player.pop();
 		
 	}
 
 	while (this->centipedes.size() > 0) {
 
-		Centipede* currObj = NULL;
 		if (this->centipedes.front() != NULL) {
 
 			currObj = this->centipedes.front();
-			this->centipedes.pop();
 			delete(currObj);
 			currObj = NULL;
 
 		}
 
+		this->centipedes.pop();
+
 	}
 
 	while(this->mushrooms.size() > 0) {
 
-		Mushroom* currObj = NULL;
 		if (this->mushrooms.front() != NULL) {
 
 			currObj = this->mushrooms.front();
-			this->mushrooms.pop();
-			//delete(currObj);
+			delete(currObj);
 			currObj = NULL;
 
 		}
+
+		this->mushrooms.pop();
 	}
 
 	while (this->bullets.size() > 0) {
 
 		if (this->bullets.front() != NULL) {
 
-			PlayerBullet* currObj = this->bullets.front();
-			this->bullets.pop();
+			currObj = this->bullets.front();
 			delete(currObj);
 			currObj = NULL;
 
 		}
+
+		this->bullets.pop();
 
 	}
 
@@ -92,12 +96,13 @@ GameObjectFactory::~GameObjectFactory() {
 
 		if (this->misc.front() != NULL) {
 
-			GameObject* currObj = this->misc.front();
-			this->misc.pop();
+			currObj = this->misc.front();
 			delete(currObj);
 			currObj = NULL;
 
 		}
+
+		this->misc.pop();
 
 	}
 
@@ -133,6 +138,7 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 		
 		//cout << "Creating Player object..." << endl;
 		Player* player = this->player.front();
+		this->player.pop();
 		//cout << "Player object created." << endl;
 
 		return player;
@@ -188,6 +194,12 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 
 void GameObjectFactory::storeObject(GameObject* obj) {
 
+	if (obj->getType() == ObjectType::Player) {
+
+		cout << "Stored Player object " << obj << " in reserve." << endl;
+		this->player.push((Player*)obj);
+
+	}
 	if (obj->getType() == ObjectType::PlayerBullet) {
 
 		cout << "Stored Bullet object " << obj << " in reserve." << endl;
@@ -208,7 +220,7 @@ void GameObjectFactory::storeObject(GameObject* obj) {
 
 	} else {
 
-		cout << "Stored obect with unidentified type " << obj << " in reserve." << endl;
+		cout << "Stored object with unidentified type " << obj << " in reserve." << endl;
 		this->misc.push(obj);
 
 	}

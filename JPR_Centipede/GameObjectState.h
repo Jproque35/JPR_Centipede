@@ -22,6 +22,8 @@ protected:
 	queue<ObjectCommand*> commands;
 
 public:
+	virtual ~GameObjectState();
+
 	GameObjectState* copy(const GameObjectState& obj);
 	StateType getType() const;
 	int getNumCommands() const;

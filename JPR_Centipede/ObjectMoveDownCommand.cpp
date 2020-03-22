@@ -18,7 +18,11 @@ ObjectMoveDownCommand::ObjectMoveDownCommand(const ObjectMoveDownCommand& obj) {
 
 }
 
-ObjectMoveDownCommand::~ObjectMoveDownCommand() {}
+ObjectMoveDownCommand::~ObjectMoveDownCommand() {
+
+	cout << "Deleting MoveDownCommand..." << endl;
+
+}
 
 ObjectMoveDownCommand& ObjectMoveDownCommand::operator=(const ObjectMoveDownCommand& obj) {
 

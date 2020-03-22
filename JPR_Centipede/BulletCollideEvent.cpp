@@ -17,7 +17,11 @@ BulletCollideEvent::BulletCollideEvent(const BulletCollideEvent& obj) {
 
 }
 
-BulletCollideEvent::~BulletCollideEvent() {}
+BulletCollideEvent::~BulletCollideEvent() {
+
+	cout << "Destroying BulletCollideEvent..." << endl;
+
+}
 
 BulletCollideEvent& BulletCollideEvent::operator=(const BulletCollideEvent& obj) {
 

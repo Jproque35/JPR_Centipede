@@ -19,7 +19,11 @@ Centipede::Centipede() {
 
 Centipede::Centipede(const Centipede& obj) {}
 
-Centipede::~Centipede() {}
+Centipede::~Centipede() {
+
+	cout << "Destroing Centipede objects..." << endl;
+
+}
 
 Centipede& Centipede::operator=(const Centipede& obj) {
 

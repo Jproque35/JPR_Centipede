@@ -14,7 +14,6 @@ GameObjectManager::GameObjectManager() {
 
 GameObjectManager::~GameObjectManager() {
 
-	/*
 	for (int i = 0; i < this->gm.size(); i++) {
 
 		if (this->gm[i] != NULL) {
@@ -24,7 +23,7 @@ GameObjectManager::~GameObjectManager() {
 
 		}
 
-	}*/
+	}
 
 	delete(this->grid);
 
@@ -163,24 +162,7 @@ void GameObjectManager::erase(int i) {
 
 		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
 		objFactory->storeObject(this->gm[i]);
-		this->gm[i] = NULL;
 		this->freeIds.push(i);
-
-		/*
-		cout << "Free IDs: ";
-
-		for (int i = 0; i < this->freeIds.size(); ++i) {
-
-			int currId = this->freeIds.front();
-			cout << currId << " ";
-			this->freeIds.pop();
-			this->freeIds.push(currId);
-
-		}
-
-		cout << endl;
-		*/
-
 		this->gm[i] = NULL;
 
 	}

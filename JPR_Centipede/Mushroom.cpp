@@ -19,7 +19,11 @@ Mushroom::Mushroom(const Mushroom& obj) {
 
 }
 
-Mushroom::~Mushroom() {}
+Mushroom::~Mushroom() {
+
+	cout << "Destructing Mushroom..." << endl;
+
+}
 
 Mushroom& Mushroom::operator=(const Mushroom& obj) {
 

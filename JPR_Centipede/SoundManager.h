@@ -15,7 +15,7 @@ class SoundManager
 
 private:
 	static SoundManager* instance;
-	SoundBuffer* bufs;
+	vector<SoundBuffer*> bufs;
 
 	SoundManager();
 	SoundManager(const SoundManager& obj) = delete;
@@ -28,7 +28,7 @@ public:
 	static SoundManager* getInstance();
 	static void resetInstance();
 	void loadFromFile(const char* filename);
-	SoundBuffer get(int i) const;
+	SoundBuffer* get(int i) const;
 
 };
 

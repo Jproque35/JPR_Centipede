@@ -13,8 +13,7 @@ PlayerBulletFireCommand::PlayerBulletFireCommand(PlayerBullet* context) {
 
 
 	SoundManager* sm = SoundManager::getInstance();
-	this->sBuf = sm->get(0);
-	this->fireSound.setBuffer(this->sBuf);
+	this->fireSound.setBuffer(*sm->get(0));
 
 }
 
@@ -27,7 +26,11 @@ PlayerBulletFireCommand::PlayerBulletFireCommand(const PlayerBulletFireCommand& 
 
 }
 
-PlayerBulletFireCommand::~PlayerBulletFireCommand() {}
+PlayerBulletFireCommand::~PlayerBulletFireCommand() {
+
+	cout << "Destroying PlayerBulletFireCommand..." << endl;
+
+}
 
 PlayerBulletFireCommand& PlayerBulletFireCommand::operator=(const PlayerBulletFireCommand& obj) {
 

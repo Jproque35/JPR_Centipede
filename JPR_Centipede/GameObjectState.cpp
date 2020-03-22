@@ -2,6 +2,38 @@
 #include "ObjectCommand.h"
 #include "GameEvent.h"
 
+GameObjectState::~GameObjectState() {
+
+	cout << "Destroying GameObjectState..." << endl;
+
+	for (int i = 0; i < this->events.size(); i++) {
+
+		if (this->events[i] != NULL) {
+
+			delete(this->events[i]);
+			this->events[i] = NULL;
+
+		}
+
+	}
+
+	ObjectCommand* currCommand = NULL;
+	while (this->commands.size() > 0) {
+
+		currCommand = this->commands.front();
+
+		if (currCommand != NULL) {
+			delete(currCommand);
+		}
+
+		this->commands.pop();
+		currCommand = NULL;
+
+	}
+
+
+}
+
 StateType GameObjectState::getType() const {
 
 	return this->type;

@@ -20,7 +20,11 @@ BulletFiredEvent::BulletFiredEvent(const BulletFiredEvent& obj) {
 
 }
 
-BulletFiredEvent::~BulletFiredEvent() {}
+BulletFiredEvent::~BulletFiredEvent() {
+
+	cout << "Destroying BulletFiredEvent..." << endl;
+
+}
 
 BulletFiredEvent& BulletFiredEvent::operator=(const BulletFiredEvent& obj) {
 

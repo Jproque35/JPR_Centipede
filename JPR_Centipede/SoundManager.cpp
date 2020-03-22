@@ -4,15 +4,31 @@ SoundManager* SoundManager::instance = NULL;
 
 SoundManager::SoundManager() {
 
-	this->bufs = new SoundBuffer[128];
+	this->bufs.resize(128);
 
-};
+	for (int i = 0; i < this->bufs.size(); ++i) {
+
+		this->bufs[i] = NULL;
+
+	}
+
+}
 
 SoundManager::~SoundManager() {
 
-	delete[] this->bufs;
+	for (int i = 0; i < this->bufs.size(); ++i) {
 
-};
+
+		if (this->bufs[i] != NULL) {
+
+			delete(this->bufs[i]);
+			this->bufs[i] = NULL;
+
+		}
+
+	}
+
+}
 
 SoundManager* SoundManager::getInstance() {
 
@@ -73,12 +89,13 @@ void SoundManager::parseLine(const char* str, int i) {
 
 	stringstream ss;
 	ss << "assets/sounds/" << str;
-	this->bufs[i].loadFromFile(ss.str());
+	this->bufs[i] = new SoundBuffer();
+	this->bufs[i]->loadFromFile(ss.str());
 	cout << "Loaded file " << str << endl;
 
 }
 
-SoundBuffer SoundManager::get(int i) const {
+SoundBuffer* SoundManager::get(int i) const {
 
 	return this->bufs[i];
 
