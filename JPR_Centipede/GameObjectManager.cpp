@@ -1,14 +1,10 @@
 #include "GameObjectManager.h"
 #include "GameObjectFactory.h"
 #include "GameObject.h"
-#include "GridManager.h"
 
 GameObjectManager* GameObjectManager::instance = 0;
 
 GameObjectManager::GameObjectManager() {
-
-	//this->objFactory = GameObjectFactory::getInstance();
-	this->grid = NULL;
 
 }
 
@@ -24,8 +20,6 @@ GameObjectManager::~GameObjectManager() {
 		}
 
 	}
-
-	delete(this->grid);
 
 }
 
@@ -56,33 +50,6 @@ void GameObjectManager::init(int x, int y) {
 
 		this->freeIds.push(i);
 		this->gm[i] = NULL;
-
-	}
-
-	this->grid = new GridManager(x, y);
-
-}
-
-int GameObjectManager::getGridWidth() const {
-
-	return this->grid->getWidth();
-
-}
-
-int GameObjectManager::getGridHeight() const {
-
-	return this->grid->getHeight();
-
-}
-
-void GameObjectManager::rebuildGrid() {
-
-	this->grid->clear();
-
-	for (int i = 0; i < this->gm.size(); i++) {
-
-		GameObject* currObj = this->gm[i];
-		this->grid->add(currObj);
 
 	}
 
@@ -118,7 +85,6 @@ void GameObjectManager::update(int i, float elapsedTime) {
 	if (this->gm[i] != NULL) {
 
 		this->gm[i]->update(elapsedTime);
-		this->rebuildGrid();
 
 	}
 
@@ -134,14 +100,6 @@ void GameObjectManager::updateAll(float elapsedTime) {
 
 	}
 
-	this->rebuildGrid();
-
-}
-
-vector<GameObject*> GameObjectManager::get(int x, int y) const {
-
-	return this->grid->get(x, y);
-
 }
 
 GameObject* GameObjectManager::get(int i) const {
@@ -150,13 +108,7 @@ GameObject* GameObjectManager::get(int i) const {
 
 }
 
-bool GameObjectManager::hasType(ObjectType type, int x, int y) const {
-
-	return this->grid->hasType(type, x, y);
-
-}
-
-void GameObjectManager::erase(int i) {
+void GameObjectManager::remove(int i) {
 
 	if (this->gm[i] != NULL) {
 
@@ -166,8 +118,6 @@ void GameObjectManager::erase(int i) {
 		this->gm[i] = NULL;
 
 	}
-
-	this->rebuildGrid();
 
 }
 

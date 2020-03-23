@@ -20,7 +20,7 @@ ObjectMoveLeftCommand::ObjectMoveLeftCommand(const ObjectMoveLeftCommand& obj) {
 
 ObjectMoveLeftCommand::~ObjectMoveLeftCommand() {
 
-	cout << "Deleting MoveLeftCommand..." << endl;
+	//cout << "Deleting MoveLeftCommand..." << endl;
 
 }
 
@@ -30,8 +30,15 @@ ObjectMoveLeftCommand& ObjectMoveLeftCommand::operator=(const ObjectMoveLeftComm
 
 }
 
+ObjectCommand* ObjectMoveLeftCommand::recontextCopy(GameObject* obj) {
+
+	return new ObjectMoveLeftCommand(obj);
+
+}
+
 void ObjectMoveLeftCommand::execute(float elapsedTime) {
 
+	/*
 	float moveDist = this->context->getXSpeed() * elapsedTime;
 
 	if (this->context->getX() - moveDist <= this->xDest) {
@@ -47,6 +54,14 @@ void ObjectMoveLeftCommand::execute(float elapsedTime) {
 	}
 
 	this->context->setShapePosition(this->context->getX(), this->context->getY());
+	this->context->setSpritePosition(this->context->getX(), this->context->getY());*/
+
+	float moveDist = this->context->getXSpeed() * elapsedTime;
+	this->context->setX(this->context->getX() - moveDist);
+
+	this->context->setShapePosition(this->context->getX(), this->context->getY());
 	this->context->setSpritePosition(this->context->getX(), this->context->getY());
+
+	this->finished = true;
 
 }

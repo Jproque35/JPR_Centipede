@@ -3,6 +3,7 @@
 #include "GameObjectManager.h"
 #include "GameObject.h"
 #include "GameObjectState.h"
+#include "CollisionMap.h"
 
 void Engine::update(float dtAsSeconds) {
 
@@ -10,6 +11,8 @@ void Engine::update(float dtAsSeconds) {
 	this->em->update(dtAsSeconds);
 	this->executeObjectEventListeners(dtAsSeconds);
 	this->gm->updateAll(dtAsSeconds);
+	this->cm->clear();
+	this->cm->buildMap();
 
 }
 

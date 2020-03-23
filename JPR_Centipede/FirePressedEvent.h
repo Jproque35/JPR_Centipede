@@ -20,6 +20,7 @@ public:
 	~FirePressedEvent();
 	FirePressedEvent& operator=(const FirePressedEvent& obj);
 
+	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

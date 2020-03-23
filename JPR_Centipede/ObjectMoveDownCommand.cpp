@@ -20,7 +20,7 @@ ObjectMoveDownCommand::ObjectMoveDownCommand(const ObjectMoveDownCommand& obj) {
 
 ObjectMoveDownCommand::~ObjectMoveDownCommand() {
 
-	cout << "Deleting MoveDownCommand..." << endl;
+	//cout << "Deleting MoveDownCommand..." << endl;
 
 }
 
@@ -30,8 +30,15 @@ ObjectMoveDownCommand& ObjectMoveDownCommand::operator=(const ObjectMoveDownComm
 
 }
 
+ObjectCommand* ObjectMoveDownCommand::recontextCopy(GameObject* obj) {
+
+	return new ObjectMoveDownCommand(obj);
+
+}
+
 void ObjectMoveDownCommand::execute(float elapsedTime) {
 
+	/*
 	float moveDist = this->context->getYSpeed() * elapsedTime;
 
 	if (this->context->getY() + moveDist >= this->yDest) {
@@ -48,5 +55,14 @@ void ObjectMoveDownCommand::execute(float elapsedTime) {
 
 	this->context->setSpritePosition( this->context->getX(), this->context->getY() );
 	this->context->setShapePosition( this->context->getX(), this->context->getY() );
+	*/
+
+	float moveDist = this->context->getYSpeed() * elapsedTime;
+	this->context->setY(this->context->getY() + moveDist);
+
+	this->context->setSpritePosition(this->context->getX(), this->context->getY());
+	this->context->setShapePosition(this->context->getX(), this->context->getY());
+
+	this->finished = true;
 
 }

@@ -7,6 +7,7 @@
 class Player;
 class GameObjectManager;
 class InputManager;
+class CollisionMap;
 
 class PlayerInputEvent :
 	public GameEventListener
@@ -16,7 +17,10 @@ private:
 	Player* context;
 	GameObjectManager* gm;
 	InputManager* im;
+	CollisionMap* cm;
+	bool leftBlocked = false, rightBlocked = false, upBlocked = false, downBlocked = false;
 
+	void updateBlockedVars();
 	void queueCommand(CommandType type);
 
 public:
@@ -25,6 +29,7 @@ public:
 	~PlayerInputEvent();
 	PlayerInputEvent& operator=(const PlayerInputEvent& obj);
 
+	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

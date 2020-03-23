@@ -2,8 +2,10 @@
 #define CENTIPEDEHITEVENT_H
 #pragma once
 #include "GameEvent.h"
+#include <vector>
 
 class GameObjectManager;
+class CollisionMap;
 class Centipede;
 class ScoreManager;
 
@@ -13,8 +15,10 @@ class CentipedeHitEvent :
 
 private:
 	GameObjectManager* gm;
+	CollisionMap* cm;
 	Centipede* context;
 	ScoreManager* scm;
+	bool containsBullet(vector<GameObject*> objs);
 
 public:
 	CentipedeHitEvent(Centipede* context);
@@ -22,6 +26,7 @@ public:
 	~CentipedeHitEvent();
 	CentipedeHitEvent& operator=(const CentipedeHitEvent& obj);
 
+	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

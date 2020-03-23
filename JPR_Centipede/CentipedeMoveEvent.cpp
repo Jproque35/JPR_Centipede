@@ -3,11 +3,14 @@
 #include "Centipede.h"
 #include "GameObjectState.h"
 #include "CommandFactory.h"
+#include "CollisionMap.h"
+#include "EngineLib.h"
 
 CentipedeMoveEvent::CentipedeMoveEvent(Centipede* context) {
 
 	this->context = context;
 	this->gm = GameObjectManager::getInstance();
+	this->cm = CollisionMap::getInstance();
 
 }
 
@@ -36,25 +39,52 @@ CentipedeMoveEvent& CentipedeMoveEvent::operator=(const CentipedeMoveEvent& obj)
 
 }
 
+GameEventListener* CentipedeMoveEvent::recontextCopy(GameObject* obj) {
+
+	return new CentipedeMoveEvent((Centipede*)obj);
+
+}
+
+inline bool CentipedeMoveEvent::intersectsMushroom(float xPos, float yPos) {
+
+	vector<GameObject*> objs = EngineLib::getIntersectsPt(xPos, yPos);
+
+	for (int i = 0; i < objs.size(); ++i) {
+
+		if (objs[i]->getType() == ObjectType::Mushroom) {
+
+			return true;
+
+		}
+
+	}
+
+	return false;
+
+}
+
 void CentipedeMoveEvent::update(float elapsedTime) {
+
+	float xMoveDist = this->context->getXSpeed() * elapsedTime;
+	float yMoveDist = this->context->getYSpeed() * elapsedTime;
 
 	if (this->context->getDirection() == CentipedeDirection::Left) {
 
-		this->moveLeftRoutine();
+		this->moveLeftRoutine(xMoveDist);
 
 	}
 	else if (this->context->getDirection() == CentipedeDirection::Right) {
 
-		this->moveRightRoutine();
+		this->moveRightRoutine(xMoveDist);
 
 	}
 
-	if (floor(this->context->getY() - 1.0f) < 0) {
+	if (this->context->getY() - yMoveDist < 0) {
 
 		this->context->unsetReversed();
 
 	}
-	else if (ceil(this->context->getY() + 1.0f) >= this->gm->getGridHeight()) {
+	else if (this->context->getY() + yMoveDist >= this->cm->getHeight()) {
 
 		this->context->setReversed();
 
@@ -62,9 +92,10 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 }
 
-void CentipedeMoveEvent::moveLeftRoutine() {
+void CentipedeMoveEvent::moveLeftRoutine(float moveDist) {
 
-	if (this->leftBlocked() && this->context->getState()->getNumCommands() < 1) {
+	if (this->intersectsMushroom(this->context->getX() - moveDist, this->context->getY()) 
+		&& this->context->getState()->getNumCommands() < 1) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Right);
 
@@ -78,9 +109,10 @@ void CentipedeMoveEvent::moveLeftRoutine() {
 
 }
 
-void CentipedeMoveEvent::moveRightRoutine() {
+void CentipedeMoveEvent::moveRightRoutine(float moveDist) {
 
-	if (this->rightBlocked() && this->context->getState()->getNumCommands() < 1) {
+	if (this->intersectsMushroom(this->context->getX() + moveDist, this->context->getY() )
+		&& this->context->getState()->getNumCommands() < 1) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Left);
 
@@ -93,21 +125,10 @@ void CentipedeMoveEvent::moveRightRoutine() {
 
 }
 
-void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
+inline void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
 	this->context->setDirection(dir);
-
-	//if (!this->nextLevelBlocked()) {
-
-		//cout << "Next level not blocked: " << this->data->getPosition().x << ", " << this->data->getPosition().y << endl;
 	this->queueLevelChangeCommand();
-
-	//}
-	//else {
-
-		//cout << "Next level IS blocked" << this->data->getPosition().x << ", " << this->data->getPosition().y << endl;
-
-	//}
 
 }
 
@@ -123,118 +144,5 @@ void CentipedeMoveEvent::queueLevelChangeCommand() {
 		this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveUp, this->context));
 
 	}
-
-}
-
-inline bool CentipedeMoveEvent::nextLevelBlocked() {
-
-	if (!this->context->isReversed() && this->downBlocked()) {
-
-		return true;
-
-	}
-	else if (this->context->isReversed() && this->upBlocked()) {
-
-		return true;
-
-	}
-
-	return false;
-
-}
-
-inline bool CentipedeMoveEvent::leftBlocked() {
-
-	int xDest = floor(this->context->getX() - 1.0f);
-
-	if (xDest < 0) {
-
-		return true;
-
-	}
-	else if (this->gm->hasType(ObjectType::Mushroom, xDest, floor(this->context->getY()))) {
-
-		return true;
-
-	}
-
-	return false;
-
-}
-
-inline bool CentipedeMoveEvent::rightBlocked() {
-
-	int xDest = ceil(this->context->getX() + 1.0f);
-
-	if (xDest >= this->gm->getGridWidth()) {
-
-		return true;
-
-	}
-	else if (this->gm->hasType(ObjectType::Mushroom, xDest, floor(this->context->getY()))) {
-
-		return true;
-
-	}
-
-	return false;
-
-}
-
-inline bool CentipedeMoveEvent::upBlocked() {
-
-	int xDest = floor(this->context->getX());
-
-	if (this->context->getDirection() == CentipedeDirection::Right) {
-
-		xDest = ceil(this->context->getX());
-
-	}
-
-	int yDest = floor(this->context->getY() - 1.0f);
-
-	cout << "Checking position " << xDest << ", " << yDest << endl;
-
-	if (yDest < 0) {
-
-		return true;
-
-	}
-	else if (this->gm->hasType(ObjectType::Mushroom, this->context->getX(), yDest)) {
-
-		return true;
-
-	}
-
-	return false;
-
-}
-
-inline bool CentipedeMoveEvent::downBlocked() {
-
-	int xDest = floor(this->context->getX());
-
-	if (this->context->getDirection() == CentipedeDirection::Right) {
-
-		xDest = ceil(this->context->getX());
-
-	}
-
-	int yDest = ceil(this->context->getY() + 1.0f);
-
-	cout << "Checking position " << xDest << ", " << yDest << endl;
-
-	if (yDest >= this->gm->getGridHeight()) {
-
-		return true;
-
-	}
-	else if (this->gm->hasType(ObjectType::Mushroom, this->context->getX(), yDest)) {
-
-		return true;
-
-	}
-
-	return false;
 
 }

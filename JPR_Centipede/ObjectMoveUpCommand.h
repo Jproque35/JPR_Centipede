@@ -19,6 +19,7 @@ public:
 	~ObjectMoveUpCommand();
 	ObjectMoveUpCommand& operator=(const ObjectMoveUpCommand& obj);
 
+	ObjectCommand* recontextCopy(GameObject* obj);
 	void execute(float elapsedTime);
 
 };

@@ -2,6 +2,8 @@
 #include "GameObjectFactory.h"
 #include "GameObjectManager.h"
 #include "Mushroom.h"
+#include "CollisionMap.h"
+#include "EngineLib.h"
 
 MushroomHitEvent::MushroomHitEvent(Mushroom* context) {
 
@@ -29,19 +31,50 @@ MushroomHitEvent& MushroomHitEvent::operator=(const MushroomHitEvent& obj) {
 
 }
 
-void MushroomHitEvent::update(float elapsedTime) {
+GameEventListener* MushroomHitEvent::recontextCopy(GameObject* obj) {
 
-	if (this->gm->hasType(ObjectType::PlayerBullet, this->context->getX(), this->context->getY())) {
+	return new MushroomHitEvent((Mushroom*)obj);
 
+}
 
-		this->context->decrementHealth();
-		cout << "Mushroom got hit, HP is " << this->context->getHealth() << endl;
+inline bool MushroomHitEvent::containsBullet(vector<GameObject*> objs) {
 
-		if (this->context->getHealth() <= 0) {
+	for (int i = 0; i < objs.size(); ++i) {
 
- 			this->gm->erase(this->context->getId());
+		if (objs[i]->getType() == ObjectType::PlayerBullet) {
+
+			return true;
 
 		}
+
+	}
+
+	return false;
+
+}
+
+inline void MushroomHitEvent::handleHit() {
+
+	cout << "Handling hit" << endl;
+
+	this->context->decrementHealth();
+
+	if (this->context->getHealth() <= 0) {
+
+		this->gm->remove(this->context->getId());
+
+	}
+
+}
+
+void MushroomHitEvent::update(float elapsedTime) {
+
+	vector<GameObject*> intersectObjs = EngineLib::getIntersectsObj(this->context);
+
+	if (this->containsBullet(intersectObjs)) {
+
+		this->handleHit();
+
 	}
 
 }

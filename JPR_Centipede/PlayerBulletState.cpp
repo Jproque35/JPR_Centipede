@@ -1,8 +1,6 @@
 #include "PlayerBulletState.h"
 #include "PlayerBullet.h"
-#include "BulletFiredEvent.h"
 #include "BulletCollideEvent.h"
-#include "PlayerBulletFireCommand.h"
 #include "GameObjectManager.h"
 #include "GameObjectFactory.h"
 
@@ -22,12 +20,6 @@ PlayerBulletState::~PlayerBulletState() {
 
 void PlayerBulletState::update(float elapsedTime) {
 
-	if (this->distTravelled == 0.0f) {
-
-		//cout << "Bullet start at " << this->context->getX() << ", " << this->context->getY() << endl;
-
-	}
-
 	float moveDist = this->context->getYSpeed() * elapsedTime;
 
 	this->context->setY(this->context->getY() - moveDist );
@@ -36,13 +28,11 @@ void PlayerBulletState::update(float elapsedTime) {
 	this->context->setShapePosition(this->context->getX(), this->context->getY());
 	this->context->setSpritePosition(this->context->getX(), this->context->getY());
 
-	//cout << "Bullet position at end of frame is " << this->context->getX() << ", " << this->context->getY() << endl;
-
-	//if (this->distTravelled >= this->range) {
 	if(this->context->getY() <= 0) {
+
 		GameObjectManager* gm = GameObjectManager::getInstance();
 		this->distTravelled = 0.0f;
-		gm->erase(this->context->getId());
+		gm->remove(this->context->getId());
 
 	}
 

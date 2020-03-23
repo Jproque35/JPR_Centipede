@@ -24,6 +24,12 @@ FirePressedEvent& FirePressedEvent::operator=(const FirePressedEvent& obj) {
 
 }
 
+GameEventListener* FirePressedEvent::recontextCopy(GameObject* obj) {
+
+	return new FirePressedEvent();
+
+}
+
 void FirePressedEvent::update(float elapsedTime) {
 
 	GameObjectManager* gm = GameObjectManager::getInstance();
@@ -32,16 +38,17 @@ void FirePressedEvent::update(float elapsedTime) {
 
 	if (im->isFirePressed()) {
 
-
 		Player* player = (Player*)gm->get(0);
 		PlayerBullet* bullet = (PlayerBullet*)objFactory->makeObject(ObjectType::PlayerBullet, 0.0f, 0.0f);
 
 		cout << bullet << endl;
 
 		if (bullet != NULL) {
+
 			gm->add(bullet);
 			bullet->init(player->getX(), player->getY());
 			this->bulletSound.play();
+
 		}
 
 	}

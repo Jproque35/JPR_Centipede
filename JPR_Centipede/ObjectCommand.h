@@ -6,6 +6,8 @@
 
 using namespace std;
 
+class GameObject;
+
 class ObjectCommand
 {
 
@@ -19,6 +21,7 @@ public:
 	bool isFinished();
 	CommandType getType();
 	virtual void execute(float elapsedTime) = 0;
+	virtual ObjectCommand* recontextCopy(GameObject* obj) = 0;
 
 };
 

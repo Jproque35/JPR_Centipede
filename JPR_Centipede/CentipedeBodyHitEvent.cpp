@@ -8,10 +8,13 @@
 #include "GameObjectFactory.h"
 #include "GameObjectState.h"
 #include "CommandFactory.h"
+#include "CollisionMap.h"
+#include "EngineLib.h"
 
 CentipedeBodyHitEvent::CentipedeBodyHitEvent(Centipede* context) {
 
 	this->context = context;
+	this->cm = CollisionMap::getInstance();
 
 }
 
@@ -33,6 +36,28 @@ CentipedeBodyHitEvent& CentipedeBodyHitEvent::operator=(const CentipedeBodyHitEv
 
 }
 
+GameEventListener* CentipedeBodyHitEvent::recontextCopy(GameObject* obj) {
+
+	return new CentipedeBodyHitEvent((Centipede*)obj);
+
+}
+
+inline bool CentipedeBodyHitEvent::containsBullet(vector<GameObject*> objs) {
+
+	for (int i = 0; i < objs.size(); ++i) {
+
+		if (objs[i]->getType() == ObjectType::PlayerBullet) {
+
+			return true;
+
+		}
+
+	}
+
+	return false;
+
+}
+
 void CentipedeBodyHitEvent::update(float elapsedTime) {
 
 	GameObjectManager* gm = GameObjectManager::getInstance();
@@ -41,7 +66,7 @@ void CentipedeBodyHitEvent::update(float elapsedTime) {
 	float hitX = round(this->context->getX());
 	float hitY = round(this->context->getY());
 
-	if (gm->hasType(ObjectType::PlayerBullet, hitX, hitY)) {
+	if ( this->containsBullet(EngineLib::getIntersectsObj(this->context)) ) {
 
 		GameObjectManager* gm = GameObjectManager::getInstance();
 		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
@@ -74,7 +99,7 @@ void CentipedeBodyHitEvent::update(float elapsedTime) {
 		}
 		else {
 
-			gm->erase(this->context->getId());
+			gm->remove(this->context->getId());
 
 		}
 

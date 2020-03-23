@@ -60,6 +60,8 @@ public:
 	void setId(int i);
 	int getId() const;
 
+	FloatRect getCollisionBox() const;
+
 
 };
 

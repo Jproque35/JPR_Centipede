@@ -18,6 +18,7 @@ class FontManager;
 class SpriteManager;
 class SoundManager;
 class GameObjectFactory;
+class CollisionMap;
 class Centipede;
 
 class Engine {
@@ -33,6 +34,7 @@ private:
 	SpriteManager* spm;
 	SoundManager* sdm;
 	GameObjectFactory* objFactory;
+	CollisionMap* cm;
 
 	Texture bgImg;
 	Sprite background;
@@ -45,7 +47,7 @@ private:
 	int gridWidth = 0.0f;
 	int bulletsStart = -1;
 	int numBullets = 1;
-	int numCentipedes = 10;
+	int numCentipedes = 0;
 	int numMushrooms = 50;
 	int getNumObjects();
 
@@ -57,9 +59,9 @@ private:
 	void input(float dtAsSeconds);
 	void init();
 	void initObjects();
-	void initPlayer(int &currPos);
-	void initEnemies(int &currPos);
-	void initMushrooms(int &currPos);
+	void initPlayer();
+	void initEnemies();
+	void initMushrooms();
 	void initEvents();
 	void executeObjectEventListeners(float elapsedTime);
 	void update(float dtAsSeconds);

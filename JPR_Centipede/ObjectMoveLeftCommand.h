@@ -19,6 +19,7 @@ public:
 	~ObjectMoveLeftCommand();
 	ObjectMoveLeftCommand& operator=(const ObjectMoveLeftCommand& obj);
 
+	ObjectCommand* recontextCopy(GameObject* obj);
 	void execute(float elapsedTime);
 };
 

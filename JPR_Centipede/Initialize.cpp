@@ -8,6 +8,7 @@
 #include "SpriteManager.h"
 #include "SoundManager.h"
 #include "FontManager.h"
+#include "CollisionMap.h"
 #include "FirePressedEvent.h"
 #include "Centipede.h"
 
@@ -29,9 +30,11 @@ void Engine::init() {
 	this->spm = SpriteManager::getInstance();
 	this->em = EventManager::getInstance();
 	this->fm = FontManager::getInstance();
+	this->cm = CollisionMap::getInstance();
 	this->objFactory = GameObjectFactory::getInstance();
 
 	this->gm->init(this->gridWidth, this->gridHeight);
+	this->cm->init(this->gridWidth, this->gridHeight);
 	this->sdm->loadFromFile("assets/soundlist.txt");
 
 	this->hudText.setPosition(Vector2f(0.0f, 0.0f));
@@ -44,21 +47,22 @@ void Engine::init() {
 	this->initObjects();
 	this->initEvents();
 
+	this->cm->clear();
+	this->cm->buildMap();
+
 }
 
 void Engine::initObjects() {
 
-	int currPos = 0;
-
-	this->initPlayer(currPos);
-	this->initEnemies(currPos);
-	this->initMushrooms(currPos);
+	this->initPlayer();
+	this->initEnemies();
+	this->initMushrooms();
 
 	cout << "Successfully loaded all objects." << endl;
 
 }
 
-void Engine::initPlayer(int &currPos) {
+void Engine::initPlayer() {
 	
 	float initX = floor(this->gridWidth / 2);
 	float initY = floor(this->gridHeight / 2);
@@ -70,10 +74,8 @@ void Engine::initPlayer(int &currPos) {
 
 }
 
-void Engine::initEnemies(int &currPos) {
+void Engine::initEnemies() {
 
-	int initPos = currPos;
-	int endPos = currPos + this->numCentipedes;
 	cout << "Loading centipede objects..." << endl;
 
 	float initX = round(this->gridWidth / 2);
@@ -90,17 +92,18 @@ void Engine::initEnemies(int &currPos) {
 
 }
 
-void Engine::initMushrooms(int &currPos) {
+void Engine::initMushrooms() {
 
 	srand(time(NULL));
 
-	int endPos = currPos + this->numMushrooms;
 	cout << "Loading mushroom objects..." << endl;
 
-	while (currPos < endPos) {
+	float tempX = -1.0f, tempY = -1.0f;
 
-		float tempX = rand() % (int)(this->gridWidth);
-		float tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
+	for(int i = 0; i < this->numMushrooms; ++i) {
+
+		tempX = rand() % (int)(this->gridWidth);
+		tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
 
 		GameObject* currObj = 
 			this->objFactory->makeObject(ObjectType::Mushroom, tempX, tempY);
@@ -108,9 +111,6 @@ void Engine::initMushrooms(int &currPos) {
 		currObj->init(tempX, tempY);
 
 		this->gm->add(currObj);
-
-		//cout << "Loaded mushroom object into slot " << currObj->getId() << " at position " << tempX << ", " << tempY << endl;
-		currPos++;
 
 	}
 

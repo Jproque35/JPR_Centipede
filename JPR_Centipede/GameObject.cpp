@@ -193,3 +193,9 @@ int GameObject::getId() const {
 	return this->id;
 
 }
+
+FloatRect GameObject::getCollisionBox() const {
+
+	return this->shape.getGlobalBounds();
+
+}

@@ -11,7 +11,9 @@ class PlayerHitEvent :
 
 private:
 	Player* context;
-	bool hasCentipede(float xPos, float yPos);
+	bool isCentipede(GameObject* obj);
+	bool intersectsCentipede();
+
 
 public:
 	PlayerHitEvent(Player* context);
@@ -19,6 +21,7 @@ public:
 	~PlayerHitEvent();
 	PlayerHitEvent& operator=(const PlayerHitEvent& obj);
 
+	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

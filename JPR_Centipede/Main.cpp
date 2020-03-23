@@ -4,7 +4,6 @@
 #include <iostream>
 #include "Engine.h"
 #include "GameObjectManager.h"
-#include "GridManager.h"
 
 using namespace sf;
 

@@ -4,6 +4,7 @@
 #include "GameEvent.h"
 #include "CentipedeDirection.h"
 
+class CollisionMap;
 class GameObjectManager;
 class Centipede;
 
@@ -13,18 +14,15 @@ class CentipedeMoveEvent :
 
 private:
 	GameObjectManager* gm;
+	CollisionMap* cm;
 	Centipede* context;
+
+	bool intersectsMushroom(float xPos, float yPos);
 
 	void queueLevelChangeCommand();
 	void changeLevelAndDirection(CentipedeDirection dir);
-	bool nextLevelBlocked();
-	void moveLeftRoutine();
-	void moveRightRoutine();
-
-	bool leftBlocked();
-	bool rightBlocked();
-	bool upBlocked();
-	bool downBlocked();
+	void moveLeftRoutine(float moveDist);
+	void moveRightRoutine(float moveDist);
 
 public:
 	CentipedeMoveEvent(Centipede* context);
@@ -32,6 +30,7 @@ public:
 	~CentipedeMoveEvent();
 	CentipedeMoveEvent& operator=(const CentipedeMoveEvent& obj);
 
+	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

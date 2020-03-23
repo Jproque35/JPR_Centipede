@@ -2,7 +2,7 @@
 
 ObjectCommand::~ObjectCommand() {
 
-	cout << "Destroying CommandObject..." << endl;
+	//cout << "Destroying CommandObject..." << endl;
 
 }
 

@@ -2,6 +2,8 @@
 #include "GameObjectManager.h"
 #include "PlayerBullet.h"
 #include "GameObjectState.h"
+#include "CollisionMap.h"
+#include "EngineLib.h"
 
 BulletCollideEvent::BulletCollideEvent(PlayerBullet* context) {
 
@@ -29,24 +31,43 @@ BulletCollideEvent& BulletCollideEvent::operator=(const BulletCollideEvent& obj)
 
 }
 
-void BulletCollideEvent::update(float elapsedTime) {
+GameEventListener* BulletCollideEvent::recontextCopy(GameObject* obj) {
 
-	vector<GameObject*> gm = this->gm->get(this->context->getX(), this->context->getY());
+	return new BulletCollideEvent((PlayerBullet*)obj);
 
-	for (int i = 0; i < gm.size(); i++) {
+}
 
-		if (gm[i] != NULL) {
+bool BulletCollideEvent::containsHittable(vector<GameObject*> objs) {
 
-			if (gm[i]->getType() == ObjectType::Mushroom
-				|| gm[i]->getType() == ObjectType::CentipedeHead) {
+	for (int i = 0; i < objs.size(); ++i) {
 
-				this->context->getState()->clearCommands();
-				this->context->setX(-1.0f);
-				this->context->setY(-1.0f);
+		if (this->isHittable(objs[i])) {
 
-			}
+			return true;
 
 		}
+
+	}
+
+	return false;
+
+}
+
+inline bool BulletCollideEvent::isHittable(GameObject* obj) {
+
+	return obj->getType() == ObjectType::Mushroom
+		|| (obj->getType() == ObjectType::CentipedeHead
+		|| obj->getType() == ObjectType::CentipedeBody);
+
+}
+
+void BulletCollideEvent::update(float elapsedTime) {
+
+	vector<GameObject*> intersectsObjs = EngineLib::getIntersectsObj(this->context);
+
+	if (this->containsHittable(intersectsObjs)) {
+
+		this->gm->remove(this->context->getId());
 
 	}
 

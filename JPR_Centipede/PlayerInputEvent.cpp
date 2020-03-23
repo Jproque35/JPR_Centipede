@@ -4,11 +4,13 @@
 #include "Player.h"
 #include "GameObjectState.h"
 #include "CommandFactory.h"
+#include "CollisionMap.h"
 
 PlayerInputEvent::PlayerInputEvent(Player* context) {
 
 	this->im = InputManager::getInstance();
 	this->gm = GameObjectManager::getInstance();
+	this->cm = CollisionMap::getInstance();
 	this->context = context;
 
 }
@@ -31,15 +33,26 @@ PlayerInputEvent& PlayerInputEvent::operator=(const PlayerInputEvent& obj) {
 	return *this;
 
 }
+GameEventListener* PlayerInputEvent::recontextCopy(GameObject* obj) {
+
+	return new PlayerInputEvent((Player*)obj);
+
+}
+
+inline void PlayerInputEvent::updateBlockedVars() {
+
+
+
+
+}
 
 void PlayerInputEvent::update(float elapsedTime) {
 
-	//cout << "Current position is: " << currPos.x << " " << currPos.y << endl;
+	this->updateBlockedVars();
 
 	if (this->im->isUpPressed()) {
 
-		if (this->context->getY() - 1.0f >= 0 &&
-			!this->gm->hasType(ObjectType::Mushroom, this->context->getX(), this->context->getY() - 1.0f)) {
+		if (this->context->getY() - 1.0f >= 0 && !this->upBlocked) {
 
 			this->queueCommand(CommandType::MoveUp);
 
@@ -48,8 +61,8 @@ void PlayerInputEvent::update(float elapsedTime) {
 	}
 	else if (this->im->isDownPressed()) {
 
-		if (ceil(this->context->getY()) + 1.0f < this->gm->getGridHeight() &&
-			!this->gm->hasType(ObjectType::Mushroom, this->context->getX(), ceil(this->context->getY()) + 1.0f)) {
+		if (ceil(this->context->getY()) + 1.0f < this->cm->getHeight()
+			&& !this->downBlocked) {
 
 			this->queueCommand(CommandType::MoveDown);
 
@@ -58,8 +71,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 	}
 	else if (this->im->isLeftPressed()) {
 
-		if (this->context->getX() - 1.0f >= 0 &&
-			!this->gm->hasType(ObjectType::Mushroom, this->context->getX() - 1.0f, this->context->getY())) {
+		if (this->context->getX() - 1.0f >= 0 && !this->leftBlocked) {
 
 			this->queueCommand(CommandType::MoveLeft);
 
@@ -68,8 +80,8 @@ void PlayerInputEvent::update(float elapsedTime) {
 	}
 	else if (this->im->isRightPressed()) {
 
-		if (ceil(this->context->getX()) + 1.0f < this->gm->getGridWidth() &&
-			!this->gm->hasType(ObjectType::Mushroom, ceil(this->context->getX()) + 1.0f, this->context->getY())) {
+		if (ceil(this->context->getX()) + 1.0f < this->cm->getWidth()
+			&& !this->rightBlocked) {
 
 			this->queueCommand(CommandType::MoveRight);
 		
