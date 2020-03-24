@@ -55,6 +55,18 @@ void GameObjectManager::init(int x, int y) {
 
 }
 
+void GameObjectManager::setPlayerObject(int id) {
+
+	this->pid = id;
+
+}
+
+GameObject* GameObjectManager::getPlayerObject() {
+
+	return this->gm[pid];
+
+}
+
 void GameObjectManager::add(GameObject* obj) {
 
 	int newPos = -1;

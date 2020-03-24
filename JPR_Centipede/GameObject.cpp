@@ -28,15 +28,20 @@ GameObject::~GameObject() {
 
 	delete(this->currState);
 
-	/*
+	vector<GameObjectState*> trash;
 	GameObjectState* delState = NULL;
-	for (auto it : this->states) {
+	for (auto it = this->states.begin(); it != this->states.end(); ++it) {
 
-		delState = this->states[it.first];
-		delete(delState);
-		delState = NULL;
+		trash.push_back(this->states[it->first]);
 
-	}*/
+	}
+
+	for (int i = 0; i < trash.size(); ++i) {
+
+		//delete(trash[i]);
+		//trash[i] = NULL;
+
+	}
 
 }
 

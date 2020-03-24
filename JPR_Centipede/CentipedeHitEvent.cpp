@@ -7,6 +7,8 @@
 #include "GameObjectFactory.h"
 #include "GameObjectState.h"
 #include "EngineLib.h"
+#include "CommandFactory.h"
+#include "CommandType.h"
 
 CentipedeHitEvent::CentipedeHitEvent(Centipede* context) {
 
@@ -47,7 +49,8 @@ inline bool CentipedeHitEvent::containsBullet(vector<GameObject*> objs) {
 
 	for (int i = 0; i < objs.size(); ++i) {
 
-		if (objs[i]->getType() == ObjectType::PlayerBullet) {
+		if (objs[i]->getType() == ObjectType::PlayerBullet
+			&& this->context->getCollisionBox().intersects(objs[i]->getCollisionBox()) ) {
 
 			return true;
 
@@ -68,7 +71,6 @@ void CentipedeHitEvent::update(float elapsedTime) {
 
 		cout << "Centipede got hit" << endl;
 		
-		GameObjectManager* gm = GameObjectManager::getInstance();
 		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
 		GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, hitX, hitY);
 		gm->add(newMushroom);
@@ -78,9 +80,10 @@ void CentipedeHitEvent::update(float elapsedTime) {
 
 			this->context->getNext()->setStateType( StateType::CentipedeHeadState );
 			this->context->getNext()->getState()->clearCommands();
-			//this->context->getNext()->setX(hitX);
-			//this->context->getNext()->setY(hitY);
+			this->context->getNext()->setX(round(this->context->getNext()->getX()));
+			this->context->getNext()->setY(round(this->context->getNext()->getY()));
 			this->context->getNext()->setPrev(NULL);
+			this->context->getNext()->getState()->queueCommand( CommandFactory::makeCommand(CommandType::MoveDown, this->context->getNext()) );
 
 		}
 

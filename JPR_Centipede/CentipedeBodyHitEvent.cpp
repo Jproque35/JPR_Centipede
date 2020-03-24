@@ -46,7 +46,8 @@ inline bool CentipedeBodyHitEvent::containsBullet(vector<GameObject*> objs) {
 
 	for (int i = 0; i < objs.size(); ++i) {
 
-		if (objs[i]->getType() == ObjectType::PlayerBullet) {
+		if (objs[i]->getType() == ObjectType::PlayerBullet
+			&& this->context->getCollisionBox().intersects(objs[i]->getCollisionBox()) ) {
 
 			return true;
 

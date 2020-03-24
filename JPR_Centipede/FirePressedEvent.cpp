@@ -38,7 +38,7 @@ void FirePressedEvent::update(float elapsedTime) {
 
 	if (im->isFirePressed()) {
 
-		Player* player = (Player*)gm->get(0);
+		Player* player = (Player*)gm->getPlayerObject();
 		PlayerBullet* bullet = (PlayerBullet*)objFactory->makeObject(ObjectType::PlayerBullet, 0.0f, 0.0f);
 
 		cout << bullet << endl;

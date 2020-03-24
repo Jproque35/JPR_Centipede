@@ -71,6 +71,7 @@ void Engine::initPlayer() {
 	currObj->init(initX, initY);
 
 	this->gm->add(currObj);
+	this->gm->setPlayerObject(currObj->getId());
 
 }
 

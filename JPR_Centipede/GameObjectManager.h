@@ -13,6 +13,7 @@ class GameObjectManager {
 private:
 	static GameObjectManager* instance;
 	vector<GameObject*> gm;
+	int pid = -1;
 	queue<int> freeIds;
 
 	GameObjectManager();
@@ -25,6 +26,8 @@ public:
 	static void resetInstance();
 
 	void init(int x, int y);
+	void setPlayerObject(int id);
+	GameObject* getPlayerObject();
 	void add(GameObject* obj);
 	void update(int i, float elapsedTime);
 	void updateAll(float elapsedTime);

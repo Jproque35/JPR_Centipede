@@ -20,7 +20,7 @@ Engine::Engine() {
 
 	this->cellWidth = resolution.y / 40.0f;
 	this->gridHeight = 40;
-	this->gridWidth = 40;
+	this->gridWidth = 30;
 
 	this->bgImg.loadFromFile("assets/sprites/bg.png");
 	this->background.setTexture(this->bgImg);

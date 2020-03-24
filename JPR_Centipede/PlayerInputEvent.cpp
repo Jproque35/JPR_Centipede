@@ -101,7 +101,7 @@ void PlayerInputEvent::update(float elapsedTime) {
 
 	if (this->im->isUpPressed()) {
 
-		if (this->context->getY() - 1.0f >= 0 &&
+		if (this->context->getY() - 1.0f >= this->cm->getHeight() * 0.6f &&
 			!this->cm->containsType(ObjectType::Mushroom, this->context->getX(), this->context->getY() - 1.0f)) {
 
 			this->queueCommand(CommandType::MoveUp);

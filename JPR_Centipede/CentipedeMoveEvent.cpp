@@ -57,7 +57,7 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 	}
 
-	if (floor(this->context->getY() - 1.0f) < 0) {
+	if (floor(this->context->getY() - 1.0f) < this->cm->getHeight() * 0.6f) {
 
 		this->context->unsetReversed();
 
