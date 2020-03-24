@@ -8,6 +8,7 @@ class Player;
 class GameObjectManager;
 class InputManager;
 class CollisionMap;
+class GameObject;
 
 class PlayerInputEvent :
 	public GameEventListener
@@ -20,8 +21,10 @@ private:
 	CollisionMap* cm;
 	bool leftBlocked = false, rightBlocked = false, upBlocked = false, downBlocked = false;
 
-	void updateBlockedVars();
+	void updateBlockedVars(float xMoveDist, float yMoveDist);
+	void processCollision(GameObject* obj, float xMoveDist, float yMoveDist);
 	void queueCommand(CommandType type);
+
 
 public:
 	PlayerInputEvent(Player* context);

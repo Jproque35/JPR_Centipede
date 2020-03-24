@@ -24,7 +24,7 @@ GameObject::GameObject() {
 
 GameObject::~GameObject() {
 
-	cout << "Destructing GameObject..." << endl;
+	//cout << "Destructing GameObject..." << endl;
 
 	delete(this->currState);
 

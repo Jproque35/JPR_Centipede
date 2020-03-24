@@ -21,7 +21,7 @@ Mushroom::Mushroom(const Mushroom& obj) {
 
 Mushroom::~Mushroom() {
 
-	cout << "Destructing Mushroom..." << endl;
+	//cout << "Destructing Mushroom..." << endl;
 
 }
 
