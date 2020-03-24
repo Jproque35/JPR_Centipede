@@ -38,7 +38,7 @@ ObjectCommand* ObjectMoveDownCommand::recontextCopy(GameObject* obj) {
 
 void ObjectMoveDownCommand::execute(float elapsedTime) {
 
-	/*
+	
 	float moveDist = this->context->getYSpeed() * elapsedTime;
 
 	if (this->context->getY() + moveDist >= this->yDest) {
@@ -55,14 +55,14 @@ void ObjectMoveDownCommand::execute(float elapsedTime) {
 
 	this->context->setSpritePosition( this->context->getX(), this->context->getY() );
 	this->context->setShapePosition( this->context->getX(), this->context->getY() );
-	*/
-
+	
+	/*
 	float moveDist = this->context->getYSpeed() * elapsedTime;
 	this->context->setY(this->context->getY() + moveDist);
 
 	this->context->setSpritePosition(this->context->getX(), this->context->getY());
 	this->context->setShapePosition(this->context->getX(), this->context->getY());
 
-	this->finished = true;
+	this->finished = true;*/
 
 }

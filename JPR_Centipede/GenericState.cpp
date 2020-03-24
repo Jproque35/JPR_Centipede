@@ -40,15 +40,15 @@ void GenericState::executeCommand(float elapsedTime) {
 
 	if (commands.size() > 0) {
 
-		ObjectCommand* currCommand = this->commands.front();
+		ObjectCommand* currComm = this->commands.front();
 
-		currCommand->execute(elapsedTime);
+		currComm->execute(elapsedTime);
 
-		if (currCommand->isFinished()) {
+		if (currComm->isFinished()) {
 
 			this->commands.pop();
-			delete(currCommand);
-			currCommand = NULL;
+			delete(currComm);
+			currComm = NULL;
 
 		}
 
@@ -59,5 +59,12 @@ void GenericState::executeCommand(float elapsedTime) {
 void GenericState::update(float elapsedTime) {
 
 	this->executeCommand(elapsedTime);
+	
+	/*
+	if (this->currCommand != NULL) {
+
+		this->currCommand->execute(elapsedTime);
+
+	}*/
 
 }

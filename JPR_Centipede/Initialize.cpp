@@ -55,7 +55,7 @@ void Engine::init() {
 void Engine::initObjects() {
 
 	this->initPlayer();
-	//this->initEnemies();
+	this->initEnemies();
 	this->initMushrooms();
 
 	cout << "Successfully loaded all objects." << endl;

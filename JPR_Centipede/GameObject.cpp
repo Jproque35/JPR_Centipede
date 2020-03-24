@@ -196,6 +196,15 @@ int GameObject::getId() const {
 
 FloatRect GameObject::getCollisionBox() const {
 
-	return this->shape.getGlobalBounds();
+	FloatRect desire;
+
+	desire.top = this->pos.y;
+	desire.left = this->pos.x;
+	desire.width = this->shape.getGlobalBounds().width;
+	desire.height = this->shape.getGlobalBounds().height;
+
+	//return this->shape.getGlobalBounds();
+
+	return desire;
 
 }

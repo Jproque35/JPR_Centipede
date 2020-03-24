@@ -41,7 +41,8 @@ bool BulletCollideEvent::containsHittable(vector<GameObject*> objs) {
 
 	for (int i = 0; i < objs.size(); ++i) {
 
-		if (this->isHittable(objs[i])) {
+		if ( this->isHittable(objs[i])
+			&& this->context->getCollisionBox().intersects(objs[i]->getCollisionBox() ) ) {
 
 			return true;
 

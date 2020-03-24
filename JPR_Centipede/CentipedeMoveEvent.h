@@ -4,9 +4,9 @@
 #include "GameEvent.h"
 #include "CentipedeDirection.h"
 
-class CollisionMap;
 class GameObjectManager;
 class Centipede;
+class CollisionMap;
 
 class CentipedeMoveEvent :
 	public GameEventListener
@@ -17,12 +17,16 @@ private:
 	CollisionMap* cm;
 	Centipede* context;
 
-	bool intersectsMushroom(float xPos, float yPos);
-
 	void queueLevelChangeCommand();
 	void changeLevelAndDirection(CentipedeDirection dir);
-	void moveLeftRoutine(float moveDist);
-	void moveRightRoutine(float moveDist);
+	bool nextLevelBlocked();
+	void moveLeftRoutine();
+	void moveRightRoutine();
+
+	bool leftBlocked();
+	bool rightBlocked();
+	bool upBlocked();
+	bool downBlocked();
 
 public:
 	CentipedeMoveEvent(Centipede* context);

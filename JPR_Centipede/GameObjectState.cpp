@@ -52,6 +52,21 @@ void GameObjectState::queueCommand(ObjectCommand* command) {
 
 }
 
+void GameObjectState::setCommandType(CommandType type) {
+
+	if (this->cmdTbl.count(type) > 0) {
+
+		this->currCommand = this->cmdTbl[type];
+
+	}
+	else if (type == CommandType::Empty) {
+
+		this->currCommand = NULL;
+
+	}
+
+}
+
 void GameObjectState::addEventListener(GameEventListener* event) {
 
 	this->events.push_back(event);

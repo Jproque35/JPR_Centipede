@@ -38,6 +38,7 @@ public:
 	void clear();
 	void add(GameObject* obj);
 	vector<GameObject*> get(int x, int y);
+	bool containsType(ObjectType type, float xPos, float yPos);
 
 
 };

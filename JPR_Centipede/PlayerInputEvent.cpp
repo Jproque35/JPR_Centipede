@@ -97,6 +97,53 @@ inline void PlayerInputEvent::updateBlockedVars(float xMoveDist, float yMoveDist
 
 void PlayerInputEvent::update(float elapsedTime) {
 
+	//cout << "Current position is: " << currPos.x << " " << currPos.y << endl;
+
+	if (this->im->isUpPressed()) {
+
+		if (this->context->getY() - 1.0f >= 0 &&
+			!this->cm->containsType(ObjectType::Mushroom, this->context->getX(), this->context->getY() - 1.0f)) {
+
+			this->queueCommand(CommandType::MoveUp);
+
+		}
+
+	}
+	else if (this->im->isDownPressed()) {
+
+		if (ceil(this->context->getY()) + 1.0f < this->cm->getHeight() &&
+			!this->cm->containsType(ObjectType::Mushroom, this->context->getX(), ceil(this->context->getY()) + 1.0f)) {
+
+			this->queueCommand(CommandType::MoveDown);
+
+		}
+
+	}
+	else if (this->im->isLeftPressed()) {
+
+		if (this->context->getX() - 1.0f >= 0 &&
+			!this->cm->containsType(ObjectType::Mushroom, this->context->getX() - 1.0f, this->context->getY())) {
+
+			this->queueCommand(CommandType::MoveLeft);
+
+		}
+
+	}
+	else if (this->im->isRightPressed()) {
+
+		if (ceil(this->context->getX()) + 1.0f < this->cm->getWidth() &&
+			!this->cm->containsType(ObjectType::Mushroom, ceil(this->context->getX()) + 1.0f, this->context->getY())) {
+
+			this->queueCommand(CommandType::MoveRight);
+
+		}
+	}
+
+}
+
+/*
+void PlayerInputEvent::update(float elapsedTime) {
+
 	float xMoveDist = this->context->getXSpeed() * elapsedTime;
 	float yMoveDist = this->context->getYSpeed() * elapsedTime;
 
@@ -106,9 +153,15 @@ void PlayerInputEvent::update(float elapsedTime) {
 
 		if (this->context->getY() - yMoveDist >= 0 && !this->upBlocked) {
 
-			this->queueCommand(CommandType::MoveUp);
+			this->context->getState()->setCommandType(CommandType::MoveUp);
 
 		}
+		else {
+
+			this->context->getState()->setCommandType(CommandType::Empty);
+
+		}
+
 
 	}
 	else if (this->im->isDownPressed()) {
@@ -116,18 +169,30 @@ void PlayerInputEvent::update(float elapsedTime) {
 		if (ceil(this->context->getY()) + yMoveDist < this->cm->getHeight()
 			&& !this->downBlocked) {
 
-			this->queueCommand(CommandType::MoveDown);
+			this->context->getState()->setCommandType(CommandType::MoveDown);
 
 		}
+		else {
+
+			this->context->getState()->setCommandType(CommandType::Empty);
+
+		}
+
 
 	}
 	else if (this->im->isLeftPressed()) {
 
 		if (this->context->getX() - xMoveDist >= 0 && !this->leftBlocked) {
 
-			this->queueCommand(CommandType::MoveLeft);
+			this->context->getState()->setCommandType(CommandType::MoveLeft);
 
 		}
+		else {
+
+			this->context->getState()->setCommandType(CommandType::Empty);
+
+		}
+
 
 	}
 	else if (this->im->isRightPressed()) {
@@ -135,9 +200,20 @@ void PlayerInputEvent::update(float elapsedTime) {
 		if (ceil(this->context->getX()) + xMoveDist < this->cm->getWidth()
 			&& !this->rightBlocked) {
 
-			this->queueCommand(CommandType::MoveRight);
+			this->context->getState()->setCommandType(CommandType::MoveRight);
 		
 		}
+		else {
+
+			this->context->getState()->setCommandType(CommandType::Empty);
+
+		}
+
+	}
+	else {
+
+		this->context->getState()->setCommandType(CommandType::Empty);
+
 	}
 
 	this->upBlocked = false;
@@ -145,9 +221,9 @@ void PlayerInputEvent::update(float elapsedTime) {
 	this->rightBlocked = false;
 	this->leftBlocked = false;
 
-}
+}*/
 
-void PlayerInputEvent::queueCommand(CommandType type) {
+inline void PlayerInputEvent::queueCommand(CommandType type) {
 
 	if (this->context->getState()->getNumCommands() < 1) {
 

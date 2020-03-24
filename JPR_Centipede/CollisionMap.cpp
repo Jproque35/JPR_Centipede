@@ -127,3 +127,21 @@ vector<GameObject*> CollisionMap::get(int x, int y) {
 	return {};
 
 }
+
+bool CollisionMap::containsType(ObjectType type, float xPos, float yPos) {
+
+	vector<GameObject*> currList = this->map[this->getKey(xPos, yPos)];
+
+	for (int i = 0; i < currList.size(); ++i) {
+
+		if (currList[i]->getType() == type) {
+
+			return true;
+
+		}
+
+	}
+
+	return false;
+
+}
