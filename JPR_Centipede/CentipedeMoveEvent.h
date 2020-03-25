@@ -19,14 +19,11 @@ private:
 
 	void queueLevelChangeCommand();
 	void changeLevelAndDirection(CentipedeDirection dir);
-	bool nextLevelBlocked();
 	void moveLeftRoutine();
 	void moveRightRoutine();
 
 	bool leftBlocked();
 	bool rightBlocked();
-	bool upBlocked();
-	bool downBlocked();
 
 public:
 	CentipedeMoveEvent(Centipede* context);

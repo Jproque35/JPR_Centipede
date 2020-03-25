@@ -27,7 +27,7 @@ protected:
 
 public:
 	virtual ~GameObjectState();
-	GameObjectState* copy(const GameObjectState& obj);
+
 	StateType getType() const;
 	int getNumCommands() const;
 	void clearEventListeners();

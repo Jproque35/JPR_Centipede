@@ -18,6 +18,18 @@ PlayerBulletState::~PlayerBulletState() {
 
 }
 
+PlayerBulletState& PlayerBulletState::operator=(const PlayerBulletState& obj) {
+
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
+	return *this;
+
+}
+
 void PlayerBulletState::update(float elapsedTime) {
 
 	float moveDist = this->context->getYSpeed() * elapsedTime;

@@ -23,8 +23,8 @@ private:
 	~CollisionMap();
 	CollisionMap& operator=(const CollisionMap& obj) = delete;
 
-	bool inBounds(float x, float y);
-	int getKey(float x,float y);
+	bool inBounds(float x, float y) const;
+	int getKey(float x,float y) const;
 
 public:
 
@@ -37,8 +37,8 @@ public:
 	void buildMap();
 	void clear();
 	void add(GameObject* obj);
-	vector<GameObject*> get(int x, int y);
-	bool containsType(ObjectType type, float xPos, float yPos);
+	vector<GameObject*> get(int x, int y) const;
+	bool containsType(ObjectType type, float xPos, float yPos) const;
 
 
 };

@@ -6,11 +6,6 @@
 #include "CommandFactory.h"
 #include "CentipedeBodyHitEvent.h"
 
-CentipedeBodyState::~CentipedeBodyState() {
-
-	cout << "Destroying CentipedeBodyState..." << endl;
-
-}
 
 CentipedeBodyState::CentipedeBodyState(Centipede* data) {
 
@@ -19,6 +14,24 @@ CentipedeBodyState::CentipedeBodyState(Centipede* data) {
 	this->events.push_back(new CentipedeBodyHitEvent(data));
 
 	cout << "lastPos initialized to " << this->lastPos.x << ", " << this->lastPos.y << endl;
+
+}
+
+CentipedeBodyState::~CentipedeBodyState() {
+
+	cout << "Destroying CentipedeBodyState..." << endl;
+
+}
+
+CentipedeBodyState& CentipedeBodyState::operator=(const CentipedeBodyState& obj) {
+
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
+	return *this;
 
 }
 

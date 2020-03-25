@@ -26,6 +26,12 @@ ObjectMoveDownCommand::~ObjectMoveDownCommand() {
 
 ObjectMoveDownCommand& ObjectMoveDownCommand::operator=(const ObjectMoveDownCommand& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

@@ -27,6 +27,12 @@ PlayerBullet::~PlayerBullet() {
 
 PlayerBullet& PlayerBullet::operator=(const PlayerBullet& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

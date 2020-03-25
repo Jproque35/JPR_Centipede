@@ -39,7 +39,7 @@ void CollisionMap::init(int width, int height) {
 
 }
 
-inline bool CollisionMap::inBounds(float x, float y) {
+inline bool CollisionMap::inBounds(float x, float y) const {
 
 	if (0 <= floor(x) && floor(x) < this->width) {
 
@@ -51,7 +51,7 @@ inline bool CollisionMap::inBounds(float x, float y) {
 
 }
 
-inline int CollisionMap::getKey(float x, float y) {
+inline int CollisionMap::getKey(float x, float y) const {
 
 	return floor(y) * this->width + floor(x);
 
@@ -116,7 +116,7 @@ void CollisionMap::add(GameObject* obj) {
 
 }
 
-vector<GameObject*> CollisionMap::get(int x, int y) {
+vector<GameObject*> CollisionMap::get(int x, int y) const {
 
 	if (this->inBounds(x, y)) {
 
@@ -128,7 +128,7 @@ vector<GameObject*> CollisionMap::get(int x, int y) {
 
 }
 
-bool CollisionMap::containsType(ObjectType type, float xPos, float yPos) {
+bool CollisionMap::containsType(ObjectType type, float xPos, float yPos) const {
 
 	vector<GameObject*> currList = this->map[this->getKey(xPos, yPos)];
 

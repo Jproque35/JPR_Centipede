@@ -27,6 +27,12 @@ MushroomHitEvent::~MushroomHitEvent() {
 
 MushroomHitEvent& MushroomHitEvent::operator=(const MushroomHitEvent& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

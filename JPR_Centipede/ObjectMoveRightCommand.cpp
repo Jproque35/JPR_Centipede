@@ -26,6 +26,12 @@ ObjectMoveRightCommand::~ObjectMoveRightCommand() {
 
 ObjectMoveRightCommand& ObjectMoveRightCommand::operator=(const ObjectMoveRightCommand& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

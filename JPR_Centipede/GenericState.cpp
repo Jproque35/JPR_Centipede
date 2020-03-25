@@ -22,6 +22,12 @@ GenericState::~GenericState() {
 
 GenericState& GenericState::operator=(const GenericState& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

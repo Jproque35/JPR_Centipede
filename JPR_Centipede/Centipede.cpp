@@ -27,6 +27,12 @@ Centipede::~Centipede() {
 
 Centipede& Centipede::operator=(const Centipede& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

@@ -31,6 +31,12 @@ PlayerInputEvent::~PlayerInputEvent() {
 
 PlayerInputEvent& PlayerInputEvent::operator=(const PlayerInputEvent& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

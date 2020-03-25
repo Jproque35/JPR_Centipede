@@ -27,6 +27,12 @@ BulletCollideEvent::~BulletCollideEvent() {
 
 BulletCollideEvent& BulletCollideEvent::operator=(const BulletCollideEvent& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

@@ -180,6 +180,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="MushroomHitEvent.cpp" />
+    <ClCompile Include="NullCommand.cpp" />
     <ClCompile Include="ObjectCommand.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="ObjectMoveDownCommand.cpp" />
@@ -224,6 +225,7 @@
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="Mushroom.h" />
     <ClInclude Include="MushroomHitEvent.h" />
+    <ClInclude Include="NullCommand.h" />
     <ClInclude Include="ObjectCommand.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="ObjectMoveDownCommand.h" />

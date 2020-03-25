@@ -35,6 +35,12 @@ CentipedeHitEvent::~CentipedeHitEvent() {
 
 CentipedeHitEvent& CentipedeHitEvent::operator=(const CentipedeHitEvent& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

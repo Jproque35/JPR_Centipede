@@ -1,6 +1,24 @@
 #include "EngineLib.h"
 #include "CollisionMap.h"
 #include "GameObject.h"
+#include <unordered_map>
+
+inline void EngineLib::addIntersectsObj(const vector<GameObject*>& currList, vector<GameObject*>& desire, 
+	unordered_map<GameObject*, int>& freqs, const FloatRect& colBox) {
+
+	for (int k = 0; k < currList.size(); ++k) {
+
+		if (currList[k]->getCollisionBox().intersects(colBox)
+			&& freqs.count(currList[k]) == 0) {
+
+			freqs[currList[k]] = freqs.count(currList[k]);
+			desire.push_back(currList[k]);
+
+		}
+
+	}
+
+}
 
 vector<GameObject*> EngineLib::getIntersectsObj(GameObject* obj) {
 
@@ -15,21 +33,15 @@ vector<GameObject*> EngineLib::getIntersectsObj(GameObject* obj) {
 	vector<GameObject*> desire;
 	vector<GameObject*> currList;
 
+	unordered_map<GameObject*, int> freqs;
+
 	for (int i = xStart; i <= xEnd; ++i) {
 
 		for (int j = yStart; j <= yEnd; ++j) {
 
 			currList = cm->get(i, j);
 
-			for (int k = 0; k < currList.size(); ++k) {
-
-				if (currList[k]->getCollisionBox().intersects(colBox)) {
-
-					desire.push_back(currList[k]);
-
-				}
-
-			}
+			addIntersectsObj(currList, desire, freqs, colBox);
 
 		}
 

@@ -22,6 +22,12 @@ MushroomNormalState::~MushroomNormalState() {
 
 MushroomNormalState& MushroomNormalState::operator=(const MushroomNormalState& obj) {
 
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

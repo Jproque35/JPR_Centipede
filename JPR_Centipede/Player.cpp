@@ -27,8 +27,12 @@ Player::~Player() {
 Player& Player::operator=(const Player& obj)
 {
 
-	GameObject::assignmentAux(obj);
-	this->currState = obj.currState;
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

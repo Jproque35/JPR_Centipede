@@ -35,3 +35,15 @@ PlayerNormalState::~PlayerNormalState() {
 	cout << "Destroying PlayerState..." << endl;
 
 }
+
+PlayerNormalState& PlayerNormalState::operator=(const PlayerNormalState& obj) {
+
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
+	return *this;
+
+}

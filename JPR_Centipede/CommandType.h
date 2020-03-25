@@ -5,6 +5,7 @@
 enum class CommandType {
 	Unknown,
 	Empty,
+	Null,
 	Generic,
 	MoveUp,
 	MoveDown,

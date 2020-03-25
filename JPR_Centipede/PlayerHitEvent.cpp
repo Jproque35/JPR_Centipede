@@ -24,7 +24,12 @@ PlayerHitEvent::~PlayerHitEvent() {
 
 PlayerHitEvent& PlayerHitEvent::operator=(const PlayerHitEvent& obj) {
 
-	this->context = obj.context;
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
 	return *this;
 
 }

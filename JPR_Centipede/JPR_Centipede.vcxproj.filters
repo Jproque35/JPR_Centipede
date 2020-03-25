@@ -258,6 +258,9 @@
     <ClCompile Include="EngineLib.cpp">
       <Filter>Header Files\Engine\Events</Filter>
     </ClCompile>
+    <ClCompile Include="NullCommand.cpp">
+      <Filter>Source Files\Entities\GameObject\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -388,6 +391,9 @@
     </ClInclude>
     <ClInclude Include="EngineLib.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="NullCommand.h">
+      <Filter>Header Files\Entities\GameObject\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

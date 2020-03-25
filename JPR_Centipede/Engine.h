@@ -43,8 +43,8 @@ private:
 	Text hudText;
 
 	int cellWidth = 0.0f;
-	int gridHeight = 0.0f;
-	int gridWidth = 0.0f;
+	int gridHeight = 40.0f;
+	int gridWidth = 30.0f;
 	int bulletsStart = -1;
 	int numBullets = 1;
 	int numCentipedes = 10;

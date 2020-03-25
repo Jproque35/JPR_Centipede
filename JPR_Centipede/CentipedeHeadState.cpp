@@ -7,12 +7,6 @@
 #include "CommandFactory.h"
 #include "CentipedeHitEvent.h"
 
-CentipedeHeadState::~CentipedeHeadState() {
-
-	cout << "Desstroying CentipedeHeadState..." << endl;
-
-}
-
 CentipedeHeadState::CentipedeHeadState(Centipede* data) {
 
 	this->context = data;
@@ -23,6 +17,24 @@ CentipedeHeadState::CentipedeHeadState(Centipede* data) {
 	this->events.push_back(new CentipedeHitEvent(data));
 
 	cout << "lastPos initialized to " << this->lastPos.x << ", " << this->lastPos.y << endl;
+
+}
+
+CentipedeHeadState::~CentipedeHeadState() {
+
+	cout << "Desstroying CentipedeHeadState..." << endl;
+
+}
+
+CentipedeHeadState& CentipedeHeadState::operator=(const CentipedeHeadState& obj) {
+
+	if (this == &obj) {
+
+		return *this;
+
+	}
+
+	return *this;
 
 }
 
