@@ -38,7 +38,7 @@ void FirePressedEvent::update(float elapsedTime) {
 
 	if (im->isFirePressed()) {
 
-		Player* player = (Player*)gm->getPlayerObject();
+		Player* player = gm->getPlayerObject();
 		PlayerBullet* bullet = (PlayerBullet*)objFactory->makeObject(ObjectType::PlayerBullet, 0.0f, 0.0f);
 
 		cout << bullet << endl;
@@ -46,7 +46,7 @@ void FirePressedEvent::update(float elapsedTime) {
 		if (bullet != NULL) {
 
 			gm->add(bullet);
-			bullet->init(player->getX(), player->getY());
+			bullet->init(player->getX() + 0.5f, player->getY());
 			this->bulletSound.play();
 
 		}

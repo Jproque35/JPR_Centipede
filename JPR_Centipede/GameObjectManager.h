@@ -6,6 +6,7 @@
 
 using namespace std;
 
+class Player;
 class GameObject;
 
 class GameObjectManager {
@@ -27,7 +28,7 @@ public:
 
 	void init(int x, int y);
 	void setPlayerObject(int id);
-	GameObject* getPlayerObject();
+	Player* getPlayerObject();
 	void add(GameObject* obj);
 	void update(int i, float elapsedTime);
 	void updateAll(float elapsedTime);

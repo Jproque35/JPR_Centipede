@@ -68,35 +68,45 @@ inline bool CentipedeHitEvent::containsBullet(vector<GameObject*> objs) {
 
 }
 
-void CentipedeHitEvent::update(float elapsedTime) {
+inline void CentipedeHitEvent::layMushroom() {
 
-	float hitX = round(this->context->getX());
-	float hitY = round(this->context->getY());
+	GameObjectFactory* objFactory = GameObjectFactory::getInstance();
+	GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, 
+		round(this->context->getX()), round(this->context->getY()));
+
+	gm->add(newMushroom);
+	newMushroom->init(floor(this->context->getX()), floor(this->context->getY()));
+
+}
+
+inline void CentipedeHitEvent::processNext(Centipede* next) {
+
+	next->setStateType(StateType::CentipedeHeadState);
+	next->getState()->clearCommands();
+	next->setX(round(this->context->getNext()->getX()));
+	next->setY(round(this->context->getNext()->getY()));
+	next->setPrev(NULL);
+	next->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context->getNext()));
+
+}
+
+void CentipedeHitEvent::update(float elapsedTime) {
 
 	if ( this->containsBullet( EngineLib::getIntersectsObj(this->context) ) ) {
 
 		cout << "Centipede got hit" << endl;
 		
-		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
-		GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, hitX, hitY);
-		gm->add(newMushroom);
-		newMushroom->init(floor(this->context->getX()), floor(this->context->getY()));
+		this->layMushroom();
 
 		if (this->context->getNext() != NULL) {
 
-			this->context->getNext()->setStateType( StateType::CentipedeHeadState );
-			this->context->getNext()->getState()->clearCommands();
-			this->context->getNext()->setX(round(this->context->getNext()->getX()));
-			this->context->getNext()->setY(round(this->context->getNext()->getY()));
-			this->context->getNext()->setPrev(NULL);
-			this->context->getNext()->getState()->queueCommand( CommandFactory::makeCommand(CommandType::MoveDown, this->context->getNext()) );
+			this->processNext(this->context->getNext());
 
 		}
 
 		this->gm->remove(this->context->getId());
 
 		this->scm->increaseScore(100);
-		//this->context->getData()->setPosition(Vector2f(0, 0));
 
 	}
 

@@ -26,22 +26,13 @@ GameObject::~GameObject() {
 
 	//cout << "Destructing GameObject..." << endl;
 
-	delete(this->currState);
-
-	vector<GameObjectState*> trash;
-	GameObjectState* delState = NULL;
 	for (auto it = this->states.begin(); it != this->states.end(); ++it) {
 
-		trash.push_back(this->states[it->first]);
+		delete(it->second);
 
 	}
 
-	for (int i = 0; i < trash.size(); ++i) {
-
-		//delete(trash[i]);
-		//trash[i] = NULL;
-
-	}
+	this->currState = NULL;
 
 }
 
@@ -56,24 +47,6 @@ void GameObject::assignmentAux(const GameObject& obj) {
 	this->xSpeed = obj.xSpeed;
 	this->ySpeed = obj.ySpeed;
 	this->posText = obj.posText;
-
-}
-
-void GameObject::deleteStates() {
-
-	/*
-	for (auto it = this->states.begin(); it != this->states.end(); it++) {
-
-		GameObjectState* currState = this->states[it->first];
-
-		if (currState != NULL) {
-			delete(currState);
-			currState = NULL;
-		}
-
-		this->states.erase(it);
-
-	}*/
 
 }
 

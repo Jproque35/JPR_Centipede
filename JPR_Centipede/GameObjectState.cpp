@@ -31,6 +31,13 @@ GameObjectState::~GameObjectState() {
 
 	}
 
+	for (auto it = this->cmdTbl.begin(); it != this->cmdTbl.end(); ++it) {
+
+		delete(it->second);
+
+	 }
+
+	this->currCommand = NULL;
 
 }
 

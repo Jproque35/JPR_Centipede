@@ -6,6 +6,8 @@
 
 class Centipede;
 class CollisionMap;
+class ScoreManager;
+class GameObjectManager;
 
 class CentipedeBodyHitEvent :
 	public GameEventListener
@@ -13,8 +15,13 @@ class CentipedeBodyHitEvent :
 
 private: 
 	Centipede* context;
-	CollisionMap* cm;
+	ScoreManager* scm = NULL;
+	GameObjectManager* gm = NULL;
+	CollisionMap* cm = NULL;;
 	bool containsBullet(vector<GameObject*> objs);
+	void layMushroom(float hitX, float hitY);
+	void changeContextToHead(float hitX, float hitY);
+	void reverseContextDirection();
 
 public:
 	CentipedeBodyHitEvent(Centipede* context);

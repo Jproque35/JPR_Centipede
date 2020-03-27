@@ -61,9 +61,9 @@ void GameObjectManager::setPlayerObject(int id) {
 
 }
 
-GameObject* GameObjectManager::getPlayerObject() {
+Player* GameObjectManager::getPlayerObject() {
 
-	return this->gm[pid];
+	return (Player*)this->gm[pid];
 
 }
 

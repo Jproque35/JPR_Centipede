@@ -14,6 +14,8 @@
 CentipedeBodyHitEvent::CentipedeBodyHitEvent(Centipede* context) {
 
 	this->context = context;
+	this->gm = GameObjectManager::getInstance();
+	this->scm = ScoreManager::getInstance();
 	this->cm = CollisionMap::getInstance();
 
 }
@@ -65,44 +67,57 @@ inline bool CentipedeBodyHitEvent::containsBullet(vector<GameObject*> objs) {
 
 }
 
-void CentipedeBodyHitEvent::update(float elapsedTime) {
+inline void CentipedeBodyHitEvent::layMushroom(float hitX, float hitY) {
 
-	GameObjectManager* gm = GameObjectManager::getInstance();
-	ScoreManager* scm = ScoreManager::getInstance();
+	GameObjectFactory* objFactory = GameObjectFactory::getInstance();
+	GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, hitX, hitY);
+	this->gm->add(newMushroom);
+	newMushroom->init(floor(this->context->getX()), floor(this->context->getY()));
+
+}
+
+inline void CentipedeBodyHitEvent::reverseContextDirection() {
+
+	if (this->context->getDirection() == CentipedeDirection::Left) {
+
+		this->context->setDirection(CentipedeDirection::Right);
+
+	}
+	else {
+
+		this->context->setDirection(CentipedeDirection::Left);
+
+	}
+
+}
+
+inline void CentipedeBodyHitEvent::changeContextToHead(float hitX, float hitY) {
+
+	this->context->setStateType(StateType::CentipedeHeadState);
+	this->context->setX(hitX);
+	this->context->setY(hitY);
+	this->context->getState()->clearCommands();
+	this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context));
+
+	this->reverseContextDirection();
+
+}
+
+void CentipedeBodyHitEvent::update(float elapsedTime) {
 
 	float hitX = round(this->context->getX());
 	float hitY = round(this->context->getY());
 
 	if ( this->containsBullet(EngineLib::getIntersectsObj(this->context)) ) {
 
-		GameObjectManager* gm = GameObjectManager::getInstance();
-		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
-		GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, hitX, hitY);		
-		ScoreManager* scm = ScoreManager::getInstance();
-		gm->add( newMushroom );
-		newMushroom->init(floor(this->context->getX()), floor(this->context->getY()));
+		this->layMushroom(hitX, hitY);
 
-		scm->increaseScore(10);
+		this->scm->increaseScore(10);
 
 		if (this->context->getNext() != NULL) {
 
-			this->context->setStateType(StateType::CentipedeHeadState);
-			this->context->setX(hitX);
-			this->context->setY(hitY);
-			this->context->getState()->clearCommands();
-			this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context) );
+			this->changeContextToHead(hitX, hitY);
 
-			
-			if (this->context->getDirection() == CentipedeDirection::Left) {
-
-				this->context->setDirection(CentipedeDirection::Right);
-
-			}
-			else {
-
-				this->context->setDirection(CentipedeDirection::Left);
-
-			}
 		}
 		else {
 
