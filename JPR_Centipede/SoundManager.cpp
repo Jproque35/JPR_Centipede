@@ -85,13 +85,13 @@ void SoundManager::loadFromFile(const char* filename) {
 
 }
 
-void SoundManager::parseLine(const char* str, int i) {
+inline void SoundManager::parseLine(const char* str, int i) {
 
 	stringstream ss;
 	ss << "assets/sounds/" << str;
 	this->bufs[i] = new SoundBuffer();
 	this->bufs[i]->loadFromFile(ss.str());
-	cout << "Loaded file " << str << endl;
+	cout << "Loaded file " << str << " into slot " << i << endl;
 
 }
 

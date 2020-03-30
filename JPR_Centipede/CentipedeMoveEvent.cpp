@@ -4,12 +4,15 @@
 #include "GameObjectState.h"
 #include "CommandFactory.h"
 #include "CollisionMap.h"
+#include "SoundManager.h"
 
 CentipedeMoveEvent::CentipedeMoveEvent(Centipede* context) {
 
 	this->context = context;
 	this->cm = CollisionMap::getInstance();
 	this->gm = GameObjectManager::getInstance();
+	SoundManager* sdm = SoundManager::getInstance();
+	this->turnSnd.setBuffer(*sdm->get(1));
 
 }
 
@@ -103,6 +106,7 @@ inline void CentipedeMoveEvent::moveRightRoutine() {
 
 inline void CentipedeMoveEvent::changeLevelAndDirection(CentipedeDirection dir) {
 
+	this->turnSnd.play();
 	this->context->setDirection(dir);
 	this->queueLevelChangeCommand();
 

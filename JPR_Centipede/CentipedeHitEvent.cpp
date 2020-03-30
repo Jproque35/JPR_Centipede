@@ -9,6 +9,7 @@
 #include "EngineLib.h"
 #include "CommandFactory.h"
 #include "CommandType.h"
+#include "CentipedeManager.h"
 
 CentipedeHitEvent::CentipedeHitEvent(Centipede* context) {
 
@@ -105,6 +106,10 @@ void CentipedeHitEvent::update(float elapsedTime) {
 		}
 
 		this->gm->remove(this->context->getId());
+		
+		CentipedeManager* centiMngr = CentipedeManager::getInstance();
+
+		centiMngr->setNumActive( centiMngr->getNumActive() - 1 );
 
 		this->scm->increaseScore(100);
 

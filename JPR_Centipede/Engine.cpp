@@ -7,6 +7,7 @@
 #include "SpriteManager.h"
 #include "SoundManager.h"
 #include "FontManager.h"
+#include "CentipedeManager.h"
 
 Engine* Engine::instance = NULL;
 
@@ -37,6 +38,7 @@ Engine::~Engine() {
 	SpriteManager::resetInstance();
 	GameObjectFactory::resetInstance();
 	EventManager::resetInstance();
+	CentipedeManager::resetInstance();
 
 }
 

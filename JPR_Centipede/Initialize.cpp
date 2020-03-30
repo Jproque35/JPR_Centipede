@@ -11,6 +11,7 @@
 #include "CollisionMap.h"
 #include "FirePressedEvent.h"
 #include "Centipede.h"
+#include "CentipedeManager.h"
 
 EventManager* EventManager::instance = NULL;
 
@@ -26,7 +27,10 @@ void Engine::init() {
 	this->gm = GameObjectManager::getInstance();
 	this->im = InputManager::getInstance();
 	this->scm = ScoreManager::getInstance();
+
 	this->sdm = SoundManager::getInstance();
+	this->sdm->loadFromFile("assets/soundlist.txt");
+
 	this->spm = SpriteManager::getInstance();
 	this->em = EventManager::getInstance();
 	this->fm = FontManager::getInstance();
@@ -35,7 +39,6 @@ void Engine::init() {
 
 	this->gm->init(this->gridWidth, this->gridHeight);
 	this->cm->init(this->gridWidth, this->gridHeight);
-	this->sdm->loadFromFile("assets/soundlist.txt");
 
 	this->hudText.setPosition(Vector2f(0.0f, 0.0f));
 	this->hudText.setFont(*fm->get(0));
@@ -43,6 +46,8 @@ void Engine::init() {
 	this->hudText.setFillColor(sf::Color::White);
 	this->hudText.setOutlineColor(sf::Color::Black);
 	this->hudText.setOutlineThickness(1.0f);
+
+	this->centiMngr = CentipedeManager::getInstance();
 
 	this->initObjects();
 	this->initEvents();
@@ -82,7 +87,7 @@ void Engine::initEnemies() {
 	float initX = round(this->gridWidth / 2);
 	float initY = 0.0f;
 
-	vector<Centipede*> centipedes = this->generateCentipede(initX, initY);
+	vector<Centipede*> centipedes = this->centiMngr->generateCentipede(10);
 
 	for (int i = 0; i < centipedes.size(); ++i) {
 
@@ -126,34 +131,3 @@ void Engine::initEvents() {
 	cout << "Successfully loaded all game events." << endl;
 
 }
-
-vector<Centipede*> Engine::generateCentipede(float initX, float initY) {
-
-	vector<Centipede*> desire;
-
-	desire.push_back( (Centipede*)objFactory->makeObject(ObjectType::CentipedeHead, initX, initY) );
-
-	for (int i = 0; i < this->numCentipedes - 1; ++i) {
-
-		desire.push_back( (Centipede*)objFactory->makeObject(ObjectType::CentipedeBody, initX, initY) );
-
-	}
-
-	for (int i = 0; i < this->numCentipedes - 1; ++i) {
-
-		desire[i]->setNext(desire[i + 1]);
-		cout << "Next for " << desire[i] << " set to " << desire[i + 1] << endl;
-
-	}
-
-	for (int i = this->numCentipedes - 1; i > 0; --i) {
-
-		desire[i]->setPrev(desire[i - 1]);
-		cout << "prev for " << desire[i] << " set to " << desire[i - 1] << endl;
-
-	}
-
-	return desire;
-
-}
-

@@ -11,7 +11,6 @@ class FirePressedEvent
 {
 
 private:
-	SoundBuffer sBuf;
 	Sound bulletSound;
 
 public:

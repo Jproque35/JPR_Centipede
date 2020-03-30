@@ -20,6 +20,7 @@ class SoundManager;
 class GameObjectFactory;
 class CollisionMap;
 class Centipede;
+class CentipedeManager;
 
 class Engine {
 
@@ -35,6 +36,7 @@ private:
 	SoundManager* sdm;
 	GameObjectFactory* objFactory;
 	CollisionMap* cm;
+	CentipedeManager* centiMngr;
 
 	Texture bgImg;
 	Sprite background;
@@ -70,7 +72,6 @@ private:
 	void drawSprite(Sprite spr);
 	void drawBackgroundTile(Sprite img);
 	void drawText(const Text& drawable);
-	vector<Centipede*> generateCentipede(float initX, float initY);
 
 public:
 	static Engine* getInstance();

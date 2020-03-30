@@ -4,8 +4,26 @@
 #include "GameObject.h"
 #include "GameObjectState.h"
 #include "CollisionMap.h"
+#include "CentipedeManager.h"
+#include "Centipede.h"
 
 void Engine::update(float dtAsSeconds) {
+	float initX = round(this->gridWidth / 2);
+	float initY = 0.0f;
+
+	if (this->cm->get(initX, initY).size() == 0
+		&& this->centiMngr->getNumActive() <= 0) {
+
+		vector<Centipede*> centipedes = this->centiMngr->generateCentipede(10);
+
+		for (int i = 0; i < centipedes.size(); ++i) {
+
+			this->gm->add(centipedes[i]);
+			centipedes[i]->init(initX, initY);
+
+		}
+
+	}
 
 	//cout << "Updating objects..." << endl;
 	this->em->update(dtAsSeconds);

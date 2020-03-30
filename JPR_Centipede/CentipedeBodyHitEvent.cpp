@@ -10,6 +10,7 @@
 #include "CommandFactory.h"
 #include "CollisionMap.h"
 #include "EngineLib.h"
+#include "CentipedeManager.h"
 
 CentipedeBodyHitEvent::CentipedeBodyHitEvent(Centipede* context) {
 
@@ -122,6 +123,10 @@ void CentipedeBodyHitEvent::update(float elapsedTime) {
 		else {
 
 			gm->remove(this->context->getId());
+
+			CentipedeManager* centiMngr = CentipedeManager::getInstance();
+
+			centiMngr->setNumActive(centiMngr->getNumActive() - 1);
 
 		}
 

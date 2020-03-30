@@ -16,6 +16,7 @@ private:
 	GameObjectManager* gm;
 	CollisionMap* cm;
 	Centipede* context;
+	Sound turnSnd;
 
 	void queueLevelChangeCommand();
 	void changeLevelAndDirection(CentipedeDirection dir);
