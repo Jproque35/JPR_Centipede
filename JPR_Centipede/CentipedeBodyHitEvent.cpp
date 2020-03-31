@@ -125,7 +125,6 @@ void CentipedeBodyHitEvent::update(float elapsedTime) {
 			gm->remove(this->context->getId());
 
 			CentipedeManager* centiMngr = CentipedeManager::getInstance();
-
 			centiMngr->setNumActive(centiMngr->getNumActive() - 1);
 
 		}

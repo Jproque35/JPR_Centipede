@@ -3,6 +3,7 @@
 #pragma once
 #include "GameEvent.h"
 #include <vector>
+#include <SFML/Audio.hpp>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ private:
 	PlayerBullet* context;
 	bool containsHittable(vector<GameObject*> objs);
 	bool isHittable(GameObject* obj);
+	Sound hitSnd;
 
 public:
 	BulletCollideEvent(PlayerBullet* context);

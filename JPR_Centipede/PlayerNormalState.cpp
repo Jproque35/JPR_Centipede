@@ -12,22 +12,6 @@ PlayerNormalState::PlayerNormalState(Player* context) {
 	this->events.push_back(new PlayerHitEvent(context));
 	this->events.push_back(new PlayerInputEvent(context));
 
-	ObjectCommand* newComm = CommandFactory::makeCommand(CommandType::MoveUp, this->context);
-
-	this->cmdTbl[newComm->getType()] = newComm;
-
-	newComm = CommandFactory::makeCommand(CommandType::MoveDown, this->context);
-
-	this->cmdTbl[newComm->getType()] = newComm;
-
-	newComm = CommandFactory::makeCommand(CommandType::MoveLeft, this->context);
-
-	this->cmdTbl[newComm->getType()] = newComm;
-
-	newComm = CommandFactory::makeCommand(CommandType::MoveRight, this->context);
-
-	this->cmdTbl[newComm->getType()] = newComm;
-
 }
 
 PlayerNormalState::~PlayerNormalState() {

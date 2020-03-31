@@ -11,6 +11,13 @@ CentipedeState::~CentipedeState() {
 
 }
 
+void CentipedeState::init() {
+
+	cout << "Centipede state virtual init" << endl;
+	this->lastPos = Vector2f(-1.0f, -1.0f);
+
+}
+
 void CentipedeState::executeEventListeners(float elapsedTime) {
 
 	for (int i = 0; i < events.size(); i++) {
@@ -37,9 +44,10 @@ void CentipedeState::executeCommand(float elapsedTime) {
 			if (this->context->getNext() != NULL) {
 
 				
-				this->context->getNext()->setX(this->lastPos.x);
-				this->context->getNext()->setY(this->lastPos.y);
-				this->context->getNext()->setSpritePosition( this->context->getNext()->getX(), this->context->getNext()->getY() );
+				//this->context->getNext()->setX(this->lastPos.x);
+				//this->context->getNext()->setY(this->lastPos.y);
+				//this->context->getNext()->setSpritePosition( this->context->getNext()->getX(), 
+					//this->context->getNext()->getY() );
 				//this->context->getNext()->getState()->clearCommands();
 				this->context->getNext()->getState()->queueCommand(
 					CommandFactory::makeCommand(currCommand->getType(), this->context->getNext()));

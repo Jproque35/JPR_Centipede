@@ -8,7 +8,6 @@ MushroomNormalState::MushroomNormalState(Mushroom* context) : GenericState() {
 	this->context = context;
 	this->type = StateType::MushroomNormalState;
 	this->events.push_back(new MushroomHitEvent(context));
-	this->currCommand = NULL;
 
 }
 

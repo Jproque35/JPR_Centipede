@@ -4,11 +4,15 @@
 #include "GameObjectState.h"
 #include "CollisionMap.h"
 #include "EngineLib.h"
+#include "SoundManager.h"
 
 BulletCollideEvent::BulletCollideEvent(PlayerBullet* context) {
 
 	this->context = context;
 	this->gm = GameObjectManager::getInstance();
+	SoundManager* sdm = SoundManager::getInstance();
+
+	this->hitSnd.setBuffer(*sdm->get(2));
 
 }
 
@@ -75,6 +79,7 @@ void BulletCollideEvent::update(float elapsedTime) {
 	if (this->containsHittable(intersectsObjs)) {
 
 		this->gm->remove(this->context->getId());
+		this->hitSnd.play();
 
 	}
 

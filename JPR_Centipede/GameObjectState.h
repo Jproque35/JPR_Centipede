@@ -22,18 +22,16 @@ protected:
 	StateType type;
 	vector<GameEventListener*> events;
 	queue<ObjectCommand*> commands;
-	unordered_map<CommandType, ObjectCommand*> cmdTbl;
-	ObjectCommand* currCommand;
 
 public:
 	virtual ~GameObjectState();
 
+	virtual void init();
 	StateType getType() const;
 	int getNumCommands() const;
 	void clearEventListeners();
 	void clearCommands();
 	void addEventListener(GameEventListener* event);
-	void setCommandType(CommandType type);
 	void queueCommand(ObjectCommand* command);
 	virtual void executeEventListeners(float elapsedTime) = 0;
 	virtual void executeCommand(float elapsedTime) = 0;

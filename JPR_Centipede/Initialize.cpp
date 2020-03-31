@@ -24,6 +24,7 @@ inline int Engine::getNumObjects() {
 void Engine::init() {
 	int xRes = this->window.getSize().x;
 	int yRes = this->window.getSize().y;
+
 	this->gm = GameObjectManager::getInstance();
 	this->im = InputManager::getInstance();
 	this->scm = ScoreManager::getInstance();

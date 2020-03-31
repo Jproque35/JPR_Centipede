@@ -23,6 +23,8 @@ void Engine::update(float dtAsSeconds) {
 
 		}
 
+		cout << "Spawning new centipede" << endl;
+
 	}
 
 	//cout << "Updating objects..." << endl;

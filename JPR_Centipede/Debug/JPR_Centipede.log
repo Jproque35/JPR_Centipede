@@ -1,4 +1,6 @@
-﻿  Update.cpp
+﻿  CentipedeState.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeState.cpp(23,20): warning C4018: '<': signed/unsigned mismatch
+  Update.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(47,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Engine.h(48,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
@@ -7,4 +9,5 @@ C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Update.cpp(11,14): warni
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Update.cpp(14,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Update.cpp(14,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\Update.cpp(19,21): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

@@ -31,13 +31,11 @@ GameObjectState::~GameObjectState() {
 
 	}
 
-	for (auto it = this->cmdTbl.begin(); it != this->cmdTbl.end(); ++it) {
+}
 
-		delete(it->second);
+void GameObjectState::init() {
 
-	 }
-
-	this->currCommand = NULL;
+	this->clearCommands();
 
 }
 
@@ -56,21 +54,6 @@ int GameObjectState::getNumCommands() const {
 void GameObjectState::queueCommand(ObjectCommand* command) {
 
 	this->commands.push(command);
-
-}
-
-void GameObjectState::setCommandType(CommandType type) {
-
-	if (this->cmdTbl.count(type) > 0) {
-
-		this->currCommand = this->cmdTbl[type];
-
-	}
-	else if (type == CommandType::Empty) {
-
-		this->currCommand = NULL;
-
-	}
 
 }
 

@@ -106,9 +106,8 @@ void CentipedeHitEvent::update(float elapsedTime) {
 		}
 
 		this->gm->remove(this->context->getId());
-		
-		CentipedeManager* centiMngr = CentipedeManager::getInstance();
 
+		CentipedeManager* centiMngr = CentipedeManager::getInstance();
 		centiMngr->setNumActive( centiMngr->getNumActive() - 1 );
 
 		this->scm->increaseScore(100);

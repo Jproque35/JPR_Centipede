@@ -4,6 +4,7 @@
 #include "ObjectMoveLeftCommand.h"
 #include "ObjectMoveRightCommand.h"
 #include "PlayerBullet.h"
+#include "NullCommand.h"
 
 ObjectCommand* CommandFactory::makeCommand(CommandType type, GameObject* obj) {
 
@@ -27,5 +28,12 @@ ObjectCommand* CommandFactory::makeCommand(CommandType type, GameObject* obj) {
 		return new ObjectMoveRightCommand(obj);
 
 	}
+	else if (type == CommandType::Null) {
+
+		return new NullCommand(obj);
+
+	}
+
+	return NULL;
 
 }

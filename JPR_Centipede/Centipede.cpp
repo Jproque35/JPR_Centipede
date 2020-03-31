@@ -45,6 +45,12 @@ void Centipede::init(float xPos, float yPos) {
 	this->ySpeed = 20.0f;
 	this->shape.setPosition(this->pos);
 
+	for (auto it = this->states.begin(); it != this->states.end(); ++it) {
+
+		it->second->init();
+
+	}
+
 	cout << "Centipede initialized at position " << this->pos.x << ", " << this->pos.y << endl;
 	//cout << "Sprite position for centipede is " << this->shape.getPosition().x << ", " << this->shape.getPosition().y << endl;
 
