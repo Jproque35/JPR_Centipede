@@ -124,28 +124,13 @@
     <Filter Include="Header Files\Engine\Events">
       <UniqueIdentifier>{d37aa65c-18b6-4f68-ada7-df41c410949d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Core">
+      <UniqueIdentifier>{dee3b441-f627-41ee-b516-1edae9b68faf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>Source Files\Engine\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Draw.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Update.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Initialize.cpp">
-      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="ObjectCommand.cpp">
       <Filter>Source Files\Entities\GameObject\Commands</Filter>
@@ -258,11 +243,29 @@
     <ClCompile Include="NullCommand.cpp">
       <Filter>Source Files\Entities\GameObject\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="EngineLib.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="CentipedeManager.cpp">
       <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Draw.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineLib.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Initialize.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Update.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

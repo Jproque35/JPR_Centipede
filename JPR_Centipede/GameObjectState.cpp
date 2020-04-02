@@ -35,6 +35,8 @@ GameObjectState::~GameObjectState() {
 
 void GameObjectState::init() {
 
+
+	cout << "GameObjectState init" << endl;
 	this->clearCommands();
 
 }

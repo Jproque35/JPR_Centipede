@@ -13,10 +13,13 @@ protected:
 	Centipede* context;
 	Vector2f lastPos;
 
+private:
+	void processNext(ObjectCommand* currCommand);
+
 public:
 	virtual ~CentipedeState();
 
-	virtual void init();
+	void init();
 
 	void executeEventListeners(float elapsedTime);
 	void executeCommand(float elapsedTime);
