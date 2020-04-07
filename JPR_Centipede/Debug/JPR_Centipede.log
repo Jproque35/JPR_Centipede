@@ -1,7 +1,15 @@
-﻿  Centipede.cpp
-  CentipedeBodyState.cpp
-  CentipedeHeadState.cpp
-  CentipedeState.cpp
+﻿  CentipedeState.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeState.cpp(24,20): warning C4018: '<': signed/unsigned mismatch
+  EngineLib.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EngineLib.cpp(9,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EngineLib.cpp(28,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EngineLib.cpp(29,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EngineLib.cpp(30,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EngineLib.cpp(31,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EngineLib.cpp(59,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EngineLib.cpp(59,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\EngineLib.cpp(61,20): warning C4018: '<': signed/unsigned mismatch
+  GameObject.cpp
+  Screen.cpp
   Generating Code...
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

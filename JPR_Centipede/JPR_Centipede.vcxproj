@@ -195,6 +195,7 @@
     <ClCompile Include="PlayerInputEvent.cpp" />
     <ClCompile Include="PlayerNormalState.cpp" />
     <ClCompile Include="ScoreObject.cpp" />
+    <ClCompile Include="Screen.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Update.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="PlayerInputEvent.h" />
     <ClInclude Include="PlayerNormalState.h" />
     <ClInclude Include="ScoreObject.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="StateTypes.h" />

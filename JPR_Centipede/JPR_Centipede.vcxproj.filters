@@ -127,6 +127,15 @@
     <Filter Include="Source Files\Engine\Core">
       <UniqueIdentifier>{dee3b441-f627-41ee-b516-1edae9b68faf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Screens">
+      <UniqueIdentifier>{c1d5ab5e-7bb7-4476-b8e9-bf2c5eec1498}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Screens">
+      <UniqueIdentifier>{018afd02-aa4e-460c-a426-0e1ba2c93e7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Core">
+      <UniqueIdentifier>{924d013b-f94c-4e85-a74b-da3ad824ec17}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
@@ -267,13 +276,13 @@
     <ClCompile Include="Update.cpp">
       <Filter>Source Files\Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files\Engine\Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
       <Filter>Header Files\Engine\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="ObjectCommand.h">
       <Filter>Header Files\Entities\GameObject\Commands</Filter>
@@ -395,14 +404,20 @@
     <ClInclude Include="CollisionMap.h">
       <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="EngineLib.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="NullCommand.h">
       <Filter>Header Files\Entities\GameObject\Commands</Filter>
     </ClInclude>
     <ClInclude Include="CentipedeManager.h">
       <Filter>Header Files\Engine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineLib.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files\Engine\Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
