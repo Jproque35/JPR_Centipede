@@ -88,9 +88,9 @@ void Engine::start() {
 
 		float dtAsSeconds = dt.asSeconds();
 
-		input(dtAsSeconds);
-		update(dtAsSeconds);
-		draw();
+		this->input(dtAsSeconds);
+		this->update(dtAsSeconds);
+		this->draw();
 
 	}
 

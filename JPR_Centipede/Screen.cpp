@@ -2,7 +2,7 @@
 
 Screen::~Screen() {}
 
-void Screen::run(Window& w) {
+void Screen::run(RenderWindow& w) {
 
 	Clock clock;
 
@@ -25,7 +25,7 @@ void Screen::run(Window& w) {
 
 		this->input(dtAsSeconds);
 		this->update(dtAsSeconds);
-		this->draw();
+		this->draw(w);
 
 	}
 

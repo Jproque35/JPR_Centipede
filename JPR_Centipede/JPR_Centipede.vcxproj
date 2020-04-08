@@ -169,6 +169,11 @@
     <ClCompile Include="GameEvent.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
     <ClCompile Include="GameObjectState.cpp" />
+    <ClCompile Include="GameScreen.cpp" />
+    <ClCompile Include="GameScreenDraw.cpp" />
+    <ClCompile Include="GameScreenInit.cpp" />
+    <ClCompile Include="GameScreenInput.cpp" />
+    <ClCompile Include="GameScreenUpdate.cpp" />
     <ClCompile Include="GenericState.cpp" />
     <ClCompile Include="CollisionMap.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -220,6 +225,7 @@
     <ClInclude Include="GameEvent.h" />
     <ClInclude Include="GameObjectFactory.h" />
     <ClInclude Include="GameObjectState.h" />
+    <ClInclude Include="GameScreen.h" />
     <ClInclude Include="GenericState.h" />
     <ClInclude Include="CollisionMap.h" />
     <ClInclude Include="InputManager.h" />

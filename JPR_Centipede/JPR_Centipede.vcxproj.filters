@@ -136,6 +136,9 @@
     <Filter Include="Header Files\Engine\Core">
       <UniqueIdentifier>{924d013b-f94c-4e85-a74b-da3ad824ec17}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Screens\GameScreen">
+      <UniqueIdentifier>{856118be-9f9a-41bd-ac11-9c3018f98377}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
@@ -279,6 +282,21 @@
     <ClCompile Include="Screen.cpp">
       <Filter>Source Files\Engine\Screens</Filter>
     </ClCompile>
+    <ClCompile Include="GameScreen.cpp">
+      <Filter>Source Files\Engine\Screens\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenInit.cpp">
+      <Filter>Source Files\Engine\Screens\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenInput.cpp">
+      <Filter>Source Files\Engine\Screens\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenUpdate.cpp">
+      <Filter>Source Files\Engine\Screens\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenDraw.cpp">
+      <Filter>Source Files\Engine\Screens\GameScreen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -417,6 +435,9 @@
       <Filter>Header Files\Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Screen.h">
+      <Filter>Header Files\Engine\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreen.h">
       <Filter>Header Files\Engine\Screens</Filter>
     </ClInclude>
   </ItemGroup>
