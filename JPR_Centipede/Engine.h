@@ -10,37 +10,16 @@
 using namespace sf;
 using namespace std;
 
-class GameObjectManager;
-class InputManager;
-class ScoreManager;
-class EventManager;
-class FontManager;
-class SpriteManager;
-class SoundManager;
-class GameObjectFactory;
-class CollisionMap;
-class Centipede;
-class CentipedeManager;
+
+class GameScreen;
 
 class Engine {
 
 private:
 	static Engine* instance;
-	RenderWindow window;
-	GameObjectManager* gm;
-	InputManager* im;
-	ScoreManager* scm;
-	EventManager* em;
-	FontManager* fm;
-	SpriteManager* spm;
-	SoundManager* sdm;
-	GameObjectFactory* objFactory;
-	CollisionMap* cm;
-	CentipedeManager* centiMngr;
+	GameScreen* screen;
 
-	Texture bgImg;
-	Sprite background;
-	vector<Sprite> backgroundTiles;
+	RenderWindow window;
 
 	Text hudText;
 
@@ -51,27 +30,11 @@ private:
 	int numBullets = 1;
 	int numCentipedes = 10;
 	int numMushrooms = 50;
-	int getNumObjects();
 
 	Engine();
-	Engine(const Engine& obj);
+	Engine(const Engine& obj) = delete;
 	~Engine();
-	Engine& operator=(const Engine& obj);
-
-	void input(float dtAsSeconds);
-	void init();
-	void initObjects();
-	void initPlayer();
-	void initEnemies();
-	void initMushrooms();
-	void initEvents();
-	void executeObjectEventListeners(float elapsedTime);
-	void update(float dtAsSeconds);
-	void draw();
-	void drawShape(CircleShape shape);
-	void drawSprite(Sprite spr);
-	void drawBackgroundTile(Sprite img);
-	void drawText(const Text& drawable);
+	Engine& operator=(const Engine& obj) = delete;
 
 public:
 	static Engine* getInstance();

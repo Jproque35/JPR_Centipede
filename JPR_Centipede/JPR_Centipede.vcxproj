@@ -177,12 +177,9 @@
     <ClCompile Include="GenericState.cpp" />
     <ClCompile Include="CollisionMap.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="MushroomNormalState.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
-    <ClCompile Include="Initialize.cpp" />
-    <ClCompile Include="Input.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="MushroomHitEvent.cpp" />
@@ -203,7 +200,6 @@
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
-    <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BulletCollideEvent.h" />

@@ -54,7 +54,6 @@ private:
 	void drawText(RenderWindow& window, const Text& drawable);
 
 protected:
-	void init(RenderWindow& w);
 	void input(float dtAsSecods);
 	void update(float dtAsSeconds);
 	void draw(RenderWindow& window);
@@ -64,7 +63,7 @@ public:
 	GameScreen(const GameScreen& obj);
 	~GameScreen();
 	GameScreen& operator=(const GameScreen& obj);
-	void run(RenderWindow& w);
+	void init(RenderWindow& w);
 
 };
 

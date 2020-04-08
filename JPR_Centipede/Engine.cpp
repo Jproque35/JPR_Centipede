@@ -1,13 +1,5 @@
 #include "Engine.h"
-#include "GameObjectManager.h"
-#include "ScoreObject.h"
-#include "InputManager.h"
-#include "GameObjectFactory.h"
-#include "EventManager.h"
-#include "SpriteManager.h"
-#include "SoundManager.h"
-#include "FontManager.h"
-#include "CentipedeManager.h"
+#include "GameScreen.h"
 
 Engine* Engine::instance = NULL;
 
@@ -23,28 +15,14 @@ Engine::Engine() {
 
 	this->window.create(VideoMode(this->gridWidth * cellWidth, this->gridHeight * cellWidth), "Simple Game Engine", Style::Default);
 
-	this->init();
+	this->screen = new GameScreen();
+	this->screen->init(this->window);
 
 }
-
-Engine::Engine(const Engine& obj) {}
 
 Engine::~Engine() {
 
-	GameObjectManager::resetInstance();
-	InputManager::resetInstance();
-	ScoreManager::resetInstance();
-	SoundManager::resetInstance();
-	SpriteManager::resetInstance();
-	GameObjectFactory::resetInstance();
-	EventManager::resetInstance();
-	CentipedeManager::resetInstance();
-
-}
-
-Engine& Engine::operator=(const Engine& obj) {
-
-	return *this;
+	delete(screen);
 
 }
 
@@ -84,13 +62,7 @@ void Engine::start() {
 
 		}
 
-		Time dt = clock.restart();
-
-		float dtAsSeconds = dt.asSeconds();
-
-		this->input(dtAsSeconds);
-		this->update(dtAsSeconds);
-		this->draw();
+		this->screen->run(this->window);
 
 	}
 
