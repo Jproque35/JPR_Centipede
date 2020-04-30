@@ -13,24 +13,9 @@ Mushroom::Mushroom(float initX, float initY) {
 
 }
 
-Mushroom::Mushroom(const Mushroom& obj) {
-
-
-
-}
-
 Mushroom::~Mushroom() {
 
 	//cout << "Destructing Mushroom..." << endl;
-
-}
-
-Mushroom& Mushroom::operator=(const Mushroom& obj) {
-
-	GameObject::assignmentAux(obj);
-	this->health = obj.health;
-
-	return *this;
 
 }
 

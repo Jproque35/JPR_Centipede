@@ -12,12 +12,12 @@ private:
 	Centipede* prev = NULL;
 	CentipedeDirection dir = CentipedeDirection::Left;
 	bool reversed = false;
+	Centipede(const Centipede& obj) = delete;
+	Centipede& operator=(const Centipede& obj) = delete;
 
 public:
 	Centipede();
-	Centipede(const Centipede& obj);
 	~Centipede();
-	Centipede& operator=(const Centipede& obj);
 
 	void init(float xPos, float yPos);
 

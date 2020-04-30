@@ -17,23 +17,9 @@ Centipede::Centipede() {
 
 }
 
-Centipede::Centipede(const Centipede& obj) {}
-
 Centipede::~Centipede() {
 
 	cout << "Destroing Centipede objects..." << endl;
-
-}
-
-Centipede& Centipede::operator=(const Centipede& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }
 

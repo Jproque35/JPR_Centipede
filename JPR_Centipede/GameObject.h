@@ -28,8 +28,14 @@ protected:
 	Text posText;
 	int id = -1;
 
-	void deleteStates();
 	void assignmentAux(const GameObject& obj);
+
+private:
+	//every game object is unique, we do not want to copy them so we make copy constructor private
+	GameObject(const GameObject& obj) = delete;
+
+	//same reasoning, every gae
+	GameObject& operator=(const GameObject& obj) = delete;
 
 public:
 	GameObject();

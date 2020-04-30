@@ -7,11 +7,13 @@ class PlayerBullet :
 	public GameObject
 {
 
+private:
+	PlayerBullet(const PlayerBullet& obj) = delete;
+	PlayerBullet& operator=(const PlayerBullet& obj) = delete;
+
 public:
 	PlayerBullet(float initX, float initY);
-	PlayerBullet(const PlayerBullet& obj);
 	~PlayerBullet();
-	PlayerBullet& operator=(const PlayerBullet& obj);
 
 	void init(float xPos, float yPos);
 

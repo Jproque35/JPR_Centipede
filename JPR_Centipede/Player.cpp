@@ -13,27 +13,10 @@ Player::Player() {
 
 }
 
-Player::Player(const Player& obj) {
-
-
-}
 
 Player::~Player() {
 
 	cout << "Destructing Player object..." << endl;
-
-}
-
-Player& Player::operator=(const Player& obj)
-{
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }
 

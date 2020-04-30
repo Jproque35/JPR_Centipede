@@ -13,27 +13,9 @@ PlayerBullet::PlayerBullet(float initX, float initY) {
 
 }
 
-PlayerBullet::PlayerBullet(const PlayerBullet& obj) {
-
-	GameObject::assignmentAux(obj);
-
-}
-
 PlayerBullet::~PlayerBullet() {
 
 	cout << "Destructing PlayerBullet object..." << endl;
-
-}
-
-PlayerBullet& PlayerBullet::operator=(const PlayerBullet& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }
 

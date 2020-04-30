@@ -7,11 +7,13 @@ class Player :
 	public GameObject
 {
 
+private:
+	Player(const Player& obj) = delete;
+	Player& operator=(const Player& obj) = delete;
+
 public:
 	Player();
-	Player(const Player& obj);
 	~Player();
-	Player& operator=(const Player& obj);
 
 	void init(float xPos, float yPos);
 

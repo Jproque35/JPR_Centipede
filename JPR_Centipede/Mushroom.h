@@ -9,12 +9,12 @@ class Mushroom :
 
 private:
 	int health = 4;
+	Mushroom(const Mushroom& obj) = delete;
+	Mushroom& operator=(const Mushroom& obj) = delete;
 
 public:
 	Mushroom(float initX, float initY);
-	Mushroom(const Mushroom& obj);
 	~Mushroom();
-	Mushroom& operator=(const Mushroom& obj);
 
 	void init(float xPos, float yPos);
 
