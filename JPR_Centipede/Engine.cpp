@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "GameScreen.h"
+#include "ScreenManager.h"
 
 Engine* Engine::instance = NULL;
 
@@ -15,14 +16,14 @@ Engine::Engine() {
 
 	this->window.create(VideoMode(this->gridWidth * cellWidth, this->gridHeight * cellWidth), "Simple Game Engine", Style::Default);
 
-	this->screen = new GameScreen();
-	this->screen->init(this->window);
+	this->screenManager = ScreenManager::getInstance();
+	this->screenManager->init(this->window);
 
 }
 
 Engine::~Engine() {
 
-	delete(screen);
+	ScreenManager::resetInstance();
 
 }
 
@@ -62,7 +63,7 @@ void Engine::start() {
 
 		}
 
-		this->screen->run(this->window);
+		this->screenManager->getCurrentScreen()->run(this->window);
 
 	}
 

@@ -285,6 +285,9 @@
     <ClCompile Include="GameScreenDraw.cpp">
       <Filter>Source Files\Engine\Screens\GameScreen</Filter>
     </ClCompile>
+    <ClCompile Include="ScreenManager.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -427,6 +430,9 @@
     </ClInclude>
     <ClInclude Include="GameScreen.h">
       <Filter>Header Files\Engine\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenManager.h">
+      <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

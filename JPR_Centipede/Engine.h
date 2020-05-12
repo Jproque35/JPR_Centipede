@@ -11,13 +11,16 @@ using namespace sf;
 using namespace std;
 
 
-class GameScreen;
+class ScreenManager;
+class Screen;
 
 class Engine {
 
 private:
 	static Engine* instance;
-	GameScreen* screen;
+
+	ScreenManager* screenManager;
+	Screen* currScreen;
 
 	RenderWindow window;
 
