@@ -56,14 +56,14 @@ private:
 protected:
 	void input(float dtAsSecods);
 	void update(float dtAsSeconds);
-	void draw(RenderWindow& window);
+	void draw();
 
 public:
 	GameScreen();
 	GameScreen(const GameScreen& obj);
 	~GameScreen();
 	GameScreen& operator=(const GameScreen& obj);
-	void init(RenderWindow& w);
+	virtual void init(RenderWindow& w) override;
 
 };
 

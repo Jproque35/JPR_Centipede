@@ -63,7 +63,7 @@ void Engine::start() {
 
 		}
 
-		this->screenManager->getCurrentScreen()->run(this->window);
+		this->screenManager->getCurrentScreen()->run();
 
 	}
 

@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "ScoreObject.h"
 #include "CollisionMap.h"
+#include "ScreenManager.h"
 
 PlayerHitEvent::PlayerHitEvent(Player* context) {
 
@@ -92,6 +93,10 @@ void PlayerHitEvent::update(float elapsedTime) {
 		ScoreManager* sm = ScoreManager::getInstance();
 
 		sm->setLives(sm->getLives() - 1);
+
+		ScreenManager* const scnm = ScreenManager::getInstance();
+		scnm->setCurrentScreen(ScreenType::RespawnScreen);
+
 
 	}
 

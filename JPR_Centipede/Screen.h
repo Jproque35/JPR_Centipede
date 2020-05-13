@@ -11,14 +11,15 @@ class Screen
 {
 
 protected:
+	RenderWindow* window;
 	virtual void input(float dtAsSecods) = 0;
 	virtual void update(float dtAsSeconds) = 0;
-	virtual void draw(RenderWindow& window) = 0;
+	virtual void draw() = 0;
 
 public:
 	virtual ~Screen();
-	virtual void init(RenderWindow& w) = 0;
-	void run(RenderWindow& w);
+	virtual void init(RenderWindow& w);
+	void run();
 
 };
 

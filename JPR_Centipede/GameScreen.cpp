@@ -15,8 +15,6 @@ GameScreen::GameScreen() {
 
 }
 
-GameScreen::GameScreen(const GameScreen& obj) {}
-
 GameScreen::~GameScreen() {
 
 	GameObjectManager::resetInstance();
@@ -28,17 +26,5 @@ GameScreen::~GameScreen() {
 	EventManager::resetInstance();
 	CentipedeManager::resetInstance();
 	CollisionMap::resetInstance();
-
-}
-
-GameScreen& GameScreen::operator=(const GameScreen& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }

@@ -13,12 +13,14 @@
 #include "Centipede.h"
 #include "CentipedeManager.h"
 
-void GameScreen::init(RenderWindow& window) {
+void GameScreen::init(RenderWindow& w) {
 
-	int xRes = window.getSize().x;
-	int yRes = window.getSize().y;
+	Screen::init(w);
 
-	this->cellWidth = window.getSize().y / this->gridHeight;
+	int xRes = this->window->getSize().x;
+	int yRes = this->window->getSize().y;
+
+	this->cellWidth = this->window->getSize().y / this->gridHeight;
 
 	this->gm = GameObjectManager::getInstance();
 	this->im = InputManager::getInstance();

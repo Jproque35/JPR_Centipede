@@ -196,6 +196,7 @@
     <ClCompile Include="PlayerHitEvent.cpp" />
     <ClCompile Include="PlayerInputEvent.cpp" />
     <ClCompile Include="PlayerNormalState.cpp" />
+    <ClCompile Include="RespawnScreen.cpp" />
     <ClCompile Include="ScoreObject.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
@@ -245,6 +246,7 @@
     <ClInclude Include="PlayerHitEvent.h" />
     <ClInclude Include="PlayerInputEvent.h" />
     <ClInclude Include="PlayerNormalState.h" />
+    <ClInclude Include="RespawnScreen.h" />
     <ClInclude Include="ScoreObject.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenManager.h" />

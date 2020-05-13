@@ -4,15 +4,15 @@
 #include "InputManager.h"
 #include "ScoreObject.h"
 
-void GameScreen::draw(RenderWindow& window) {
+void GameScreen::draw() {
 
-	window.clear(Color(0, 0, 0, 0));
+	this->window->clear(Color(0, 0, 0, 0));
 
 	for (int i = 0; i < this->gm->size(); i++) {
 
 		if (this->gm->get(i) != NULL) {
 
-			this->drawShape(window, this->gm->get(i)->getShape());
+			this->drawShape(*this->window, this->gm->get(i)->getShape());
 
 			if (this->im->isDebugActive()) {
 
@@ -32,9 +32,9 @@ void GameScreen::draw(RenderWindow& window) {
 	ss << "Score: " << this->scm->getScore() << "\n";
 	ss << "Lives: " << this->scm->getLives() << "\n";
 	this->hudText.setString(ss.str());
-	window.draw(this->hudText);
+	this->window->draw(this->hudText);
 
-	window.display();
+	this->window->display();
 
 }
 

@@ -2,18 +2,24 @@
 
 Screen::~Screen() {}
 
-void Screen::run(RenderWindow& w) {
+void Screen::init(RenderWindow& w) {
+
+	this->window = &w;
+
+}
+
+void Screen::run() {
 
 	Clock clock;
 
-	while (w.isOpen()) {
+	while (this->window->isOpen()) {
 
 		Event event;
-		while (w.pollEvent(event)) {
+		while (this->window->pollEvent(event)) {
 
 			if (event.type == Event::Closed) {
 
-				w.close();
+				this->window->close();
 
 			}
 
@@ -25,7 +31,7 @@ void Screen::run(RenderWindow& w) {
 
 		this->input(dtAsSeconds);
 		this->update(dtAsSeconds);
-		this->draw(w);
+		this->draw();
 
 	}
 
