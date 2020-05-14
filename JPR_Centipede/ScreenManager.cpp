@@ -8,8 +8,12 @@ ScreenManager* ScreenManager::instance = NULL;
 ScreenManager::ScreenManager() {
 
 	this->screens[ScreenType::GameScreen] = new GameScreen();
+
+	cout << "****Created screen " << this->screens[ScreenType::GameScreen] << endl;
+
 	this->screens[ScreenType::RespawnScreen] = new RespawnScreen();
-	this->currScreen = this->screens[ScreenType::GameScreen];
+	cout << "****Created screen " << this->screens[ScreenType::RespawnScreen] << endl;
+	this->currScreen = this->screens[ScreenType::RespawnScreen];
 
 }
 
@@ -58,17 +62,21 @@ void ScreenManager::init(RenderWindow& w) {
 
 void ScreenManager::setCurrentScreen(ScreenType type) {
 
+	cout << "CurrScreen is " << currScreen << endl;
+
 	if (this->screens.count(type) > 0) {
 
-		cout << "Setting Screen" << endl;
+		cout << "Setting Screen to " << this->screens[type] << endl;
 
 		this->currScreen = this->screens[type];
+
+		cout << "CurrScreen is now " << currScreen << endl;
 
 	}
 
 }
 
-Screen* ScreenManager::getCurrentScreen() const {
+Screen* ScreenManager::getCurrentScreen() {
 
 	return this->currScreen;
 

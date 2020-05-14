@@ -1,11 +1,5 @@
-﻿  GameScreen.cpp
+﻿  ScreenManager.cpp
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameScreen.h(37,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameScreen.h(38,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameScreen.h(39,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  RespawnScreen.cpp
-  ScreenManager.cpp
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameScreen.h(37,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameScreen.h(38,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameScreen.h(39,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

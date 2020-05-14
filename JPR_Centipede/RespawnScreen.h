@@ -8,12 +8,15 @@ class RespawnScreen :
 {
 
 private:
+	int red;
+	int green;
+	int blue;
 	float counter = 0.0f;
 
 protected:
-	void input(float dtAsSecods);
-	void update(float dtAsSeconds);
-	void draw();
+	virtual void input(float dtAsSecods) override;
+	virtual void update(float dtAsSeconds) override;
+	virtual void draw() override;
 
 	RespawnScreen(const RespawnScreen& obj) = delete;
 	RespawnScreen& operator=(const RespawnScreen& obj) = delete;

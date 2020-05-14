@@ -38,7 +38,7 @@ public:
 
 	void init(RenderWindow& w);
 	void setCurrentScreen(ScreenType type);
-	Screen* getCurrentScreen() const;
+	Screen* getCurrentScreen();
 
 
 };
