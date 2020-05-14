@@ -142,6 +142,12 @@
     <Filter Include="Source Files\Engine\Screens\RespawnScreen">
       <UniqueIdentifier>{f0f65c38-b26f-422b-a5e7-2d63c9a82dd3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Display">
+      <UniqueIdentifier>{23ee01d3-eba8-4a23-a35e-9669a864dabe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Screens\RestartScreen">
+      <UniqueIdentifier>{f88d006a-9279-4707-9cd2-6264eb0dadef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectManager.cpp">
@@ -294,6 +300,9 @@
     <ClCompile Include="RespawnScreen.cpp">
       <Filter>Source Files\Engine\Screens\RespawnScreen</Filter>
     </ClCompile>
+    <ClCompile Include="RestartScreen.cpp">
+      <Filter>Source Files\Engine\Screens\RestartScreen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -441,6 +450,9 @@
       <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
     <ClInclude Include="RespawnScreen.h">
+      <Filter>Header Files\Engine\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="RestartScreen.h">
       <Filter>Header Files\Engine\Screens</Filter>
     </ClInclude>
   </ItemGroup>

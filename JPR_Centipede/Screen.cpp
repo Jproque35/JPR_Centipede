@@ -4,7 +4,11 @@ Screen::~Screen() {}
 
 void Screen::init(RenderWindow& w) {
 
+	cout << "Window address " << &w << endl;
+
 	this->window = &w;
+
+	cout << "Current window is now " << this->window << endl;
 
 }
 

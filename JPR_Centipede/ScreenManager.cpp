@@ -2,18 +2,19 @@
 #include "Screen.h"
 #include "GameScreen.h"
 #include "RespawnScreen.h"
+#include "RestartScreen.h"
 
 ScreenManager* ScreenManager::instance = NULL;
 
 ScreenManager::ScreenManager() {
 
-	this->screens[ScreenType::GameScreen] = new GameScreen();
-
-	cout << "****Created screen " << this->screens[ScreenType::GameScreen] << endl;
-
 	this->screens[ScreenType::RespawnScreen] = new RespawnScreen();
-	cout << "****Created screen " << this->screens[ScreenType::RespawnScreen] << endl;
-	this->currScreen = this->screens[ScreenType::RespawnScreen];
+
+	this->screens[ScreenType::RestartScreen] = new RestartScreen();
+
+	//this->screens[ScreenType::GameScreen] = new GameScreen();
+
+	this->currScreen = this->screens[ScreenType::RestartScreen];
 
 }
 
@@ -71,6 +72,11 @@ void ScreenManager::setCurrentScreen(ScreenType type) {
 		this->currScreen = this->screens[type];
 
 		cout << "CurrScreen is now " << currScreen << endl;
+
+	}
+	else {
+
+		cout << "Could not set screen" << endl;
 
 	}
 

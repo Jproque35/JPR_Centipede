@@ -16,7 +16,7 @@ enum class ScreenType {
 
 	GameScreen,
 	RespawnScreen,
-	GameOverScreen
+	RestartScreen
 
 };
 
