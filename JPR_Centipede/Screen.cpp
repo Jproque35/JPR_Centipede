@@ -12,8 +12,9 @@ void Screen::init(RenderWindow& w) {
 
 }
 
-void Screen::run() {
+void Screen::run(float dtAsSeconds) {
 
+	/*
 	Clock clock;
 
 	while (this->window->isOpen()) {
@@ -37,6 +38,10 @@ void Screen::run() {
 		this->update(dtAsSeconds);
 		this->draw();
 
-	}
+	}*/
+
+	this->input(dtAsSeconds);
+	this->update(dtAsSeconds);
+	this->draw();
 
 }

@@ -63,7 +63,13 @@ void Engine::start() {
 
 		}
 
-		this->screenManager->getCurrentScreen()->run();
+		Time dt = clock.restart();
+
+		float dtAsSeconds = dt.asSeconds();
+
+		//cout << screenManager->getCurrentScreen() << endl;
+
+		this->screenManager->getCurrentScreen()->run(dtAsSeconds);
 
 	}
 

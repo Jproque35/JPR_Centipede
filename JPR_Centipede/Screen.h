@@ -20,7 +20,7 @@ protected:
 public:
 	virtual ~Screen();
 	virtual void init(RenderWindow& w);
-	void run();
+	void run(float dtAsSeconds);
 
 };
 

@@ -14,7 +14,7 @@ ScreenManager::ScreenManager() {
 
 	//this->screens[ScreenType::GameScreen] = new GameScreen();
 
-	this->currScreen = this->screens[ScreenType::RestartScreen];
+	this->currScreen = this->screens[ScreenType::RespawnScreen];
 
 }
 
@@ -82,7 +82,7 @@ void ScreenManager::setCurrentScreen(ScreenType type) {
 
 }
 
-Screen* ScreenManager::getCurrentScreen() {
+Screen* ScreenManager::getCurrentScreen() const {
 
 	return this->currScreen;
 
