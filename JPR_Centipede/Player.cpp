@@ -16,7 +16,7 @@ Player::Player() {
 
 Player::~Player() {
 
-	cout << "Destructing Player object..." << endl;
+	//cout << "Destructing Player object..." << endl;
 
 }
 

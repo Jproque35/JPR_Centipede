@@ -31,7 +31,6 @@ private:
 	CollisionMap* cm = NULL;
 	CentipedeManager* centiMngr = NULL;
 
-
 	Text hudText;
 
 	int cellWidth = 0.0f;
@@ -60,8 +59,11 @@ protected:
 
 public:
 	GameScreen();
-	GameScreen(const GameScreen& obj);
 	~GameScreen();
+
+	virtual void enterScreen(ScreenType originScreen) override;
+	virtual void exitScreen(ScreenType destScreen) override;
+
 	GameScreen& operator=(const GameScreen& obj);
 	virtual void init(RenderWindow& w) override;
 

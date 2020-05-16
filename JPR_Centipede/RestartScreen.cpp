@@ -4,7 +4,7 @@
 RestartScreen::RestartScreen()
 {
 
-
+	this->type = ScreenType::RestartScreen;
 
 }
 
@@ -17,6 +17,19 @@ RestartScreen::~RestartScreen() {
 void RestartScreen::init(RenderWindow& w) {
 
 	Screen::init(w);
+
+}
+
+void RestartScreen::enterScreen(ScreenType originScreen) {
+
+
+
+}
+
+void RestartScreen::exitScreen(ScreenType destScreen) {
+
+
+
 
 }
 
@@ -40,7 +53,7 @@ void RestartScreen::update(float dtAsSeconds) {
 
 		ScreenManager* scnm = ScreenManager::getInstance();
 
-		scnm->setCurrentScreen(ScreenType::RespawnScreen);
+		scnm->setCurrentScreen(ScreenType::GameScreen);
 
 		this->counter = 0.0f;
 

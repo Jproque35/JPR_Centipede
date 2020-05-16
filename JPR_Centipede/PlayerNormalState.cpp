@@ -16,7 +16,7 @@ PlayerNormalState::PlayerNormalState(Player* context) {
 
 PlayerNormalState::~PlayerNormalState() {
 
-	cout << "Destroying PlayerState..." << endl;
+	//cout << "Destroying PlayerState..." << endl;
 
 }
 

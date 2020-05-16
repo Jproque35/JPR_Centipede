@@ -25,8 +25,10 @@ public:
 	RestartScreen();
 	virtual ~RestartScreen();
 
+	virtual void enterScreen(ScreenType originScreen) override;
+	virtual void exitScreen(ScreenType destScreen) override;
+
 	virtual void init(RenderWindow& w);
-	void run();
 
 };
 

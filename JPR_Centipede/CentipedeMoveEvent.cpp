@@ -25,7 +25,7 @@ CentipedeMoveEvent::CentipedeMoveEvent(const CentipedeMoveEvent& obj) {
 
 CentipedeMoveEvent::~CentipedeMoveEvent() {
 
-	cout << "Destroying CentipedeMoveEvent..." << endl;
+	//cout << "Destroying CentipedeMoveEvent..." << endl;
 
 }
 

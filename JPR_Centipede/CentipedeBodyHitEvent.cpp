@@ -29,7 +29,7 @@ CentipedeBodyHitEvent::CentipedeBodyHitEvent(const CentipedeBodyHitEvent& obj) {
 
 CentipedeBodyHitEvent::~CentipedeBodyHitEvent() {
 
-	cout << "Destructin CentipedeBodyHitEvent..." << endl;
+	//cout << "Destructin CentipedeBodyHitEvent..." << endl;
 
 }
 

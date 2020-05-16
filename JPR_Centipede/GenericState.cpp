@@ -16,7 +16,7 @@ GenericState::GenericState(const GenericState& obj) {
 
 GenericState::~GenericState() {
 
-	cout << "Deleting GenericState..." << endl;
+	//cout << "Deleting GenericState..." << endl;
 
 }
 

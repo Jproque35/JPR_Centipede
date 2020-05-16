@@ -14,7 +14,7 @@ PlayerBulletState::PlayerBulletState(PlayerBullet* obj) {
 
 PlayerBulletState::~PlayerBulletState() {
 
-	cout << "Destroying PlayerBulletState..." << endl;
+	//cout << "Destroying PlayerBulletState..." << endl;
 
 }
 

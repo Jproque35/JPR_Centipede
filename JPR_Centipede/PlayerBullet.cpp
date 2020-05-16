@@ -15,7 +15,7 @@ PlayerBullet::PlayerBullet(float initX, float initY) {
 
 PlayerBullet::~PlayerBullet() {
 
-	cout << "Destructing PlayerBullet object..." << endl;
+	//cout << "Destructing PlayerBullet object..." << endl;
 
 }
 

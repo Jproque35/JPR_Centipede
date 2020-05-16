@@ -4,11 +4,17 @@ Screen::~Screen() {}
 
 void Screen::init(RenderWindow& w) {
 
-	cout << "Window address " << &w << endl;
+	//cout << "Window address " << &w << endl;
 
 	this->window = &w;
 
-	cout << "Current window is now " << this->window << endl;
+	//cout << "Current window is now " << this->window << endl;
+
+}
+
+ScreenType Screen::getType() {
+
+	return this->type;
 
 }
 

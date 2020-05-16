@@ -15,7 +15,7 @@ MushroomNormalState::MushroomNormalState(const MushroomNormalState& obj) {}
 
 MushroomNormalState::~MushroomNormalState() {
 
-	cout << "Deleting MushroomNormalState..." << endl;
+	//cout << "Deleting MushroomNormalState..." << endl;
 
 }
 

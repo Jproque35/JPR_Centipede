@@ -303,6 +303,9 @@
     <ClCompile Include="RestartScreen.cpp">
       <Filter>Source Files\Engine\Screens\RestartScreen</Filter>
     </ClCompile>
+    <ClCompile Include="EngineInit.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -453,6 +456,9 @@
       <Filter>Header Files\Engine\Screens</Filter>
     </ClInclude>
     <ClInclude Include="RestartScreen.h">
+      <Filter>Header Files\Engine\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenType.h">
       <Filter>Header Files\Engine\Screens</Filter>
     </ClInclude>
   </ItemGroup>

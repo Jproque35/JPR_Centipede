@@ -19,7 +19,7 @@ Centipede::Centipede() {
 
 Centipede::~Centipede() {
 
-	cout << "Destroing Centipede objects..." << endl;
+	//cout << "Destroing Centipede objects..." << endl;
 
 }
 

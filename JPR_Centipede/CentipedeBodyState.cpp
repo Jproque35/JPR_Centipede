@@ -19,7 +19,7 @@ CentipedeBodyState::CentipedeBodyState(Centipede* data) {
 
 CentipedeBodyState::~CentipedeBodyState() {
 
-	cout << "Destroying CentipedeBodyState..." << endl;
+	//cout << "Destroying CentipedeBodyState..." << endl;
 
 }
 

@@ -4,7 +4,7 @@
 RespawnScreen::RespawnScreen()
 {
 
-
+	this->type = ScreenType::RespawnScreen;
 
 }
 
@@ -18,6 +18,19 @@ void RespawnScreen::init(RenderWindow& w) {
 
 
 	Screen::init(w);
+
+}
+
+void RespawnScreen::enterScreen(ScreenType originScreen) {
+
+
+
+}
+
+void RespawnScreen::exitScreen(ScreenType destScreen) {
+
+
+
 
 }
 

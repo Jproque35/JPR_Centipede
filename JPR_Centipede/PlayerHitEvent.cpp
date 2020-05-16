@@ -19,7 +19,7 @@ PlayerHitEvent::PlayerHitEvent(const PlayerHitEvent& obj) {
 
 PlayerHitEvent::~PlayerHitEvent() {
 
-	cout << "Destroying PlayerHitEvent..." << endl;
+	//cout << "Destroying PlayerHitEvent..." << endl;
 
 }
 
@@ -94,8 +94,8 @@ void PlayerHitEvent::update(float elapsedTime) {
 
 		sm->setLives(sm->getLives() - 1);
 
-		ScreenManager* const scnm = ScreenManager::getInstance();
-		scnm->setCurrentScreen(ScreenType::RespawnScreen);
+		//ScreenManager* const scnm = ScreenManager::getInstance();
+		//scnm->setCurrentScreen(ScreenType::RespawnScreen);
 
 
 	}

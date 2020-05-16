@@ -6,19 +6,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
+#include "ScreenType.h"
 
 using namespace sf;
 using namespace std;
 
 class Screen;
-
-enum class ScreenType {
-
-	GameScreen,
-	RespawnScreen,
-	RestartScreen
-
-};
 
 class ScreenManager {
 
@@ -37,7 +30,7 @@ public:
 	static void resetInstance();
 
 	void init(RenderWindow& w);
-	void setCurrentScreen(ScreenType type);
+	void setCurrentScreen(ScreenType newType);
 	Screen* getCurrentScreen() const;
 
 

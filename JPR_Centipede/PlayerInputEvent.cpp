@@ -25,7 +25,7 @@ PlayerInputEvent::PlayerInputEvent(const PlayerInputEvent& obj) {
 
 PlayerInputEvent::~PlayerInputEvent() {
 
-	cout << "Destroying PlayerInputEvent..." << endl;
+	//cout << "Destroying PlayerInputEvent..." << endl;
 
 }
 

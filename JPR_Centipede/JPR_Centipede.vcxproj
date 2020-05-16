@@ -162,6 +162,7 @@
     <ClCompile Include="CentipedeMoveEvent.cpp" />
     <ClCompile Include="CentipedeState.cpp" />
     <ClCompile Include="CommandFactory.cpp" />
+    <ClCompile Include="EngineInit.cpp" />
     <ClCompile Include="EngineLib.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="FirePressedEvent.cpp" />
@@ -252,6 +253,7 @@
     <ClInclude Include="ScoreObject.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenManager.h" />
+    <ClInclude Include="ScreenType.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="StateTypes.h" />

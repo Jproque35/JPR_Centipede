@@ -2,6 +2,6 @@
 
 GameEventListener::~GameEventListener() {
 
-	cout << "Destructing Game Event Listener..." << endl;
+	//cout << "Destructing Game Event Listener..." << endl;
 
 }

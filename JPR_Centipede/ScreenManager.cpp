@@ -12,9 +12,9 @@ ScreenManager::ScreenManager() {
 
 	this->screens[ScreenType::RestartScreen] = new RestartScreen();
 
-	//this->screens[ScreenType::GameScreen] = new GameScreen();
+	this->screens[ScreenType::GameScreen] = new GameScreen();
 
-	this->currScreen = this->screens[ScreenType::RespawnScreen];
+	this->currScreen = this->screens[ScreenType::RestartScreen];
 
 }
 
@@ -61,22 +61,28 @@ void ScreenManager::init(RenderWindow& w) {
 
 }
 
-void ScreenManager::setCurrentScreen(ScreenType type) {
+void ScreenManager::setCurrentScreen(ScreenType newType) {
 
-	cout << "CurrScreen is " << currScreen << endl;
+	//cout << "CurrScreen is " << currScreen << endl;
 
-	if (this->screens.count(type) > 0) {
+	if (this->screens.count(newType) > 0) {
 
-		cout << "Setting Screen to " << this->screens[type] << endl;
+		//cout << "Setting Screen to " << this->screens[type] << endl;
 
-		this->currScreen = this->screens[type];
+		ScreenType prevType = this->currScreen->getType();
 
-		cout << "CurrScreen is now " << currScreen << endl;
+		this->currScreen->exitScreen(newType);
+
+		this->currScreen = this->screens[newType];
+
+		this->currScreen->enterScreen(prevType);
+
+		//cout << "CurrScreen is now " << currScreen << endl;
 
 	}
 	else {
 
-		cout << "Could not set screen" << endl;
+		//cout << "Could not set screen" << endl;
 
 	}
 

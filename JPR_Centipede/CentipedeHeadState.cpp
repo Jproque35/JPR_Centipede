@@ -22,7 +22,7 @@ CentipedeHeadState::CentipedeHeadState(Centipede* data) {
 
 CentipedeHeadState::~CentipedeHeadState() {
 
-	cout << "Desstroying CentipedeHeadState..." << endl;
+	//cout << "Desstroying CentipedeHeadState..." << endl;
 
 }
 

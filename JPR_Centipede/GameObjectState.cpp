@@ -4,7 +4,7 @@
 
 GameObjectState::~GameObjectState() {
 
-	cout << "Destroying GameObjectState..." << endl;
+	//cout << "Destroying GameObjectState..." << endl;
 
 	for (int i = 0; i < this->events.size(); i++) {
 

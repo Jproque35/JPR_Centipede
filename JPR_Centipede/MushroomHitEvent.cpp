@@ -21,7 +21,7 @@ MushroomHitEvent::MushroomHitEvent(const MushroomHitEvent& obj) {
 
 MushroomHitEvent::~MushroomHitEvent() {
 
-	cout << "Deleting MushroomHitEvent..." << endl;
+	//cout << "Deleting MushroomHitEvent..." << endl;
 
 }
 

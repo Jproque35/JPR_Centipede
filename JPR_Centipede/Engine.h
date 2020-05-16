@@ -39,6 +39,8 @@ private:
 	~Engine();
 	Engine& operator=(const Engine& obj) = delete;
 
+	void init();
+
 public:
 	static Engine* getInstance();
 	static void resetInstance();

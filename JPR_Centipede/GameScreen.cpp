@@ -10,8 +10,10 @@
 #include "CentipedeManager.h"
 #include "CollisionMap.h"
 
-GameScreen::GameScreen() {
+GameScreen::GameScreen()
+{
 
+	this->type = ScreenType::GameScreen;
 
 }
 
@@ -26,5 +28,18 @@ GameScreen::~GameScreen() {
 	EventManager::resetInstance();
 	CentipedeManager::resetInstance();
 	CollisionMap::resetInstance();
+
+}
+
+void GameScreen::enterScreen(ScreenType originScreen) {
+
+
+
+}
+
+void GameScreen::exitScreen(ScreenType destScreen) {
+
+
+
 
 }
