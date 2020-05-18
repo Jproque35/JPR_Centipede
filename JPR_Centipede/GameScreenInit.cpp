@@ -12,6 +12,7 @@
 #include "FirePressedEvent.h"
 #include "Centipede.h"
 #include "CentipedeManager.h"
+#include "EngineConstants.h"
 
 void GameScreen::init(RenderWindow& w) {
 
@@ -20,7 +21,7 @@ void GameScreen::init(RenderWindow& w) {
 	int xRes = this->window->getSize().x;
 	int yRes = this->window->getSize().y;
 
-	this->cellWidth = this->window->getSize().y / this->gridHeight;
+	//this->cellWidth = this->window->getSize().y / this->gridHeight;
 
 	this->gm = GameObjectManager::getInstance();
 	this->im = InputManager::getInstance();
@@ -35,8 +36,8 @@ void GameScreen::init(RenderWindow& w) {
 	this->cm = CollisionMap::getInstance();
 	this->objFactory = GameObjectFactory::getInstance();
 
-	this->gm->init(this->gridWidth, this->gridHeight);
-	this->cm->init(this->gridWidth, this->gridHeight);
+	this->gm->init(EngineConstants::getMapWidth(), EngineConstants::getMapHeight());
+	this->cm->init(EngineConstants::getMapWidth(), EngineConstants::getMapHeight());
 
 	this->hudText.setPosition(Vector2f(0.0f, 0.0f));
 	this->hudText.setFont(*fm->get(0));
@@ -67,8 +68,8 @@ void GameScreen::initObjects() {
 
 void GameScreen::initPlayer() {
 
-	float initX = floor(this->gridWidth / 2);
-	float initY = floor(this->gridHeight / 2);
+	float initX = floor(EngineConstants::getMapWidth() / 2);
+	float initY = floor(EngineConstants::getMapHeight() / 2);
 
 	GameObject* currObj = this->objFactory->makeObject(ObjectType::Player, initX, initY);
 	currObj->init(initX, initY);
@@ -82,7 +83,7 @@ void GameScreen::initEnemies() {
 
 	cout << "Loading centipede objects..." << endl;
 
-	float initX = round(this->gridWidth / 2);
+	float initX = round(EngineConstants::getMapWidth() / 2);
 	float initY = 0.0f;
 
 	vector<Centipede*> centipedes = this->centiMngr->generateCentipede(10);
@@ -104,10 +105,10 @@ void GameScreen::initMushrooms() {
 
 	float tempX = -1.0f, tempY = -1.0f;
 
-	for (int i = 0; i < this->numMushrooms; ++i) {
+	for (int i = 0; i < EngineConstants::getNumMushrooms(); ++i) {
 
-		tempX = rand() % (int)(this->gridWidth);
-		tempY = rand() % (int)(this->gridHeight - 1.0f) + 1;
+		tempX = rand() % (int)(EngineConstants::getMapWidth());
+		tempY = rand() % (int)(EngineConstants::getMapHeight() - 1.0f) + 1;
 
 		GameObject* currObj =
 			this->objFactory->makeObject(ObjectType::Mushroom, tempX, tempY);

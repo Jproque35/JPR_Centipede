@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "GameScreen.h"
 #include "ScreenManager.h"
+#include "EngineConstants.h"
 
 Engine* Engine::instance = NULL;
 
@@ -12,9 +13,11 @@ Engine::Engine() {
 	resolution.x = 1600;
 	resolution.y = 900;
 
-	this->cellWidth = resolution.y / this->gridHeight;
+	//this->cellWidth = resolution.y / this->gridHeight;
 
-	this->window.create(VideoMode(this->gridWidth * cellWidth, this->gridHeight * cellWidth), "Simple Game Engine", Style::Default);
+	float cellSize = resolution.y / EngineConstants::getMapHeight();
+
+	this->window.create(VideoMode(cellSize * EngineConstants::getMapWidth(), resolution.y), "Simple Game Engine", Style::Default);
 
 	this->screenManager = ScreenManager::getInstance();
 	this->screenManager->init(this->window);

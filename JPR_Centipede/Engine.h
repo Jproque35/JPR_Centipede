@@ -26,14 +26,6 @@ private:
 
 	Text hudText;
 
-	int cellWidth = 0.0f;
-	int gridHeight = 40.0f;
-	int gridWidth = 30.0f;
-	int bulletsStart = -1;
-	int numBullets = 1;
-	int numCentipedes = 10;
-	int numMushrooms = 50;
-
 	Engine();
 	Engine(const Engine& obj) = delete;
 	~Engine();

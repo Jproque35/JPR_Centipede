@@ -162,6 +162,7 @@
     <ClCompile Include="CentipedeMoveEvent.cpp" />
     <ClCompile Include="CentipedeState.cpp" />
     <ClCompile Include="CommandFactory.cpp" />
+    <ClCompile Include="EngineConstants.cpp" />
     <ClCompile Include="EngineInit.cpp" />
     <ClCompile Include="EngineLib.cpp" />
     <ClCompile Include="EventManager.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="CentipedeState.h" />
     <ClInclude Include="CommandFactory.h" />
     <ClInclude Include="CommandType.h" />
+    <ClInclude Include="EngineConstants.h" />
     <ClInclude Include="EngineLib.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="FirePressedEvent.h" />

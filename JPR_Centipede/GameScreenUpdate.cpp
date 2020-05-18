@@ -6,9 +6,10 @@
 #include "CollisionMap.h"
 #include "CentipedeManager.h"
 #include "Centipede.h"
+#include "EngineConstants.h"
 
 void GameScreen::update(float dtAsSeconds) {
-	float initX = round(this->gridWidth / 2);
+	float initX = round(EngineConstants::getMapWidth() / 2);
 	float initY = 0.0f;
 
 	if (this->cm->get(initX, initY).size() == 0
@@ -28,11 +29,12 @@ void GameScreen::update(float dtAsSeconds) {
 	}
 
 	//cout << "Updating objects..." << endl;
+
+	this->cm->clear();
+	this->cm->buildMap();
 	this->em->update(dtAsSeconds);
 	this->executeObjectEventListeners(dtAsSeconds);
 	this->gm->updateAll(dtAsSeconds);
-	this->cm->clear();
-	this->cm->buildMap();
 
 }
 

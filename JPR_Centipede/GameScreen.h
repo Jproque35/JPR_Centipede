@@ -33,13 +33,8 @@ private:
 
 	Text hudText;
 
-	int cellWidth = 0.0f;
-	int gridHeight = 40.0f;
-	int gridWidth = 30.0f;
-	int bulletsStart = -1;
-	int numBullets = 1;
-	int numCentipedes = 10;
-	int numMushrooms = 50;
+	GameScreen(const GameScreen& obj) = delete;
+	GameScreen& operator=(const GameScreen& obj) = delete;
 
 	void initObjects();
 	void initPlayer();
@@ -64,7 +59,7 @@ public:
 	virtual void enterScreen(ScreenType originScreen) override;
 	virtual void exitScreen(ScreenType destScreen) override;
 
-	GameScreen& operator=(const GameScreen& obj);
+
 	virtual void init(RenderWindow& w) override;
 
 };

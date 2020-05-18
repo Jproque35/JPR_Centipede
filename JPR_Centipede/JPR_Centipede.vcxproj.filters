@@ -306,6 +306,9 @@
     <ClCompile Include="EngineInit.cpp">
       <Filter>Source Files\Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="EngineConstants.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -460,6 +463,9 @@
     </ClInclude>
     <ClInclude Include="ScreenType.h">
       <Filter>Header Files\Engine\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineConstants.h">
+      <Filter>Header Files\Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
