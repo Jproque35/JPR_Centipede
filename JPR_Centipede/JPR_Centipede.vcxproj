@@ -173,7 +173,6 @@
     <ClCompile Include="GameObjectState.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="GameScreenDraw.cpp" />
-    <ClCompile Include="GameScreenInit.cpp" />
     <ClCompile Include="GameScreenInput.cpp" />
     <ClCompile Include="GameScreenUpdate.cpp" />
     <ClCompile Include="GenericState.cpp" />

@@ -1,5 +1,15 @@
 #include "Engine.h"
 #include "GameScreen.h"
+#include "GameObjectManager.h"
+#include "ScoreObject.h"
+#include "InputManager.h"
+#include "GameObjectFactory.h"
+#include "EventManager.h"
+#include "SpriteManager.h"
+#include "SoundManager.h"
+#include "FontManager.h"
+#include "CentipedeManager.h"
+#include "CollisionMap.h"
 #include "ScreenManager.h"
 #include "EngineConstants.h"
 
@@ -19,6 +29,8 @@ Engine::Engine() {
 
 	this->window.create(VideoMode(cellSize * EngineConstants::getMapWidth(), resolution.y), "Simple Game Engine", Style::Default);
 
+	this->init();
+
 	this->screenManager = ScreenManager::getInstance();
 	this->screenManager->init(this->window);
 
@@ -26,6 +38,15 @@ Engine::Engine() {
 
 Engine::~Engine() {
 
+	GameObjectManager::resetInstance();
+	InputManager::resetInstance();
+	ScoreManager::resetInstance();
+	SoundManager::resetInstance();
+	SpriteManager::resetInstance();
+	GameObjectFactory::resetInstance();
+	EventManager::resetInstance();
+	CentipedeManager::resetInstance();
+	CollisionMap::resetInstance();
 	ScreenManager::resetInstance();
 
 }

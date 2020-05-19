@@ -10,6 +10,6 @@ void GameScreen::input(float dtAsSeconds) {
 
 	}*/
 
-	this->im->update();
+	InputManager::getInstance()->update();
 
 }

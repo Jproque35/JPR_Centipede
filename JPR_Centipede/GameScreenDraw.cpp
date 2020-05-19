@@ -7,15 +7,20 @@
 
 void GameScreen::draw() {
 
+	GameObjectManager* gm = GameObjectManager::getInstance();
+	InputManager* im = InputManager::getInstance();
+	ScoreManager* scm = ScoreManager::getInstance();
+
 	this->window->clear(Color(0, 0, 0, 0));
 
-	for (int i = 0; i < this->gm->size(); i++) {
 
-		if (this->gm->get(i) != NULL) {
+	for (int i = 0; i < gm->size(); i++) {
 
-			this->drawShape(*this->window, this->gm->get(i)->getShape());
+		if (gm->get(i) != NULL) {
 
-			if (this->im->isDebugActive()) {
+			this->drawShape(*this->window, gm->get(i)->getShape());
+
+			if (im->isDebugActive()) {
 
 				//this->drawText(this->gm->get(i)->getData()->getPositionText());
 
@@ -30,8 +35,8 @@ void GameScreen::draw() {
 	}
 
 	stringstream ss;
-	ss << "Score: " << this->scm->getScore() << "\n";
-	ss << "Lives: " << this->scm->getLives() << "\n";
+	ss << "Score: " << scm->getScore() << "\n";
+	ss << "Lives: " << scm->getLives() << "\n";
 	this->hudText.setString(ss.str());
 	this->window->draw(this->hudText);
 

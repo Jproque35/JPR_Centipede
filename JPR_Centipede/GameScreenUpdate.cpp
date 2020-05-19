@@ -9,17 +9,22 @@
 #include "EngineConstants.h"
 
 void GameScreen::update(float dtAsSeconds) {
+	GameObjectManager* gm = GameObjectManager::getInstance();
+	EventManager* em = EventManager::getInstance();
+	CollisionMap* cm = CollisionMap::getInstance();
+	CentipedeManager* centiMngr = CentipedeManager::getInstance();
+
 	float initX = round(EngineConstants::getMapWidth() / 2);
 	float initY = 0.0f;
 
-	if (this->cm->get(initX, initY).size() == 0
-		&& this->centiMngr->getNumActive() <= 0) {
+	if (cm->get(initX, initY).size() == 0
+		&& centiMngr->getNumActive() <= 0) {
 
-		vector<Centipede*> centipedes = this->centiMngr->generateCentipede(10);
+		vector<Centipede*> centipedes = centiMngr->generateCentipede(10);
 
 		for (int i = 0; i < centipedes.size(); ++i) {
 
-			this->gm->add(centipedes[i]);
+			gm->add(centipedes[i]);
 			centipedes[i]->init(initX, initY);
 
 		}
@@ -30,21 +35,23 @@ void GameScreen::update(float dtAsSeconds) {
 
 	//cout << "Updating objects..." << endl;
 
-	this->cm->clear();
-	this->cm->buildMap();
-	this->em->update(dtAsSeconds);
-	this->executeObjectEventListeners(dtAsSeconds);
-	this->gm->updateAll(dtAsSeconds);
+	cm->clear();
+	cm->buildMap();
+	em->update(dtAsSeconds);
+	executeObjectEventListeners(dtAsSeconds);
+	gm->updateAll(dtAsSeconds);
 
 }
 
 void GameScreen::executeObjectEventListeners(float elapsedTime) {
 
-	for (int i = 0; i < this->gm->size(); i++) {
+	GameObjectManager* gm = GameObjectManager::getInstance();
 
-		if (this->gm->get(i) != NULL) {
+	for (int i = 0; i < gm->size(); i++) {
 
-			this->gm->get(i)->getState()->executeEventListeners(elapsedTime);
+		if (gm->get(i) != NULL) {
+
+			gm->get(i)->getState()->executeEventListeners(elapsedTime);
 
 		}
 

@@ -282,9 +282,6 @@
     <ClCompile Include="GameScreen.cpp">
       <Filter>Source Files\Engine\Screens\GameScreen</Filter>
     </ClCompile>
-    <ClCompile Include="GameScreenInit.cpp">
-      <Filter>Source Files\Engine\Screens\GameScreen</Filter>
-    </ClCompile>
     <ClCompile Include="GameScreenInput.cpp">
       <Filter>Source Files\Engine\Screens\GameScreen</Filter>
     </ClCompile>
