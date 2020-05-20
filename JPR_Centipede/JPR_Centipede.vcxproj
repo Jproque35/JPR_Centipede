@@ -204,6 +204,7 @@
     <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
+    <ClCompile Include="TextManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BulletCollideEvent.h" />
@@ -258,6 +259,7 @@
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="StateTypes.h" />
+    <ClInclude Include="TextManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

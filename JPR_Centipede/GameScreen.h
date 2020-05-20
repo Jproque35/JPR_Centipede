@@ -16,6 +16,7 @@ private:
 	GameScreen(const GameScreen& obj) = delete;
 	GameScreen& operator=(const GameScreen& obj) = delete;
 
+	void reset();
 	void executeObjectEventListeners(float elapsedTime);
 	void drawShape(RenderWindow& window, CircleShape shape);
 	void drawSprite(RenderWindow& window, Sprite spr);

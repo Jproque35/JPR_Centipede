@@ -306,6 +306,9 @@
     <ClCompile Include="EngineConstants.cpp">
       <Filter>Source Files\Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="TextManager.cpp">
+      <Filter>Source Files\Engine\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObjectManager.h">
@@ -463,6 +466,9 @@
     </ClInclude>
     <ClInclude Include="EngineConstants.h">
       <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="TextManager.h">
+      <Filter>Header Files\Engine\Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

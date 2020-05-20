@@ -34,3 +34,9 @@ void GameScreen::exitScreen(ScreenType destScreen) {
 
 
 }
+
+void GameScreen::reset() {
+
+
+
+}
