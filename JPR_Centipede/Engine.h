@@ -23,6 +23,7 @@ class Centipede;
 class CentipedeManager;
 class ScreenManager;
 class Screen;
+class TextManager;
 
 class Engine {
 
@@ -39,6 +40,7 @@ private:
 	GameObjectFactory* objFactory = NULL;
 	CollisionMap* cm = NULL;
 	CentipedeManager* centiMngr = NULL;
+	TextManager* tm = NULL;
 
 	ScreenManager* screenManager;
 	Screen* currScreen;

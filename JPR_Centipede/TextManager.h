@@ -21,7 +21,7 @@ class TextManager {
 
 private:
 	static TextManager* instance;
-	unordered_map<TextType, Text*> txts;
+	unordered_map<TextType, Text*> texts;
 
 	TextManager();
 	~TextManager();

@@ -6,7 +6,7 @@ TextManager::TextManager() {}
 
 TextManager::~TextManager() {
 
-	for (auto it = this->txts.begin(); it != this->txts.end(); ++it) {
+	for (auto it = this->texts.begin(); it != this->texts.end(); ++it) {
 
 		delete(it->second);
 
@@ -37,8 +37,14 @@ void TextManager::resetInstance() {
 
 }
 
-void TextManager::add(TextType type, Text* newText) {
+void TextManager::add(TextType type, Text* const newText) {
 
-	this->txts[type] = newText;
+	this->texts[type] = newText;
+
+}
+
+Text* TextManager::get(TextType type) const {
+
+	return this->texts.at(type);
 
 }

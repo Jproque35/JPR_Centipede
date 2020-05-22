@@ -13,6 +13,7 @@
 #include "Centipede.h"
 #include "CentipedeManager.h"
 #include "EngineConstants.h"
+#include "TextManager.h""
 
 void Engine::init() {
 
@@ -45,6 +46,16 @@ void Engine::init() {
 
 	this->cm->clear();
 	this->cm->buildMap();
+
+	this->tm = TextManager::getInstance();
+	this->tm->add(TextType::StartText, new Text());
+	this->tm->get(TextType::StartText)->setString("Press Space to Start");
+	this->tm->get(TextType::StartText)->setPosition(Vector2f(0.0f, 0.0f));
+	this->tm->get(TextType::StartText)->setFont(*this->fm->get(0));
+	this->tm->get(TextType::StartText)->setCharacterSize(75);
+	this->tm->get(TextType::StartText)->setFillColor(sf::Color::White);
+	this->tm->get(TextType::StartText)->setOutlineColor(sf::Color::Black);
+	this->tm->get(TextType::StartText)->setOutlineThickness(1.0f);
 
 }
 

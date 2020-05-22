@@ -1,5 +1,7 @@
 #include "RestartScreen.h"
 #include "ScreenManager.h"
+#include "InputManager.h"
+#include "TextManager.h"
 
 RestartScreen::RestartScreen()
 {
@@ -37,6 +39,10 @@ void RestartScreen::input(float dtAsSeconds) {
 
 	//cout << "Entered RestartScreen input" << endl;
 
+	InputManager* im = InputManager::getInstance();
+
+	im->update();
+
 }
 
 void RestartScreen::update(float dtAsSeconds) {
@@ -47,6 +53,7 @@ void RestartScreen::update(float dtAsSeconds) {
 
 	//cout << "Counter is %d" << this->counter << endl;
 
+	/*
 	if (this->counter >= 3.0f) {
 
 		cout << "Switching screen to respawn" << endl;
@@ -59,6 +66,20 @@ void RestartScreen::update(float dtAsSeconds) {
 
 		//this->window->close();
 
+	}*/
+
+
+
+	InputManager* im = InputManager::getInstance();
+
+	if ( im->isFirePressed() ) {
+
+		cout << "Switching screens" << endl;
+
+		ScreenManager* scnm = ScreenManager::getInstance();
+
+		scnm->setCurrentScreen(ScreenType::GameScreen);
+
 	}
 
 }
@@ -67,7 +88,19 @@ void RestartScreen::draw() {
 
 	//cout << "Entered RestartScreen draw" << endl;
 
-	this->window->clear(Color(255, 0, 0, 0));
+	TextManager* tm = TextManager::getInstance();
+
+	this->window->clear(Color(0, 0, 0, 0));
+
+	Text* startText = tm->get(TextType::StartText);
+
+	float textHeight = startText->getLocalBounds().height;
+	float textWidth = startText->getLocalBounds().width;
+
+	startText->setPosition(Vector2f(this->window->getSize().x / 2 - textWidth / 2, 
+							this->window->getSize().y / 2 - textHeight / 2));
+
+	this->window->draw( *tm->get(TextType::StartText) );
 
 	this->window->display();
 
