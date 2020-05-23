@@ -3,7 +3,7 @@
 #pragma once
 #include "Screen.h"
 
-
+class GameObject;
 
 class GameScreen :
 	public Screen
@@ -22,6 +22,7 @@ private:
 	void drawSprite(RenderWindow& window, Sprite spr);
 	void drawBackgroundTile(RenderWindow& window, Sprite img);
 	void drawText(RenderWindow& window, const Text& drawable);
+	void processObject(GameObject* obj);
 
 protected:
 	void input(float dtAsSecods);

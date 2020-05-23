@@ -97,8 +97,8 @@ void RestartScreen::draw() {
 	float textHeight = startText->getLocalBounds().height;
 	float textWidth = startText->getLocalBounds().width;
 
-	startText->setPosition(Vector2f(this->window->getSize().x / 2 - textWidth / 2, 
-							this->window->getSize().y / 2 - textHeight / 2));
+	startText->setPosition(Vector2f( (this->window->getSize().x - textWidth) / 2, 
+							(this->window->getSize().y - textHeight) / 2 ));
 
 	this->window->draw( *tm->get(TextType::StartText) );
 

@@ -49,11 +49,11 @@ void RespawnScreen::update(float dtAsSeconds) {
 	//cout << "Counter is %d" << this->counter << endl;
 	if (this->counter >= 3.0f) {
 
-		cout << "Switching screen to restart" << endl;
+		cout << "Switching screen to game" << endl;
 
 		ScreenManager* scnm = ScreenManager::getInstance();
 
-		scnm->setCurrentScreen(ScreenType::RestartScreen);
+		scnm->setCurrentScreen(ScreenType::GameScreen);
 
 		this->counter = 0.0f;
 

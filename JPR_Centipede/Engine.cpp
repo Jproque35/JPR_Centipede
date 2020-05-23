@@ -11,6 +11,7 @@
 #include "CentipedeManager.h"
 #include "CollisionMap.h"
 #include "ScreenManager.h"
+#include "TextManager.h"
 #include "EngineConstants.h"
 
 Engine* Engine::instance = NULL;
@@ -48,6 +49,7 @@ Engine::~Engine() {
 	CentipedeManager::resetInstance();
 	CollisionMap::resetInstance();
 	ScreenManager::resetInstance();
+	TextManager::resetInstance();
 
 }
 

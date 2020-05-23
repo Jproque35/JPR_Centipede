@@ -75,7 +75,7 @@ void Engine::initPlayer() {
 	float initY = floor(EngineConstants::getMapHeight() / 2);
 
 	GameObject* currObj = this->objFactory->makeObject(ObjectType::Player, initX, initY);
-	currObj->init(initX, initY);
+
 
 	this->gm->add(currObj);
 	this->gm->setPlayerObject(currObj->getId());
@@ -94,7 +94,6 @@ void Engine::initEnemies() {
 	for (int i = 0; i < centipedes.size(); ++i) {
 
 		this->gm->add(centipedes[i]);
-		centipedes[i]->init(initX, initY);
 
 	}
 

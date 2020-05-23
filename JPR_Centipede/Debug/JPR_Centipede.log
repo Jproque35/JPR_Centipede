@@ -1,2 +1,9 @@
-﻿  RestartScreen.cpp
+﻿  PlayerHitEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerHitEvent.cpp(55,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerHitEvent.cpp(56,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerHitEvent.cpp(57,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerHitEvent.cpp(58,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\PlayerHitEvent.cpp(67,22): warning C4018: '<': signed/unsigned mismatch
+  RespawnScreen.cpp
+  Generating Code...
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe
