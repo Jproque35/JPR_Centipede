@@ -48,6 +48,7 @@ void Engine::init() {
 	this->cm->buildMap();
 
 	this->tm = TextManager::getInstance();
+
 	this->tm->add(TextType::StartText, new Text());
 	this->tm->get(TextType::StartText)->setString("Press Space to Start");
 	this->tm->get(TextType::StartText)->setPosition(Vector2f(0.0f, 0.0f));
@@ -56,6 +57,15 @@ void Engine::init() {
 	this->tm->get(TextType::StartText)->setFillColor(sf::Color::White);
 	this->tm->get(TextType::StartText)->setOutlineColor(sf::Color::Black);
 	this->tm->get(TextType::StartText)->setOutlineThickness(1.0f);
+
+	this->tm->add(TextType::RespawnText, new Text());
+	this->tm->get(TextType::RespawnText)->setString("Respawning...");
+	this->tm->get(TextType::RespawnText)->setPosition(Vector2f(0.0f, 0.0f));
+	this->tm->get(TextType::RespawnText)->setFont(*this->fm->get(0));
+	this->tm->get(TextType::RespawnText)->setCharacterSize(75);
+	this->tm->get(TextType::RespawnText)->setFillColor(sf::Color::White);
+	this->tm->get(TextType::RespawnText)->setOutlineColor(sf::Color::Black);
+	this->tm->get(TextType::RespawnText)->setOutlineThickness(1.0f);
 
 }
 

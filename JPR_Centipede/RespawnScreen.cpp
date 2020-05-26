@@ -1,5 +1,6 @@
 #include "RespawnScreen.h"
 #include "ScreenManager.h"
+#include "TextManager.h"
 
 RespawnScreen::RespawnScreen()
 {
@@ -67,7 +68,19 @@ void RespawnScreen::draw() {
 
 	//cout << "Entered RespawnSCreen draw" << endl;
 
-	this->window->clear(Color(0, 255, 0, 0));
+	TextManager* tm = TextManager::getInstance();
+
+	this->window->clear(Color(0, 0, 0, 0));
+
+	Text* respawnText = tm->get(TextType::RespawnText);
+
+	float textHeight = respawnText->getLocalBounds().height;
+	float textWidth = respawnText->getLocalBounds().width;
+
+	respawnText->setPosition(Vector2f((this->window->getSize().x - textWidth) / 2,
+		(this->window->getSize().y - textHeight) / 2));
+
+	this->window->draw(*respawnText);
 
 	this->window->display();
 
