@@ -10,6 +10,7 @@
 #include "CommandFactory.h"
 #include "CommandType.h"
 #include "CentipedeManager.h"
+#include "PlayerBullet.h"
 
 CentipedeHitEvent::CentipedeHitEvent(Centipede* context) {
 
@@ -56,8 +57,10 @@ inline bool CentipedeHitEvent::containsBullet(vector<GameObject*> objs) {
 
 	for (int i = 0; i < objs.size(); ++i) {
 
-		if (objs[i]->getType() == ObjectType::PlayerBullet
-			&& this->context->getCollisionBox().intersects(objs[i]->getCollisionBox()) ) {
+		PlayerBullet* obj = dynamic_cast<PlayerBullet*>(objs[i]);
+
+		if (obj != NULL
+			&& this->context->getCollisionBox().intersects(obj->getCollisionBox()) ) {
 
 			return true;
 

@@ -2,6 +2,7 @@
 #include "GameObjectFactory.h"
 #include "GameObjectManager.h"
 #include "Mushroom.h"
+#include "PlayerBullet.h"
 #include "CollisionMap.h"
 #include "EngineLib.h"
 
@@ -47,8 +48,10 @@ inline bool MushroomHitEvent::containsBullet(vector<GameObject*> objs) {
 
 	for (int i = 0; i < objs.size(); ++i) {
 
-		if (objs[i]->getType() == ObjectType::PlayerBullet
-			&& this->context->getCollisionBox().intersects(objs[i]->getCollisionBox()) ) {
+		PlayerBullet* obj = dynamic_cast<PlayerBullet*>(objs[i]);
+
+		if (obj != NULL
+			&& this->context->getCollisionBox().intersects(obj->getCollisionBox()) ) {
 
 			return true;
 
