@@ -8,27 +8,9 @@ GenericState::GenericState() {
 
 }
 
-GenericState::GenericState(const GenericState& obj) {
-
-	this->type = obj.type;
-
-}
-
 GenericState::~GenericState() {
 
 	//cout << "Deleting GenericState..." << endl;
-
-}
-
-GenericState& GenericState::operator=(const GenericState& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }
 

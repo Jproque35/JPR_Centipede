@@ -1,6 +1,7 @@
 #include "GameObject.h"
 #include "GameObjectState.h"
 #include "FontManager.h"
+#include "ObjectCommand.h"
 #include <iostream>
 
 using namespace std;
@@ -169,6 +170,37 @@ void GameObject::setId(int id) {
 int GameObject::getId() const {
 
 	return this->id;
+
+}
+
+void GameObject::executeCommand(float elapsedTime) {
+
+	if (this->commands.size() > 0) {
+
+		ObjectCommand* currComm = this->commands.front();
+		currComm->execute(elapsedTime);
+
+		if (currComm->isFinished()) {
+
+			this->commands.pop();
+			delete(currComm);
+			currComm = NULL;
+
+		}
+
+	}
+
+}
+
+void GameObject::addCommand(ObjectCommand* cmd) {
+
+	this->commands.push(cmd);
+
+}
+
+size_t GameObject::getCommandsSize() const {
+
+	return this->commands.size();
 
 }
 

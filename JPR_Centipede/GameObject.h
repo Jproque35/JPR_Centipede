@@ -6,6 +6,7 @@
 #include <SFML/Audio.hpp>
 #include "StateTypes.h"
 #include "ObjectType.h"
+#include <queue>
 #include <iostream>
 
 using namespace sf;
@@ -13,6 +14,7 @@ using namespace std;
 
 class GameObjectState;
 class GameEventListener;
+class ObjectCommand;
 
 class GameObject
 {
@@ -27,6 +29,7 @@ protected:
 	float xSpeed = 0.0f, ySpeed = 0.0f;
 	Text posText;
 	int id = -1;
+	queue<ObjectCommand*> commands;
 
 	void assignmentAux(const GameObject& obj);
 
@@ -34,7 +37,7 @@ private:
 	//every game object is unique, we do not want to copy them so we make copy constructor private
 	GameObject(const GameObject& obj) = delete;
 
-	//same reasoning, every gae
+	//same reasoning, every game object is unique and we do not want to copy them
 	GameObject& operator=(const GameObject& obj) = delete;
 
 public:
@@ -55,6 +58,10 @@ public:
 	float getY() const;
 	float getYSpeed() const;
 	float getXSpeed() const;
+
+	void executeCommand(float elapsedTime);
+	void addCommand(ObjectCommand* cmd);
+	size_t getCommandsSize() const;
 
 	Vector2f getPosition() const;
 	void setShapePosition(float xPos, float yPos);

@@ -7,11 +7,16 @@ class GenericState :
 	public GameObjectState
 {
 
+private:
+	//states are unique per object
+	GenericState(const GenericState& obj) = delete;
+
+	//states are unique per object
+	GenericState& operator=(const GenericState& obj) = delete;
+
 public:
 	GenericState();
-	GenericState(const GenericState& obj);
 	virtual ~GenericState();
-	GenericState& operator=(const GenericState& obj);
 
 	void executeEventListeners(float elapsedTime);
 	void executeCommand(float elapsedTime);
