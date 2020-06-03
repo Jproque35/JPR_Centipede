@@ -20,14 +20,8 @@ PlayerNormalState::~PlayerNormalState() {
 
 }
 
-PlayerNormalState& PlayerNormalState::operator=(const PlayerNormalState& obj) {
+void PlayerNormalState::update(float elapsedTime) {
 
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
+	this->context->executeCommand(elapsedTime);
 
 }

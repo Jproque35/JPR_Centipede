@@ -24,6 +24,7 @@ void GenericState::executeEventListeners(float elapsedTime) {
 
 }
 
+
 void GenericState::executeCommand(float elapsedTime) {
 
 	if (commands.size() > 0) {
@@ -43,16 +44,9 @@ void GenericState::executeCommand(float elapsedTime) {
 	}
 
 }
-
+/*
 void GenericState::update(float elapsedTime) {
 
 	this->executeCommand(elapsedTime);
-	
-	/*
-	if (this->currCommand != NULL) {
 
-		this->currCommand->execute(elapsedTime);
-
-	}*/
-
-}
+}*/

@@ -12,7 +12,7 @@ private:
 	static const int gridHeight = 40;
 	static const int gridWidth = 30;
 	static const int numCentipedes = 10;
-	static const int numMushrooms = 50;
+	static const int numMushrooms = 0;
 
 public:
 	static int getMapHeight();

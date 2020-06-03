@@ -20,7 +20,8 @@ public:
 
 	void executeEventListeners(float elapsedTime);
 	void executeCommand(float elapsedTime);
-	void update(float elapsedTime);
+	/*
+	void update(float elapsedTime);*/
 
 };
 

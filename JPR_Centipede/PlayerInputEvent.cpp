@@ -149,9 +149,10 @@ void PlayerInputEvent::update(float elapsedTime) {
 
 inline void PlayerInputEvent::queueCommand(CommandType type) {
 
-	if (this->context->getState()->getNumCommands() < 1) {
-
-		this->context->getState()->queueCommand(CommandFactory::makeCommand(type, this->context));
+	//if (this->context->getState()->getNumCommands() < 1) {
+	if(this->context->getCommandsSize() < 1) {
+		//this->context->getState()->queueCommand(CommandFactory::makeCommand(type, this->context));
+		this->context->addCommand(CommandFactory::makeCommand(type, this->context));
 
 	}
 

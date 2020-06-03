@@ -12,11 +12,12 @@ class PlayerNormalState
 private:
 	Player* context;
 
+	PlayerNormalState(const PlayerNormalState& obj) = delete;
+	PlayerNormalState& operator=(const PlayerNormalState& obj) = delete;
 public:
 	PlayerNormalState(Player* context);
-	PlayerNormalState(const PlayerNormalState& obj);
 	~PlayerNormalState();
-	PlayerNormalState& operator=(const PlayerNormalState& obj);
+	virtual void update(float elapsedTime) override;
 
 };
 

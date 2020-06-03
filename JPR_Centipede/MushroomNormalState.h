@@ -11,13 +11,13 @@ class MushroomNormalState
 
 private:
 	Mushroom* context = NULL;
+	MushroomNormalState(const MushroomNormalState& obj) = delete;
+	MushroomNormalState& operator=(const MushroomNormalState& obj) = delete;
 
 public:
 	MushroomNormalState(Mushroom* context);
-	MushroomNormalState(const MushroomNormalState& obj);
 	~MushroomNormalState();
-	MushroomNormalState& operator=(const MushroomNormalState& obj);
-
+	virtual void update(float elapsedTime) override;
 };
 
 #endif

@@ -11,22 +11,14 @@ MushroomNormalState::MushroomNormalState(Mushroom* context) : GenericState() {
 
 }
 
-MushroomNormalState::MushroomNormalState(const MushroomNormalState& obj) {}
-
 MushroomNormalState::~MushroomNormalState() {
 
 	//cout << "Deleting MushroomNormalState..." << endl;
 
 }
 
-MushroomNormalState& MushroomNormalState::operator=(const MushroomNormalState& obj) {
+void MushroomNormalState::update(float elapsedTime) {
 
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
+	this->context->executeCommand(elapsedTime);
 
 }
