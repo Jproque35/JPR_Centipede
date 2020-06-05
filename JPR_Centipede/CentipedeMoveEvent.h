@@ -18,6 +18,10 @@ private:
 	Centipede* context;
 	Sound turnSnd;
 
+
+	CentipedeMoveEvent(const CentipedeMoveEvent& obj) = delete;
+	CentipedeMoveEvent& operator=(const CentipedeMoveEvent& obj) = delete;
+
 	void queueLevelChangeCommand();
 	void changeLevelAndDirection(CentipedeDirection dir);
 	void moveLeftRoutine();
@@ -28,9 +32,7 @@ private:
 
 public:
 	CentipedeMoveEvent(Centipede* context);
-	CentipedeMoveEvent(const CentipedeMoveEvent& obj);
 	~CentipedeMoveEvent();
-	CentipedeMoveEvent& operator=(const CentipedeMoveEvent& obj);
 
 	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);

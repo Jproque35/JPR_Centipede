@@ -33,6 +33,8 @@ protected:
 
 	void assignmentAux(const GameObject& obj);
 
+	virtual void handleFinishedCommand();
+
 private:
 	//every game object is unique, we do not want to copy them so we make copy constructor private
 	GameObject(const GameObject& obj) = delete;
@@ -59,7 +61,7 @@ public:
 	float getYSpeed() const;
 	float getXSpeed() const;
 
-	void executeCommand(float elapsedTime);
+	virtual void executeCommand(float elapsedTime);
 	void addCommand(ObjectCommand* cmd);
 	size_t getCommandsSize() const;
 

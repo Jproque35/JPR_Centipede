@@ -14,7 +14,7 @@ CentipedeHeadState::CentipedeHeadState(Centipede* data) {
 	this->type = StateType::CentipedeHeadState;
 
 	this->events.push_back( new CentipedeMoveEvent(data) );
-	this->events.push_back(new CentipedeHitEvent(data));
+	//this->events.push_back(new CentipedeHitEvent(data));
 
 	cout << "lastPos initialized to " << this->lastPos.x << ", " << this->lastPos.y << endl;
 
@@ -40,6 +40,7 @@ CentipedeHeadState& CentipedeHeadState::operator=(const CentipedeHeadState& obj)
 
 void CentipedeHeadState::update(float elapsedTime) {
 
+	/*
 	if(this->lastPos.x < 0 || this->lastPos.y < 0) {
 
 		this->lastPos = this->context->getPosition();
@@ -47,5 +48,7 @@ void CentipedeHeadState::update(float elapsedTime) {
 	}
 
 	this->executeCommand(elapsedTime);
+	*/
 
+	this->context->executeCommand(elapsedTime);
 }

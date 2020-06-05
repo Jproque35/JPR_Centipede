@@ -1,11 +1,13 @@
 #include "Centipede.h"
 #include "CentipedeHeadState.h"
 #include "CentipedeBodyState.h"
+#include "CommandFactory.h"
+#include "ObjectCommand.h"
 #include <iostream>
 
 using namespace std;
 
-Centipede::Centipede() {
+Centipede::Centipede() : lastPos(Vector2f(-1.0f, -1.0f)) {
 
 	this->type = ObjectType::CentipedeHead;
 	this->shape.setFillColor(Color::Red);
@@ -93,5 +95,31 @@ void Centipede::unsetReversed() {
 bool Centipede::isReversed() const {
 
 	return this->reversed;
+
+}
+
+void Centipede::sendCommandToNext(ObjectCommand* cmd) {
+
+	Centipede* currNext = this->next;
+
+	currNext->setX(this->lastPos.x);
+	currNext->setY(this->lastPos.y);
+	currNext->setSpritePosition(currNext->getX(), currNext->getY());
+	currNext->addCommand(CommandFactory::makeCommand(cmd->getType(), currNext));
+
+}
+
+void Centipede::handleFinishedCommand() {
+	
+	if (this->next != NULL) {
+
+		this->sendCommandToNext(this->commands.front());
+
+	}
+
+	GameObject::handleFinishedCommand();
+
+	this->lastPos.x = this->pos.x;
+	this->lastPos.y = this->pos.y;
 
 }

@@ -173,6 +173,16 @@ int GameObject::getId() const {
 
 }
 
+void GameObject::handleFinishedCommand() {
+
+	ObjectCommand* currComm = this->commands.front();
+
+	this->commands.pop();
+	delete(currComm);
+	currComm = NULL;
+
+}
+
 void GameObject::executeCommand(float elapsedTime) {
 
 	if (this->commands.size() > 0) {
@@ -182,9 +192,7 @@ void GameObject::executeCommand(float elapsedTime) {
 
 		if (currComm->isFinished()) {
 
-			this->commands.pop();
-			delete(currComm);
-			currComm = NULL;
+			this->handleFinishedCommand();
 
 		}
 

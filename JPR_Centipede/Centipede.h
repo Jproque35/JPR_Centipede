@@ -7,13 +7,18 @@
 class Centipede : public GameObject
 {
 
-private:
+protected:
 	Centipede* next = NULL;
 	Centipede* prev = NULL;
+	Vector2f lastPos;
 	CentipedeDirection dir = CentipedeDirection::Left;
 	bool reversed = false;
+
 	Centipede(const Centipede& obj) = delete;
 	Centipede& operator=(const Centipede& obj) = delete;
+
+	void sendCommandToNext(ObjectCommand* cmd);
+	virtual void handleFinishedCommand() override;
 
 public:
 	Centipede();

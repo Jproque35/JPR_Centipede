@@ -31,12 +31,13 @@ void CentipedeState::executeEventListeners(float elapsedTime) {
 
 void CentipedeState::processNext(ObjectCommand* currCommand) {
 
-	this->context->getNext()->setX(this->lastPos.x);
-	this->context->getNext()->setY(this->lastPos.y);
-	this->context->getNext()->setSpritePosition(this->context->getNext()->getX(),
-		this->context->getNext()->getY());
-	this->context->getNext()->getState()->queueCommand(
-		CommandFactory::makeCommand(currCommand->getType(), this->context->getNext()));
+	Centipede* currNext = this->context->getNext();
+
+	currNext->setX(this->lastPos.x);
+	currNext->setY(this->lastPos.y);
+	currNext->setSpritePosition(this->context->getNext()->getX(), currNext->getY());
+	currNext->getState()->queueCommand(
+		CommandFactory::makeCommand(currCommand->getType(), currNext));
 
 }
 

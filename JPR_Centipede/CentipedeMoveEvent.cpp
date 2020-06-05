@@ -16,28 +16,9 @@ CentipedeMoveEvent::CentipedeMoveEvent(Centipede* context) {
 
 }
 
-CentipedeMoveEvent::CentipedeMoveEvent(const CentipedeMoveEvent& obj) {
-
-	this->gm = obj.gm;
-	this->context = obj.context;
-
-}
-
 CentipedeMoveEvent::~CentipedeMoveEvent() {
 
 	//cout << "Destroying CentipedeMoveEvent..." << endl;
-
-}
-
-CentipedeMoveEvent& CentipedeMoveEvent::operator=(const CentipedeMoveEvent& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }
 
@@ -75,15 +56,19 @@ void CentipedeMoveEvent::update(float elapsedTime) {
 
 inline void CentipedeMoveEvent::moveLeftRoutine() {
 
-	if (this->leftBlocked() && this->context->getState()->getNumCommands() < 1) {
+	//if (this->leftBlocked() && this->context->getState()->getNumCommands() < 1) {
+	if (this->leftBlocked() && this->context->getCommandsSize() < 1) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Right);
 
 	}
-	else if (this->context->getState()->getNumCommands() < 1) {
+	else if (this->context->getCommandsSize() < 1) {
 
+		/*
 		this->context->getState()->queueCommand(
 			CommandFactory::makeCommand(CommandType::MoveLeft, this->context));
+		*/
+		this->context->addCommand(CommandFactory::makeCommand(CommandType::MoveLeft, this->context));
 
 	}
 
@@ -91,15 +76,15 @@ inline void CentipedeMoveEvent::moveLeftRoutine() {
 
 inline void CentipedeMoveEvent::moveRightRoutine() {
 
-	if (this->rightBlocked() && this->context->getState()->getNumCommands() < 1) {
+	if (this->rightBlocked() && this->context->getCommandsSize() < 1) {
 
 		this->changeLevelAndDirection(CentipedeDirection::Left);
 
 	}
-	else if (this->context->getState()->getNumCommands() < 1) {
+	else if (this->context->getCommandsSize() < 1) {
 
-		this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveRight, this->context));
-
+		//this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveRight, this->context));
+		this->context->addCommand(CommandFactory::makeCommand(CommandType::MoveRight, this->context));
 	}
 
 }
@@ -116,12 +101,13 @@ inline void CentipedeMoveEvent::queueLevelChangeCommand() {
 
 	if (!this->context->isReversed()) {
 
-		this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context));
-
+		//this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context));
+		this->context->addCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context));
 	}
 	else {
 
-		this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveUp, this->context));
+		//this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveUp, this->context));
+		this->context->addCommand(CommandFactory::makeCommand(CommandType::MoveUp, this->context));
 
 	}
 

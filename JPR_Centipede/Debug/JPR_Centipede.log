@@ -1,2 +1,5 @@
-﻿  MushroomNormalState.cpp
+﻿  GameScreen.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameScreen.cpp(62,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameScreen.cpp(63,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\GameScreen.cpp(71,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe
