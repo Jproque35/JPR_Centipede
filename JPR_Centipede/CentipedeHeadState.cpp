@@ -14,7 +14,7 @@ CentipedeHeadState::CentipedeHeadState(Centipede* data) {
 	this->type = StateType::CentipedeHeadState;
 
 	this->events.push_back( new CentipedeMoveEvent(data) );
-	//this->events.push_back(new CentipedeHitEvent(data));
+	this->events.push_back(new CentipedeHitEvent(data));
 
 	cout << "lastPos initialized to " << this->lastPos.x << ", " << this->lastPos.y << endl;
 

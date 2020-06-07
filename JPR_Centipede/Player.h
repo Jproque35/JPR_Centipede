@@ -15,7 +15,7 @@ public:
 	Player();
 	~Player();
 
-	void init(float xPos, float yPos);
+	virtual void init(float xPos, float yPos) override;
 
 };
 

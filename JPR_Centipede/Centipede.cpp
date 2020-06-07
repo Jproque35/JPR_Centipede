@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Centipede::Centipede() : lastPos(Vector2f(-1.0f, -1.0f)) {
+Centipede::Centipede() : lastPos(Vector2f(0.0f, 0.0f)) {
 
 	this->type = ObjectType::CentipedeHead;
 	this->shape.setFillColor(Color::Red);
@@ -27,11 +27,12 @@ Centipede::~Centipede() {
 
 void Centipede::init(float xPos, float yPos) {
 
-	this->pos.x = xPos;
-	this->pos.y = yPos;
+	GameObject::init(xPos, yPos);
+
 	this->xSpeed = 20.0f;
 	this->ySpeed = 20.0f;
-	this->shape.setPosition(this->pos);
+
+	this->lastPos = Vector2f(this->pos);
 
 	for (auto it = this->states.begin(); it != this->states.end(); ++it) {
 

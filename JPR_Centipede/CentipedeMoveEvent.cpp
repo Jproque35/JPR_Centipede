@@ -127,6 +127,11 @@ inline bool CentipedeMoveEvent::leftBlocked() {
 		return true;
 
 	}
+	else if (this->cm->containsType(ObjectType::Mushroom, round(this->context->getX()), round(this->context->getY()) )) {
+
+		return true;
+
+	}
 
 	return false;
 
@@ -142,6 +147,11 @@ inline bool CentipedeMoveEvent::rightBlocked() {
 
 	}
 	else if (this->cm->containsType(ObjectType::Mushroom, xDest, floor(this->context->getY()))) {
+
+		return true;
+
+	}
+	else if (this->cm->containsType(ObjectType::Mushroom, round(this->context->getX()), round(this->context->getY()))) {
 
 		return true;
 

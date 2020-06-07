@@ -20,7 +20,7 @@ private:
 	ScoreManager* scm;
 	bool containsBullet(vector<GameObject*> objs);
 	void layMushroom();
-	void processNext(Centipede* next);
+	void processNext(Centipede& next);
 
 public:
 	CentipedeHitEvent(Centipede* context);

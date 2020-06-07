@@ -21,11 +21,11 @@ Mushroom::~Mushroom() {
 
 void Mushroom::init(float xPos, float yPos) {
 
-	this->pos.x = xPos;
-	this->pos.y = yPos;
+	GameObject::init(xPos, yPos);
+
 	this->xSpeed = 0.0f;
 	this->ySpeed = 0.0f;
-	this->shape.setPosition(this->pos);
+
 
 }
 

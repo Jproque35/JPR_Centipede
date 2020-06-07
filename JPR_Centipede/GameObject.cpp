@@ -51,6 +51,15 @@ void GameObject::assignmentAux(const GameObject& obj) {
 
 }
 
+void GameObject::init(float xPos, float yPos) {
+
+	this->pos.x = xPos;
+	this->pos.y = yPos;
+	this->shape.setPosition(this->pos);
+	this->clearCommands();
+
+}
+
 ObjectType GameObject::getType() const {
 
 	return this->type;
@@ -209,6 +218,20 @@ void GameObject::addCommand(ObjectCommand* cmd) {
 size_t GameObject::getCommandsSize() const {
 
 	return this->commands.size();
+
+}
+
+void GameObject::clearCommands() {
+
+	while (this->commands.size() > 0) {
+
+		ObjectCommand* currComm = this->commands.front();
+
+		this->commands.pop();
+		delete(currComm);
+		currComm = NULL;
+
+	}
 
 }
 

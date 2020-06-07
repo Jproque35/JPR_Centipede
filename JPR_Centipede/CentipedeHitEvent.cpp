@@ -83,14 +83,14 @@ inline void CentipedeHitEvent::layMushroom() {
 
 }
 
-inline void CentipedeHitEvent::processNext(Centipede* next) {
+inline void CentipedeHitEvent::processNext(Centipede& next) {
 
-	next->setStateType(StateType::CentipedeHeadState);
-	next->getState()->clearCommands();
-	next->setX(round(this->context->getNext()->getX()));
-	next->setY(round(this->context->getNext()->getY()));
-	next->setPrev(NULL);
-	next->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context->getNext()));
+	next.setStateType(StateType::CentipedeHeadState);
+	//next->getState()->clearCommands();
+	//next->setX(round(this->context->getNext()->getX()));
+	//next->setY(round(this->context->getNext()->getY()));
+	next.setPrev(NULL);
+	//next->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context->getNext()));
 
 }
 
@@ -104,7 +104,7 @@ void CentipedeHitEvent::update(float elapsedTime) {
 
 		if (this->context->getNext() != NULL) {
 
-			this->processNext(this->context->getNext());
+			this->processNext(*this->context->getNext());
 
 		}
 

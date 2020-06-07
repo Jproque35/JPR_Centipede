@@ -95,10 +95,10 @@ inline void CentipedeBodyHitEvent::reverseContextDirection() {
 inline void CentipedeBodyHitEvent::changeContextToHead(float hitX, float hitY) {
 
 	this->context->setStateType(StateType::CentipedeHeadState);
-	this->context->setX(hitX);
-	this->context->setY(hitY);
-	this->context->getState()->clearCommands();
-	this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context));
+	//this->context->setX(hitX);
+	//this->context->setY(hitY);
+	//this->context->getState()->clearCommands();
+	//this->context->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context));
 
 	this->reverseContextDirection();
 

@@ -20,7 +20,7 @@ class GameObject
 {
 
 protected:
-	GameObjectState* currState;
+	GameObjectState* currState = NULL;
 	unordered_map<StateType, GameObjectState*> states;
 	ObjectType type = ObjectType::Generic;
 	Vector2f pos;
@@ -46,7 +46,7 @@ public:
 	GameObject();
 	virtual ~GameObject();
 
-	virtual void init(float xPos, float yPos) = 0;
+	virtual void init(float xPos, float yPos);
 
 	ObjectType getType() const;
 
@@ -64,6 +64,7 @@ public:
 	virtual void executeCommand(float elapsedTime);
 	void addCommand(ObjectCommand* cmd);
 	size_t getCommandsSize() const;
+	void clearCommands();
 
 	Vector2f getPosition() const;
 	void setShapePosition(float xPos, float yPos);

@@ -24,7 +24,7 @@ public:
 	Centipede();
 	~Centipede();
 
-	void init(float xPos, float yPos);
+	virtual void init(float xPos, float yPos) override;
 
 	void setNext(Centipede* next);
 	Centipede* getNext() const;

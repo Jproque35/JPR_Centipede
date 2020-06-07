@@ -16,7 +16,7 @@ public:
 	Mushroom(float initX, float initY);
 	~Mushroom();
 
-	void init(float xPos, float yPos);
+	virtual void init(float xPos, float yPos) override;
 
 	void decrementHealth();
 	void resetHealth();

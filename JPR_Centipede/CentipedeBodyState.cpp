@@ -11,7 +11,7 @@ CentipedeBodyState::CentipedeBodyState(Centipede* data) {
 
 	this->context = data;
 	this->lastPos = Vector2f(-1.0f, -1.0f);
-	//this->events.push_back(new CentipedeBodyHitEvent(data));
+	this->events.push_back(new CentipedeBodyHitEvent(data));
 
 	cout << "lastPos initialized to " << this->lastPos.x << ", " << this->lastPos.y << endl;
 
