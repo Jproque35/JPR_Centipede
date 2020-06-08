@@ -14,9 +14,11 @@ private:
 
 	PlayerNormalState(const PlayerNormalState& obj) = delete;
 	PlayerNormalState& operator=(const PlayerNormalState& obj) = delete;
+
 public:
 	PlayerNormalState(Player* context);
 	~PlayerNormalState();
+
 	virtual void update(float elapsedTime) override;
 
 };

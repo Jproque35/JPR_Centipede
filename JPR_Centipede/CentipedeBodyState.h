@@ -9,11 +9,13 @@ class CentipedeBodyState :
 	public CentipedeState
 {
 
+private:
+	CentipedeBodyState(const CentipedeBodyState& obj) = delete;
+	CentipedeBodyState& operator=(const CentipedeBodyState& obj) = delete;
+
 public:
 	CentipedeBodyState(Centipede* data);
-	CentipedeBodyState(const CentipedeBodyState& obj);
-	~CentipedeBodyState();
-	CentipedeBodyState& operator=(const CentipedeBodyState& obj);
+	virtual ~CentipedeBodyState();
 
 	void update(float elapsedTime);
 

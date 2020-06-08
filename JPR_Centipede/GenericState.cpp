@@ -23,27 +23,6 @@ void GenericState::executeEventListeners(float elapsedTime) {
 	}
 
 }
-
-
-void GenericState::executeCommand(float elapsedTime) {
-
-	if (commands.size() > 0) {
-
-		ObjectCommand* currComm = this->commands.front();
-
-		currComm->execute(elapsedTime);
-
-		if (currComm->isFinished()) {
-
-			this->commands.pop();
-			delete(currComm);
-			currComm = NULL;
-
-		}
-
-	}
-
-}
 /*
 void GenericState::update(float elapsedTime) {
 

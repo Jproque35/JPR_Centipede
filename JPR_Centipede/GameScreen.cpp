@@ -2,6 +2,8 @@
 #include "FontManager.h"
 #include "GameObjectManager.h"
 #include "GameObject.h"
+#include "Player.h"
+#include "Centipede.h"
 #include "EngineConstants.h"
 
 GameScreen::GameScreen()
@@ -46,7 +48,7 @@ void GameScreen::reset() {
 
 		if (gm->get(i) != NULL) {
 
-			cout << "Object at " << i << endl;
+			//cout << "Object at " << i << endl;
 			this->processObject(gm->get(i));
 
 		}
@@ -57,16 +59,18 @@ void GameScreen::reset() {
 
 void GameScreen::processObject(GameObject* obj) {
 
-	if (obj->getType() == ObjectType::Player) {
-
+	//if (obj->getType() == ObjectType::Player) {
+	if(dynamic_cast<Player*>(obj) != NULL) {
 		float initX = floor(EngineConstants::getMapWidth() / 2);
-		float initY = floor(EngineConstants::getMapHeight() / 2);
+		float initY = floor(EngineConstants::getMapHeight() * 0.8f);
 
 		obj->init(initX, initY);
 
 	}
+	/*
 	else if (obj->getType() == ObjectType::CentipedeHead
-		|| obj->getType() == ObjectType::CentipedeBody) {
+		|| obj->getType() == ObjectType::CentipedeBody) {*/
+	else if(dynamic_cast<Centipede*>(obj) != NULL) {
 
 		float initX = round(EngineConstants::getMapWidth() / 2);
 		float initY = 0.0f;

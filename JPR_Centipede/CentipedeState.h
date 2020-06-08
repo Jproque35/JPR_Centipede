@@ -11,18 +11,18 @@ class CentipedeState
 
 protected:
 	Centipede* context;
-	Vector2f lastPos;
 
 private:
-	void processNext(ObjectCommand* currCommand);
+	CentipedeState(const CentipedeState& obj) = delete;
+	CentipedeState& operator=(const CentipedeState& obj) = delete;
 
 public:
+	CentipedeState(Centipede* obj);
 	virtual ~CentipedeState();
 
 	void init();
 
 	void executeEventListeners(float elapsedTime);
-	void executeCommand(float elapsedTime);
 
 };
 

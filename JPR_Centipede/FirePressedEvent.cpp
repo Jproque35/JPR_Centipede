@@ -46,7 +46,7 @@ void FirePressedEvent::update(float elapsedTime) {
 		if (bullet != NULL) {
 
 			gm->add(bullet);
-			bullet->init(player->getX() + 0.5f, player->getY());
+			bullet->init(player->getX() + 0.5f - bullet->getShape().getRadius(), player->getY());
 			this->bulletSound.play();
 
 		}

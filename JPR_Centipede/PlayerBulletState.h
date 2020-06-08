@@ -12,11 +12,13 @@ private:
 	float range = 10.0f;
 	float distTravelled = 0.0f;
 
+
+	PlayerBulletState(const PlayerBulletState& obj) = delete;
+	PlayerBulletState& operator=(const PlayerBulletState& obj) = delete;
+
 public:
 	PlayerBulletState(PlayerBullet* context);
-	PlayerBulletState(const PlayerBulletState& obj);
 	~PlayerBulletState();
-	PlayerBulletState& operator=(const PlayerBulletState& obj);
 
 	void update(float elapsedTime);
 

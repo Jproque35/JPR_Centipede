@@ -7,34 +7,20 @@
 #include "CommandFactory.h"
 #include "CentipedeHitEvent.h"
 
-CentipedeHeadState::CentipedeHeadState(Centipede* data) {
+CentipedeHeadState::CentipedeHeadState(Centipede* data) :
+	CentipedeState(data)
+{
 
-	this->context = data;
-	this->lastPos = Vector2f(-1.0f, -1.0f);
 	this->type = StateType::CentipedeHeadState;
 
 	this->events.push_back( new CentipedeMoveEvent(data) );
 	this->events.push_back(new CentipedeHitEvent(data));
-
-	cout << "lastPos initialized to " << this->lastPos.x << ", " << this->lastPos.y << endl;
 
 }
 
 CentipedeHeadState::~CentipedeHeadState() {
 
 	//cout << "Desstroying CentipedeHeadState..." << endl;
-
-}
-
-CentipedeHeadState& CentipedeHeadState::operator=(const CentipedeHeadState& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }
 

@@ -7,31 +7,17 @@
 #include "CentipedeBodyHitEvent.h"
 
 
-CentipedeBodyState::CentipedeBodyState(Centipede* data) {
+CentipedeBodyState::CentipedeBodyState(Centipede* data) :
+	CentipedeState(data)
+{
 
-	this->context = data;
-	this->lastPos = Vector2f(-1.0f, -1.0f);
 	this->events.push_back(new CentipedeBodyHitEvent(data));
-
-	cout << "lastPos initialized to " << this->lastPos.x << ", " << this->lastPos.y << endl;
 
 }
 
 CentipedeBodyState::~CentipedeBodyState() {
 
 	//cout << "Destroying CentipedeBodyState..." << endl;
-
-}
-
-CentipedeBodyState& CentipedeBodyState::operator=(const CentipedeBodyState& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }
 
