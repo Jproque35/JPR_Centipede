@@ -1,2 +1,9 @@
-﻿  FirePressedEvent.cpp
+﻿  CentipedeBodyHitEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeBodyHitEvent.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
+  CentipedeBodyState.cpp
+  CentipedeHeadState.cpp
+  CentipedeHitEvent.cpp
+C:\Users\duren\source\repos\JPR_Centipede\JPR_Centipede\CentipedeHitEvent.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
+  MushroomManager.cpp
+  Generating Code...
   JPR_Centipede.vcxproj -> C:\Users\duren\source\repos\JPR_Centipede\Debug\JPR_Centipede.exe

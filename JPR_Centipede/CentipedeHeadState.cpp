@@ -26,15 +26,6 @@ CentipedeHeadState::~CentipedeHeadState() {
 
 void CentipedeHeadState::update(float elapsedTime) {
 
-	/*
-	if(this->lastPos.x < 0 || this->lastPos.y < 0) {
-
-		this->lastPos = this->context->getPosition();
-
-	}
-
-	this->executeCommand(elapsedTime);
-	*/
-
 	this->context->executeCommand(elapsedTime);
+
 }

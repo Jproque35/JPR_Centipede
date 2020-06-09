@@ -13,6 +13,7 @@
 #include "ScreenManager.h"
 #include "TextManager.h"
 #include "EngineConstants.h"
+#include "MushroomManager.h"
 
 Engine* Engine::instance = NULL;
 
@@ -50,6 +51,7 @@ Engine::~Engine() {
 	CollisionMap::resetInstance();
 	ScreenManager::resetInstance();
 	TextManager::resetInstance();
+	MushroomManager::resetInstance();
 
 }
 

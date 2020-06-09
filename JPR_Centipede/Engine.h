@@ -24,6 +24,7 @@ class CentipedeManager;
 class ScreenManager;
 class Screen;
 class TextManager;
+class MushroomManager;
 
 class Engine {
 
@@ -40,6 +41,7 @@ private:
 	GameObjectFactory* objFactory = NULL;
 	CollisionMap* cm = NULL;
 	CentipedeManager* centiMngr = NULL;
+	MushroomManager* shroomMngr = NULL;
 	TextManager* tm = NULL;
 
 	ScreenManager* screenManager;

@@ -14,6 +14,7 @@
 #include "CentipedeManager.h"
 #include "EngineConstants.h"
 #include "TextManager.h""
+#include "MushroomManager.h"
 
 void Engine::init() {
 
@@ -40,6 +41,7 @@ void Engine::init() {
 
 
 	this->centiMngr = CentipedeManager::getInstance();
+	this->shroomMngr = MushroomManager::getInstance();
 
 	this->initObjects();
 	this->initEvents();
@@ -117,6 +119,7 @@ void Engine::initMushrooms() {
 
 	float tempX = -1.0f, tempY = -1.0f;
 
+	/*
 	for (int i = 0; i < EngineConstants::getNumMushrooms(); ++i) {
 
 		tempX = rand() % (int)(EngineConstants::getMapWidth());
@@ -129,6 +132,16 @@ void Engine::initMushrooms() {
 
 		this->gm->add(currObj);
 
+	}*/
+
+	while (shroomMngr->getNumActive() < EngineConstants::getNumMushrooms()) {
+
+		tempX = rand() % (int)(EngineConstants::getMapWidth());
+		tempY = rand() % (int)(EngineConstants::getMapHeight() - 1.0f) + 1;
+
+		shroomMngr->addMushroom(tempX, tempY);
+
+		cout << "Added mushroom" << endl;
 	}
 
 }

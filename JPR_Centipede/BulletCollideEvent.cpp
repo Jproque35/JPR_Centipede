@@ -5,6 +5,8 @@
 #include "CollisionMap.h"
 #include "EngineLib.h"
 #include "SoundManager.h"
+#include "Centipede.h"
+#include "Mushroom.h"
 
 BulletCollideEvent::BulletCollideEvent(PlayerBullet* context) {
 
@@ -66,9 +68,8 @@ bool BulletCollideEvent::containsHittable(vector<GameObject*> objs) {
 
 inline bool BulletCollideEvent::isHittable(GameObject* obj) {
 
-	return obj->getType() == ObjectType::Mushroom
-		|| (obj->getType() == ObjectType::CentipedeHead
-		|| obj->getType() == ObjectType::CentipedeBody);
+	return dynamic_cast<Mushroom*>(obj) != NULL
+		|| dynamic_cast<Centipede*>(obj) != NULL;
 
 }
 

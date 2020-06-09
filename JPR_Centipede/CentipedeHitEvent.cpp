@@ -11,6 +11,7 @@
 #include "CommandType.h"
 #include "CentipedeManager.h"
 #include "PlayerBullet.h"
+#include "MushroomManager.h"
 
 CentipedeHitEvent::CentipedeHitEvent(Centipede* context) {
 
@@ -21,29 +22,9 @@ CentipedeHitEvent::CentipedeHitEvent(Centipede* context) {
 
 }
 
-CentipedeHitEvent::CentipedeHitEvent(const CentipedeHitEvent& obj) {
-
-	this->gm = GameObjectManager::getInstance();
-	this->scm = ScoreManager::getInstance();
-	this->context = obj.context;
-
-}
-
 CentipedeHitEvent::~CentipedeHitEvent() {
 
 	//cout << "Destroying CentipedeHitEvent..." << endl;
-
-}
-
-CentipedeHitEvent& CentipedeHitEvent::operator=(const CentipedeHitEvent& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }
 
@@ -72,25 +53,10 @@ inline bool CentipedeHitEvent::containsBullet(vector<GameObject*> objs) {
 
 }
 
-inline void CentipedeHitEvent::layMushroom() {
-
-	GameObjectFactory* objFactory = GameObjectFactory::getInstance();
-	GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, 
-		round(this->context->getX()), round(this->context->getY()));
-
-	gm->add(newMushroom);
-	newMushroom->init(floor(this->context->getX()), floor(this->context->getY()));
-
-}
-
 inline void CentipedeHitEvent::processNext(Centipede& next) {
 
 	next.setStateType(StateType::CentipedeHeadState);
-	//next->getState()->clearCommands();
-	//next->setX(round(this->context->getNext()->getX()));
-	//next->setY(round(this->context->getNext()->getY()));
 	next.setPrev(NULL);
-	//next->getState()->queueCommand(CommandFactory::makeCommand(CommandType::MoveDown, this->context->getNext()));
 
 }
 
@@ -98,9 +64,11 @@ void CentipedeHitEvent::update(float elapsedTime) {
 
 	if ( this->containsBullet( EngineLib::getIntersectsObj(this->context) ) ) {
 
+		MushroomManager* shroomMngr = MushroomManager::getInstance();
+
 		cout << "Centipede got hit" << endl;
 		
-		this->layMushroom();
+		shroomMngr->addMushroom( round(this->context->getPosition().x), round(this->context->getPosition().y) );
 
 		if (this->context->getNext() != NULL) {
 

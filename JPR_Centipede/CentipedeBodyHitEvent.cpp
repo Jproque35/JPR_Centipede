@@ -11,6 +11,7 @@
 #include "CollisionMap.h"
 #include "EngineLib.h"
 #include "CentipedeManager.h"
+#include "MushroomManager.h"
 
 CentipedeBodyHitEvent::CentipedeBodyHitEvent(Centipede* context) {
 
@@ -21,27 +22,9 @@ CentipedeBodyHitEvent::CentipedeBodyHitEvent(Centipede* context) {
 
 }
 
-CentipedeBodyHitEvent::CentipedeBodyHitEvent(const CentipedeBodyHitEvent& obj) {
-
-	this->context = obj.context;
-
-}
-
 CentipedeBodyHitEvent::~CentipedeBodyHitEvent() {
 
 	//cout << "Destructin CentipedeBodyHitEvent..." << endl;
-
-}
-
-CentipedeBodyHitEvent& CentipedeBodyHitEvent::operator=(const CentipedeBodyHitEvent& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
 
 }
 
@@ -65,15 +48,6 @@ inline bool CentipedeBodyHitEvent::containsBullet(vector<GameObject*> objs) {
 	}
 
 	return false;
-
-}
-
-inline void CentipedeBodyHitEvent::layMushroom(float hitX, float hitY) {
-
-	GameObjectFactory* objFactory = GameObjectFactory::getInstance();
-	GameObject* newMushroom = objFactory->makeObject(ObjectType::Mushroom, hitX, hitY);
-	this->gm->add(newMushroom);
-	newMushroom->init(floor(this->context->getX()), floor(this->context->getY()));
 
 }
 
@@ -111,7 +85,11 @@ void CentipedeBodyHitEvent::update(float elapsedTime) {
 
 	if ( this->containsBullet(EngineLib::getIntersectsObj(this->context)) ) {
 
-		this->layMushroom(hitX, hitY);
+		MushroomManager* shroomMngr = MushroomManager::getInstance();
+
+		cout << "Centipede got hit" << endl;
+
+		shroomMngr->addMushroom(round(this->context->getPosition().x), round(this->context->getPosition().y));
 
 		this->scm->increaseScore(10);
 

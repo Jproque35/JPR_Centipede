@@ -17,17 +17,19 @@ private:
 	Centipede* context;
 	ScoreManager* scm = NULL;
 	GameObjectManager* gm = NULL;
-	CollisionMap* cm = NULL;;
+	CollisionMap* cm = NULL;
+
+
+	CentipedeBodyHitEvent(const CentipedeBodyHitEvent& obj) = delete;
+	CentipedeBodyHitEvent& operator=(const CentipedeBodyHitEvent& obj) = delete;
+
 	bool containsBullet(vector<GameObject*> objs);
-	void layMushroom(float hitX, float hitY);
 	void changeContextToHead(float hitX, float hitY);
 	void reverseContextDirection();
 
 public:
 	CentipedeBodyHitEvent(Centipede* context);
-	CentipedeBodyHitEvent(const CentipedeBodyHitEvent& obj);
 	~CentipedeBodyHitEvent();
-	CentipedeBodyHitEvent& operator=(const CentipedeBodyHitEvent& obj);
 
 	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
