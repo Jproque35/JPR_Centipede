@@ -12,33 +12,9 @@ PlayerHitEvent::PlayerHitEvent(Player* context) {
 
 }
 
-PlayerHitEvent::PlayerHitEvent(const PlayerHitEvent& obj) {
-
-	this->context = obj.context;
-
-}
-
 PlayerHitEvent::~PlayerHitEvent() {
 
 	//cout << "Destroying PlayerHitEvent..." << endl;
-
-}
-
-PlayerHitEvent& PlayerHitEvent::operator=(const PlayerHitEvent& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
-
-}
-
-GameEventListener* PlayerHitEvent::recontextCopy(GameObject* obj) {
-
-	return new PlayerHitEvent((Player*)obj);
 
 }
 

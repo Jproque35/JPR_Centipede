@@ -119,21 +119,6 @@ void Engine::initMushrooms() {
 
 	float tempX = -1.0f, tempY = -1.0f;
 
-	/*
-	for (int i = 0; i < EngineConstants::getNumMushrooms(); ++i) {
-
-		tempX = rand() % (int)(EngineConstants::getMapWidth());
-		tempY = rand() % (int)(EngineConstants::getMapHeight() - 1.0f) + 1;
-
-		GameObject* currObj =
-			this->objFactory->makeObject(ObjectType::Mushroom, tempX, tempY);
-
-		currObj->init(tempX, tempY);
-
-		this->gm->add(currObj);
-
-	}*/
-
 	while (shroomMngr->getNumActive() < EngineConstants::getNumMushrooms()) {
 
 		tempX = rand() % (int)(EngineConstants::getMapWidth());
@@ -141,7 +126,6 @@ void Engine::initMushrooms() {
 
 		shroomMngr->addMushroom(tempX, tempY);
 
-		cout << "Added mushroom" << endl;
 	}
 
 }

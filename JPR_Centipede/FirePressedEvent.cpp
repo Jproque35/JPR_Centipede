@@ -14,21 +14,7 @@ FirePressedEvent::FirePressedEvent() {
 
 }
 
-FirePressedEvent::FirePressedEvent(const FirePressedEvent& obj) {}
-
 FirePressedEvent::~FirePressedEvent() {}
-
-FirePressedEvent& FirePressedEvent::operator=(const FirePressedEvent& obj) {
-
-	return *this;
-
-}
-
-GameEventListener* FirePressedEvent::recontextCopy(GameObject* obj) {
-
-	return new FirePressedEvent();
-
-}
 
 void FirePressedEvent::update(float elapsedTime) {
 

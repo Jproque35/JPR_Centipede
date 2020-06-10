@@ -17,16 +17,16 @@ private:
 	GameObjectManager* gm;
 	Mushroom* context;
 
+	MushroomHitEvent(const MushroomHitEvent& obj) = delete;
+	MushroomHitEvent& operator=(const MushroomHitEvent& obj) = delete;
+
 	bool containsBullet(vector<GameObject*> objs);
 	void handleHit();
 
 public:
 	MushroomHitEvent(Mushroom* context);
-	MushroomHitEvent(const MushroomHitEvent& obj);
 	~MushroomHitEvent();
-	MushroomHitEvent& operator=(const MushroomHitEvent& obj);
 
-	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

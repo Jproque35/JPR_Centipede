@@ -21,6 +21,9 @@ private:
 	CollisionMap* cm;
 	bool leftBlocked = false, rightBlocked = false, upBlocked = false, downBlocked = false;
 
+	PlayerInputEvent(const PlayerInputEvent& obj) = delete;
+	PlayerInputEvent& operator=(const PlayerInputEvent& obj) = delete;
+
 	void updateBlockedVars(float xMoveDist, float yMoveDist);
 	void processCollision(GameObject* obj, float xMoveDist, float yMoveDist);
 	void queueCommand(CommandType type);
@@ -28,11 +31,8 @@ private:
 
 public:
 	PlayerInputEvent(Player* context);
-	PlayerInputEvent(const PlayerInputEvent& obj);
 	~PlayerInputEvent();
-	PlayerInputEvent& operator=(const PlayerInputEvent& obj);
 
-	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

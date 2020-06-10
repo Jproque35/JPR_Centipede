@@ -28,12 +28,6 @@ CentipedeHitEvent::~CentipedeHitEvent() {
 
 }
 
-GameEventListener* CentipedeHitEvent::recontextCopy(GameObject* obj) {
-
-	return new CentipedeHitEvent((Centipede*)obj);
-
-}
-
 inline bool CentipedeHitEvent::containsBullet(vector<GameObject*> objs) {
 
 	for (int i = 0; i < objs.size(); ++i) {

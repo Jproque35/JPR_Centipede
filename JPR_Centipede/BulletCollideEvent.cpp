@@ -18,34 +18,9 @@ BulletCollideEvent::BulletCollideEvent(PlayerBullet* context) {
 
 }
 
-BulletCollideEvent::BulletCollideEvent(const BulletCollideEvent& obj) {
-
-	this->gm = obj.gm;
-	this->context = obj.context;
-
-}
-
 BulletCollideEvent::~BulletCollideEvent() {
 
 	//cout << "Destroying BulletCollideEvent..." << endl;
-
-}
-
-BulletCollideEvent& BulletCollideEvent::operator=(const BulletCollideEvent& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
-
-}
-
-GameEventListener* BulletCollideEvent::recontextCopy(GameObject* obj) {
-
-	return new BulletCollideEvent((PlayerBullet*)obj);
 
 }
 

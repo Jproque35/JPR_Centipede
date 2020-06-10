@@ -16,33 +16,9 @@ PlayerInputEvent::PlayerInputEvent(Player* context) {
 
 }
 
-PlayerInputEvent::PlayerInputEvent(const PlayerInputEvent& obj) {
-
-	this->gm = obj.gm;
-	this->context = obj.context;
-
-}
-
 PlayerInputEvent::~PlayerInputEvent() {
 
 	//cout << "Destroying PlayerInputEvent..." << endl;
-
-}
-
-PlayerInputEvent& PlayerInputEvent::operator=(const PlayerInputEvent& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
-
-}
-GameEventListener* PlayerInputEvent::recontextCopy(GameObject* obj) {
-
-	return new PlayerInputEvent((Player*)obj);
 
 }
 

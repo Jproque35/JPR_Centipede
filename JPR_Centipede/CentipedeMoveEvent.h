@@ -13,11 +13,12 @@ class CentipedeMoveEvent :
 {
 
 private:
-	GameObjectManager* gm;
-	CollisionMap* cm;
-	Centipede* context;
+	GameObjectManager* gm = NULL;
+	CollisionMap* cm = NULL;
+	Centipede* context = NULL;
 	Sound turnSnd;
-
+	bool leftBlocked();
+	bool rightBlocked();
 
 	CentipedeMoveEvent(const CentipedeMoveEvent& obj) = delete;
 	CentipedeMoveEvent& operator=(const CentipedeMoveEvent& obj) = delete;
@@ -27,14 +28,11 @@ private:
 	void moveLeftRoutine();
 	void moveRightRoutine();
 
-	bool leftBlocked();
-	bool rightBlocked();
 
 public:
 	CentipedeMoveEvent(Centipede* context);
 	~CentipedeMoveEvent();
 
-	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

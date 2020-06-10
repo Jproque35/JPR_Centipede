@@ -13,34 +13,9 @@ MushroomHitEvent::MushroomHitEvent(Mushroom* context) {
 
 }
 
-MushroomHitEvent::MushroomHitEvent(const MushroomHitEvent& obj) {
-
-	this->context = obj.context;
-	this->gm = obj.gm;
-
-}
-
 MushroomHitEvent::~MushroomHitEvent() {
 
 	//cout << "Deleting MushroomHitEvent..." << endl;
-
-}
-
-MushroomHitEvent& MushroomHitEvent::operator=(const MushroomHitEvent& obj) {
-
-	if (this == &obj) {
-
-		return *this;
-
-	}
-
-	return *this;
-
-}
-
-GameEventListener* MushroomHitEvent::recontextCopy(GameObject* obj) {
-
-	return new MushroomHitEvent((Mushroom*)obj);
 
 }
 

@@ -29,7 +29,6 @@ public:
 	CentipedeHitEvent(Centipede* context);
 	~CentipedeHitEvent();
 
-	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

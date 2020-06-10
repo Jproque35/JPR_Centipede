@@ -21,13 +21,13 @@ private:
 	bool isHittable(GameObject* obj);
 	Sound hitSnd;
 
+	BulletCollideEvent(const BulletCollideEvent& obj) = delete;
+	BulletCollideEvent& operator=(const BulletCollideEvent& obj) = delete;
+
 public:
 	BulletCollideEvent(PlayerBullet* context);
-	BulletCollideEvent(const BulletCollideEvent& obj);
 	~BulletCollideEvent();
-	BulletCollideEvent& operator=(const BulletCollideEvent& obj);
 
-	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

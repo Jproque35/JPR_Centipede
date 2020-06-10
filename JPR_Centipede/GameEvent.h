@@ -15,7 +15,6 @@ class GameEventListener
 
 public:
 	virtual ~GameEventListener();
-	virtual GameEventListener* recontextCopy(GameObject* obj) = 0;
 	virtual void update(float elapsedTime) = 0;
 
 };

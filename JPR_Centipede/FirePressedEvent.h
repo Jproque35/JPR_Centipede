@@ -13,13 +13,13 @@ class FirePressedEvent
 private:
 	Sound bulletSound;
 
+	FirePressedEvent(const FirePressedEvent& obj) = delete;
+	FirePressedEvent& operator=(const FirePressedEvent& obj) = delete;
+
 public:
 	FirePressedEvent();
-	FirePressedEvent(const FirePressedEvent& obj);
 	~FirePressedEvent();
-	FirePressedEvent& operator=(const FirePressedEvent& obj);
 
-	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

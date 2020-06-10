@@ -14,14 +14,13 @@ private:
 	bool isCentipede(GameObject* obj);
 	bool intersectsCentipede();
 
+	PlayerHitEvent(const PlayerHitEvent& obj) = delete;
+	PlayerHitEvent& operator=(const PlayerHitEvent& obj) = delete;
 
 public:
 	PlayerHitEvent(Player* context);
-	PlayerHitEvent(const PlayerHitEvent& obj);
 	~PlayerHitEvent();
-	PlayerHitEvent& operator=(const PlayerHitEvent& obj);
 
-	GameEventListener* recontextCopy(GameObject* obj);
 	void update(float elapsedTime);
 
 };

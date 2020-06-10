@@ -22,12 +22,6 @@ CentipedeMoveEvent::~CentipedeMoveEvent() {
 
 }
 
-GameEventListener* CentipedeMoveEvent::recontextCopy(GameObject* obj) {
-
-	return new CentipedeMoveEvent((Centipede*)obj);
-
-}
-
 void CentipedeMoveEvent::update(float elapsedTime) {
 
 	if (this->context->getDirection() == CentipedeDirection::Left) {
