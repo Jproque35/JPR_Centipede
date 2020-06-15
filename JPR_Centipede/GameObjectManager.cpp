@@ -120,11 +120,25 @@ GameObject* GameObjectManager::get(int i) const {
 
 }
 
+GameObject* GameObjectManager::removeAndGet(int i) {
+
+	if (this->gm[i] != NULL) {
+
+		GameObject* desire = this->gm[i];
+		this->gm[i]->setId(-1);
+		this->gm[i] = NULL;
+		return desire;
+
+	}
+
+}
+
 void GameObjectManager::remove(int i) {
 
 	if (this->gm[i] != NULL) {
 
 		GameObjectFactory* objFactory = GameObjectFactory::getInstance();
+		this->gm[i]->setId(-1);
 		objFactory->storeObject(this->gm[i]);
 		this->freeIds.push(i);
 		this->gm[i] = NULL;

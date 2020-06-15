@@ -33,6 +33,7 @@ public:
 	void update(int i, float elapsedTime);
 	void updateAll(float elapsedTime);
 	GameObject* get(int i) const;
+	GameObject* removeAndGet(int i);
 	void remove(int i);
 	int size() const;
 

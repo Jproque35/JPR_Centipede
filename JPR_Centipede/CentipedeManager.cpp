@@ -1,5 +1,6 @@
 #include "CentipedeManager.h"
 #include "Centipede.h"
+#include "GameObjectManager.h"
 #include "GameObjectFactory.h"
 
 CentipedeManager* CentipedeManager::instance = NULL;
@@ -8,9 +9,28 @@ CentipedeManager::CentipedeManager() {
 
 	this->objFactory = GameObjectFactory::getInstance();
 
+	for (int i = 0; i < 20; ++i) {
+
+		this->centipedes.push(new Centipede());
+
+	}
+
 }
 
-CentipedeManager::~CentipedeManager() {}
+CentipedeManager::~CentipedeManager() {
+
+	Centipede* currObj = NULL;
+
+	while (this->centipedes.size() > 0) {
+
+		currObj = this->centipedes.front();
+		this->centipedes.pop();
+		delete(currObj);
+		currObj = NULL;
+
+	}
+
+}
 
 CentipedeManager* CentipedeManager::getInstance() {
 
@@ -49,38 +69,92 @@ int CentipedeManager::getMaxActive() const {
 
 }
 
-vector<Centipede*> CentipedeManager::generateCentipede(int length) {
+Centipede* CentipedeManager::makeHead() {
 
-	vector<Centipede*> desire;
+	if (this->centipedes.size() > 0) {
+
+		Centipede* desire = this->centipedes.front();
+		desire->setStateType(StateType::CentipedeHeadState);
+		this->centipedes.pop();
+		return desire;
+
+	}
+	else {
+
+		return NULL;
+
+	}
+
+}
+
+Centipede* CentipedeManager::makeBody() {
+
+	if (this->centipedes.size() > 0) {
+
+		Centipede* desire = this->centipedes.front();
+		desire->setStateType(StateType::CentipedeBodyState);
+		this->centipedes.pop();
+		return desire;
+
+	}
+	else {
+
+		return NULL;
+
+	}
+
+}
+
+vector<Centipede*> CentipedeManager::add(int length) {
+
+	GameObjectManager* gm = GameObjectManager::getInstance();
+	vector<Centipede*> centi;
 
 	if (length > 0) {
 
-		desire.push_back((Centipede*)objFactory->makeObject(ObjectType::CentipedeHead, -1, -1));
+		Centipede* currObj = this->makeHead();
+
+		gm->add(currObj);
+		centi.push_back(currObj);
 
 		for (int i = 0; i < length - 1; ++i) {
 
-			desire.push_back((Centipede*)objFactory->makeObject(ObjectType::CentipedeBody, -1, -1));
+			currObj = this->makeBody();
+			gm->add(currObj);
+			centi.push_back(currObj);
 
 		}
 
 		for (int i = 0; i < length - 1; ++i) {
 
-			desire[i]->setNext(desire[i + 1]);
-			cout << "Next for " << desire[i] << " set to " << desire[i + 1] << endl;
+			centi[i]->setNext(centi[i + 1]);
 
 		}
 
 		for (int i = length - 1; i > 0; --i) {
 
-			desire[i]->setPrev(desire[i - 1]);
-			cout << "prev for " << desire[i] << " set to " << desire[i - 1] << endl;
+			centi[i]->setPrev(centi[i - 1]);
 
 		}
 
+		this->currActive += length;
+
 	}
 
-	this->currActive += length;
+	return centi;
 
-	return desire;
+}
+
+void CentipedeManager::remove(int i) {
+
+	GameObjectManager* gm = GameObjectManager::getInstance();
+
+	if (dynamic_cast<Centipede*>(gm->get(i)) != NULL) {
+
+		Centipede* currObj = dynamic_cast<Centipede*>(gm->removeAndGet(i));
+		this->centipedes.push(currObj);
+		--this->currActive;
+
+	}
 
 }

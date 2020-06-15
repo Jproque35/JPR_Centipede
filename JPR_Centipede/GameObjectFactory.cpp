@@ -155,6 +155,7 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 		return playerBullet;
 
 	}
+	/*
 	else if (type == ObjectType::CentipedeHead && this->centipedes.size() > 0) {
 
 		//cout << "Creating Centipede Head object..." << endl;
@@ -176,7 +177,7 @@ GameObject* GameObjectFactory::makeObject(ObjectType type, float initX, float in
 
 		return centipede;
 
-	}
+	}*/
 	else if (type == ObjectType::Mushroom && this->mushrooms.size() > 0) {
 
 		//cout << "Creating Mushroom object..." << endl;

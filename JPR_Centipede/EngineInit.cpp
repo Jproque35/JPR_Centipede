@@ -101,13 +101,16 @@ void Engine::initEnemies() {
 	float initX = round(EngineConstants::getMapWidth() / 2);
 	float initY = 0.0f;
 
+	this->centiMngr->add(10);
+
+	/*
 	vector<Centipede*> centipedes = this->centiMngr->generateCentipede(10);
 
 	for (int i = 0; i < centipedes.size(); ++i) {
 
 		this->gm->add(centipedes[i]);
 
-	}
+	}*/
 
 }
 

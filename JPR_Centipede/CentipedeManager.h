@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <vector>
+#include <queue>
 
 using namespace sf;
 using namespace std;
@@ -17,11 +18,15 @@ private:
 	static CentipedeManager* instance;
 	int maxActive = 10, currActive = 0;
 	GameObjectFactory* objFactory;
+	queue<Centipede*> centipedes;
 
 	CentipedeManager();
 	CentipedeManager(const CentipedeManager& obj) = delete;
 	~CentipedeManager();
 	CentipedeManager& operator=(const CentipedeManager& obj) = delete;
+
+	Centipede* makeHead();
+	Centipede* makeBody();
 
 public:
 	static CentipedeManager* getInstance();
@@ -29,7 +34,8 @@ public:
 	int getNumActive() const;
 	void setNumActive(int i);
 	int getMaxActive() const;
-	vector<Centipede*> generateCentipede(int length);
+	vector<Centipede*> add(int length);
+	void remove(int id);
 
 };
 

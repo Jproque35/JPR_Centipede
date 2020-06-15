@@ -20,16 +20,16 @@ void GameScreen::update(float dtAsSeconds) {
 	if (cm->get(initX, initY).size() == 0
 		&& centiMngr->getNumActive() <= 0) {
 
-		vector<Centipede*> centipedes = centiMngr->generateCentipede(10);
+
+
+		
+		vector<Centipede*> centipedes = centiMngr->add(10);
 
 		for (int i = 0; i < centipedes.size(); ++i) {
 
-			gm->add(centipedes[i]);
 			centipedes[i]->init(initX, initY);
 
 		}
-
-		cout << "Spawning new centipede" << endl;
 
 	}
 
